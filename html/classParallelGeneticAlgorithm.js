@@ -1,0 +1,26 @@
+var classParallelGeneticAlgorithm =
+[
+    [ "ParallelGeneticAlgorithm", "classParallelGeneticAlgorithm.html#ac679057b5bd7d419552e23449b89e933", null ],
+    [ "~ParallelGeneticAlgorithm", "classParallelGeneticAlgorithm.html#a534f19ffcf24e409cac97b6b6ea7e066", null ],
+    [ "configureEnv", "classParallelGeneticAlgorithm.html#a342f8b44d8b5d74a08b3a6a6238ffe7d", null ],
+    [ "createInitialPopulation", "classParallelGeneticAlgorithm.html#a46633a39d3a9d8ea486176727bf57a5f", null ],
+    [ "getID", "classParallelGeneticAlgorithm.html#a6c5d507ef705d714122ba0bbb278da4f", null ],
+    [ "getName", "classParallelGeneticAlgorithm.html#ac395ecf5b4a7cc3b669ebfec77bf95c2", null ],
+    [ "getNumberOfCores", "classParallelGeneticAlgorithm.html#ae130fe5cfcd8951a3e206a4b1eab3a26", null ],
+    [ "getProblem", "classParallelGeneticAlgorithm.html#a9b021be022c28e8ee4659f2fe0627a9d", null ],
+    [ "initProgress", "classParallelGeneticAlgorithm.html#a068ea1837de8c67f9c96d07d1011edfe", null ],
+    [ "parallelSelection", "classParallelGeneticAlgorithm.html#acecce5ac68240948ae4966ba074cfbd8", null ],
+    [ "replacement", "classParallelGeneticAlgorithm.html#a63c494b6a49990c6b6a1521b6ef37e84", null ],
+    [ "reproduction", "classParallelGeneticAlgorithm.html#a3dffded88e6d77cb607741a879c47992", null ],
+    [ "run", "classParallelGeneticAlgorithm.html#a8eb41ffd4c17daf0eaa655656bc3004b", null ],
+    [ "runEvolution", "classParallelGeneticAlgorithm.html#aa859da7ef73eb705417a91acdd448b51", null ],
+    [ "setNumberOfCores", "classParallelGeneticAlgorithm.html#af3ec2728fd1c9b42b98bb6332c343c4c", null ],
+    [ "setProblem", "classParallelGeneticAlgorithm.html#af6827302c1a27242e38d92888341608f", null ],
+    [ "to_json", "classParallelGeneticAlgorithm.html#a55df4e9442db871e203100b5466dc12b", null ],
+    [ "updateProgress", "classParallelGeneticAlgorithm.html#aba1938a3ea03ccdd4d6ae7832f2324bf", null ],
+    [ "chunks", "classParallelGeneticAlgorithm.html#ad2ae5643929f24fd1aa2b774c882eb72", null ],
+    [ "individuals", "classParallelGeneticAlgorithm.html#a7aa81e7e1bddd48ea1906d01b6e86951", null ],
+    [ "numberOfCores", "classParallelGeneticAlgorithm.html#a60381a16a108cc12fca8edeebcca6bfd", null ],
+    [ "prng", "classParallelGeneticAlgorithm.html#aa4e9d8343dae65b0518be0d1ff39fd93", null ],
+    [ "problem", "classParallelGeneticAlgorithm.html#af675bc5b7664f94e063c85fe7d235603", null ]
+];
