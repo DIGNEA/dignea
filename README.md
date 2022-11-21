@@ -7,7 +7,7 @@
 [![Cpp-check](https://github.com/DIGNEA/dignea/actions/workflows/cppcheck.yml/badge.svg)](https://github.com/DIGNEA/dignea/actions/workflows/cppcheck.yml)
 [![Coverage Status](https://coveralls.io/repos/github/amarrerod/dignea/badge.svg?branch=master&t=OMdqiB)](https://coveralls.io/github/amarrerod/dignea?branch=master)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-
+[![Documentation](https://github.com/DIGNEA/dignea/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/DIGNEA/dignea/actions/workflows/pages/pages-build-deployment)
 </center>
 
  
