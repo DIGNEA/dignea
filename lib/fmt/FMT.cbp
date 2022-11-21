@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="FMT"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\_deps\;CMake Files\_deps\catch2-src\;CMake Files\_deps\json-src\;CMake Files\_deps\json-src\cmake\;CMake Files\_deps\json-src\test\;CMake Files\_deps\json-src\test\cmake_import\;CMake Files\_deps\json-src\test\cmake_import_minver\;CMake Files\_deps\json-src\test\cmake_add_subdirectory\;CMake Files\_deps\json-src\test\cmake_fetch_content\;CMake Files\_deps\json-src\test\cmake_target_include_directories\;CMake Files\lib\;CMake Files\lib\fmt\;CMake Files\lib\fmt\support\;CMake Files\lib\fmt\support\cmake\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/amarrero/Proyectos/turing/lib/fmt"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/amarrero/Proyectos/turing/lib/fmt/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/amarrero/Proyectos/turing/lib/fmt/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/amarrero/Proyectos/turing/lib/fmt/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/amarrero/Proyectos/turing/lib/fmt/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="fmt">
+				<Option output="/home/amarrero/Proyectos/turing/lib/libfmtd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/amarrero/Proyectos/turing/lib/fmt"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DFMT_LOCALE"/>
+					<Add directory="/home/amarrero/Proyectos/turing/lib/fmt/include"/>
+					<Add directory="/usr/include/c++/10"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/10"/>
+					<Add directory="/usr/include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/amarrero/Proyectos/turing/lib/fmt/Makefile&quot;  VERBOSE=1 fmt"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/amarrero/Proyectos/turing/lib/fmt/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/amarrero/Proyectos/turing/lib/fmt/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/amarrero/Proyectos/turing/lib/fmt/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="fmt/fast">
+				<Option output="/home/amarrero/Proyectos/turing/lib/libfmtd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/amarrero/Proyectos/turing/lib/fmt"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DFMT_LOCALE"/>
+					<Add directory="/home/amarrero/Proyectos/turing/lib/fmt/include"/>
+					<Add directory="/usr/include/c++/10"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/10"/>
+					<Add directory="/usr/include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/amarrero/Proyectos/turing/lib/fmt/Makefile&quot;  VERBOSE=1 fmt/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/amarrero/Proyectos/turing/lib/fmt/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/amarrero/Proyectos/turing/lib/fmt/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/amarrero/Proyectos/turing/lib/fmt/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/amarrero/Proyectos/turing/lib/fmt/ChangeLog.rst">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/lib/fmt/README.rst">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/lib/fmt/include/fmt/args.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/lib/fmt/include/fmt/chrono.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/lib/fmt/include/fmt/color.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/lib/fmt/include/fmt/compile.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/lib/fmt/include/fmt/core.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/lib/fmt/include/fmt/format-inl.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/lib/fmt/include/fmt/format.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/lib/fmt/include/fmt/locale.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/lib/fmt/include/fmt/os.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/lib/fmt/include/fmt/ostream.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/lib/fmt/include/fmt/printf.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/lib/fmt/include/fmt/ranges.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/lib/fmt/include/fmt/xchar.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/lib/fmt/src/format.cc">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/lib/fmt/src/os.cc">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/_deps/catch2-src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\_deps\catch2-src\"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/_deps/json-src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\_deps\json-src\"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/_deps/json-src/cmake/config.cmake.in">
+			<Option virtualFolder="CMake Files\_deps\json-src\cmake\"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/_deps/json-src/cmake/download_test_data.cmake">
+			<Option virtualFolder="CMake Files\_deps\json-src\cmake\"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/_deps/json-src/cmake/nlohmann_jsonConfigVersion.cmake.in">
+			<Option virtualFolder="CMake Files\_deps\json-src\cmake\"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/_deps/json-src/cmake/pkg-config.pc.in">
+			<Option virtualFolder="CMake Files\_deps\json-src\cmake\"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/_deps/json-src/test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\_deps\json-src\test\"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/_deps/json-src/test/cmake_import/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\_deps\json-src\test\cmake_import\"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/_deps/json-src/test/cmake_import_minver/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\_deps\json-src\test\cmake_import_minver\"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/_deps/json-src/test/cmake_add_subdirectory/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\_deps\json-src\test\cmake_add_subdirectory\"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/_deps/json-src/test/cmake_fetch_content/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\_deps\json-src\test\cmake_fetch_content\"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/_deps/json-src/test/cmake_target_include_directories/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\_deps\json-src\test\cmake_target_include_directories\"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/lib/fmt/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\fmt\"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/lib/fmt/support/cmake/JoinPaths.cmake">
+			<Option virtualFolder="CMake Files\lib\fmt\support\cmake\"/>
+		</Unit>
+		<Unit filename="/home/amarrero/Proyectos/turing/lib/fmt/support/cmake/cxx14.cmake">
+			<Option virtualFolder="CMake Files\lib\fmt\support\cmake\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

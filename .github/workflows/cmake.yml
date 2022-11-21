@@ -1,0 +1,23 @@
+name: Build
+
+on:
+  push:
+    branches: "**"
+  pull_request:
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build DIGNEA
+        uses: dignea/build_dignea_action@master
+        with:
+          variant: env.BUILD_TYPE
+          examples: False
+          tests: False
+          coverage: False

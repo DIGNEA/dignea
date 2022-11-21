@@ -1,0 +1,28 @@
+os:
+  - linux
+
+language: cpp
+compiler: gcc
+dist: bionic
+sudo: required
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - lcov
+      - gcc-10
+      - gcc-10-multilib
+      - g++-10
+      - g++-10-multilib
+      - nlohmann-json-dev
+script:
+  - export CC=gcc-10
+  - export CXX=g++-10
+  - mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug .. && cmake --build . --target all -- -j 14
+
+after_success:
+  - lcov --directory CMakeFiles/turingTest.dir/test/ --capture --output-file testing.info
+  - lcov --remove testing.info "/usr/include/*" "*/build/_deps/*" -o testing_local.info
+  - lcov --list testing_local.info
+  - bash  <(curl -s https://codecov.io/bash) -f testing_local.info || echo "Codecov did not collect coverage reports"

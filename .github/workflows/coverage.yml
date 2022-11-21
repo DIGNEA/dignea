@@ -1,0 +1,45 @@
+name: Coverage
+
+on:
+  push:
+    branches: "**"
+  pull_request:
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Debug
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: egor-tensin/setup-gcc@v1
+        with:
+          version: 10
+          platform: x64
+
+      - name: Install lcov
+        run: sudo apt install -y lcov
+
+      - name: Get build action and build
+        uses: dignea/build_dignea_action@master
+        with:
+          variant: env.BUILD_TYPE
+          examples: False
+          tests: True
+          coverage: True
+
+      - name: Run Coverage
+        run: |
+          cd ${{github.workspace}}/build
+          make
+          make digneaTestCoverage
+          mkdir ${{github.workspace}}/coverage 
+          lcov --remove digneaTestCoverage.info "/usr/*" "*/build/_deps/*" "*/examples/*" "*/lib/*" "*/test/" -o ${{github.workspace}}/coverage/lcov.info
+
+      - name: Send to Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}

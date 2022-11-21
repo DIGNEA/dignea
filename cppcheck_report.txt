@@ -1,0 +1,287 @@
+lib/fmt/src/fmt.cc:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 16 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+lib/fmt/test/args-test.cc:44:1: error: There is an unknown macro here somewhere. Configuration is required. If FMT_BEGIN_NAMESPACE is a macro then please configure it. [unknownMacro]
+FMT_BEGIN_NAMESPACE
+^
+lib/fmt/test/assert-test.cc:28:5: style: Condition 'test_condition' is always false [knownConditionTrueFalse]
+if (test_condition)
+    ^
+lib/fmt/test/assert-test.cc:26:23: note: Assignment 'test_condition=false', assigned value is 0
+bool test_condition = false;
+                      ^
+lib/fmt/test/assert-test.cc:28:5: note: Condition 'test_condition' is always false
+if (test_condition)
+    ^
+lib/fmt/test/compile-test.cc:56:1: error:inconclusive: Pointer addition with NULL pointer. [nullPointerArithmetic]
++ 1);
+^
+lib/fmt/test/compile-test.cc:42:11: note: Assignment 'p=nullptr', assigned value is 0
+char *p = nullptr;
+          ^
+lib/fmt/test/compile-test.cc:56:1: note: Null pointer addition
++ 1);
+^
+lib/fmt/test/compile-test.cc:112:1: error: There is an unknown macro here somewhere. Configuration is required. If FMT_BEGIN_NAMESPACE is a macro then please configure it. [unknownMacro]
+FMT_BEGIN_NAMESPACE
+^
+lib/fmt/test/core-test.cc:468:1: error: There is an unknown macro here somewhere. Configuration is required. If FMT_BEGIN_NAMESPACE is a macro then please configure it. [unknownMacro]
+FMT_BEGIN_NAMESPACE
+^
+lib/fmt/test/format-impl-test.cc:432:22: style: Argument 'prec=0' to function handler is always 0. It does not matter what value 'prec' has. [knownArgument]
+    handler(int prec = 0) : fmt::detail::fixed_handler() {
+                     ^
+lib/fmt/test/format-test.cc:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+lib/fmt/test/format-test.cc:1803:1: error: There is an unknown macro here somewhere. Configuration is required. If FMT_BEGIN_NAMESPACE is a macro then please configure it. [unknownMacro]
+FMT_BEGIN_NAMESPACE
+^
+lib/fmt/test/format-test.cc:1753:1: error: There is an unknown macro here somewhere. Configuration is required. If FMT_BEGIN_NAMESPACE is a macro then please configure it. [unknownMacro]
+FMT_BEGIN_NAMESPACE
+^
+lib/fmt/test/fuzzing/named-arg.cc:13:18: error: Internal error. Token::astOperand2() cyclic dependency. [cppcheckError]
+    static_assert(sizeof(T) <= fixed_size, "fixed_size too small");
+                 ^
+lib/fmt/test/fuzzing/two-args.cc:13:18: error: Internal error. Token::astOperand2() cyclic dependency. [cppcheckError]
+    static_assert(sizeof(Item1) <= fixed_size, "size1 exceeded");
+                 ^
+lib/fmt/test/gtest-extra-test.cc:55:1: error: Syntax Error: AST broken, 'if' doesn't have two operands. [internalAstError]
+EXPECT_THROW_MSG(throw_exception(), std::exception, p_++), "01234");
+^
+lib/fmt/test/gtest/gmock-gtest-all.cc:38:0: error: No header in #include [preprocessorErrorDirective]
+#include
+^
+lib/fmt/test/module-test.cc:309:13: style: Variable 'result' is assigned a value that is never used. [unreadVariable]
+auto result = fmt::vformat_to_n(std::back_inserter(s), 1, "{}", store);
+            ^
+lib/fmt/test/module-test.cc:316:14: style: Variable 'wresult' is assigned a value that is never used. [unreadVariable]
+auto wresult = fmt::vformat_to_n(std::back_inserter(w), 1,
+             ^
+lib/fmt/test/module-test.cc:486:12: style: Variable 'store' is assigned a value that is never used. [unreadVariable]
+auto store = fmt::make_format_args(42);
+           ^
+lib/fmt/test/module-test.cc:772:15: style: Variable 'fg_check' is assigned a value that is never used. [unreadVariable]
+auto fg_check = fg(fmt::rgb(255, 200, 30));
+              ^
+lib/fmt/test/module-test.cc:773:15: style: Variable 'bg_check' is assigned a value that is never used. [unreadVariable]
+auto bg_check = bg(fmt::color::dark_slate_gray) | fmt::emphasis::italic;
+              ^
+lib/fmt/test/module-test.cc:774:21: style: Variable 'emphasis_check' is assigned a value that is never used. [unreadVariable]
+auto emphasis_check = fmt::emphasis::underline | fmt::emphasis::bold;
+                    ^
+lib/fmt/test/os-test.cc:155:5: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+    SUPPRESS_ASSERT(result = FMT_POSIX(read(fd, &buffer, 1)));
+    ^
+lib/fmt/test/os-test.cc:154:17: note: result is initialized
+    auto result = std::streamsize();
+                ^
+lib/fmt/test/os-test.cc:155:5: note: result is overwritten
+    SUPPRESS_ASSERT(result = FMT_POSIX(read(fd, &buffer, 1)));
+    ^
+lib/fmt/test/os-test.cc:261:3: style: Redundant initialization for 'f'. The initialized value is overwritten before it is read. [redundantInitialization]
+f = open_buffered_file(&fp);
+  ^
+lib/fmt/test/os-test.cc:260:8: note: f is initialized
+auto f = buffered_file();
+       ^
+lib/fmt/test/os-test.cc:261:3: note: f is overwritten
+f = open_buffered_file(&fp);
+  ^
+lib/fmt/test/os-test.cc:205:13: warning:inconclusive: Access of moved variable 'bf'. [accessMoved]
+EXPECT_TRUE(bf
+            ^
+lib/fmt/test/os-test.cc:198:19: note: Calling std::move(bf)
+buffered_file bf2(std::move(bf));
+                  ^
+lib/fmt/test/os-test.cc:205:13: note: Access of moved variable 'bf'.
+EXPECT_TRUE(bf
+            ^
+lib/fmt/test/os-test.cc:227:13: warning:inconclusive: Access of moved variable 'bf'. [accessMoved]
+EXPECT_TRUE(bf
+            ^
+lib/fmt/test/os-test.cc:220:7: note: Calling std::move(bf)
+bf2 = std::move(bf);
+      ^
+lib/fmt/test/os-test.cc:227:13: note: Access of moved variable 'bf'.
+EXPECT_TRUE(bf
+            ^
+lib/fmt/test/os-test.cc:469:15: warning:inconclusive: Access of moved variable 'f'. [accessMoved]
+EXPECT_EQ(-1, f.
+              ^
+lib/fmt/test/os-test.cc:462:9: note: Calling std::move(f)
+file f2(std::move(f));
+        ^
+lib/fmt/test/os-test.cc:469:15: note: Access of moved variable 'f'.
+EXPECT_EQ(-1, f.
+              ^
+lib/fmt/test/os-test.cc:489:15: warning:inconclusive: Access of moved variable 'f'. [accessMoved]
+EXPECT_EQ(-1, f.
+              ^
+lib/fmt/test/os-test.cc:482:6: note: Calling std::move(f)
+f2 = std::move(f);
+     ^
+lib/fmt/test/os-test.cc:489:15: note: Access of moved variable 'f'.
+EXPECT_EQ(-1, f.
+              ^
+lib/fmt/test/os-test.cc:240:5: style: Variable 'bf2' is assigned a value that is never used. [unreadVariable]
+bf2 = std::move(bf);
+    ^
+lib/fmt/test/os-test.cc:274:3: style: Variable 'f' is assigned a value that is never used. [unreadVariable]
+f = open_buffered_file();
+  ^
+lib/fmt/test/os-test.cc:501:4: style: Variable 'f2' is assigned a value that is never used. [unreadVariable]
+f2 = std::move(f);
+   ^
+lib/fmt/test/os-test.cc:542:3: style: Variable 'f' is assigned a value that is never used. [unreadVariable]
+f = open_buffered_file(fd);
+  ^
+lib/fmt/test/ostream-test.cc:65:5: error: syntax error [syntaxError]
+enum) {
+    ^
+lib/fmt/test/posix-mock-test.cc:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 17 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+lib/fmt/test/posix-mock-test.cc:617:0: information: Skipping configuration 'FMT_LOCALE;__THROW;__e2k__' since the value of '__THROW' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+FreeLocaleResult freelocale(locale_type locale) FMT_LOCALE_THROW {
+^
+lib/fmt/test/posix-mock-test.cc:623:0: information: Skipping configuration 'FMT_LOCALE;__THROW;__e2k__' since the value of '__THROW' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+                locale_type locale) FMT_LOCALE_THROW {
+^
+lib/fmt/test/printf-test.cc:570:5: error: syntax error [syntaxError]
+enum) {
+    ^
+lib/fmt/test/ranges-test.cc:303:22: performance:inconclusive: Technically the member function 'zstring::end' can be static (but you may consider moving to unnamed namespace). [functionStatic]
+    zstring_sentinel end() const { return {}; }
+                     ^
+lib/fmt/test/scan.h:14:1: error: There is an unknown macro here somewhere. Configuration is required. If FMT_BEGIN_NAMESPACE is a macro then please configure it. [unknownMacro]
+FMT_BEGIN_NAMESPACE
+^
+lib/fmt/test/format:401:22: error: Syntax Error: AST broken, 'if' doesn't have two operands. [internalAstError]
+        if constexpr (std::is_same_v<T, bool> || std::is_same_v<T, char_type>)
+                     ^
+lib/fmt/test/xchar-test.cc:561:1: error: There is an unknown macro here somewhere. Configuration is required. If FMT_BEGIN_NAMESPACE is a macro then please configure it. [unknownMacro]
+FMT_BEGIN_NAMESPACE
+^
+src/dignea/problems/Rastrigin.cpp:21:20: style: Consider using std::accumulate algorithm instead of a raw loop. [useStlAlgorithm]
+        evaluation += ((x * x) - 10.0 * cos(2.0 * M_PI * x));
+                   ^
+src/dignea/utilities/random/ParallelPRNG.cpp:37:16: style: The scope of the variable 'x2' can be reduced. [variableScope]
+    double x1, x2, w, y1;
+               ^
+src/dignea/utilities/random/PseudoRandom.cpp:62:16: style: The scope of the variable 'x2' can be reduced. [variableScope]
+    double x1, x2, w, y1;
+               ^
+src/dignea/utilities/random/RandomGenerator.cpp:63:13: style: The scope of the variable 'i1' can be reduced. [variableScope]
+    int j1, i1;
+            ^
+test/evaluators/ParallelOMPEvaluatorTest.cpp:30:57: style: Local variable 'evaluator' shadows outer variable [shadowVariable]
+        unique_ptr<ParallelOMPEvaluator<FloatSolution>> evaluator =
+                                                        ^
+test/evaluators/ParallelOMPEvaluatorTest.cpp:22:53: note: Shadowed declaration
+    unique_ptr<ParallelOMPEvaluator<FloatSolution>> evaluator =
+                                                    ^
+test/evaluators/ParallelOMPEvaluatorTest.cpp:30:57: note: Shadow variable
+        unique_ptr<ParallelOMPEvaluator<FloatSolution>> evaluator =
+                                                        ^
+test/evaluators/ParallelOMPEvaluatorTest.cpp:36:57: style: Local variable 'evaluator' shadows outer variable [shadowVariable]
+        unique_ptr<ParallelOMPEvaluator<FloatSolution>> evaluator =
+                                                        ^
+test/evaluators/ParallelOMPEvaluatorTest.cpp:22:53: note: Shadowed declaration
+    unique_ptr<ParallelOMPEvaluator<FloatSolution>> evaluator =
+                                                    ^
+test/evaluators/ParallelOMPEvaluatorTest.cpp:36:57: note: Shadow variable
+        unique_ptr<ParallelOMPEvaluator<FloatSolution>> evaluator =
+                                                        ^
+test/evaluators/ParallelOMPEvaluatorTest.cpp:56:61: style: Local variable 'evaluator' shadows outer variable [shadowVariable]
+            unique_ptr<ParallelOMPEvaluator<FloatSolution>> evaluator =
+                                                            ^
+test/evaluators/ParallelOMPEvaluatorTest.cpp:22:53: note: Shadowed declaration
+    unique_ptr<ParallelOMPEvaluator<FloatSolution>> evaluator =
+                                                    ^
+test/evaluators/ParallelOMPEvaluatorTest.cpp:56:61: note: Shadow variable
+            unique_ptr<ParallelOMPEvaluator<FloatSolution>> evaluator =
+                                                            ^
+test/mea/solutions/IKPSolutionTest.cpp:118:21: style: Local variable 'solution' shadows outer variable [shadowVariable]
+        IKPSolution solution = knp->createSolution();
+                    ^
+test/mea/solutions/IKPSolutionTest.cpp:21:17: note: Shadowed declaration
+    IKPSolution solution(nVars);
+                ^
+test/mea/solutions/IKPSolutionTest.cpp:118:21: note: Shadow variable
+        IKPSolution solution = knp->createSolution();
+                    ^
+test/mea/solutions/ITSPSolutionTest.cpp:108:13: style: Local variable 'nVars' shadows outer variable [shadowVariable]
+        int nVars = 16;
+            ^
+test/mea/solutions/ITSPSolutionTest.cpp:24:9: note: Shadowed declaration
+    int nVars = 30;
+        ^
+test/mea/solutions/ITSPSolutionTest.cpp:108:13: note: Shadow variable
+        int nVars = 16;
+            ^
+test/mea/solutions/ITSPSolutionTest.cpp:127:13: style: Local variable 'nVars' shadows outer variable [shadowVariable]
+        int nVars = 16;
+            ^
+test/mea/solutions/ITSPSolutionTest.cpp:24:9: note: Shadowed declaration
+    int nVars = 30;
+        ^
+test/mea/solutions/ITSPSolutionTest.cpp:127:13: note: Shadow variable
+        int nVars = 16;
+            ^
+test/mutations/SwapMutationTest.cpp:44:35: style: Local variable 'i' shadows outer variable [shadowVariable]
+                for (unsigned int i = 1; i < newVars.size() - 1; i++) {
+                                  ^
+test/mutations/SwapMutationTest.cpp:24:22: note: Shadowed declaration
+            for (int i = 0; i < nSols; i++) {
+                     ^
+test/mutations/SwapMutationTest.cpp:44:35: note: Shadow variable
+                for (unsigned int i = 1; i < newVars.size() - 1; i++) {
+                                  ^
+test/problems/KPNRTest.cpp:161:14: style: Local variable 'knp' shadows outer variable [shadowVariable]
+        KPNR knp(dimension);
+             ^
+test/problems/KPNRTest.cpp:16:22: note: Shadowed declaration
+    shared_ptr<KPNR> knp = nullptr;
+                     ^
+test/problems/KPNRTest.cpp:161:14: note: Shadow variable
+        KPNR knp(dimension);
+             ^
+test/replacements/FirstImproveTest.cpp:76:31: style: Local variable 'solutions' shadows outer variable [shadowVariable]
+        vector<FloatSolution> solutions;
+                              ^
+test/replacements/FirstImproveTest.cpp:16:27: note: Shadowed declaration
+    vector<FloatSolution> solutions;
+                          ^
+test/replacements/FirstImproveTest.cpp:76:31: note: Shadow variable
+        vector<FloatSolution> solutions;
+                              ^
+test/utilities/sorting/SorterTest.cpp:69:31: style: Local variable 'solutions' shadows outer variable [shadowVariable]
+        vector<FloatSolution> solutions;
+                              ^
+test/utilities/sorting/SorterTest.cpp:20:32: note: Shadowed declaration
+    std::vector<FloatSolution> solutions;
+                               ^
+test/utilities/sorting/SorterTest.cpp:69:31: note: Shadow variable
+        vector<FloatSolution> solutions;
+                              ^
+test/algorithms/kp_heuristics/DefaultTest.cpp:10:0: style: The function 'TEST_CASE' is never used. [unusedFunction]
+
+^
+lib/fmt/test/posix-mock-test.cc:586:0: style: The function '_create_locale' is never used. [unusedFunction]
+
+^
+lib/fmt/test/posix-mock-test.cc:590:0: style: The function '_free_locale' is never used. [unusedFunction]
+
+^
+lib/fmt/test/posix-mock-test.cc:594:0: style: The function '_strtod_l' is never used. [unusedFunction]
+
+^
+lib/fmt/test/cuda-test/cpp14.cc:9:0: style: The function 'make_message_cpp' is never used. [unusedFunction]
+
+^
+lib/fmt/test/format-impl-test.cc:260:0: style: The function 'run_double_tests < true >' is never used. [unusedFunction]
+
+^
+nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
+
