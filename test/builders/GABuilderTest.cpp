@@ -8,7 +8,7 @@
 #include <dignea/problems/Sphere.h>
 #include <dignea/types/SolutionTypes.h>
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 
 TEST_CASE("GABuilder tests", "[GABuilder]") {
     std::cout.setstate(std::ios_base::failbit);

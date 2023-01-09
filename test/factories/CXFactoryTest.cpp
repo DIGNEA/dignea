@@ -7,7 +7,7 @@
 #include <dignea/factories/CXFactory.h>
 #include <dignea/types/SolutionTypes.h>
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 
 TEST_CASE("CXFactory Tests", "[CXFactory]") {
     SECTION("Creating an Uniform Crossover") {

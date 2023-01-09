@@ -2,7 +2,7 @@
 // Created by amarrero on 15/12/20.
 //
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 #include <dignea/utilities/random/RandomGenerator.h>
 
 TEST_CASE("RandomGenerator can be created", "[RandomGenerator]") {

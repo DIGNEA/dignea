@@ -6,7 +6,7 @@
 #include <dignea/core/Solution.h>
 #include <dignea/problems/Sphere.h>
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 
 TEST_CASE("Problems can be created", "[Sphere]") {
     int nVars = 30;

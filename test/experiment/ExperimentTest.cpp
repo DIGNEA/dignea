@@ -11,7 +11,7 @@
 #include <nlohmann/json.hpp>
 #include <string>
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 
 using json = nlohmann::json;
 using namespace std;

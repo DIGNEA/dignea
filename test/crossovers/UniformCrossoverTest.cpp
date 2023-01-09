@@ -2,7 +2,7 @@
 // Created by amarrero on 21/12/20.
 //
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 #include <dignea/crossovers/UniformCrossover.h>
 #include <dignea/problems/Sphere.h>
 #include <vector>

@@ -7,7 +7,7 @@
 
 #include <nlohmann/json.hpp>
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 
 using IS = IKPSolution;
 using json = nlohmann::json;

@@ -4,7 +4,7 @@
 
 #include <dignea/utilities/random/ParallelPRNG.h>
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 
 TEST_CASE("ParallelPRNG tests", "[ParallelPRNG]") {
     ParallelPRNG prng;

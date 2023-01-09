@@ -4,7 +4,7 @@
 
 #include <dignea/utilities/random/PseudoRandom.h>
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 
 TEST_CASE("PseudoRandom can be created", "[PseudoRandom]") {
     PseudoRandom pseudoRandom;

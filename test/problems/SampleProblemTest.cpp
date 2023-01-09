@@ -4,7 +4,7 @@
 
 #include <dignea/problems/SampleProblem.h>
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 
 TEST_CASE("SampleProblem Testing", "[SampleProblem]") {
     SECTION("Creating a default SampleProblem") {

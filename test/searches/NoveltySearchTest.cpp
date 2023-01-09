@@ -12,7 +12,7 @@
 #include <random>
 #include <vector>
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 
 TEST_CASE("Novelty Searchs tests", "[Novelty Search]") {
     auto dist = make_unique<Euclidean<float>>();

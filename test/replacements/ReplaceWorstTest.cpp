@@ -2,7 +2,7 @@
 // Created by amarrero on 2/7/21.
 //
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 #include <dignea/replacements/ReplaceWorst.h>
 #include <dignea/types/SolutionTypes.h>
 #include <vector>

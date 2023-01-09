@@ -9,7 +9,7 @@
 #include <dignea/evaluators/PopulationEvaluator.h>
 #include <dignea/problems/Sphere.h>
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 
 TEST_CASE("Population can be evaluated", "[PopulationEvaluator]") {
     int dimension = 30;

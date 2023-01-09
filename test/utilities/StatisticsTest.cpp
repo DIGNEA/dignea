@@ -7,7 +7,7 @@
 
 #include <cmath>
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 
 TEST_CASE("Statistics tests", "[Statistics]") {
     const int dimension = 100;

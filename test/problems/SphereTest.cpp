@@ -4,7 +4,7 @@
 
 #include <dignea/problems/Sphere.h>
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 
 TEST_CASE("Sphere can be evaluated", "[Sphere]") {
     int dimension = 30;

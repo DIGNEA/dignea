@@ -2,7 +2,7 @@
 // Created by amarrero on 22/6/21.
 //
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 #include <dignea/factories/SelFactory.h>
 #include <dignea/selections/BinaryTournamentSelection.h>
 #include <dignea/types/SolutionTypes.h>

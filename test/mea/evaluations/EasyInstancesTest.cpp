@@ -2,7 +2,7 @@
 // Created by amarrero on 15/4/21.
 //
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 #include <dignea/mea/evaluations/EasyInstances.h>
 #include <vector>
 

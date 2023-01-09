@@ -6,7 +6,7 @@
 #include <dignea/utilities/KNN.h>
 
 #include <algorithm>
-#include <catch2/catch.hpp>
+#include <catch2/catch_all.hpp>
 #include <random>
 #include <vector>
 

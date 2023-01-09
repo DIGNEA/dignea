@@ -40,7 +40,7 @@ endif()
 FetchContent_Declare(
         Catch2
         GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-        GIT_TAG v2.13.1)
+        GIT_TAG v3.2.1)
 FetchContent_MakeAvailable(Catch2)
 
 FetchContent_Declare(dbscan
@@ -339,7 +339,7 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR INCLUDE_TESTS)
         target_link_libraries(${PROJECT_NAME}Test
                 PRIVATE
                 ${PROJECT_NAME}
-                Catch2::Catch2
+                Catch2::Catch2WithMain
                 nlohmann_json::nlohmann_json
                 OpenMP::OpenMP_CXX
                 fmt::fmt-header-only

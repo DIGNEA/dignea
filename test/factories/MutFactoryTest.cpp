@@ -5,7 +5,7 @@
 #include <dignea/factories/MutFactory.h>
 #include <dignea/types/SolutionTypes.h>
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 
 TEST_CASE("MutFactory Tests", "[MutFactory]") {
   SECTION("Creating an Uniform One Mutation") {

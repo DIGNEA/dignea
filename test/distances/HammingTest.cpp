@@ -2,7 +2,7 @@
 // Created by amarrero on 5/7/21.
 //
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 #include <dignea/distances/Hamming.h>
 #include <vector>
 

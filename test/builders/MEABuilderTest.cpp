@@ -12,7 +12,7 @@
 #include <dignea/searches/NSFeatures.h>
 #include <dignea/types/SolutionTypes.h>
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 
 TEST_CASE("MEABuilder tests", "[MEABuilder]") {
     std::cout.setstate(std::ios_base::failbit);

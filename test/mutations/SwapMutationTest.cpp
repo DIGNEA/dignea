@@ -12,7 +12,7 @@
 #include <dignea/mutations/SwapMutation.h>
 #include <dignea/problems/TSP.h>
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 
 TEST_CASE("Testing SwapMutation", "[SwapMutation]") {
     std::string path = "../data/instances/TSP/djibouti.tsp";

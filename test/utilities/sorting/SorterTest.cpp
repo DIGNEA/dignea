@@ -8,7 +8,7 @@
 #include <dignea/utilities/Sorter.h>
 #include <dignea/utilities/random/PseudoRandom.h>
 
-#include <catch2/catch.hpp>
+#include <catch2/catch_all.hpp>
 #include <vector>
 
 TEST_CASE("Sorter can be created", "[Sorter]") {

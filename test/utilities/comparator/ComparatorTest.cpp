@@ -6,7 +6,7 @@
 #include <dignea/types/SolutionTypes.h>
 #include <dignea/utilities/Comparator.h>
 
-#include <catch2/catch.hpp>
+#include <catch2/catch_all.hpp>
 
 TEST_CASE("Comparator can be created", "[Comparator]") {
     int dimension = 30;

@@ -11,7 +11,7 @@
 
 #include <filesystem>
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 
 TEST_CASE("Experiment Builder Tests", "[ExpBuilder]") {
     std::cout.setstate(std::ios_base::failbit);
