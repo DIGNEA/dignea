@@ -13,3 +13,5 @@ RUN apt-get update && apt-get install -y software-properties-common
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test
 
 RUN rm -rf /dignea/.github /dignea/.git /dignea/.vscode
+
+ENTRYPOINT [ "/dignea/build.sh" ]
