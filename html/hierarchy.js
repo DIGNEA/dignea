@@ -1,6 +1,13 @@
 var hierarchy =
 [
     [ "AbstractEA< S >", "classAbstractEA.html", [
+      [ "Heuristic< BoolFloatSolution >", "classHeuristic.html", [
+        [ "Default", "classDefault.html", [
+          [ "MPW", "classMPW.html", null ],
+          [ "MaP", "classMaP.html", null ],
+          [ "MiW", "classMiW.html", null ]
+        ] ]
+      ] ],
       [ "AbstractGA< S >", "classAbstractGA.html", [
         [ "FIGA< S >", "classFIGA.html", null ],
         [ "GenerationalGA< S >", "classGenerationalGA.html", null ],
@@ -9,15 +16,6 @@ var hierarchy =
       ] ],
       [ "Heuristic< S >", "classHeuristic.html", null ],
       [ "SimulatedAnnealing< S >", "classSimulatedAnnealing.html", null ]
-    ] ],
-    [ "AbstractEA< BoolFloatSolution >", "classAbstractEA.html", [
-      [ "Heuristic< BoolFloatSolution >", "classHeuristic.html", [
-        [ "Default", "classDefault.html", [
-          [ "MaP", "classMaP.html", null ],
-          [ "MiW", "classMiW.html", null ],
-          [ "MPW", "classMPW.html", null ]
-        ] ]
-      ] ]
     ] ],
     [ "AbstractEA< IS >", "classAbstractEA.html", [
       [ "MEA< IP, IS, OP, OS >", "classMEA.html", null ]
@@ -58,7 +56,14 @@ var hierarchy =
     [ "MutFactory< S >", "classMutFactory.html", null ],
     [ "NSFactory< MS, T >", "classNSFactory.html", null ],
     [ "ParGABuilder< S >", "classParGABuilder.html", null ],
-    [ "Problem< S >", "classProblem.html", null ],
+    [ "Problem< S >", "classProblem.html", [
+      [ "MEAProblem< KPNR, IKPSolution >", "classMEAProblem.html", [
+        [ "IKPProblem", "classIKPProblem.html", null ]
+      ] ],
+      [ "MEAProblem< TSP, ITSPSolution >", "classMEAProblem.html", [
+        [ "ITSPProblem", "classITSPProblem.html", null ]
+      ] ]
+    ] ],
     [ "Problem< BoolFloatSolution >", "classProblem.html", [
       [ "KP", "classKP.html", [
         [ "KPNR", "classKPNR.html", null ]
@@ -68,21 +73,11 @@ var hierarchy =
       [ "Rastrigin", "classRastrigin.html", null ],
       [ "Sphere", "classSphere.html", null ]
     ] ],
-    [ "Problem< IKPSolution >", "classProblem.html", [
-      [ "MEAProblem< KPNR, IKPSolution >", "classMEAProblem.html", [
-        [ "IKPProblem", "classIKPProblem.html", null ]
-      ] ]
-    ] ],
     [ "Problem< InstSolution >", "classProblem.html", [
       [ "MEAProblem< OptProblem, InstSolution >", "classMEAProblem.html", null ]
     ] ],
     [ "Problem< IntFloatSolution >", "classProblem.html", [
       [ "TSP", "classTSP.html", null ]
-    ] ],
-    [ "Problem< ITSPSolution >", "classProblem.html", [
-      [ "MEAProblem< TSP, ITSPSolution >", "classMEAProblem.html", [
-        [ "ITSPProblem", "classITSPProblem.html", null ]
-      ] ]
     ] ],
     [ "PseudoRandom", "classPseudoRandom.html", null ],
     [ "Replacement< S >", "classReplacement.html", [
@@ -91,31 +86,25 @@ var hierarchy =
       [ "ReplaceWorst< S >", "classReplaceWorst.html", null ]
     ] ],
     [ "Search< S >", "classSearch.html", [
-      [ "NoveltySearch< S, T >", "classNoveltySearch.html", null ]
-    ] ],
-    [ "Search< MS >", "classSearch.html", [
       [ "NoveltySearch< MS, float >", "classNoveltySearch.html", [
         [ "NSFeatures< MS >", "classNSFeatures.html", [
           [ "NSPerformance< MS >", "classNSPerformance.html", null ]
         ] ]
-      ] ]
+      ] ],
+      [ "NoveltySearch< S, T >", "classNoveltySearch.html", null ]
     ] ],
     [ "Selection< S >", "classSelection.html", [
       [ "BinaryTournamentSelection< S >", "classBinaryTournamentSelection.html", null ]
     ] ],
     [ "SelFactory< S >", "classSelFactory.html", null ],
     [ "Solution< V, O >", "classSolution.html", [
-      [ "MEASolution< V, O >", "classMEASolution.html", null ]
-    ] ],
-    [ "Solution< float, float >", "classSolution.html", [
       [ "MEASolution< float, float >", "classMEASolution.html", [
         [ "ITSPSolution", "classITSPSolution.html", null ]
-      ] ]
-    ] ],
-    [ "Solution< int, float >", "classSolution.html", [
+      ] ],
       [ "MEASolution< int, float >", "classMEASolution.html", [
         [ "IKPSolution", "classIKPSolution.html", null ]
-      ] ]
+      ] ],
+      [ "MEASolution< V, O >", "classMEASolution.html", null ]
     ] ],
     [ "Weighted< MEASolution >", "classWeighted.html", null ]
 ];
