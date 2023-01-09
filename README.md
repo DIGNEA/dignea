@@ -6,7 +6,7 @@
 [![Test](https://github.com/DIGNEA/dignea/actions/workflows/catch.yml/badge.svg)](https://github.com/DIGNEA/dignea/actions/workflows/catch.yml//badge.svg)
 [![Cpp-check](https://github.com/DIGNEA/dignea/actions/workflows/cppcheck.yml/badge.svg)](https://github.com/DIGNEA/dignea/actions/workflows/cppcheck.yml//badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/DIGNEA/dignea/badge.svg?branch=master)](https://coveralls.io/github/DIGNEA/dignea?branch=master)
-[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Documentation](https://github.com/DIGNEA/dignea/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/DIGNEA/dignea/actions/workflows/pages/pages-build-deployment//badge.svg)
 </center>
 
