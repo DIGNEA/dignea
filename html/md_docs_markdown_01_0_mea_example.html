@@ -105,19 +105,19 @@ $(document).ready(function(){initNavTree('md_docs_markdown_01_0_mea_example.html
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md9">Generating Knapsack Problem Instances with DIGNEA</a><ul><li class="level2"><a href="#autotoc_md10">Parameter configuration</a><ul><li class="level3"><a href="#autotoc_md11">MEA configuration</a></li>
-<li class="level3"><a href="#autotoc_md12">Knapsack Problem instances</a></li>
+<ul><li class="level1"><a href="#autotoc_md10">Generating Knapsack Problem Instances with DIGNEA</a><ul><li class="level2"><a href="#autotoc_md11">Parameter configuration</a><ul><li class="level3"><a href="#autotoc_md12">MEA configuration</a></li>
+<li class="level3"><a href="#autotoc_md13">Knapsack Problem instances</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md13">Creating a portfolio of solvers</a></li>
-<li class="level2"><a href="#autotoc_md14">Instantiate a MEA object</a></li>
-<li class="level2"><a href="#autotoc_md15">Run the experiment</a></li>
-<li class="level2"><a href="#autotoc_md16">Example of results</a></li>
+<li class="level2"><a href="#autotoc_md14">Creating a portfolio of solvers</a></li>
+<li class="level2"><a href="#autotoc_md15">Instantiate a MEA object</a></li>
+<li class="level2"><a href="#autotoc_md16">Run the experiment</a></li>
+<li class="level2"><a href="#autotoc_md17">Example of results</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="textblock"><h1><a class="anchor" id="autotoc_md9"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md10"></a>
 Generating Knapsack Problem Instances with DIGNEA</h1>
 <p>Here's an example of how to generated diverse and discriminatory instances for the <a href="https://en.wikipedia.org/wiki/Knapsack_problem">Knapsack Problem</a>. We will be creating a set of <a class="el" href="classKP.html" title="Class representing a Knapsack Problem.">KP</a> instances which will be adapted to the performance of a specific Genetic Algorithm configuration. For this experiment we will be defining:</p>
 <ol type="1">
@@ -129,9 +129,9 @@ Generating Knapsack Problem Instances with DIGNEA</h1>
 <li>Collecting the results in different instance files (".kp").</li>
 </ol>
 <p>The full source code of this example is available at the Github repository insider the example directory. Link to file <a href="https://github.com/amarrerod/dignea/blob/0d2028184cefd181279c3ebd9b0c6e3fcb6dfccf/examples/MEAKPExperiment.cpp">here</a>.</p>
-<h2><a class="anchor" id="autotoc_md10"></a>
+<h2><a class="anchor" id="autotoc_md11"></a>
 Parameter configuration</h2>
-<h3><a class="anchor" id="autotoc_md11"></a>
+<h3><a class="anchor" id="autotoc_md12"></a>
 MEA configuration</h3>
 <p>First of all, we will define the parameters for <a class="el" href="classMEA.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (MEA). This algorithm uses a Weig...">MEA</a>. For a successfull run of <a class="el" href="classMEA.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (MEA). This algorithm uses a Weig...">MEA</a> we need to specify the following parameters:</p>
 <ol type="1">
@@ -146,7 +146,7 @@ MEA configuration</h3>
 <li><a class="el" href="classDistance.html" title="Abstract Distance Class to create an interface which can be use in different algorithms.">Distance</a> metric to compute the diversity. In this case, <a class="el" href="classEuclidean.html" title="Euclidean distance.">Euclidean</a>.</li>
 <li>The Instance Generation <a class="el" href="classProblem.html" title="Class to represent a Problem in the tool. It includes the basic information for a problem a few metho...">Problem</a> for <a class="el" href="classMEA.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (MEA). This algorithm uses a Weig...">MEA</a>. For this example, <a class="el" href="classIKPProblem.html" title="Instance Generator Knapsack Problem. Problem for the Instance Generator to generate Knapsack Problem ...">IKPProblem</a> since we are trying to generate <a class="el" href="classKP.html" title="Class representing a Knapsack Problem.">KP</a> instance.</li>
 </ol>
-<h3><a class="anchor" id="autotoc_md12"></a>
+<h3><a class="anchor" id="autotoc_md13"></a>
 Knapsack Problem instances</h3>
 <p>We will also need to specify the minimum and maximum values that each profit and weight in the <a class="el" href="classKP.html" title="Class representing a Knapsack Problem.">KP</a> instance can take. In this experiment we will set the same bounds for both values, but you can set them independently. The bounds are [1, 1000]. Besides, we will set the instanceSize to be 100 so the <a class="el" href="classKP.html" title="Class representing a Knapsack Problem.">KP</a> instance will have N = 50 items.</p>
 <div class="fragment"><div class="line"><span class="comment">// MEA Parameters</span></div>
@@ -182,7 +182,7 @@ Knapsack Problem instances</h3>
 <div class="line"><span class="comment">// Instance Generation Problem --&gt; IKPProblem.</span></div>
 <div class="line"><span class="keyword">auto</span> instKP = make_unique&lt;IKPProblem&gt;(instanceSize, nInstances, lowerBound,</div>
 <div class="line">                                      upperBound, lowerBound, upperBound);   </div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md13"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md14"></a>
 Creating a portfolio of solvers</h2>
 <p>Now we have to define the portfolio of solvers to evaluate the instances in <a class="el" href="classMEA.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (MEA). This algorithm uses a Weig...">MEA</a>. Remember that the order of the algorithms in the portfolio is really important. The algorithm in the first position will be considered the target and the instances will be biased to its performance.</p>
 <p>We will use different four configurations of the <a class="el" href="classParallelGeneticAlgorithm.html" title="Class to represents a Parallel Genetic Algorithm (ParGA). This algorithm runs the evolution in number...">ParallelGeneticAlgorithm</a> for shaping this portfolio. All algorithms will have the same configuration except for the crossover rate. The parameters we need to define are:</p>
@@ -222,7 +222,7 @@ Creating a portfolio of solvers</h2>
 <div class="line">    algorithms.push_back(move(algorithm));</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassParGABuilder_html_a49a3ff6d659bc5f7a1a158c1933e938c"><div class="ttname"><a href="classParGABuilder.html#a49a3ff6d659bc5f7a1a158c1933e938c">ParGABuilder::create</a></div><div class="ttdeci">static ParGABuilder&lt; S &gt; create()</div><div class="ttdoc">Creates a ParGABuilder object.</div><div class="ttdef"><b>Definition:</b> ParGABuilder.h:87</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md14"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md15"></a>
 Instantiate a MEA object</h2>
 <p>Now that we have define the parameters for <a class="el" href="classMEA.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (MEA). This algorithm uses a Weig...">MEA</a> and created a portfolio, it is time to instantiate a <a class="el" href="classMEA.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (MEA). This algorithm uses a Weig...">MEA</a> object using the <a class="el" href="classMEABuilder.html" title="Class which represents a Builder for the MEA. Creates a MEA step by step from all the different compo...">MEABuilder</a> class. This class works in the same way that the <a class="el" href="classParGABuilder.html" title="Parallel Genetic Algorithm Builder. This class creates a unique_ptr to a Parallel Genetic Algorithm.">ParGABuilder</a> does. It receives the parameters we defined before and also allows the users to specify the genetic operators and the novelty search variant on the fly. We strongly encourage users to instantiate <a class="el" href="classMEA.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (MEA). This algorithm uses a Weig...">MEA</a> objects using this approach.</p>
 <div class="fragment"><div class="line"><span class="comment">// Building the MEA with all the parameters</span></div>
@@ -244,7 +244,7 @@ Instantiate a MEA object</h2>
 <div class="line">        .populationOf(nInstances)</div>
 <div class="line">        .runDuring(generations);</div>
 <div class="ttc" id="aclassMEABuilder_html_a16682734d9576ec6e635864e55fbd15b"><div class="ttname"><a href="classMEABuilder.html#a16682734d9576ec6e635864e55fbd15b">MEABuilder::create</a></div><div class="ttdeci">static MEABuilder&lt; IP, IS, OP, S &gt; create()</div><div class="ttdoc">Creates a MEABuilder object.</div><div class="ttdef"><b>Definition:</b> MEABuilder.h:97</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md15"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md16"></a>
 Run the experiment</h2>
 <p>Finally, we only have to call the <b>run</b> method from <a class="el" href="classMEA.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (MEA). This algorithm uses a Weig...">MEA</a> and wait for the results. Notice that depending on the portfolio and other configuration values, this process could take several hours (or even days). The parameters which has the most impact in the performance time of <a class="el" href="classMEA.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (MEA). This algorithm uses a Weig...">MEA</a> are the portfolio, the number of generations, the instance size and finally the number of instances to evolve.</p>
 <p>Notice how we use the <b>to_json</b> methods from each object to get a JSON representation of the information. In addition, the <a class="el" href="classInstPrinter.html" title="Instance Printer class to be used alongside with MEA. Generates the instance representation of the in...">InstPrinter</a> class is used here to generate a instance files with a "*.kp" extension for every instance in the set of solutions.</p>
@@ -261,7 +261,7 @@ Run the experiment</h2>
 <div class="line"><span class="keywordtype">string</span> kpInsPattern = <span class="stringliteral">&quot;Inst_N_50_Target_GA_PS_32_CR_0.7_0.6f_0.4d&quot;</span>;</div>
 <div class="line"><span class="keyword">auto</span> instPrinter = make_unique&lt;InstPrinter&lt;IS&gt;&gt;(kpInsPattern, <span class="stringliteral">&quot;.kp&quot;</span>);</div>
 <div class="line">instPrinter-&gt;printInstances(front);</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md16"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md17"></a>
 Example of results</h2>
 <p>An example of the results obtained by DIGNEA is shown down below. Four different sets of <a class="el" href="classKP.html" title="Class representing a Knapsack Problem.">KP</a> instances were generated for different configurations of Genetic Algorithms using <a class="el" href="classMEA.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (MEA). This algorithm uses a Weig...">MEA</a>. <img src="../imgs/instances.png" alt="" class="inline"/> </p>
 </div></div><!-- contents -->

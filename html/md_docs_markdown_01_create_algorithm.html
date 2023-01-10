@@ -105,20 +105,20 @@ $(document).ready(function(){initNavTree('md_docs_markdown_01_create_algorithm.h
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md18">Creating the base Simulated Annealing class.</a></li>
-<li class="level1"><a href="#autotoc_md19">Define the methods in SimulatedAnnealing</a></li>
-<li class="level1"><a href="#autotoc_md20">Define the remaining methods.</a><ul><li class="level2"><a href="#autotoc_md21">Constructor</a></li>
-<li class="level2"><a href="#autotoc_md22">Run</a></li>
-<li class="level2"><a href="#autotoc_md23">Perturbation</a></li>
-<li class="level2"><a href="#autotoc_md24">Population management</a></li>
-<li class="level2"><a href="#autotoc_md25">Progress</a></li>
-<li class="level2"><a href="#autotoc_md26">Getters and Setters</a></li>
+<ul><li class="level1"><a href="#autotoc_md19">Creating the base Simulated Annealing class.</a></li>
+<li class="level1"><a href="#autotoc_md20">Define the methods in SimulatedAnnealing</a></li>
+<li class="level1"><a href="#autotoc_md21">Define the remaining methods.</a><ul><li class="level2"><a href="#autotoc_md22">Constructor</a></li>
+<li class="level2"><a href="#autotoc_md23">Run</a></li>
+<li class="level2"><a href="#autotoc_md24">Perturbation</a></li>
+<li class="level2"><a href="#autotoc_md25">Population management</a></li>
+<li class="level2"><a href="#autotoc_md26">Progress</a></li>
+<li class="level2"><a href="#autotoc_md27">Getters and Setters</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="textblock"><p>To exemplify how to create a new algorithm in DIGNEA, we will see how to include the classical <a href="https://es.wikipedia.org/wiki/Algoritmo_de_recocido_simulado">Simulated Annealing</a> algorithm.</p>
-<h1><a class="anchor" id="autotoc_md18"></a>
+<h1><a class="anchor" id="autotoc_md19"></a>
 Creating the base Simulated Annealing class.</h1>
 <p>First of all, create a new <b><a class="el" href="SimulatedAnnealing_8h_source.html">SimulatedAnnealing.h</a></b> file which will contain all the code for the SA algorithm.</p>
 <p>To create a new algorithm and allow it to be usable across different methods and classes in DIGNEA, we must define the new algorithm as a subclass of <a class="el" href="classAbstractEA.html" title="Class to define an Abstract Evolutionary Algorithm. This is the base skeleton for future extensions.">AbstractEA</a> in the <b><a class="el" href="SimulatedAnnealing_8h_source.html">SimulatedAnnealing.h</a></b> file. This class is the mother class for every type of algorithm that you may want to include in DIGNEA. Moreover, since DIGNEA is a template-based framework which aims to make algorithm as flexible as possible to address multiple types of problems and representations we must defines the <em><a class="el" href="classSimulatedAnnealing.html" title="Simulated Annealing Algorithm.">SimulatedAnnealing</a></em> class as a template-class with a template parameter to define the <a class="el" href="classSolution.html" title="Class to represent a solution to the optimization problems in the tool.">Solution</a> type (<a class="el" href="SolutionTypes_8h_source.html">SolutionTypes.h</a>).</p>
@@ -131,7 +131,7 @@ Creating the base Simulated Annealing class.</h1>
 <div class="ttc" id="aAbstractEA_8h_html"><div class="ttname"><a href="AbstractEA_8h.html">AbstractEA.h</a></div></div>
 <div class="ttc" id="aclassAbstractEA_html"><div class="ttname"><a href="classAbstractEA.html">AbstractEA</a></div><div class="ttdoc">Class to define an Abstract Evolutionary Algorithm. This is the base skeleton for future extensions.</div><div class="ttdef"><b>Definition:</b> AbstractEA.h:42</div></div>
 <div class="ttc" id="aclassSimulatedAnnealing_html"><div class="ttname"><a href="classSimulatedAnnealing.html">SimulatedAnnealing</a></div><div class="ttdoc">Simulated Annealing Algorithm.</div><div class="ttdef"><b>Definition:</b> SimulatedAnnealing.h:23</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md19"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md20"></a>
 Define the methods in SimulatedAnnealing</h1>
 <p>The next step is to consider the methods and attributes that our new algorithm must contain. Notice that it is also necessary to define the virtual methods from <a class="el" href="classAbstractEA.html" title="Class to define an Abstract Evolutionary Algorithm. This is the base skeleton for future extensions.">AbstractEA</a>. It may be recomended as well to override some methods to define a custom operation. From <a class="el" href="classAbstractEA.html" title="Class to define an Abstract Evolutionary Algorithm. This is the base skeleton for future extensions.">AbstractEA</a> we must define the following methods:</p>
 <div class="fragment"><div class="line"><span class="keyword">public</span>:</div>
@@ -227,10 +227,10 @@ Define the methods in SimulatedAnnealing</h1>
 <div class="line">    <span class="keywordtype">float</span> currentTemp;</div>
 <div class="line">};</div>
 <div class="ttc" id="aclassProblem_html"><div class="ttname"><a href="classProblem.html">Problem</a></div><div class="ttdoc">Class to represent a Problem in the tool. It includes the basic information for a problem a few metho...</div><div class="ttdef"><b>Definition:</b> Problem.h:29</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md20"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md21"></a>
 Define the remaining methods.</h1>
 <p>Up to this point we have just define the basic methods signature and implement some inline methods. Now we should define the code inside the methods we have not defined yet.</p>
-<h2><a class="anchor" id="autotoc_md21"></a>
+<h2><a class="anchor" id="autotoc_md22"></a>
 Constructor</h2>
 <p>The constructor for the SA algorithm must define the maximum number of evaluations to perform, the inital temperature and the temperature variation to perform at each generation. It is also mandatory to call the mother class constructor (<a class="el" href="classAbstractEA.html" title="Class to define an Abstract Evolutionary Algorithm. This is the base skeleton for future extensions.">AbstractEA</a>). Notice that the line <em><a class="el" href="classAbstractEA.html" title="Class to define an Abstract Evolutionary Algorithm. This is the base skeleton for future extensions.">AbstractEA</a>&lt;S&gt;(maxEvaluations, 1)</em> calls the <a class="el" href="classAbstractEA.html" title="Class to define an Abstract Evolutionary Algorithm. This is the base skeleton for future extensions.">AbstractEA</a> constructor setting the maximum number of evaluations to perform and the population size to one.</p>
 <div class="fragment"><div class="line"> </div>
@@ -242,7 +242,7 @@ Constructor</h2>
 <div class="line">      tempVariation(tempVariation),</div>
 <div class="line">      currentTemp(initialTemp) {}</div>
 <div class="ttc" id="aclassSimulatedAnnealing_html_aefc2d5fd86c8e8f4f2e560feccf4258d"><div class="ttname"><a href="classSimulatedAnnealing.html#aefc2d5fd86c8e8f4f2e560feccf4258d">SimulatedAnnealing::SimulatedAnnealing</a></div><div class="ttdeci">SimulatedAnnealing(const int &amp;maxEvaluations, const float &amp;initialTemp, const float &amp;tempVariation)</div><div class="ttdoc">Construct a new Simulated Annealing object with all the parameters.</div><div class="ttdef"><b>Definition:</b> SimulatedAnnealing.h:114</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md22"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md23"></a>
 Run</h2>
 <p>The run method simply performs the SA algorithm. It starts by creating a initial population (one individual generated randomly), then while the maximum number of evaluations have not been reached yet it creates a new offspring from the current solution, evaluate both solutions and keeps the fittest one. After that it updates the current temperature.</p>
 <div class="fragment"><div class="line"> </div>
@@ -264,7 +264,7 @@ Run</h2>
 <div class="line">    }</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassSimulatedAnnealing_html_a3ffc1b7fc648f34f1b5faba61d56e734"><div class="ttname"><a href="classSimulatedAnnealing.html#a3ffc1b7fc648f34f1b5faba61d56e734">SimulatedAnnealing::run</a></div><div class="ttdeci">void run() override</div><div class="ttdoc">Runs the Simulated Annealing algorithm during maxEvaluations.</div><div class="ttdef"><b>Definition:</b> SimulatedAnnealing.h:127</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md23"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md24"></a>
 Perturbation</h2>
 <p>This method simply transcribes the pseudocode of the SA for updating and existing solution. Creates an offspring as a clone of the current solution (population[0]) and then perform some perturbations of each variable.</p>
 <div class="fragment"><div class="line"> </div>
@@ -283,7 +283,7 @@ Perturbation</h2>
 <div class="line">    <span class="keywordflow">return</span> offspring;</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassPseudoRandom_html_a6a85657b19f803952051e045c4181e20"><div class="ttname"><a href="classPseudoRandom.html#a6a85657b19f803952051e045c4181e20">PseudoRandom::randDouble</a></div><div class="ttdeci">static double randDouble()</div><div class="ttdoc">Generates a random double value between 0.0 and 1.0.</div><div class="ttdef"><b>Definition:</b> PseudoRandom.cpp:31</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md24"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md25"></a>
 Population management</h2>
 <p>The following methods are designed to create and evaluate the solutions respectively. <em>createInitialPopulation</em> generates a single solution using the problem <em>createSolution</em> method and starts the evoluationary process.</p>
 <p><em>evaluateInds</em> is the method that we defined to perform our custom evaluation (instead of using evaluatePopulation). This method receives two solutions, evaluates them and returns the new current solution based on SA selection criteria.</p>
@@ -312,7 +312,7 @@ Population management</h2>
 <div class="line">}</div>
 <div class="ttc" id="aclassSimulatedAnnealing_html_a6814fd2bb6cb6a9bef197400bbeea0e2"><div class="ttname"><a href="classSimulatedAnnealing.html#a6814fd2bb6cb6a9bef197400bbeea0e2">SimulatedAnnealing::evaluateInds</a></div><div class="ttdeci">S evaluateInds(S &amp;popInd, S &amp;offspring)</div><div class="ttdoc">Evaluates the parent and offspring individuals at each generation.</div><div class="ttdef"><b>Definition:</b> SimulatedAnnealing.h:226</div></div>
 <div class="ttc" id="aclassSimulatedAnnealing_html_ade440d2d966d7f5c94d377ffe896d035"><div class="ttname"><a href="classSimulatedAnnealing.html#ade440d2d966d7f5c94d377ffe896d035">SimulatedAnnealing::createInitialPopulation</a></div><div class="ttdeci">void createInitialPopulation() override</div><div class="ttdoc">Creates the initial population for the SA. The population of the SA is just one individual.</div><div class="ttdef"><b>Definition:</b> SimulatedAnnealing.h:208</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md25"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md26"></a>
 Progress</h2>
 <p>The methods to manage the evolutionary process are straightforward. Init progress simply set the performed evaluations to one, update increases the evaluations in two and finally finishProgress computes the elapsed time.</p>
 <div class="fragment"><div class="line"> </div>
@@ -340,7 +340,7 @@ Progress</h2>
 <div class="ttc" id="aclassSimulatedAnnealing_html_a78382106e5ccc3f145968592dc0e7787"><div class="ttname"><a href="classSimulatedAnnealing.html#a78382106e5ccc3f145968592dc0e7787">SimulatedAnnealing::initProgress</a></div><div class="ttdeci">void initProgress() override</div><div class="ttdoc">Initialises the evolutionary process. Sets the number of performedEvaluations to 1.</div><div class="ttdef"><b>Definition:</b> SimulatedAnnealing.h:163</div></div>
 <div class="ttc" id="aclassSimulatedAnnealing_html_ac0ef97095644bb42c7226e754fab1971"><div class="ttname"><a href="classSimulatedAnnealing.html#ac0ef97095644bb42c7226e754fab1971">SimulatedAnnealing::isStoppingConditionReached</a></div><div class="ttdeci">bool isStoppingConditionReached() override</div><div class="ttdoc">Checks whether the maximum number of evaluations have been performed.</div><div class="ttdef"><b>Definition:</b> SimulatedAnnealing.h:197</div></div>
 <div class="ttc" id="aclassSimulatedAnnealing_html_ae47e783596812e2278925832e9a0c9a7"><div class="ttname"><a href="classSimulatedAnnealing.html#ae47e783596812e2278925832e9a0c9a7">SimulatedAnnealing::updateProgress</a></div><div class="ttdeci">void updateProgress() override</div><div class="ttdoc">Updates the evolutionary process by increasing the performedEvaluations in two.</div><div class="ttdef"><b>Definition:</b> SimulatedAnnealing.h:174</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md26"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md27"></a>
 Getters and Setters</h2>
 <p>Finally, the remaining getters and setters for SA are defined here. This methods although simple, required some condition evaluation to be performed safely. For instance, SA only works for single objective optimization problems and this must be checked in the setProblem methods. Moreover, the size of the population cannot be updated using the setPopulationSize method.</p>
 <div class="fragment"><div class="line"> </div>
