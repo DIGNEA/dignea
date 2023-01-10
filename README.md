@@ -10,7 +10,7 @@
 [![Documentation](https://github.com/DIGNEA/dignea/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/DIGNEA/dignea/actions/workflows/pages/pages-build-deployment//badge.svg)
 </center>
 
- 
+
 
 Repository containing DIGNEA, a Diverse Instance Generator with Novelty Search and Evolutionary Algorithms. This framework is an extensible tool for generating diverse and discriminatory instances for any desired domain. The instances obtained generated will be biased to the performance of a *target* in a specified portfolio of algorithms. 
 
@@ -21,11 +21,8 @@ For building DIGNEA you can just simply clone and build the project. Make sure t
 ```bash 
   git clone git@github.com:DIGNEA/dignea.git
   cd dignea
-  cmake -B build -DCMAKE_BUILD_TYPE=Release -DINCLUDE_EXAMPLES=True
-  cmake --build . --target all --
+  ./build.sh
 ```
-
-Notice that the option -DINCLUDE_EXAMPLES allows to compile the examples to try out DIGNEA.
 
 If you want to install DIGNEA in you machine run the following command:
 
@@ -33,13 +30,16 @@ If you want to install DIGNEA in you machine run the following command:
 sudo cmake --build path-to-dignea-build-dir/ --config Release --target install --
 ```
 
-For your convinience, you can find a Docker image of the building enviroment plus the source code of DIGNEA published at Docker Hub [here](https://hub.docker.com/repository/docker/amarrerd/dignea/general). The source code of DIGNEA can be found inside the /dignea directory once the container is up and running. To build the tool just follow the previous steps.
+### Docker Image
+
+For your convinience, you can find a Docker image of the building enviroment plus the source code of DIGNEA published at Docker Hub [here](https://hub.docker.com/repository/docker/amarrerd/dignea/general). The source code of DIGNEA can be found inside the /dignea directory once the container is up and running. To build the tool just run the build script.
 
 ### Dependencies
 
+- GCC >= 10.0.0
 - CMake >= 3.14
 - C++20 support
-- OpenMP
+- OpenMP support
     
 
 ## Publications
