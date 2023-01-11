@@ -22,3 +22,4 @@ include/test_data.hpp
 lib/*.a
 docs/html/*
 docs/xml/*.idea/
+libdbscan.so libdbscan.so.1 libdbscan.so.1.0.0
