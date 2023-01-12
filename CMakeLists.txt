@@ -403,23 +403,22 @@ if(INCLUDE_EXAMPLES)
                 OpenMP::OpenMP_CXX
         )
 
-        add_executable(GeneticTSP
-                examples/GeneticTSP.cpp
-                src/dignea/utilities/random/RandomGenerator.cpp
-                src/dignea/utilities/random/PseudoRandom.cpp
-                src/dignea/utilities/random/ParallelPRNG.cpp
-                src/dignea/problems/TSP.cpp
-        )
-        target_include_directories(GeneticTSP PRIVATE
-                include
-                src)
+        # add_executable(GeneticTSP
+        # examples/GeneticTSP.cpp
+        # src/dignea/utilities/random/RandomGenerator.cpp
+        # src/dignea/utilities/random/PseudoRandom.cpp
+        # src/dignea/utilities/random/ParallelPRNG.cpp
+        # src/dignea/problems/TSP.cpp
+        # )
+        # target_include_directories(GeneticTSP PRIVATE
+        # include
+        # src)
 
-        target_link_libraries(GeneticTSP
-                ${PROJECT_NAME}
-                nlohmann_json::nlohmann_json
-                fmt::fmt-header-only
-                OpenMP::OpenMP_CXX)
-
+        # target_link_libraries(GeneticTSP
+        # ${PROJECT_NAME}
+        # nlohmann_json::nlohmann_json
+        # fmt::fmt-header-only
+        # OpenMP::OpenMP_CXX)
         add_executable(MEAKPExperiment
                 examples/MEAKPExperiment.cpp
                 src/dignea/mea/evaluations/EasyInstances.cpp
@@ -441,25 +440,24 @@ if(INCLUDE_EXAMPLES)
         )
 
         # add_executable(MEATSPExperiment
-        #         examples/MEATSPExperiment.cpp
-        #         src/dignea/mea/evaluations/EasyInstances.cpp
-        #         src/dignea/mea/problems/ITSPProblem.cpp
-        #         src/dignea/mea/solutions/ITSPSolution.cpp
-        #         src/dignea/problems/TSP.cpp
-        #         include/dignea/utilities/KNN.h
+        # examples/MEATSPExperiment.cpp
+        # src/dignea/mea/evaluations/EasyInstances.cpp
+        # src/dignea/mea/problems/ITSPProblem.cpp
+        # src/dignea/mea/solutions/ITSPSolution.cpp
+        # src/dignea/problems/TSP.cpp
+        # include/dignea/utilities/KNN.h
         # )
         # target_include_directories(MEATSPExperiment PRIVATE
-        #         include
-        #         src
+        # include
+        # src
         # )
         # target_link_libraries(MEATSPExperiment
-        #         ${PROJECT_NAME}
-        #         nlohmann_json::nlohmann_json
-        #         fmt::fmt-header-only
-        #         OpenMP::OpenMP_CXX
-        #         dbscan
+        # ${PROJECT_NAME}
+        # nlohmann_json::nlohmann_json
+        # fmt::fmt-header-only
+        # OpenMP::OpenMP_CXX
+        # dbscan
         # )
-
         add_executable(KP_HEURISTICS
                 examples/KP_Heuristics.cpp
                 src/dignea/utilities/random/RandomGenerator.cpp
