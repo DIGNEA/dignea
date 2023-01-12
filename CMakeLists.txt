@@ -440,25 +440,25 @@ if(INCLUDE_EXAMPLES)
                 OpenMP::OpenMP_CXX
         )
 
-        add_executable(MEATSPExperiment
-                examples/MEATSPExperiment.cpp
-                src/dignea/mea/evaluations/EasyInstances.cpp
-                src/dignea/mea/problems/ITSPProblem.cpp
-                src/dignea/mea/solutions/ITSPSolution.cpp
-                src/dignea/problems/TSP.cpp
-                include/dignea/utilities/KNN.h
-        )
-        target_include_directories(MEATSPExperiment PRIVATE
-                include
-                src
-        )
-        target_link_libraries(MEATSPExperiment
-                ${PROJECT_NAME}
-                nlohmann_json::nlohmann_json
-                fmt::fmt-header-only
-                OpenMP::OpenMP_CXX
-                dbscan
-        )
+        # add_executable(MEATSPExperiment
+        #         examples/MEATSPExperiment.cpp
+        #         src/dignea/mea/evaluations/EasyInstances.cpp
+        #         src/dignea/mea/problems/ITSPProblem.cpp
+        #         src/dignea/mea/solutions/ITSPSolution.cpp
+        #         src/dignea/problems/TSP.cpp
+        #         include/dignea/utilities/KNN.h
+        # )
+        # target_include_directories(MEATSPExperiment PRIVATE
+        #         include
+        #         src
+        # )
+        # target_link_libraries(MEATSPExperiment
+        #         ${PROJECT_NAME}
+        #         nlohmann_json::nlohmann_json
+        #         fmt::fmt-header-only
+        #         OpenMP::OpenMP_CXX
+        #         dbscan
+        # )
 
         add_executable(KP_HEURISTICS
                 examples/KP_Heuristics.cpp

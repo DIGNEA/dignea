@@ -53,7 +53,7 @@ void runExperiment(vector<unique_ptr<EA>> &algs, const float &fRatio = 0.85,
     auto upperBound = 1000;
     auto instanceSize = 100;
     // MEA Parameters
-    auto generations = 1000;
+    auto generations = 500;
     auto reps = 10;
     auto meaCXRate = 0.8;
     auto nInstances = 10;
@@ -133,7 +133,13 @@ void runExperiment(vector<unique_ptr<EA>> &algs, const float &fRatio = 0.85,
  * @return int
  */
 int main(int argc, char **argv) {
-    auto repetitions{10};
+    if (argc != 2) {
+        std::cerr << "Error in args for KP_HEURISTICS.\nUsage: ./KP_HEURISTICS "
+                     "<number_of_reps>"
+                  << std::endl;
+        exit(EXIT_FAILURE);
+    }
+    auto repetitions{stoi(argv[1])};
     float fRatio = 0.85;
     float nRatio = 0.15;
     for (int i = 1; i <= repetitions; i++) {
