@@ -1,6 +1,6 @@
 var hierarchy =
 [
-    [ "AbstractEA< S >", "classAbstractEA.html", [
+    [ "AbstractSolver< S >", "classAbstractSolver.html", [
       [ "Heuristic< BoolFloatSolution >", "classHeuristic.html", [
         [ "Default", "classDefault.html", [
           [ "MPW", "classMPW.html", null ],
@@ -17,8 +17,8 @@ var hierarchy =
       [ "Heuristic< S >", "classHeuristic.html", null ],
       [ "SimulatedAnnealing< S >", "classSimulatedAnnealing.html", null ]
     ] ],
-    [ "AbstractEA< IS >", "classAbstractEA.html", [
-      [ "MEA< IP, IS, OP, OS >", "classMEA.html", null ]
+    [ "AbstractSolver< IS >", "classAbstractSolver.html", [
+      [ "EIG< IP, IS, OP, OS >", "classEIG.html", null ]
     ] ],
     [ "Crossover< S >", "classCrossover.html", [
       [ "UniformCrossover< S >", "classUniformCrossover.html", null ]
@@ -36,6 +36,7 @@ var hierarchy =
     [ "Distance< int >", "classDistance.html", [
       [ "Hamming< T >", "classHamming.html", null ]
     ] ],
+    [ "EIGBuilder< IP, IS, OP, S >", "classEIGBuilder.html", null ],
     [ "ExpBuilder< S >", "classExpBuilder.html", null ],
     [ "Experiment< S >", "classExperiment.html", null ],
     [ "Front< S >", "classFront.html", null ],
@@ -46,7 +47,6 @@ var hierarchy =
     [ "InstPrinter< S >", "classInstPrinter.html", null ],
     [ "JSONPrinter", "classJSONPrinter.html", null ],
     [ "KNN", "classKNN.html", null ],
-    [ "MEABuilder< IP, IS, OP, S >", "classMEABuilder.html", null ],
     [ "Mutation< S >", "classMutation.html", [
       [ "ScrambleMutation< S >", "classScrambleMutation.html", null ],
       [ "SwapMutation< S >", "classSwapMutation.html", null ],
@@ -57,11 +57,11 @@ var hierarchy =
     [ "NSFactory< MS, T >", "classNSFactory.html", null ],
     [ "ParGABuilder< S >", "classParGABuilder.html", null ],
     [ "Problem< S >", "classProblem.html", [
-      [ "MEAProblem< KPNR, IKPSolution >", "classMEAProblem.html", [
-        [ "IKPProblem", "classIKPProblem.html", null ]
+      [ "AbstractDomain< TSP, TSPInstance >", "classAbstractDomain.html", [
+        [ "TSPDomain", "classTSPDomain.html", null ]
       ] ],
-      [ "MEAProblem< TSP, ITSPSolution >", "classMEAProblem.html", [
-        [ "ITSPProblem", "classITSPProblem.html", null ]
+      [ "AbstractDomain< KPNR, KPInstance >", "classAbstractDomain.html", [
+        [ "KPDomain", "classKPDomain.html", null ]
       ] ]
     ] ],
     [ "Problem< BoolFloatSolution >", "classProblem.html", [
@@ -74,7 +74,7 @@ var hierarchy =
       [ "Sphere", "classSphere.html", null ]
     ] ],
     [ "Problem< InstSolution >", "classProblem.html", [
-      [ "MEAProblem< OptProblem, InstSolution >", "classMEAProblem.html", null ]
+      [ "AbstractDomain< OptProblem, InstSolution >", "classAbstractDomain.html", null ]
     ] ],
     [ "Problem< IntFloatSolution >", "classProblem.html", [
       [ "TSP", "classTSP.html", null ]
@@ -98,13 +98,13 @@ var hierarchy =
     ] ],
     [ "SelFactory< S >", "classSelFactory.html", null ],
     [ "Solution< V, O >", "classSolution.html", [
-      [ "MEASolution< float, float >", "classMEASolution.html", [
-        [ "ITSPSolution", "classITSPSolution.html", null ]
+      [ "AbstractInstance< float, float >", "classAbstractInstance.html", [
+        [ "TSPInstance", "classTSPInstance.html", null ]
       ] ],
-      [ "MEASolution< int, float >", "classMEASolution.html", [
-        [ "IKPSolution", "classIKPSolution.html", null ]
+      [ "AbstractInstance< int, float >", "classAbstractInstance.html", [
+        [ "KPInstance", "classKPInstance.html", null ]
       ] ],
-      [ "MEASolution< V, O >", "classMEASolution.html", null ]
+      [ "AbstractInstance< V, O >", "classAbstractInstance.html", null ]
     ] ],
-    [ "Weighted< MEASolution >", "classWeighted.html", null ]
+    [ "Weighted< AbstractInstance >", "classWeighted.html", null ]
 ];

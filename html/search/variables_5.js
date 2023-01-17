@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['instprob_723',['instProb',['../classMEA.html#a75caf08fee5b61e2f50e288f2dea6c73',1,'MEA']]]
+  ['instprob_722',['instProb',['../classEIG.html#a8b057fe65173f4c083a966c0ab840715',1,'EIG']]]
 ];

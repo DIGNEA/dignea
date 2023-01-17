@@ -119,10 +119,10 @@ Inheritance diagram for Problem&lt; S &gt;:</div>
  <div class="center">
   <img src="classProblem.png" usemap="#Problem_3C_20S_20_3E_map" alt=""/>
   <map id="Problem_3C_20S_20_3E_map" name="Problem_3C_20S_20_3E_map">
-<area href="classMEAProblem.html" alt="MEAProblem&lt; KPNR, IKPSolution &gt;" shape="rect" coords="0,56,216,80"/>
-<area href="classMEAProblem.html" alt="MEAProblem&lt; TSP, ITSPSolution &gt;" shape="rect" coords="226,56,442,80"/>
-<area href="classIKPProblem.html" title="Instance Generator Knapsack Problem. Problem for the Instance Generator to generate Knapsack Problem ..." alt="IKPProblem" shape="rect" coords="0,112,216,136"/>
-<area href="classITSPProblem.html" title="Instance Generator TSP Problem. Problem for the MEA to generate TSP Instances." alt="ITSPProblem" shape="rect" coords="226,112,442,136"/>
+<area href="classAbstractDomain.html" alt="AbstractDomain&lt; TSP, TSPInstance &gt;" shape="rect" coords="0,56,230,80"/>
+<area href="classAbstractDomain.html" alt="AbstractDomain&lt; KPNR, KPInstance &gt;" shape="rect" coords="240,56,470,80"/>
+<area href="classTSPDomain.html" title="Instance Generator TSP Problem. Problem for the EIG to generate TSP Instances." alt="TSPDomain" shape="rect" coords="0,112,230,136"/>
+<area href="classKPDomain.html" title="Instance Generator Knapsack Problem. Problem for the Instance Generator to generate Knapsack Problem ..." alt="KPDomain" shape="rect" coords="240,112,470,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -312,7 +312,7 @@ template&lt;class S &gt; </div>
 <p>Creates a new solution for the problem. Usually uses problem information and generates a solution randomly. This method must be implemented in the subclasses. </p>
 <dl class="section return"><dt>Returns</dt><dd>S <a class="el" href="classSolution.html" title="Class to represent a solution to the optimization problems in the tool.">Solution</a> (S) </dd></dl>
 
-<p>Implemented in <a class="el" href="classTSP.html#a842b7033d8ac2203a119813fbd15729a">TSP</a>, <a class="el" href="classSphere.html#a4ee81e5ddcf48e651bbd6562f9672724">Sphere</a>, <a class="el" href="classRastrigin.html#ac695f7853368ab69df507d62a55cc051">Rastrigin</a>, <a class="el" href="classKP.html#a7fcba0572574aa241e93edbd2c36e896">KP</a>, <a class="el" href="classITSPProblem.html#ace8418a68528baecf7b347725074d641">ITSPProblem</a>, and <a class="el" href="classIKPProblem.html#ae8adf79b5a435ce12c9fa0548980d6f3">IKPProblem</a>.</p>
+<p>Implemented in <a class="el" href="classTSP.html#a842b7033d8ac2203a119813fbd15729a">TSP</a>, <a class="el" href="classSphere.html#a4ee81e5ddcf48e651bbd6562f9672724">Sphere</a>, <a class="el" href="classRastrigin.html#ac695f7853368ab69df507d62a55cc051">Rastrigin</a>, <a class="el" href="classKP.html#a7fcba0572574aa241e93edbd2c36e896">KP</a>, <a class="el" href="classTSPDomain.html#a0309e2b0ccef10af29ba80e0ce52aa64">TSPDomain</a>, and <a class="el" href="classKPDomain.html#af905abe28a8e6730fde23c8376976ec6">KPDomain</a>.</p>
 
 </div>
 </div>
@@ -430,7 +430,7 @@ template&lt;class S &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>float </dd></dl>
 
-<p>Implemented in <a class="el" href="classTSP.html#ad7a387d4c598c212918a49e92db4979f">TSP</a>, <a class="el" href="classSphere.html#a69cfe4118dbccfd770143c0e6fd6e1c5">Sphere</a>, <a class="el" href="classRastrigin.html#a23bedb08e4f272728a65cdb158f823bb">Rastrigin</a>, <a class="el" href="classKP.html#a71ab3d85146ee83fdfc89337c2cdcaa3">KP</a>, <a class="el" href="classITSPProblem.html#a69ddea519a8c239334f09a1740b100d5">ITSPProblem</a>, and <a class="el" href="classIKPProblem.html#a11e5808033804f23d73d712c6b922349">IKPProblem</a>.</p>
+<p>Implemented in <a class="el" href="classTSP.html#ad7a387d4c598c212918a49e92db4979f">TSP</a>, <a class="el" href="classSphere.html#a69cfe4118dbccfd770143c0e6fd6e1c5">Sphere</a>, <a class="el" href="classRastrigin.html#a23bedb08e4f272728a65cdb158f823bb">Rastrigin</a>, <a class="el" href="classKP.html#a71ab3d85146ee83fdfc89337c2cdcaa3">KP</a>, <a class="el" href="classTSPDomain.html#a2c0d570364136161c1c50b74c80c080c">TSPDomain</a>, and <a class="el" href="classKPDomain.html#a9eab7d398d41c6287322bf34fc4de57f">KPDomain</a>.</p>
 
 </div>
 </div>
@@ -462,7 +462,7 @@ template&lt;class S &gt; </div>
 <p>Returns the name of the problem. This method must be implemented in the subclasses. </p>
 <dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
 
-<p>Implemented in <a class="el" href="classTSP.html#a731d4bdd48717be24c156305bc4f7d13">TSP</a>, <a class="el" href="classSphere.html#a4af56f346fd25888cd9a0d168419d0e7">Sphere</a>, <a class="el" href="classRastrigin.html#ad298578171633bd505e0ae434f1f6d51">Rastrigin</a>, <a class="el" href="classKP.html#a30f8bd1a935be7549193effb5704648e">KP</a>, <a class="el" href="classITSPProblem.html#a183ae60e0adc04c42bdee66cc77139dc">ITSPProblem</a>, and <a class="el" href="classIKPProblem.html#a67a53abedc2830d71d1f250e0817d90f">IKPProblem</a>.</p>
+<p>Implemented in <a class="el" href="classTSP.html#a731d4bdd48717be24c156305bc4f7d13">TSP</a>, <a class="el" href="classSphere.html#a4af56f346fd25888cd9a0d168419d0e7">Sphere</a>, <a class="el" href="classRastrigin.html#ad298578171633bd505e0ae434f1f6d51">Rastrigin</a>, <a class="el" href="classKP.html#a30f8bd1a935be7549193effb5704648e">KP</a>, <a class="el" href="classTSPDomain.html#a73f73781e4c22b1243c2925d487b8561">TSPDomain</a>, and <a class="el" href="classKPDomain.html#aee3b10f310370fd73a91830b7f5950eb">KPDomain</a>.</p>
 
 </div>
 </div>
@@ -591,7 +591,7 @@ template&lt;class S &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Minimize or Maximize constants. </dd></dl>
 
-<p>Implemented in <a class="el" href="classSphere.html#afd6f4e4c849ffbc9f8786358c478c1d4">Sphere</a>, <a class="el" href="classRastrigin.html#a8317730628f5533d92a014e21eb8faf9">Rastrigin</a>, <a class="el" href="classTSP.html#a19efa2c1e6ec344466ab0a3c67a0f56d">TSP</a>, <a class="el" href="classKP.html#a7f1e7061b2a5ef812ddb56dbd79b188f">KP</a>, <a class="el" href="classITSPProblem.html#a114fba6a447c7ff8912df3ef3691f325">ITSPProblem</a>, and <a class="el" href="classIKPProblem.html#a7898248ca0a01172647b37ed32aedb06">IKPProblem</a>.</p>
+<p>Implemented in <a class="el" href="classSphere.html#afd6f4e4c849ffbc9f8786358c478c1d4">Sphere</a>, <a class="el" href="classRastrigin.html#a8317730628f5533d92a014e21eb8faf9">Rastrigin</a>, <a class="el" href="classTSP.html#a19efa2c1e6ec344466ab0a3c67a0f56d">TSP</a>, <a class="el" href="classKP.html#a7f1e7061b2a5ef812ddb56dbd79b188f">KP</a>, <a class="el" href="classTSPDomain.html#a3cfb48d27cd33fee6010a2cf893646b1">TSPDomain</a>, and <a class="el" href="classKPDomain.html#a9c402867173817e599da7781f25f98e5">KPDomain</a>.</p>
 
 </div>
 </div>
@@ -630,7 +630,7 @@ template&lt;class S &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>float </dd></dl>
 
-<p>Implemented in <a class="el" href="classTSP.html#a5378c054286252dd47634679cec55373">TSP</a>, <a class="el" href="classSphere.html#a4238a307664ed0f8f9c6db22cf790ecd">Sphere</a>, <a class="el" href="classRastrigin.html#a80297bd715bcf8b7e8a4e8c9977396d5">Rastrigin</a>, <a class="el" href="classKP.html#a6a931c39c418f6bb8371c459bb96161b">KP</a>, <a class="el" href="classITSPProblem.html#a483104a9fb15d6490eedaa51ed604c9b">ITSPProblem</a>, and <a class="el" href="classIKPProblem.html#a24a910d3efcd99ce7b153f32d2207421">IKPProblem</a>.</p>
+<p>Implemented in <a class="el" href="classTSP.html#a5378c054286252dd47634679cec55373">TSP</a>, <a class="el" href="classSphere.html#a4238a307664ed0f8f9c6db22cf790ecd">Sphere</a>, <a class="el" href="classRastrigin.html#a80297bd715bcf8b7e8a4e8c9977396d5">Rastrigin</a>, <a class="el" href="classKP.html#a6a931c39c418f6bb8371c459bb96161b">KP</a>, <a class="el" href="classTSPDomain.html#a6613aba705f8488552c1d30e95fdc496">TSPDomain</a>, and <a class="el" href="classKPDomain.html#a8b61c1cacff4e5df998453f198908fd9">KPDomain</a>.</p>
 
 </div>
 </div>

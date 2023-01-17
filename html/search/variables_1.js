@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['bestfitness_707',['bestFitness',['../classMEA.html#a74e065d960168e501637131cce254803',1,'MEA']]],
-  ['biasedfitness_708',['biasedFitness',['../classMEASolution.html#adcec62171d2f9ff8f48e6767ae825944',1,'MEASolution']]]
+  ['bestfitness_706',['bestFitness',['../classEIG.html#a0512fc2d4a88640a2d0973eae5cadecf',1,'EIG']]],
+  ['biasedfitness_707',['biasedFitness',['../classAbstractInstance.html#a3709fea93d75bc951b17b6cf119991d6',1,'AbstractInstance']]]
 ];

@@ -10,21 +10,21 @@ To exemplify how to create a new algorithm in DIGNEA, we will see how to include
 
 First of all, create a new **SimulatedAnnealing.h** file which will contain all the code for the SA algorithm.
 
-To create a new algorithm and allow it to be usable across different methods and classes in DIGNEA, we must define the new algorithm as a subclass of AbstractEA in the **SimulatedAnnealing.h** file.  This class is the mother class for every type of algorithm that you may want to include in DIGNEA. Moreover, since DIGNEA is a template-based framework which aims to make algorithm as flexible as possible to address multiple types of problems and representations we must defines the *SimulatedAnnealing* class as a template-class with a template parameter to define the Solution type (SolutionTypes.h).
+To create a new algorithm and allow it to be usable across different methods and classes in DIGNEA, we must define the new algorithm as a subclass of AbstractSolver in the **SimulatedAnnealing.h** file.  This class is the mother class for every type of algorithm that you may want to include in DIGNEA. Moreover, since DIGNEA is a template-based framework which aims to make algorithm as flexible as possible to address multiple types of problems and representations we must defines the *SimulatedAnnealing* class as a template-class with a template parameter to define the Solution type (SolutionTypes.h).
 
 ```cpp
 
-#include <dignea/core/AbstractEA.h>
+#include <dignea/core/AbstractSolver.h>
 
 template <class S>
-class SimulatedAnnealing : public AbstractEA<S> {
+class SimulatedAnnealing : public AbstractSolver<S> {
    // TODO: Include necessary methods and attributes
 };
 ```
 
 ## Define the methods in SimulatedAnnealing
 
-The next step is to consider the methods and attributes that our new algorithm must contain. Notice that it is also necessary to define the virtual methods from AbstractEA. It may be recomended as well to override some methods to define a custom operation. From AbstractEA we must define the following methods:
+The next step is to consider the methods and attributes that our new algorithm must contain. Notice that it is also necessary to define the virtual methods from AbstractSolver. It may be recomended as well to override some methods to define a custom operation. From AbstractSolver we must define the following methods:
 
 ```cpp
 public:
@@ -49,7 +49,7 @@ protected:
 
     void evaluatePopulation(vector<S> &vector1) override{};
 ```
-First of all, the **run** method must be implemented for every new algorithm to define the custom workflow. Moreover, it is necessary to define the getName() and getID() methods. Besides, AbstractEA does not implement the getResults() method to allow algorithm-dependent results. 
+First of all, the **run** method must be implemented for every new algorithm to define the custom workflow. Moreover, it is necessary to define the getName() and getID() methods. Besides, AbstractSolver does not implement the getResults() method to allow algorithm-dependent results. 
 
 Apart from this public methods, some protected methods must be overriden; i.e., the methods related to the evolutionary process (init, update, finish-Progress), the stop criteria checker method (isStoppingConditionReached) as well as the methods for generating and evaluating the population. Notice that the *evaluatePopulation* method is overriden as a empty method. The SA algorithm is a search-based metaheuristic which only uses a single individual as the solution to update in each generation. Therefore, the population size of this algorithm is equal to 1. We could still implement the *evaluatePopulation* and consider this restriction inside the method. However, we decide to show how to adapt the code for non population-based algorithms. The evaluation stage of the SA algorithm will be performed in the following *evaluateInds* method. This method will receive the current solution and a new offspring solution, evaluate both solutions and return the fittest solution to be set as our new current solution. 
 
@@ -60,7 +60,7 @@ Apart from this public methods, some protected methods must be overriden; i.e., 
 After that, we should include the basic attributes for a SA algorithm (*currentTemp* and *tempVariation*), and some extra methods to perform the basic steps of the [algorithm](https://es.wikipedia.org/wiki/Algoritmo_de_recocido_simulado#Pseudoc%C3%B3digo). The SimulatedAnnealing class at this stage is shown below.
 
 ```cpp
-#include <dignea/core/AbstractEA.h>
+#include <dignea/core/AbstractSolver.h>
 #include <dignea/utilities/exceptions/NoMOAllowed.h> // For setProblem
 #include <dignea/utilities/random/PseudoRandom.h>  // Random number generation
 #include <vector>
@@ -68,7 +68,7 @@ After that, we should include the basic attributes for a SA algorithm (*currentT
 using namespace std;
 
 template <class S>
-class SimulatedAnnealing : public AbstractEA<S> {
+class SimulatedAnnealing : public AbstractSolver<S> {
    public:
     SimulatedAnnealing(const int &maxEvaluations, const float &initialTemp,
                        const float &tempVariation);
@@ -134,8 +134,8 @@ Up to this point we have just define the basic methods signature and implement s
 
 ### Constructor
 
-The constructor for the SA algorithm must define the maximum number of evaluations to perform, the inital temperature and the temperature variation to perform at each generation. It is also mandatory to call the mother class constructor (AbstractEA).
-Notice that the line *AbstractEA\<S\>(maxEvaluations, 1)* calls the AbstractEA constructor setting the maximum number of evaluations to perform and the population size to one.
+The constructor for the SA algorithm must define the maximum number of evaluations to perform, the inital temperature and the temperature variation to perform at each generation. It is also mandatory to call the mother class constructor (AbstractSolver).
+Notice that the line *AbstractSolver\<S\>(maxEvaluations, 1)* calls the AbstractSolver constructor setting the maximum number of evaluations to perform and the population size to one.
 
 ```cpp
 /**
@@ -150,7 +150,7 @@ template <class S>
 SimulatedAnnealing<S>::SimulatedAnnealing(const int &maxEvaluations,
                                           const float &initialTemp,
                                           const float &tempVariation)
-    : AbstractEA<S>(maxEvaluations, 1),
+    : AbstractSolver<S>(maxEvaluations, 1),
       tempVariation(tempVariation),
       currentTemp(initialTemp) {}
 ```

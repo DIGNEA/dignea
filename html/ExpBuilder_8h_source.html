@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('ExpBuilder_8h_source.html',''); initRe
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> S&gt;</div>
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classExpBuilder.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classExpBuilder.html">ExpBuilder</a> {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">using</span> EA = unique_ptr&lt;AbstractEA&lt;S&gt;&gt;;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">using</span> EA = unique_ptr&lt;AbstractSolver&lt;S&gt;&gt;;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;   <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">static</span> <a class="code" href="classExpBuilder.html">ExpBuilder&lt;S&gt;</a> <a class="code" href="classExpBuilder.html#a6507541456e92279d760f44ead4a96d1">create</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;experimentName);</div>
@@ -185,7 +185,7 @@ $(document).ready(function(){initNavTree('ExpBuilder_8h_source.html',''); initRe
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> S&gt;</div>
 <div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="classExpBuilder.html#a09f69fe3aee7ce0544da33487c42c5a4">  123</a></span>&#160;<a class="code" href="classExpBuilder.html">ExpBuilder&lt;S&gt;</a> &amp;<a class="code" href="classExpBuilder.html#a09f69fe3aee7ce0544da33487c42c5a4">ExpBuilder&lt;S&gt;::usingAlgorithm</a>(</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    unique_ptr&lt;<a class="code" href="classAbstractEA.html">AbstractEA&lt;S&gt;</a>&gt; algorithm) {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    unique_ptr&lt;<a class="code" href="classAbstractSolver.html">AbstractSolver&lt;S&gt;</a>&gt; algorithm) {</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    this-&gt;evolutionaryAlgorithm = move(algorithm);</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
@@ -230,7 +230,7 @@ $(document).ready(function(){initNavTree('ExpBuilder_8h_source.html',''); initRe
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// DIGNEA_EXPBUILDER_H</span></div>
 <div class="ttc" id="aExperiment_8h_html"><div class="ttname"><a href="Experiment_8h.html">Experiment.h</a></div></div>
-<div class="ttc" id="aclassAbstractEA_html"><div class="ttname"><a href="classAbstractEA.html">AbstractEA</a></div><div class="ttdoc">Class to define an Abstract Evolutionary Algorithm. This is the base skeleton for future extensions.</div><div class="ttdef"><b>Definition:</b> AbstractEA.h:42</div></div>
+<div class="ttc" id="aclassAbstractSolver_html"><div class="ttname"><a href="classAbstractSolver.html">AbstractSolver</a></div><div class="ttdoc">Class to define an Abstract Evolutionary Algorithm. This is the base skeleton for future extensions.</div><div class="ttdef"><b>Definition:</b> AbstractSolver.h:42</div></div>
 <div class="ttc" id="aclassExpBuilder_html"><div class="ttname"><a href="classExpBuilder.html">ExpBuilder</a></div><div class="ttdoc">Experiment Builder which allows to create a experiment.</div><div class="ttdef"><b>Definition:</b> ExpBuilder.h:20</div></div>
 <div class="ttc" id="aclassExpBuilder_html_a09f69fe3aee7ce0544da33487c42c5a4"><div class="ttname"><a href="classExpBuilder.html#a09f69fe3aee7ce0544da33487c42c5a4">ExpBuilder::usingAlgorithm</a></div><div class="ttdeci">ExpBuilder&lt; S &gt; &amp; usingAlgorithm(EA algorithm)</div><div class="ttdef"><b>Definition:</b> ExpBuilder.h:123</div></div>
 <div class="ttc" id="aclassExpBuilder_html_a2391116d5c27564bc9782edbb9cfc914"><div class="ttname"><a href="classExpBuilder.html#a2391116d5c27564bc9782edbb9cfc914">ExpBuilder::withRunner</a></div><div class="ttdeci">ExpBuilder&lt; S &gt; &amp; withRunner(bool inParallel=false)</div><div class="ttdoc">Specifies the parallel approach to solve the problem.</div><div class="ttdef"><b>Definition:</b> ExpBuilder.h:150</div></div>

@@ -10,16 +10,16 @@ DIGNEA (Diverse Instance Generator with Novelty Search and Evolutionary Algorith
 
 The main building blocks of DIGNEA are the following classes:
 
-1. AbstractEA: Abstract Evolutionary Algorithm, is the base algorithm interface used across DIGNEA. All new algorithm must be a subclass of it.
+1. AbstractSolver: Abstract Evolutionary Algorithm, is the base algorithm interface used across DIGNEA. All new algorithm must be a subclass of it.
 2. Problem: The Problem class defines a classical optimization to be solved (KP, TSP, Sphere, etc).
-3. MEA: Meta-Evolutionary Algorithm. This class represents the instance generator algorithm. It receives a portfolio of solvers (one defined as the target algorithm) and it returns a set of diverse instances where the target solver outperforms the remaining algorithms in the portfolio; i.e., the instances are biased to the performance of such target. In addition, there are some classes strongly related to MEA:
-   1. MEAProblem: This class represents a instance generation problem. This is used on MEA as the optimization problem to be solved.
-   2. MEASolution: A MEASolution is a object which represents an instance for a particular optimization problem. The classes MEAProblem and MEASolution are completely dependent. This means, every problem has a solution type associated.
+3. EIG: Meta-Evolutionary Algorithm. This class represents the instance generator algorithm. It receives a portfolio of solvers (one defined as the target algorithm) and it returns a set of diverse instances where the target solver outperforms the remaining algorithms in the portfolio; i.e., the instances are biased to the performance of such target. In addition, there are some classes strongly related to EIG:
+   1. AbstractDomain: This class represents a instance generation problem. This is used on EIG as the optimization problem to be solved.
+   2. AbstractInstance: A AbstractInstance is a object which represents an instance for a particular optimization problem. The classes AbstractDomain and AbstractInstance are completely dependent. This means, every problem has a solution type associated.
    3. NoveltySearch: The novelty search algorithm is used to evaluate the diversity of a instance. It cames to two differente version so far, NSFeatures and NSPerformance. The NSFeatures version uses a set of instance features to calculate the diversity of an instance in the features space. On the other hand, the NSPerformance variation only considers the diversity in the performance space of the portfolio.
 
 
 ### Results
-An example of the results obtained by DIGNEA is shown down below. Four different sets of KP instances were generated for different configurations of Genetic Algorithms using MEA.
+An example of the results obtained by DIGNEA is shown down below. Four different sets of KP instances were generated for different configurations of Genetic Algorithms using EIG.
 ![](../imgs/instances.png)
 
 ### More information

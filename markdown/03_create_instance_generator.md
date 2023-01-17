@@ -4,13 +4,13 @@
 
 [TOC]
 
-This tutorial will show how to include a new instance generation problem in DIGNEA. For this purpose, we will create a new TSP instance generator using the code from how to create an [optimization problem](02_create_problem.md). To create a new instance generation problem we must define at least three classes. The optimization problem underneath (TSP in this case), a new optimization problem class for MEA (MEAProblem), and a solution class for instance generation problem which represent a instance of the optimization problem itself (MEASolution). For this tutorial the classes are as follows:
+This tutorial will show how to include a new instance generation problem in DIGNEA. For this purpose, we will create a new TSP instance generator using the code from how to create an [optimization problem](02_create_problem.md). To create a new instance generation problem we must define at least three classes. The optimization problem underneath (TSP in this case), a new optimization problem class for EIG (AbstractDomain), and a solution class for instance generation problem which represent a instance of the optimization problem itself (AbstractInstance). For this tutorial the classes are as follows:
 
 1. TSP: The optimization problem we want to generate instances for.
-2. ITSPProblem: Instance TSP Problem. The problem that will pass to MEA.
-3. ITSPSolution: A solution for the ITSPProblem. A ITSPSolution contains the information of a TSP instance. 
+2. TSPDomain: Instance TSP Problem. The problem that will pass to EIG.
+3. TSPInstance: A solution for the TSPDomain. A TSPInstance contains the information of a TSP instance. 
 
-Moreover, since MEA uses different approaches of Novelty Search (NSFeatures and NSPerformance) it may also be necessary to define the features that represent an instance of the optimization problem. If you plan to use the NSFeatures version, you definetively must define the features. Thus, you may also need to consider how to compute this features and implement the corresponding algorithms. For the TSP, there exist lots of related literature and we will use some well-known features:
+Moreover, since EIG uses different approaches of Novelty Search (NSFeatures and NSPerformance) it may also be necessary to define the features that represent an instance of the optimization problem. If you plan to use the NSFeatures version, you definetively must define the features. Thus, you may also need to consider how to compute this features and implement the corresponding algorithms. For the TSP, there exist lots of related literature and we will use some well-known features:
 
 1. Size of the instance (number of cities).
 2. Mean distance between cities.
@@ -27,27 +27,27 @@ First of all we should define the optimization problem for which the instance wi
 Since we are using the TSP, just go to the [how to create a problem setion](02_create_problem.md).
 
 
-## Create the new MEAProblem subclass: ITSPProblem class.
+## Create the new AbstractDomain subclass: TSPDomain class.
 
-**NOTE:** For the sake of simplicity, we will combine the code from ITSPProblem.h and ITSPProblem.cpp in the same page. However, note that you should split the code appropiately.
+**NOTE:** For the sake of simplicity, we will combine the code from TSPDomain.h and TSPDomain.cpp in the same page. However, note that you should split the code appropiately.
 
-First, the ITSPProblem must be defined as a subclass of the MEAProblem class. Since this is a specialization of the 
-template, we can defined the exact template parameters that we will use. In this case, MEAProblem expects two template parameters:
+First, the TSPDomain must be defined as a subclass of the AbstractDomain class. Since this is a specialization of the 
+template, we can defined the exact template parameters that we will use. In this case, AbstractDomain expects two template parameters:
 
 * The Optimization Problem underneath: TSP.
-* The MEASolution class associated: ITSPSolution (to be created).
+* The AbstractInstance class associated: TSPInstance (to be created).
 
 We should include the private attributes and methods for computing the features of a TSP instance (computeCentroid, instanceRadius, distinctDistance, eps, minNeighbors).
 Besides, the upper and lower limits for the coordinates could be useful too. This values will be used to defined the maximum and minimum values of (x, y) for a city in the instances.
 
 ```cpp
 
-#include <dignea/mea/MEAProblem.h>
-#include <dignea/mea/solutions/ITSPSolution.h>
+#include <dignea/generator/AbstractDomain.h>
+#include <dignea/generator/instances/TSPInstance.h>
 #include <dignea/problems/TSP.h>
 #include <dignea/types/SolutionTypes.h>
 
-class ITSPProblem : public MEAProblem<TSP, ITSPSolution> {
+class TSPDomain : public AbstractDomain<TSP, TSPInstance> {
    public:
     // TODO
     
@@ -66,11 +66,11 @@ class ITSPProblem : public MEAProblem<TSP, ITSPSolution> {
 };
 ```
 
-After that, we can start to defined the methods that we will implement in ITSPProblem. Most of then are inherited from MEAProblem.
+After that, we can start to defined the methods that we will implement in TSPDomain. Most of then are inherited from AbstractDomain.
 
 ### Constructors 
 
-The constructors will allow us to create new ITSPProblem objects. Notice that in some constructors we are passing some parameters for the configuration
+The constructors will allow us to create new TSPDomain objects. Notice that in some constructors we are passing some parameters for the configuration
 of the DBSCAN algorithm. This is necessary for using the NSFeatures. The information received in the constructors is treated as follows:
 
 1. The number of variables (dimension) should be set as the double of the number of variables which it is used to create an object. This is because the ITPSolution must be twice size of the nVars since it stores the pairs (x,y) coordinates for each city.
@@ -79,30 +79,30 @@ of the DBSCAN algorithm. This is necessary for using the NSFeatures. The informa
 4. minNeighbors is the minimum number of neighbours to consider a cluster (default = 2).
 
 ```cpp
-ITSPProblem::ITSPProblem()
-    : MEAProblem<TSP, ITSPSolution>(1, 1, 0),
+TSPDomain::TSPDomain()
+    : AbstractDomain<TSP, TSPInstance>(1, 1, 0),
       upperLimit(1000),
       lowerLimit(0),
       eps(5.0),
       minNeighbors(2) {}
 
-ITSPProblem::ITSPProblem(const int &numberOfVars)
-    : MEAProblem<TSP, ITSPSolution>(numberOfVars, 1, 0),
+TSPDomain::TSPDomain(const int &numberOfVars)
+    : AbstractDomain<TSP, TSPInstance>(numberOfVars, 1, 0),
       upperLimit(1000),
       lowerLimit(0),
       eps(5.0),
       minNeighbors(2) {}
 
-ITSPProblem::ITSPProblem(const int &numberOfVars, const float &maxL,
+TSPDomain::TSPDomain(const int &numberOfVars, const float &maxL,
                          const float &minL, const float e, const int minN)
-    : MEAProblem<TSP, ITSPSolution>(numberOfVars, 1, 0),
+    : AbstractDomain<TSP, TSPInstance>(numberOfVars, 1, 0),
       upperLimit(maxL),
       lowerLimit(minL),
       eps(e),
       minNeighbors(minN) {}
 
-ITSPProblem::ITSPProblem(const ITSPProblem *other)
-    : MEAProblem<TSP, ITSPSolution>(other->numberOfVars, 1, 0) {
+TSPDomain::TSPDomain(const TSPDomain *other)
+    : AbstractDomain<TSP, TSPInstance>(other->numberOfVars, 1, 0) {
     upperLimit = other->upperLimit;
     lowerLimit = other->lowerLimit;
     eps = other->eps;
@@ -112,15 +112,15 @@ ITSPProblem::ITSPProblem(const ITSPProblem *other)
 
 ### Generate Optimization Problem from Instance Solution
 
-This method simply gets a ITSPSolution object and constructs a TSP object with all the information related.
-It returns a shared_ptr since this object will be used by several algorithms in MEA and none of them will own the object.
+This method simply gets a TSPInstance object and constructs a TSP object with all the information related.
+It returns a shared_ptr since this object will be used by several algorithms in EIG and none of them will own the object.
 
 ```cpp
-    /// @brief Generates a TSP problem with the information in the ITSPSolution
-    /// to be solved in the MEA by the algorithms in the portfolio.
+    /// @brief Generates a TSP problem with the information in the TSPInstance
+    /// to be solved in the EIG by the algorithms in the portfolio.
     /// @param instance
     /// @return
-    shared_ptr<TSP> genOptProblem(const ITSPSolution &instance) const override {
+    shared_ptr<TSP> genOptProblem(const TSPInstance &instance) const override {
         vector<coords> variables = instance.to_coords();
         if (instance.getVariables().size() != (unsigned int)this->numberOfVars) {
             string where = "instance.variables.size() != Problem inner dimension";
@@ -132,14 +132,14 @@ It returns a shared_ptr since this object will be used by several algorithms in 
 ```
 ### Create new solutions
 
-We define three methods to generate new solutions in the ITSPProblem. The first one, will create a vector of size maxSolution with ITSPSolution objects each of them representing a new TSP instance. Each ITSPSolution object is created by defining the number of variables (dimension) and a vector of randomly generated floats. Notice that this vector actually encodes a TSP instance representation where the coordinates (x, y) are stored in the even and odd positions of the vector respectively: [x0, y0, x1, y1, ..., xn-1, yn-1].
+We define three methods to generate new solutions in the TSPDomain. The first one, will create a vector of size maxSolution with TSPInstance objects each of them representing a new TSP instance. Each TSPInstance object is created by defining the number of variables (dimension) and a vector of randomly generated floats. Notice that this vector actually encodes a TSP instance representation where the coordinates (x, y) are stored in the even and odd positions of the vector respectively: [x0, y0, x1, y1, ..., xn-1, yn-1].
 
 The other two methods will generate only one solution at a time following a similar procedure.
 
 ```cpp
-    vector<ITSPSolution> createSolutions(
+    vector<TSPInstance> createSolutions(
         const int &maxSolutions) const override {
-        vector<ITSPSolution> solutions;
+        vector<TSPInstance> solutions;
         solutions.reserve(maxSolutions);
         for (int i = 0; i < maxSolutions; i++) {
             vector<float> vars;
@@ -149,7 +149,7 @@ The other two methods will generate only one solution at a time following a simi
                     PseudoRandom::randDouble(this->lowerLimit, this->upperLimit);
                 vars.push_back(x);
             }
-            ITSPSolution solution(this->numberOfVars);
+            TSPInstance solution(this->numberOfVars);
             solution.setVariables(vars);
             solutions.push_back(solution);
         }
@@ -158,22 +158,22 @@ The other two methods will generate only one solution at a time following a simi
 
     /// @brief Creates a single solution (TSP instance)
     /// @return
-    ITSPSolution createSolution() const override;
+    TSPInstance createSolution() const override;
 
     /// \deprecated @brief Creates a single solution (TSP instance)
     /// @param engine
     /// @return
-    ITSPSolution createSolution(ParallelPRNG &engine) const override;
+    TSPInstance createSolution(ParallelPRNG &engine) const override;
 ```
 
 ### Evaluation and feature calculation
 
-MEAProblem are not meant to use the evaluation methods. However, we must define them anyway since they are subclasses of Problem. From Problem, we must define **evaluate** and
-**evaluateConstraints** to do nothing. From MEAProblem, we must implement **beforeEvaluation** and **afterEvaluation**. This methods are quite useful to perform some ad-hoc computation to the ITSPSolutions before and after trying to solve the instances
-with the algorithms from the portfolio (MEA).
+AbstractDomain are not meant to use the evaluation methods. However, we must define them anyway since they are subclasses of Problem. From Problem, we must define **evaluate** and
+**evaluateConstraints** to do nothing. From AbstractDomain, we must implement **beforeEvaluation** and **afterEvaluation**. This methods are quite useful to perform some ad-hoc computation to the TSPInstances before and after trying to solve the instances
+with the algorithms from the portfolio (EIG).
 
-For ITSPSolutions, we do not need to perform any calculation before evaluating the instances. However, after evaluting the instances we should compute the set of features
-for each of them. This is done in the **afterEvaluation** method. For each instance (ITSPSolution) we use some private methods and DBSCAN to calculate the set of features that we mentioned at the begining of this tutorial:
+For TSPInstances, we do not need to perform any calculation before evaluating the instances. However, after evaluting the instances we should compute the set of features
+for each of them. This is done in the **afterEvaluation** method. For each instance (TSPInstance) we use some private methods and DBSCAN to calculate the set of features that we mentioned at the begining of this tutorial:
 
 1. Size of the instance (number of cities).
 2. Mean distance between cities.
@@ -182,19 +182,19 @@ for each of them. This is done in the **afterEvaluation** method. For each insta
 5. The radius of the instance.
 6. From the DBSCAN algorithm: the cluster ratio, cluster radius and fraction of distance.
 
-Then, we create a vector of floats called features with all these values and use the **setFeatures** method of the ITSPSolution class to update the features.
+Then, we create a vector of floats called features with all these values and use the **setFeatures** method of the TSPInstance class to update the features.
 
 ```cpp
-    void evaluate(ITSPSolution &solution) const override { return; };
+    void evaluate(TSPInstance &solution) const override { return; };
 
-    bool evaluateConstraints(ITSPSolution &solution) const override {
+    bool evaluateConstraints(TSPInstance &solution) const override {
         return true;
     };
 
-    void beforeEvaluation(vector<ITSPSolution> &solutions) override { return; };
+    void beforeEvaluation(vector<TSPInstance> &solutions) override { return; };
 
-    void afterEvaluation(vector<ITSPSolution> &solutions) override {
-        for (ITSPSolution &solution : solutions) {
+    void afterEvaluation(vector<TSPInstance> &solutions) override {
+        for (TSPInstance &solution : solutions) {
         vector vars = solution.getVariables();
         auto distances = this->genOptProblem(solution)->getDistances();
         auto points = solution.to_coords();
@@ -252,7 +252,7 @@ Finally, the getters and setters for this class are as simple as other optimizat
 
     /// @brief Get the problem name
     /// @return a String with the information
-    string getName() const override { return "ITSPProblem"; }
+    string getName() const override { return "TSPDomain"; }
 
     /// @brief Get the upper limit of the ith dimension (default = 1000)
     /// @param i
@@ -311,12 +311,12 @@ Finally, the getters and setters for this class are as simple as other optimizat
 ```
 
 
-## Create the solution for the instance generation problem: ITSPSolution class.
+## Create the solution for the instance generation problem: TSPInstance class.
 
-A ITSPSolution object is solution for the ITSPProblem class. This class is considerably simpler than the previous one. Here we only need to define some constructors, getters and setters and some representation methods. As before, the code shown here must be splitted appropiately in a ITSPSolution.h and a ITSPSolution.cpp files.
+A TSPInstance object is solution for the TSPDomain class. This class is considerably simpler than the previous one. Here we only need to define some constructors, getters and setters and some representation methods. As before, the code shown here must be splitted appropiately in a TSPInstance.h and a TSPInstance.cpp files.
 
 ```cpp
-#include <dignea/mea/MEASolution.h>
+#include <dignea/generator/AbstractInstance.h>
 
 #include <utility>
 
@@ -325,13 +325,13 @@ using coords = std::pair<float, float>;
 /**
  * @brief Instance Traveling Salesman Problem Solution.
  * Class which represents the solution for the Instance Traveling Salesman
- * Problem (ITSPProblem).
+ * Problem (TSPDomain).
  *  The variables inherited from the Solution<float, float> class contains the
  * pairs of coordinates for each point (city) in the instance.
  *      [(x0,y0), ..., (xn-1,yn-1)] in a single array.
  *
  */
-class ITSPSolution : public MEASolution<float, float> {
+class TSPInstance : public AbstractInstance<float, float> {
    public:
    // TODO
 };
@@ -339,29 +339,29 @@ class ITSPSolution : public MEASolution<float, float> {
 
 ### Constructors
 
-The constructors for ITSPSolution class only need to call the super MEASolution constructor to build the object. 
+The constructors for TSPInstance class only need to call the super AbstractInstance constructor to build the object. 
 Notice that passing nVars = 100 will create a 50 cities since the number of variables must be divided by two to contain the coordinates for each city.
 
 ```cpp
-    ITSPSolution::ITSPSolution() : MEASolution<float, float>() {}
+    TSPInstance::TSPInstance() : AbstractInstance<float, float>() {}
 
-    ITSPSolution::ITSPSolution(const int &nVars)
-        : MEASolution<float, float>(nVars, 1, 0) {}
+    TSPInstance::TSPInstance(const int &nVars)
+        : AbstractInstance<float, float>(nVars, 1, 0) {}
 
-    ITSPSolution::ITSPSolution(const ITSPSolution &solution)
-        : MEASolution<float, float>(solution) {}
+    TSPInstance::TSPInstance(const TSPInstance &solution)
+        : AbstractInstance<float, float>(solution) {}
 
-    ITSPSolution::ITSPSolution(const ITSPSolution *solution)
-        : MEASolution<float, float>(solution) {}
+    TSPInstance::TSPInstance(const TSPInstance *solution)
+        : AbstractInstance<float, float>(solution) {}
 ```
 
 ### Representation 
 
-Finally, the following methods will get a new representation of the TSP instance (a ITSPSolution object) in JSON, in a instance file format or as a vector of coordinates.
+Finally, the following methods will get a new representation of the TSP instance (a TSPInstance object) in JSON, in a instance file format or as a vector of coordinates.
 
 to_json will create and fill a new json object with all the necessary information. We must include the features, the number of variables, the coords of the cities (so we can construct the actual TSP instance later), the diversity, fitness and biasedFitness values.
 
-to_instance method is useful for generating the instance file of each ITSPSolution object. This is the method that InstPrinter uses to generate the files.
+to_instance method is useful for generating the instance file of each TSPInstance object. This is the method that InstPrinter uses to generate the files.
 
 ```cpp
     /// @brief Creates and returns a JSON object with the information from the

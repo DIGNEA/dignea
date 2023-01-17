@@ -1,7 +1,7 @@
 var classWeighted =
 [
-    [ "Weighted", "classWeighted.html#a6ae47dec66977ad073707cc8f9cdb6fc", null ],
-    [ "~Weighted", "classWeighted.html#a45dbb7c6cdbcfa48fc20d4a129e762a2", null ],
-    [ "computeFitness", "classWeighted.html#ab8f9345022d2799afe709b68ad71a6e1", null ],
-    [ "getFAndNRatios", "classWeighted.html#a691a1903af215d14dc0f31a2e728fe38", null ]
+    [ "Weighted", "classWeighted.html#aa1dd82663b2db8118202fbe3cc3b1bfd", null ],
+    [ "~Weighted", "classWeighted.html#a8bb870b0737bc47d8e636c0948fcc8b0", null ],
+    [ "computeFitness", "classWeighted.html#a11c17757a680f852e32c0320861ce442", null ],
+    [ "getFAndNRatios", "classWeighted.html#a7754d0dd77853d721c18ca2458336090", null ]
 ];

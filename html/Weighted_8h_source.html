@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dignea: include/dignea/mea/evaluations/Weighted.h Source File</title>
+<title>dignea: include/dignea/generator/evaluations/Weighted.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -111,22 +111,22 @@ $(document).ready(function(){initNavTree('Weighted_8h_source.html',''); initResi
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef DIGNEA_WEIGHTED_H</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define DIGNEA_WEIGHTED_H</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="MEASolution_8h.html">dignea/mea/MEASolution.h</a>&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;dignea/mea/evaluations/InstanceFitness.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="AbstractInstance_8h.html">dignea/generator/AbstractInstance.h</a>&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;dignea/generator/evaluations/InstanceFitness.h&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;dignea/searches/NoveltySearch.h&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;tuple&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> MEASolution&gt;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> AbstractInstance&gt;</div>
 <div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classWeighted.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classWeighted.html">Weighted</a> {</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;   <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classWeighted.html#a6ae47dec66977ad073707cc8f9cdb6fc">Weighted</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> &amp;fRatio, <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;dRatio);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classWeighted.html#aa1dd82663b2db8118202fbe3cc3b1bfd">Weighted</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> &amp;fRatio, <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;dRatio);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classWeighted.html">Weighted</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classWeighted.html#ab8f9345022d2799afe709b68ad71a6e1">computeFitness</a>(vector&lt;MEASolution&gt; &amp;solutions);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classWeighted.html#a11c17757a680f852e32c0320861ce442">computeFitness</a>(vector&lt;AbstractInstance&gt; &amp;solutions);</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classWeighted.html#a691a1903af215d14dc0f31a2e728fe38">   36</a></span>&#160;    std::tuple&lt;float, float&gt; <a class="code" href="classWeighted.html#a691a1903af215d14dc0f31a2e728fe38">getFAndNRatios</a>() {</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classWeighted.html#a7754d0dd77853d721c18ca2458336090">   36</a></span>&#160;    std::tuple&lt;float, float&gt; <a class="code" href="classWeighted.html#a7754d0dd77853d721c18ca2458336090">getFAndNRatios</a>() {</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">return</span> {fitnessRatio, diversityRatio};</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
@@ -136,12 +136,12 @@ $(document).ready(function(){initNavTree('Weighted_8h_source.html',''); initResi
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    unique_ptr&lt;InstanceFitness&gt; fitnessFunc;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> MEASolution&gt;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classWeighted.html#a6ae47dec66977ad073707cc8f9cdb6fc">   55</a></span>&#160;<a class="code" href="classWeighted.html#a6ae47dec66977ad073707cc8f9cdb6fc">Weighted&lt;MEASolution&gt;::Weighted</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> &amp;fRatio, <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;dRatio)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> AbstractInstance&gt;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classWeighted.html#aa1dd82663b2db8118202fbe3cc3b1bfd">   55</a></span>&#160;<a class="code" href="classWeighted.html#aa1dd82663b2db8118202fbe3cc3b1bfd">Weighted&lt;AbstractInstance&gt;::Weighted</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> &amp;fRatio, <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;dRatio)</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    : fitnessRatio(fRatio), diversityRatio(dRatio) {}</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> MEASolution&gt;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classWeighted.html#ab8f9345022d2799afe709b68ad71a6e1">   68</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classWeighted.html#ab8f9345022d2799afe709b68ad71a6e1">Weighted&lt;MEASolution&gt;::computeFitness</a>(vector&lt;MEASolution&gt; &amp;solutions) {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> AbstractInstance&gt;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classWeighted.html#a11c17757a680f852e32c0320861ce442">   68</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classWeighted.html#a11c17757a680f852e32c0320861ce442">Weighted&lt;AbstractInstance&gt;::computeFitness</a>(vector&lt;AbstractInstance&gt; &amp;solutions) {</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; solutions.size(); i++) {</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">auto</span> fullFitness = solutions[i].getBiasedFitness() * fitnessRatio +</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                           solutions[i].getDiversity() * diversityRatio;</div>
@@ -156,17 +156,17 @@ $(document).ready(function(){initNavTree('Weighted_8h_source.html',''); initResi
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// DIGNEA_WEIGHTED_H</span></div>
-<div class="ttc" id="aMEASolution_8h_html"><div class="ttname"><a href="MEASolution_8h.html">MEASolution.h</a></div></div>
-<div class="ttc" id="aclassWeighted_html"><div class="ttname"><a href="classWeighted.html">Weighted</a></div><div class="ttdoc">Weighted Fitness Function used from evaluating the instances in MEA. This functions performs a linear...</div><div class="ttdef"><b>Definition:</b> Weighted.h:22</div></div>
-<div class="ttc" id="aclassWeighted_html_a691a1903af215d14dc0f31a2e728fe38"><div class="ttname"><a href="classWeighted.html#a691a1903af215d14dc0f31a2e728fe38">Weighted::getFAndNRatios</a></div><div class="ttdeci">std::tuple&lt; float, float &gt; getFAndNRatios()</div><div class="ttdoc">Returns a tuple containing the fitness and novelty ratio in that order!</div><div class="ttdef"><b>Definition:</b> Weighted.h:36</div></div>
-<div class="ttc" id="aclassWeighted_html_a6ae47dec66977ad073707cc8f9cdb6fc"><div class="ttname"><a href="classWeighted.html#a6ae47dec66977ad073707cc8f9cdb6fc">Weighted::Weighted</a></div><div class="ttdeci">Weighted(const float &amp;fRatio, const float &amp;dRatio)</div><div class="ttdoc">Construct a new Weighted object with the corresponding fitness ratio and diversity ratio.</div><div class="ttdef"><b>Definition:</b> Weighted.h:55</div></div>
-<div class="ttc" id="aclassWeighted_html_ab8f9345022d2799afe709b68ad71a6e1"><div class="ttname"><a href="classWeighted.html#ab8f9345022d2799afe709b68ad71a6e1">Weighted::computeFitness</a></div><div class="ttdeci">void computeFitness(vector&lt; MEASolution &gt; &amp;solutions)</div><div class="ttdoc">Computes the actual fitness of the solutions based on the fitness pre-defined in the instances and th...</div><div class="ttdef"><b>Definition:</b> Weighted.h:68</div></div>
+<div class="ttc" id="aAbstractInstance_8h_html"><div class="ttname"><a href="AbstractInstance_8h.html">AbstractInstance.h</a></div></div>
+<div class="ttc" id="aclassWeighted_html"><div class="ttname"><a href="classWeighted.html">Weighted</a></div><div class="ttdoc">Weighted Fitness Function used from evaluating the instances in EIG. This functions performs a linear...</div><div class="ttdef"><b>Definition:</b> Weighted.h:22</div></div>
+<div class="ttc" id="aclassWeighted_html_a11c17757a680f852e32c0320861ce442"><div class="ttname"><a href="classWeighted.html#a11c17757a680f852e32c0320861ce442">Weighted::computeFitness</a></div><div class="ttdeci">void computeFitness(vector&lt; AbstractInstance &gt; &amp;solutions)</div><div class="ttdoc">Computes the actual fitness of the solutions based on the fitness pre-defined in the instances and th...</div><div class="ttdef"><b>Definition:</b> Weighted.h:68</div></div>
+<div class="ttc" id="aclassWeighted_html_a7754d0dd77853d721c18ca2458336090"><div class="ttname"><a href="classWeighted.html#a7754d0dd77853d721c18ca2458336090">Weighted::getFAndNRatios</a></div><div class="ttdeci">std::tuple&lt; float, float &gt; getFAndNRatios()</div><div class="ttdoc">Returns a tuple containing the fitness and novelty ratio in that order!</div><div class="ttdef"><b>Definition:</b> Weighted.h:36</div></div>
+<div class="ttc" id="aclassWeighted_html_aa1dd82663b2db8118202fbe3cc3b1bfd"><div class="ttname"><a href="classWeighted.html#aa1dd82663b2db8118202fbe3cc3b1bfd">Weighted::Weighted</a></div><div class="ttdeci">Weighted(const float &amp;fRatio, const float &amp;dRatio)</div><div class="ttdoc">Construct a new Weighted object with the corresponding fitness ratio and diversity ratio.</div><div class="ttdef"><b>Definition:</b> Weighted.h:55</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e8417ee66512ce15d622ae0cef64f429.html">dignea</a></li><li class="navelem"><a class="el" href="dir_b5f616c5a903250a76e6f1de9f3375ae.html">mea</a></li><li class="navelem"><a class="el" href="dir_99e13d8da7cde1225262333003b26101.html">evaluations</a></li><li class="navelem"><b>Weighted.h</b></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e8417ee66512ce15d622ae0cef64f429.html">dignea</a></li><li class="navelem"><a class="el" href="dir_04d00c510f49a3ef02b3f65bb19453e4.html">generator</a></li><li class="navelem"><a class="el" href="dir_74524aea935c3815ea4d5b1f6f35059b.html">evaluations</a></li><li class="navelem"><b>Weighted.h</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

@@ -109,14 +109,14 @@ $(document).ready(function(){initNavTree('Heuristic_8h_source.html',''); initRes
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DIGNEA_HEURISTIC_H</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DIGNEA_HEURISTIC_H</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="AbstractEA_8h.html">dignea/core/AbstractEA.h</a>&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="AbstractSolver_8h.html">dignea/core/AbstractSolver.h</a>&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using</span> json = nlohmann::json;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> S&gt;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classHeuristic.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classHeuristic.html">Heuristic</a> : <span class="keyword">public</span> <a class="code" href="classAbstractEA.html">AbstractEA</a>&lt;S&gt; {</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classHeuristic.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classHeuristic.html">Heuristic</a> : <span class="keyword">public</span> <a class="code" href="classAbstractSolver.html">AbstractSolver</a>&lt;S&gt; {</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;   <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classHeuristic.html">Heuristic</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
@@ -162,10 +162,10 @@ $(document).ready(function(){initNavTree('Heuristic_8h_source.html',''); initRes
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">return</span> data;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// DIGNEA_HEURISTIC_H</span></div>
-<div class="ttc" id="aAbstractEA_8h_html"><div class="ttname"><a href="AbstractEA_8h.html">AbstractEA.h</a></div></div>
-<div class="ttc" id="aclassAbstractEA_html"><div class="ttname"><a href="classAbstractEA.html">AbstractEA</a></div><div class="ttdoc">Class to define an Abstract Evolutionary Algorithm. This is the base skeleton for future extensions.</div><div class="ttdef"><b>Definition:</b> AbstractEA.h:42</div></div>
+<div class="ttc" id="aAbstractSolver_8h_html"><div class="ttname"><a href="AbstractSolver_8h.html">AbstractSolver.h</a></div></div>
+<div class="ttc" id="aclassAbstractSolver_html"><div class="ttname"><a href="classAbstractSolver.html">AbstractSolver</a></div><div class="ttdoc">Class to define an Abstract Evolutionary Algorithm. This is the base skeleton for future extensions.</div><div class="ttdef"><b>Definition:</b> AbstractSolver.h:42</div></div>
 <div class="ttc" id="aclassFront_html"><div class="ttname"><a href="classFront.html">Front</a></div><div class="ttdoc">Front class which stores the final results of an EA execution.</div><div class="ttdef"><b>Definition:</b> Front.h:22</div></div>
-<div class="ttc" id="aclassHeuristic_html"><div class="ttname"><a href="classHeuristic.html">Heuristic</a></div><div class="ttdoc">Base heuristic class. This is the skeleton for future heuristic implementations. Extends AbstractEA f...</div><div class="ttdef"><b>Definition:</b> Heuristic.h:19</div></div>
+<div class="ttc" id="aclassHeuristic_html"><div class="ttname"><a href="classHeuristic.html">Heuristic</a></div><div class="ttdoc">Base heuristic class. This is the skeleton for future heuristic implementations. Extends AbstractSolv...</div><div class="ttdef"><b>Definition:</b> Heuristic.h:19</div></div>
 <div class="ttc" id="aclassHeuristic_html_a086529b8e07a62d698476eadde1c1bb8"><div class="ttname"><a href="classHeuristic.html#a086529b8e07a62d698476eadde1c1bb8">Heuristic::to_json</a></div><div class="ttdeci">virtual json to_json() const</div><div class="ttdoc">Returns the JSON representation of the Heuristic.</div><div class="ttdef"><b>Definition:</b> Heuristic.h:99</div></div>
 <div class="ttc" id="aclassHeuristic_html_a182edcc2be6578e7126f8f8a9cb8c015"><div class="ttname"><a href="classHeuristic.html#a182edcc2be6578e7126f8f8a9cb8c015">Heuristic::updateEvolution</a></div><div class="ttdeci">virtual void updateEvolution(const int &amp;checkpoint, vector&lt; S &gt; &amp;)</div><div class="ttdoc">Not implemented. Nothing really to do here.</div><div class="ttdef"><b>Definition:</b> Heuristic.h:79</div></div>
 <div class="ttc" id="aclassHeuristic_html_a290ff449f1c3a1eae8a92a2963ab4ec6"><div class="ttname"><a href="classHeuristic.html#a290ff449f1c3a1eae8a92a2963ab4ec6">Heuristic::createInitialPopulation</a></div><div class="ttdeci">virtual void createInitialPopulation()</div><div class="ttdoc">Not implemented. Nothing really to do here.</div><div class="ttdef"><b>Definition:</b> Heuristic.h:61</div></div>

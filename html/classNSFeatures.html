@@ -110,7 +110,7 @@ $(document).ready(function(){initNavTree('classNSFeatures.html',''); initResizab
 </div><!--header-->
 <div class="contents">
 
-<p>Class to represent the Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> Algorithm This specialization is exclusively for <a class="el" href="classMEA.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (MEA). This algorithm uses a Weig...">MEA</a> because it uses the vector of features of each generated instance to compute novelty.  
+<p>Class to represent the Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> Algorithm This specialization is exclusively for <a class="el" href="classEIG.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (EIG). This algorithm uses a Weig...">EIG</a> because it uses the vector of features of each generated instance to compute novelty.  
  <a href="classNSFeatures.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="NSFeatures_8h_source.html">NSFeatures.h</a>&gt;</code></p>
@@ -122,7 +122,7 @@ Inheritance diagram for NSFeatures&lt; MS &gt;:</div>
   <map id="NSFeatures_3C_20MS_20_3E_map" name="NSFeatures_3C_20MS_20_3E_map">
 <area href="classNoveltySearch.html" alt="NoveltySearch&lt; MS, float &gt;" shape="rect" coords="0,56,172,80"/>
 <area href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ..." alt="Search&lt; S &gt;" shape="rect" coords="0,0,172,24"/>
-<area href="classNSPerformance.html" title="Class to represent the Novelty Search Algorithm This specialization is exclusively for MEA because it..." alt="NSPerformance&lt; MS &gt;" shape="rect" coords="0,168,172,192"/>
+<area href="classNSPerformance.html" title="Class to represent the Novelty Search Algorithm This specialization is exclusively for EIG because it..." alt="NSPerformance&lt; MS &gt;" shape="rect" coords="0,168,172,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -222,10 +222,10 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename MS&gt;<br />
 class NSFeatures&lt; MS &gt;</h3>
 
-<p>Class to represent the Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> Algorithm This specialization is exclusively for <a class="el" href="classMEA.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (MEA). This algorithm uses a Weig...">MEA</a> because it uses the vector of features of each generated instance to compute novelty. </p>
+<p>Class to represent the Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> Algorithm This specialization is exclusively for <a class="el" href="classEIG.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (EIG). This algorithm uses a Weig...">EIG</a> because it uses the vector of features of each generated instance to compute novelty. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">MS</td><td>--&gt; <a class="el" href="classMEASolution.html" title="Solution for a Instance Generation Problem used in the MEA. This is a solution for MEAProblem.">MEASolution</a> type </td></tr>
+    <tr><td class="paramname">MS</td><td>--&gt; <a class="el" href="classAbstractInstance.html" title="Solution for a Instance Generation Problem used in the EIG. This is a solution for AbstractDomain.">AbstractInstance</a> type </td></tr>
   </table>
   </dd>
 </dl>

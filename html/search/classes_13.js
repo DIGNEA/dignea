@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['weighted_445',['Weighted',['../classWeighted.html',1,'']]]
+  ['weighted_444',['Weighted',['../classWeighted.html',1,'']]]
 ];
