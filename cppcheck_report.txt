@@ -202,31 +202,31 @@ test/evaluators/ParallelOMPEvaluatorTest.cpp:22:53: note: Shadowed declaration
 test/evaluators/ParallelOMPEvaluatorTest.cpp:56:61: note: Shadow variable
             unique_ptr<ParallelOMPEvaluator<FloatSolution>> evaluator =
                                                             ^
-test/mea/solutions/IKPSolutionTest.cpp:118:21: style: Local variable 'solution' shadows outer variable [shadowVariable]
-        IKPSolution solution = knp->createSolution();
-                    ^
-test/mea/solutions/IKPSolutionTest.cpp:21:17: note: Shadowed declaration
-    IKPSolution solution(nVars);
-                ^
-test/mea/solutions/IKPSolutionTest.cpp:118:21: note: Shadow variable
-        IKPSolution solution = knp->createSolution();
-                    ^
-test/mea/solutions/ITSPSolutionTest.cpp:108:13: style: Local variable 'nVars' shadows outer variable [shadowVariable]
+test/generator/instances/KPInstanceTest.cpp:118:20: style: Local variable 'solution' shadows outer variable [shadowVariable]
+        KPInstance solution = knp->createSolution();
+                   ^
+test/generator/instances/KPInstanceTest.cpp:21:16: note: Shadowed declaration
+    KPInstance solution(nVars);
+               ^
+test/generator/instances/KPInstanceTest.cpp:118:20: note: Shadow variable
+        KPInstance solution = knp->createSolution();
+                   ^
+test/generator/instances/TSPInstanceTest.cpp:108:13: style: Local variable 'nVars' shadows outer variable [shadowVariable]
         int nVars = 16;
             ^
-test/mea/solutions/ITSPSolutionTest.cpp:24:9: note: Shadowed declaration
+test/generator/instances/TSPInstanceTest.cpp:24:9: note: Shadowed declaration
     int nVars = 30;
         ^
-test/mea/solutions/ITSPSolutionTest.cpp:108:13: note: Shadow variable
+test/generator/instances/TSPInstanceTest.cpp:108:13: note: Shadow variable
         int nVars = 16;
             ^
-test/mea/solutions/ITSPSolutionTest.cpp:127:13: style: Local variable 'nVars' shadows outer variable [shadowVariable]
+test/generator/instances/TSPInstanceTest.cpp:127:13: style: Local variable 'nVars' shadows outer variable [shadowVariable]
         int nVars = 16;
             ^
-test/mea/solutions/ITSPSolutionTest.cpp:24:9: note: Shadowed declaration
+test/generator/instances/TSPInstanceTest.cpp:24:9: note: Shadowed declaration
     int nVars = 30;
         ^
-test/mea/solutions/ITSPSolutionTest.cpp:127:13: note: Shadow variable
+test/generator/instances/TSPInstanceTest.cpp:127:13: note: Shadow variable
         int nVars = 16;
             ^
 test/mutations/SwapMutationTest.cpp:44:35: style: Local variable 'i' shadows outer variable [shadowVariable]
