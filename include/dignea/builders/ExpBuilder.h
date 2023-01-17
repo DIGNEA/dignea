@@ -18,7 +18,7 @@
  */
 template <class S>
 class ExpBuilder {
-    using EA = unique_ptr<AbstractEA<S>>;
+    using EA = unique_ptr<AbstractSolver<S>>;
 
    public:
     static ExpBuilder<S> create(const string &experimentName);
@@ -121,7 +121,7 @@ ExpBuilder<S> &ExpBuilder<S>::toSolve(unique_ptr<Problem<S>> prob) {
  */
 template <class S>
 ExpBuilder<S> &ExpBuilder<S>::usingAlgorithm(
-    unique_ptr<AbstractEA<S>> algorithm) {
+    unique_ptr<AbstractSolver<S>> algorithm) {
     this->evolutionaryAlgorithm = move(algorithm);
     return *this;
 }

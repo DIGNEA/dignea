@@ -6,7 +6,7 @@
 #define DIGNEA_NSPERFORMANCE_H
 
 #include <dignea/distances/Distance.h>
-#include <dignea/mea/MEASolution.h>
+#include <dignea/generator/AbstractInstance.h>
 #include <dignea/searches/NSFeatures.h>
 #include <dignea/utilities/KNN.h>
 #include <dignea/utilities/Sorter.h>
@@ -22,11 +22,11 @@ using vars = vector<float>;
 
 /**
  * @brief Class to represent the Novelty Search Algorithm
- * This specialization is exclusively for MEA because it uses
+ * This specialization is exclusively for EIG because it uses
  * the vector of performance of each algorithm over the generated instance to
  * compute novelty
  *
- * @tparam MS --> MEASolution type
+ * @tparam MS --> AbstractInstance type
  */
 template <typename MS>
 class NSPerformance : public NSFeatures<MS> {

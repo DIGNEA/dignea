@@ -24,8 +24,8 @@
 #    include <unistd.h>
 
 #  else
-#    ifndef WIN32_LEAN_AND_MEAN
-#      define WIN32_LEAN_AND_MEAN
+#    ifndef WIN32_LEAN_AND_EIGN
+#      define WIN32_LEAN_AND_EIGN
 #    endif
 #    include <io.h>
 

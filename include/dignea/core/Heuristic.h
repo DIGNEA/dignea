@@ -3,7 +3,7 @@
 #ifndef DIGNEA_HEURISTIC_H
 #define DIGNEA_HEURISTIC_H
 
-#include <dignea/core/AbstractEA.h>
+#include <dignea/core/AbstractSolver.h>
 
 #include <nlohmann/json.hpp>
 
@@ -11,12 +11,12 @@ using json = nlohmann::json;
 
 /**
  * @brief Base heuristic class. This is the skeleton for future heuristic
- * implementations. Extends AbstractEA for compatibility with MEA.
+ * implementations. Extends AbstractSolver for compatibility with EIG.
  *
  * @tparam S Type of the solutions
  */
 template <class S>
-class Heuristic : public AbstractEA<S> {
+class Heuristic : public AbstractSolver<S> {
    public:
     Heuristic() = default;
 

@@ -2,14 +2,14 @@
 
 #include <dignea/distances/Euclidean.h>
 #include <dignea/factories/NSFactory.h>
-#include <dignea/mea/solutions/IKPSolution.h>
+#include <dignea/generator/instances/KPInstance.h>
 #include <dignea/types/SolutionTypes.h>
 
 #include <nlohmann/json.hpp>
 
 #include <catch2/catch_all.hpp>
 
-using IS = IKPSolution;
+using IS = KPInstance;
 using json = nlohmann::json;
 
 TEST_CASE("NSFactory Tests", "[NSFactory]") {

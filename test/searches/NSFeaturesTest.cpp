@@ -3,8 +3,8 @@
 //
 
 #include <dignea/distances/Euclidean.h>
-#include <dignea/mea/problems/IKPProblem.h>
-#include <dignea/mea/solutions/IKPSolution.h>
+#include <dignea/generator/domains/KPDomain.h>
+#include <dignea/generator/instances/KPInstance.h>
 #include <dignea/searches/NSFeatures.h>
 
 #include <algorithm>
@@ -17,13 +17,13 @@
 TEST_CASE("NSFeatures Searchs tests", "[NSFeatures Search]") {
     auto dist = make_unique<Euclidean<float>>();
     auto iters{100};
-    auto ns = make_unique<NSFeatures<IKPSolution>>(move(dist), iters);
+    auto ns = make_unique<NSFeatures<KPInstance>>(move(dist), iters);
 
-    SECTION("Check NS-MEA run") {
+    SECTION("Check NS-EIG run") {
         auto pSize = 50;
         auto nVars = 100;
-        auto problem = make_unique<IKPProblem>(nVars);
-        auto inds = std::vector<IKPSolution>{};
+        auto problem = make_unique<KPDomain>(nVars);
+        auto inds = std::vector<KPInstance>{};
         for (int i = 0; i < pSize; i++) {
             inds.push_back(problem->createSolution());
         }
@@ -34,13 +34,13 @@ TEST_CASE("NSFeatures Searchs tests", "[NSFeatures Search]") {
         }
     }
 
-    SECTION("Check NS-MEA inserts") {
-        auto solution = IKPSolution{100};
+    SECTION("Check NS-EIG inserts") {
+        auto solution = KPInstance{100};
         ns->insertIntoArchive(solution);
         REQUIRE(1 == ns->getArchive().size());
     }
 
-    SECTION("Check NS-MEA to_json") {
+    SECTION("Check NS-EIG to_json") {
         using json = nlohmann::json;
         json data = ns->to_json();
         REQUIRE("NSFeatures" == data["name"]);

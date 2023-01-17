@@ -11,7 +11,7 @@
 #ifndef DIGNEA_EXPERIMENT_H
 #define DIGNEA_EXPERIMENT_H
 
-#include <dignea/core/AbstractEA.h>
+#include <dignea/core/AbstractSolver.h>
 #include <dignea/core/Front.h>
 #include <dignea/core/Problem.h>
 #include <dignea/core/Solution.h>
@@ -36,7 +36,7 @@ template <class S>
 class Experiment {
    public:
     Experiment(shared_ptr<Problem<S>> problem,
-               unique_ptr<AbstractEA<S>> algorithm, const std::string &expName,
+               unique_ptr<AbstractSolver<S>> algorithm, const std::string &expName,
                const int &reps);
 
     virtual ~Experiment() = default;
@@ -53,12 +53,12 @@ class Experiment {
 
     /// @brief Get a raw pointer to the algorithm used in the experiment
     /// @return Pointer to algorithm
-    AbstractEA<S> *getAlgorithm() const { return algorithm.get(); }
+    AbstractSolver<S> *getAlgorithm() const { return algorithm.get(); }
 
     /// @brief Set the algorithm to solve the problem. Uses a unique_ptr and
     /// takes ownership of the pointer.
     /// @param algo
-    void setAlgorithm(unique_ptr<AbstractEA<S>> algo) {
+    void setAlgorithm(unique_ptr<AbstractSolver<S>> algo) {
         this->algorithm = move(algo);
     }
 
@@ -93,7 +93,7 @@ class Experiment {
    private:
     shared_ptr<Problem<S>>
         problemToSolve; /*!< Problem to solve in the experiment */
-    unique_ptr<AbstractEA<S>>
+    unique_ptr<AbstractSolver<S>>
         algorithm;                  /*!< Algorithm used in the experiment */
     string name;                    /*!< Name of the experiment*/
     int repetitions;                /*!< Repetitions to perform */
@@ -112,7 +112,7 @@ class Experiment {
  */
 template <class S>
 Experiment<S>::Experiment(shared_ptr<Problem<S>> problem,
-                          unique_ptr<AbstractEA<S>> algorithm,
+                          unique_ptr<AbstractSolver<S>> algorithm,
                           const std::string &expName, const int &reps)
     : name(expName), repetitions(0) {
     this->problemToSolve = problem;

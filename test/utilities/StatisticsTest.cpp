@@ -12,7 +12,7 @@
 TEST_CASE("Statistics tests", "[Statistics]") {
     const int dimension = 100;
     const int nObjs = 1;
-    SECTION("Compute the MEAN of individual") {
+    SECTION("Compute the EIGN of individual") {
         FloatSolution solution(dimension, nObjs);
         int begin = 0;
         vector<float> vars(dimension, 0.0);
@@ -44,7 +44,7 @@ TEST_CASE("Statistics tests", "[Statistics]") {
         REQUIRE(expected == standardDev(mean, solution.getVariables()));
     }
 
-    SECTION("Compute the MEAN of vector of floats") {
+    SECTION("Compute the EIGN of vector of floats") {
         int begin = 0;
         vector<float> vars(dimension, 0.0);
         std::generate(vars.begin(), vars.end(), [&]() { return ++begin; });
@@ -70,7 +70,7 @@ TEST_CASE("Statistics tests", "[Statistics]") {
         REQUIRE(expected == standardDev(mean, vars));
     }
     //----
-    SECTION("Compute the MEAN of matrix of floats") {
+    SECTION("Compute the EIGN of matrix of floats") {
         vector<vector<float>> matrix{{1, 2, 3}, {4, 5, 6}, {6, 6, 6}};
         double expected = 39.0 / 9.0;
         REQUIRE(expected == mean(matrix));

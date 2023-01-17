@@ -9,8 +9,8 @@
  *
  */
 #include <dignea/crossovers/OrderCrossover.h>
-#include <dignea/mea/problems/ITSPProblem.h>
-#include <dignea/mea/solutions/ITSPSolution.h>
+#include <dignea/generator/domains/TSPDomain.h>
+#include <dignea/generator/instances/TSPInstance.h>
 #include <dignea/problems/TSP.h>
 
 #include <vector>
@@ -65,8 +65,8 @@ TEST_CASE("Testing OrderCrossover", "[OrderCrossover]") {
 
     SECTION("Testing OrderCrossover with random solutions") {
         auto dim = 500;  // 250 cities
-        auto etsp = make_unique<ITSPProblem>(dim);
-        auto etsps{ITSPSolution(dim)};
+        auto etsp = make_unique<TSPDomain>(dim);
+        auto etsps{TSPInstance(dim)};
         auto tsp = etsp->genOptProblem(etsps);
         auto solution1 = tsp->createSolution();
         auto solution2 = tsp->createSolution();

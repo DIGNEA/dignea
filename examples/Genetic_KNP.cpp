@@ -13,7 +13,7 @@
 #include <dignea/algorithms/singleobjective/ParallelGeneticAlgorithm.h>
 #include <dignea/builders/ExpBuilder.h>
 #include <dignea/builders/ParGABuilder.h>
-#include <dignea/core/AbstractEA.h>
+#include <dignea/core/AbstractSolver.h>
 #include <dignea/mutations/UniformOneMutation.h>
 #include <dignea/problems/KPNR.h>
 #include <dignea/utilities/printer/JSONPrinter.h>
@@ -27,7 +27,7 @@ namespace fs = std::filesystem;
 
 using S = BoolFloatSolution;
 using P = Problem<S>;
-using EA = AbstractEA<S>;
+using EA = AbstractSolver<S>;
 using GA = ParallelGeneticAlgorithm<S>;
 using ParGA = ParallelGeneticAlgorithm<S>;
 
@@ -56,7 +56,7 @@ int main(int argc, char **argv) {
             std::cout << "Instance: " << entry.path() << std::endl;
 
             // Probabilidad de cruce como 1 / N.
-            double mutRate = 1.0 / 100;  // El instanceSize en MEA es N * 2
+            double mutRate = 1.0 / 100;  // El instanceSize en EIG es N * 2
             string outputFile =
                 "GA_" + to_string(crossRate) + entry.path().filename().string();
             unique_ptr<ParGA> algorithm = ParGABuilder<S>::create()

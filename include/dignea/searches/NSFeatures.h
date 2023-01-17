@@ -6,7 +6,7 @@
 #define DIGNEA_NSFEATURES_H
 
 #include <dignea/distances/Distance.h>
-#include <dignea/mea/MEASolution.h>
+#include <dignea/generator/AbstractInstance.h>
 #include <dignea/searches/NoveltySearch.h>
 #include <dignea/utilities/KNN.h>
 #include <dignea/utilities/Sorter.h>
@@ -24,10 +24,10 @@ using vars = vector<float>;
 
 /**
  * @brief Class to represent the Novelty Search Algorithm
- * This specialization is exclusively for MEA because it uses
+ * This specialization is exclusively for EIG because it uses
  * the vector of features of each generated instance to compute novelty
  *
- * @tparam MS --> MEASolution type
+ * @tparam MS --> AbstractInstance type
  */
 template <typename MS>
 class NSFeatures : public NoveltySearch<MS, float> {
@@ -138,4 +138,4 @@ json NSFeatures<MS>::to_json() {
     return data;
 }
 
-#endif  // DIGNEA_NOVELTYMEA_H
+#endif  // DIGNEA_NOVELTYEIG_H

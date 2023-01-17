@@ -3,8 +3,8 @@
 //
 
 #include <dignea/distances/Euclidean.h>
-#include <dignea/mea/problems/IKPProblem.h>
-#include <dignea/mea/solutions/IKPSolution.h>
+#include <dignea/generator/domains/KPDomain.h>
+#include <dignea/generator/instances/KPInstance.h>
 #include <dignea/searches/NoveltySearch.h>
 
 #include <algorithm>
@@ -17,14 +17,14 @@
 TEST_CASE("Novelty Searchs tests", "[Novelty Search]") {
     auto dist = make_unique<Euclidean<float>>();
     auto iters{100};
-    auto ns = make_unique<NoveltySearch<IKPSolution, float>>(move(dist), iters);
+    auto ns = make_unique<NoveltySearch<KPInstance, float>>(move(dist), iters);
 
     SECTION("Check NS run") {
         auto pSize = 50;
         auto defaultNS = -1.0f;
         auto nVars = 100;
-        auto problem = make_unique<IKPProblem>(nVars);
-        auto inds = std::vector<IKPSolution>{};
+        auto problem = make_unique<KPDomain>(nVars);
+        auto inds = std::vector<KPInstance>{};
         for (int i = 0; i < pSize; i++) {
             auto s = problem->createSolution();
             s.setDiversity(defaultNS);
@@ -40,10 +40,10 @@ TEST_CASE("Novelty Searchs tests", "[Novelty Search]") {
     SECTION("NS can insert into archive") {
         auto pSize = 50;
         auto nVars = 100;
-        auto problem = make_unique<IKPProblem>(nVars);
-        auto inds = std::vector<IKPSolution>{};
+        auto problem = make_unique<KPDomain>(nVars);
+        auto inds = std::vector<KPInstance>{};
         for (int i = 0; i < pSize; i++) {
-            IKPSolution ind = problem->createSolution();
+            KPInstance ind = problem->createSolution();
             ns->insertIntoArchive(ind);
             inds.push_back(ind);
         }
@@ -51,7 +51,7 @@ TEST_CASE("Novelty Searchs tests", "[Novelty Search]") {
     }
 
     SECTION("Check NS compare final throws") {
-        vector<IKPSolution> emptySols(0);
+        vector<KPInstance> emptySols(0);
 
         // TODO  REQUIRE_THROWS(ns->cmpFinals(emptySols));
     }

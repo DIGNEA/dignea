@@ -168,7 +168,7 @@ neighMatrix<T> KNN::run(const vector<S> &population, Distance<T> *metric,
 
 /**
  * @brief Runs the KNN algorithm with a matrix of float values. This method is
- * defined to be used by MEA and NSFeatures and the matrix defines the features
+ * defined to be used by EIG and NSFeatures and the matrix defines the features
  * of all individuals in the population (instances).
  *
  * @tparam T

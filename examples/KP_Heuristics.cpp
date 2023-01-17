@@ -12,11 +12,11 @@
 #include <dignea/algorithms/kp_heuristics/MPW.h>
 #include <dignea/algorithms/kp_heuristics/MaP.h>
 #include <dignea/algorithms/kp_heuristics/MiW.h>
-#include <dignea/builders/MEABuilder.h>
-#include <dignea/mea/MEA.h>
-#include <dignea/mea/evaluations/EasyInstances.h>
-#include <dignea/mea/problems/IKPProblem.h>
-#include <dignea/mea/solutions/IKPSolution.h>
+#include <dignea/builders/EIGBuilder.h>
+#include <dignea/generator/EIG.h>
+#include <dignea/generator/evaluations/EasyInstances.h>
+#include <dignea/generator/domains/KPDomain.h>
+#include <dignea/generator/instances/KPInstance.h>
 #include <dignea/problems/KPNR.h>
 #include <dignea/types/SolutionTypes.h>
 #include <dignea/utilities/printer/InstPrinter.h>
@@ -34,9 +34,9 @@ namespace fs = std::filesystem;
 using namespace fmt;
 
 using OS = BoolFloatSolution;
-using IS = IKPSolution;
-using IP = IKPProblem;
-using EA = AbstractEA<OS>;
+using IS = KPInstance;
+using IP = KPDomain;
+using EA = AbstractSolver<OS>;
 
 /**
  * @brief Performs an experiment to generate KP instances using heuristics.
@@ -52,7 +52,7 @@ void runExperiment(vector<unique_ptr<EA>> &algs, const float &fRatio = 0.85,
     // KP instances parameters
     auto upperBound = 1000;
     auto instanceSize = 100;
-    // MEA Parameters
+    // EIG Parameters
     auto generations = 500;
     auto reps = 10;
     auto meaCXRate = 0.8;
@@ -71,20 +71,20 @@ void runExperiment(vector<unique_ptr<EA>> &algs, const float &fRatio = 0.85,
     auto k = 3;
     auto distance = make_unique<Euclidean<float>>();
 
-    auto instKP = make_unique<IKPProblem>(instanceSize, nInstances, 1,
+    auto instKP = make_unique<KPDomain>(instanceSize, nInstances, 1,
                                           upperBound, 1, upperBound);
 
     string outFile = format(
-        "MEA_KP_{}_generations_{}_PS_NSFeatures_K_3_threshold_3_"
+        "EIG_KP_{}_generations_{}_PS_NSFeatures_K_3_threshold_3_"
         "Euclidean_WS_{}_{}_Inst_N_{}_Target_{}_rep_{}",
         generations, nInstances, fRatio, nRatio, instanceSize, targetName,
         repetition);
 
     std::cout << "Filename is: " << outFile << std::endl;
 
-    // Building the MEA
-    unique_ptr<MEA<IP, IS, KPNR, OS>> mea =
-        MEABuilder<IP, IS, KPNR, OS>::create()
+    // Building the EIG
+    unique_ptr<EIG<IP, IS, KPNR, OS>> generator =
+        EIGBuilder<IP, IS, KPNR, OS>::create()
             .toSolve(move(instKP))
             .with()
             .weights(fRatio, nRatio)
@@ -100,13 +100,13 @@ void runExperiment(vector<unique_ptr<EA>> &algs, const float &fRatio = 0.85,
             .withCrossRate(meaCXRate)
             .populationOf(nInstances)
             .runDuring(generations);
-    mea->run();
+    generator->run();
 
     // Priting the results
     auto printer = make_unique<JSONPrinter>(outFile);
-    auto meaData = mea->to_json();
-    auto problemData = mea->getInstanceProblem()->to_json();
-    auto front = mea->getResults();
+    auto meaData = generator->to_json();
+    auto problemData = generator->getInstanceProblem()->to_json();
+    auto front = generator->getResults();
     auto frontData = front.to_json();
     printer->append("algorithm", meaData);
     printer->append("problem", problemData);

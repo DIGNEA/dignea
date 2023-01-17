@@ -71,7 +71,7 @@ set(SOURCE_FILES
         include/dignea/algorithms/singleobjective/GenerationalGA.h
         include/dignea/algorithms/singleobjective/ParallelGeneticAlgorithm.h
         include/dignea/algorithms/singleobjective/SteadyGA.h
-        include/dignea/core/AbstractEA.h
+        include/dignea/core/AbstractSolver.h
         include/dignea/core/AbstractGA.h
         include/dignea/core/Crossover.h
         include/dignea/core/Mutation.h
@@ -111,19 +111,19 @@ set(SOURCE_FILES
         include/dignea/utilities/random/PseudoRandom.h
         include/dignea/utilities/random/RandomGenerator.h
         include/dignea/utilities/Sorter.h
-        include/dignea/mea/solutions/IKPSolution.h
-        src/dignea/mea/solutions/IKPSolution.cpp
-        src/dignea/mea/problems/IKPProblem.cpp
-        include/dignea/mea/problems/IKPProblem.h
-        include/dignea/mea/MEAProblem.h
-        include/dignea/mea/MEA.h
+        include/dignea/generator/instances/KPInstance.h
+        src/dignea/generator/instances/KPInstance.cpp
+        src/dignea/generator/domains/KPDomain.cpp
+        include/dignea/generator/domains/KPDomain.h
+        include/dignea/generator/AbstractDomain.h
+        include/dignea/generator/EIG.h
         include/dignea/core/Front.h
         include/dignea/metrics/Metric.h
         include/dignea/metrics/AverageFitness.h
         include/dignea/metrics/BestFitness.h
         include/dignea/metrics/WorstFitness.h
-        include/dignea/mea/evaluations/InstanceFitness.h
-        include/dignea/mea/evaluations/EasyInstances.h
+        include/dignea/generator/evaluations/InstanceFitness.h
+        include/dignea/generator/evaluations/EasyInstances.h
         include/dignea/types/GATypes.h
         include/dignea/types/CrossoverTypes.h
         include/dignea/types/MutationTypes.h
@@ -131,7 +131,7 @@ set(SOURCE_FILES
         include/dignea/types/EvaluatorTypes.h
         include/dignea/types/SelectionTypes.h
         include/dignea/types/GATypes.h
-        src/dignea/mea/evaluations/EasyInstances.cpp
+        src/dignea/generator/evaluations/EasyInstances.cpp
         include/dignea/core/Replacement.h
         include/dignea/replacements/EGenerational.h
         include/dignea/replacements/ReplaceWorst.h
@@ -144,7 +144,7 @@ set(SOURCE_FILES
         include/dignea/distances/Manhattan.h
         include/dignea/searches/NoveltySearch.h
         include/dignea/searches/Search.h
-        include/dignea/mea/evaluations/Weighted.h
+        include/dignea/generator/evaluations/Weighted.h
         include/dignea/types/ReplacementTypes.h
         include/dignea/factories/CXFactory.h
         include/dignea/factories/MutFactory.h
@@ -153,17 +153,17 @@ set(SOURCE_FILES
         include/dignea/builders/GABuilder.h
         include/dignea/builders/ParGABuilder.h
         include/dignea/utilities/Statistics.h
-        include/dignea/builders/MEABuilder.h
+        include/dignea/builders/EIGBuilder.h
         include/dignea/problems/Rastrigin.h
         src/dignea/problems/Rastrigin.cpp
         include/dignea/algorithms/singleobjective/SimulatedAnnealing.h
         include/dignea/searches/NSFeatures.h
         include/dignea/searches/NSPerformance.h
         include/dignea/problems/TSP.h
-        include/dignea/mea/problems/ITSPProblem.h
-        include/dignea/mea/solutions/ITSPSolution.h
-        src/dignea/mea/problems/ITSPProblem.cpp
-        src/dignea/mea/solutions/ITSPSolution.cpp
+        include/dignea/generator/domains/TSPDomain.h
+        include/dignea/generator/instances/TSPInstance.h
+        src/dignea/generator/domains/TSPDomain.cpp
+        src/dignea/generator/instances/TSPInstance.cpp
 
         include/dignea/core/Heuristic.h
         include/dignea/algorithms/kp_heuristics/Default.h
@@ -236,12 +236,12 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR INCLUDE_TESTS)
                 test/algorithms/singleobjective/ParallelGeneticAlgorithmTest.cpp
                 include/dignea/utilities/random/ParallelPRNG.h
                 src/dignea/utilities/random/ParallelPRNG.cpp
-                src/dignea/mea/problems/IKPProblem.cpp
-                include/dignea/mea/problems/IKPProblem.h
-                include/dignea/mea/MEAProblem.h
-                test/mea/solutions/IKPSolutionTest.cpp
-                test/mea/problems/IKPProblemTest.cpp
-                include/dignea/mea/MEA.h
+                src/dignea/generator/domains/KPDomain.cpp
+                include/dignea/generator/domains/KPDomain.h
+                include/dignea/generator/AbstractDomain.h
+                test/generator/instances/KPInstanceTest.cpp
+                test/generator/domains/KPDomainTest.cpp
+                include/dignea/generator/EIG.h
                 test/problems/KPNRTest.cpp
                 test/problems/SampleProblemTest.cpp
                 src/dignea/utilities/printer/JSONPrinter.cpp
@@ -250,18 +250,18 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR INCLUDE_TESTS)
                 test/metrics/BestFitnessTest.cpp
                 test/metrics/WorstFitnessTest.cpp
                 test/experiment/ExperimentTest.cpp
-                test/mea/evaluations/EasyInstancesTest.cpp
-                test/mea/evaluations/WeightedTest.cpp
-                test/mea/MEATest.cpp
-                src/dignea/mea/evaluations/EasyInstances.cpp
+                test/generator/evaluations/EasyInstancesTest.cpp
+                test/generator/evaluations/WeightedTest.cpp
+                test/generator/EIGTest.cpp
+                src/dignea/generator/evaluations/EasyInstances.cpp
                 test/evolution/EvolutionTest.cpp
                 test/evolution/AvgEvolutionTest.cpp
                 test/experiment/AnalysisDataTest.cpp
                 include/dignea/core/Diversity.h
                 include/dignea/distances/Hamming.h
                 test/diversity/distances/HammingTest.cpp
-                include/dignea/mea/MEASolution.h
-                test/mea/MEASolutionTest.cpp
+                include/dignea/generator/AbstractInstance.h
+                test/generator/AbstractInstanceTest.cpp
                 test/core/DiversityTest.cpp
                 include/dignea/utilities/KNN.h
                 test/utilities/KNNTest.cpp
@@ -273,7 +273,7 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR INCLUDE_TESTS)
                 test/diversity/distances/ManhattanTest.cpp
                 include/dignea/searches/NoveltySearch.h
                 include/dignea/searches/Search.h
-                include/dignea/mea/evaluations/Weighted.h
+                include/dignea/generator/evaluations/Weighted.h
                 include/dignea/factories/CXFactory.h
                 test/factories/CXFactoryTest.cpp
                 include/dignea/factories/MutFactory.h
@@ -289,8 +289,8 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR INCLUDE_TESTS)
                 test/builders/ExpBuilderTest.cpp
                 include/dignea/utilities/Statistics.h
                 test/utilities/StatisticsTest.cpp
-                include/dignea/builders/MEABuilder.h
-                test/builders/MEABuilderTest.cpp
+                include/dignea/builders/EIGBuilder.h
+                test/builders/EIGBuilderTest.cpp
                 include/dignea/problems/Rastrigin.h
                 src/dignea/problems/Rastrigin.cpp
                 test/problems/RastriginTest.cpp
@@ -311,12 +311,12 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR INCLUDE_TESTS)
 
                 # test/mutations/ScrambleMutationTest.cpp
                 test/crossovers/OrderCrossoverTest.cpp
-                include/dignea/mea/problems/ITSPProblem.h
-                include/dignea/mea/solutions/ITSPSolution.h
-                src/dignea/mea/problems/ITSPProblem.cpp
-                src/dignea/mea/solutions/ITSPSolution.cpp
-                test/mea/solutions/ITSPSolutionTest.cpp
-                test/mea/problems/ITSPProblemTest.cpp
+                include/dignea/generator/domains/TSPDomain.h
+                include/dignea/generator/instances/TSPInstance.h
+                src/dignea/generator/domains/TSPDomain.cpp
+                src/dignea/generator/instances/TSPInstance.cpp
+                test/generator/instances/TSPInstanceTest.cpp
+                test/generator/domains/TSPDomainTest.cpp
                 test/searches/NoveltySearchTest.cpp
 
                 include/dignea/core/Heuristic.h
@@ -419,39 +419,39 @@ if(INCLUDE_EXAMPLES)
         # nlohmann_json::nlohmann_json
         # fmt::fmt-header-only
         # OpenMP::OpenMP_CXX)
-        add_executable(MEAKPExperiment
-                examples/MEAKPExperiment.cpp
-                src/dignea/mea/evaluations/EasyInstances.cpp
-                src/dignea/mea/problems/IKPProblem.cpp
-                src/dignea/mea/solutions/IKPSolution.cpp
+        add_executable(EIGKPExperiment
+                examples/EIGKPExperiment.cpp
+                src/dignea/generator/evaluations/EasyInstances.cpp
+                src/dignea/generator/domains/KPDomain.cpp
+                src/dignea/generator/instances/KPInstance.cpp
                 src/dignea/problems/KPNR.cpp
                 src/dignea/problems/KP.cpp
                 include/dignea/utilities/KNN.h
         )
-        target_include_directories(MEAKPExperiment PRIVATE
+        target_include_directories(EIGKPExperiment PRIVATE
                 include
                 src
         )
-        target_link_libraries(MEAKPExperiment
+        target_link_libraries(EIGKPExperiment
                 ${PROJECT_NAME}
                 nlohmann_json::nlohmann_json
                 fmt::fmt-header-only
                 OpenMP::OpenMP_CXX
         )
 
-        # add_executable(MEATSPExperiment
-        # examples/MEATSPExperiment.cpp
-        # src/dignea/mea/evaluations/EasyInstances.cpp
-        # src/dignea/mea/problems/ITSPProblem.cpp
-        # src/dignea/mea/solutions/ITSPSolution.cpp
+        # add_executable(EIGTSPExperiment
+        # examples/EIGTSPExperiment.cpp
+        # src/dignea/generator/evaluations/EasyInstances.cpp
+        # src/dignea/generator/domains/TSPDomain.cpp
+        # src/dignea/generator/instances/TSPInstance.cpp
         # src/dignea/problems/TSP.cpp
         # include/dignea/utilities/KNN.h
         # )
-        # target_include_directories(MEATSPExperiment PRIVATE
+        # target_include_directories(EIGTSPExperiment PRIVATE
         # include
         # src
         # )
-        # target_link_libraries(MEATSPExperiment
+        # target_link_libraries(EIGTSPExperiment
         # ${PROJECT_NAME}
         # nlohmann_json::nlohmann_json
         # fmt::fmt-header-only

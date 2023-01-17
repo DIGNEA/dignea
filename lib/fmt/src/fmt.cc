@@ -8,8 +8,8 @@ module;
 #if !defined(_CRT_SECURE_NO_WARNINGS) && defined(_MSC_VER)
 #  define _CRT_SECURE_NO_WARNINGS
 #endif
-#if !defined(WIN32_LEAN_AND_MEAN) && defined(_WIN32)
-#  define WIN32_LEAN_AND_MEAN
+#if !defined(WIN32_LEAN_AND_EIGN) && defined(_WIN32)
+#  define WIN32_LEAN_AND_EIGN
 #endif
 
 #include <algorithm>
