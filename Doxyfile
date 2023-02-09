@@ -836,7 +836,8 @@ INPUT                  = include \
                          docs/markdown/01_0_mea_example.md \
                          docs/markdown/01_create_algorithm.md \
                          docs/markdown/02_create_problem.md \
-                         docs/markdown/03_create_instance_generator.md 
+                         docs/markdown/03_create_instance_generator.md  \
+                         docs/markdown/04_docker_usage.md
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
