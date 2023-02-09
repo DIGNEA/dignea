@@ -88,6 +88,20 @@ var NAVTREE =
         [ "Representation", "md_docs_markdown_03_create_instance_generator.html#autotoc_md48", null ]
       ] ]
     ] ],
+    [ "DIGNEA through Docker containers", "md_docs_markdown_04_docker_usage.html", [
+      [ "How to download DIGNEA from Docker Hub", "md_docs_markdown_04_docker_usage.html#autotoc_md50", null ],
+      [ "How to run a container with DIGNEA", "md_docs_markdown_04_docker_usage.html#autotoc_md51", null ],
+      [ "How to build DIGNEA", "md_docs_markdown_04_docker_usage.html#autotoc_md52", null ],
+      [ "Examples and tests", "md_docs_markdown_04_docker_usage.html#autotoc_md53", [
+        [ "Test suite", "md_docs_markdown_04_docker_usage.html#autotoc_md54", null ],
+        [ "Generating KP instances", "md_docs_markdown_04_docker_usage.html#autotoc_md55", [
+          [ "KP_HEURISTICS", "md_docs_markdown_04_docker_usage.html#autotoc_md56", null ],
+          [ "EIGKPExperiment:", "md_docs_markdown_04_docker_usage.html#autotoc_md57", null ]
+        ] ],
+        [ "Solving KP instances with DIGNEA", "md_docs_markdown_04_docker_usage.html#autotoc_md58", null ],
+        [ "How to copy files from the container to your local machine", "md_docs_markdown_04_docker_usage.html#autotoc_md59", null ]
+      ] ]
+    ] ],
     [ "Deprecated List", "deprecated.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
