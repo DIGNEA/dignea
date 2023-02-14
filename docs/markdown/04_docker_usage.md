@@ -7,7 +7,7 @@
 For downloading the DIGNEA image from Docker Hub you just simply run the following command:
 
 ```bash
-docker push amarrerd/dignea
+docker pull dignea/dignea
 ```
 
 This will download the image and then you will be able to run a container with it. It is important that you have a working installation of Docker in your computer as well as checking that Docker is actually runing on your computer while you execute the previous command. If you need information on how to install Docker, please check the official documentation [here](https://docs.docker.com/engine/install/).
@@ -17,7 +17,7 @@ This will download the image and then you will be able to run a container with i
 Once you have the DIGNEA image in your local computer, the next step is to run a container with it. For this purpose, the only command you need is the following. This command will create the container using the DIGNEA image and it will locate you inside the "/dignea" directory.
 
 ```bash
-docker run -it amarrerd/dignea:latest
+docker run -it dignea/dignea:latest
 ```
 
 Running the "ls" command inside should give you an overview of the directories in dignea. Something like: 
@@ -403,14 +403,14 @@ The expected parameters for *Genetic_KNP* are:
 
 ### How to copy files from the container to your local machine
 
-Once you run your experiments inside the Docker container, you can use the commands ```docker container ls``` and ```docker container cp``` to copy the results to your local machine.
+Once you run your experiments inside the Docker container, you can use the commands ```docker container ls``` and ```docker container cp``` to copy the results to your local machine. Note that it is mandatory that the container is running. Otherwise, it is not going to be possible to transfer files. Also, remember that the files generated inside a container will disappear once you stop the container.
 
 First, you must known the ID of the container to get the files. This information is given by ```docker container ls```. For instance, runing the previous command will tell us that the ID for the container we just created is 4c8b3b99fb5a. We can also use part of it like 4c8b.
 
 ```bash
 $ docker container ls
 CONTAINER ID   IMAGE                    COMMAND   CREATED         STATUS         PORTS     NAMES
-4c8b3b99fb5a   amarrerd/dignea:latest   "bash"    5 minutes ago   Up 5 minutes             bold_gates
+4c8b3b99fb5a   dignea/dignea:latest   "bash"    5 minutes ago   Up 5 minutes             bold_gates
 ```
 
 Now that we know the container ID we can copy files to our local machine using ```docker container cp```. For example, let's copy the README.md inside the "dignea/" directory to our current directory in the local machine. For that, you should run the following:

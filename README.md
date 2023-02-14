@@ -32,7 +32,8 @@ sudo cmake --build path-to-dignea-build-dir/ --config Release --target install -
 
 ### Docker Image
 
-For your convinience, you can find a Docker image of the building enviroment plus the source code of DIGNEA published at Docker Hub [here](https://hub.docker.com/repository/docker/amarrerd/dignea/general). The source code of DIGNEA can be found inside the /dignea directory once the container is up and running. To build the tool just run the build script.
+"For your convinience, you can find a Docker image of the building enviroment plus the source code of DIGNEA published at Docker Hub [here](https://hub.docker.com/repository/docker/dignea/dignea/general). Follow the steps described in the tutorial provided to start using the software"
+
 
 ### Dependencies
 
