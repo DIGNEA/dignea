@@ -122,12 +122,12 @@ $(document).ready(function(){initNavTree('md_docs_markdown_04_docker_usage.html'
 <div class="textblock"><h1><a class="anchor" id="autotoc_md50"></a>
 How to download DIGNEA from Docker Hub</h1>
 <p>For downloading the DIGNEA image from Docker Hub you just simply run the following command:</p>
-<div class="fragment"><div class="line">docker push amarrerd/dignea</div>
+<div class="fragment"><div class="line">docker pull dignea/dignea</div>
 </div><!-- fragment --><p>This will download the image and then you will be able to run a container with it. It is important that you have a working installation of Docker in your computer as well as checking that Docker is actually runing on your computer while you execute the previous command. If you need information on how to install Docker, please check the official documentation <a href="https://docs.docker.com/engine/install/">here</a>.</p>
 <h1><a class="anchor" id="autotoc_md51"></a>
 How to run a container with DIGNEA</h1>
 <p>Once you have the DIGNEA image in your local computer, the next step is to run a container with it. For this purpose, the only command you need is the following. This command will create the container using the DIGNEA image and it will locate you inside the "/dignea" directory.</p>
-<div class="fragment"><div class="line">docker run -it amarrerd/dignea:latest</div>
+<div class="fragment"><div class="line">docker run -it dignea/dignea:latest</div>
 </div><!-- fragment --><p>Running the "ls" command inside should give you an overview of the directories in dignea. Something like:</p>
 <div class="fragment"><div class="line">root@4c8b3b99fb5a:/dignea# ls</div>
 <div class="line">CMakeLists.txt      Dockerfile  License.md  bin    build.sh     cppcheck_report.txt  docs      include  scripts  test</div>
@@ -484,11 +484,11 @@ Solving KP instances with DIGNEA</h2>
 <div class="line">}</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md59"></a>
 How to copy files from the container to your local machine</h2>
-<p>Once you run your experiments inside the Docker container, you can use the commands <code>docker container ls</code> and <code>docker container cp</code> to copy the results to your local machine.</p>
+<p>Once you run your experiments inside the Docker container, you can use the commands <code>docker container ls</code> and <code>docker container cp</code> to copy the results to your local machine. Note that it is mandatory that the container is running. Otherwise, it is not going to be possible to transfer files. Also, remember that the files generated inside a container will disappear once you stop the container.</p>
 <p>First, you must known the ID of the container to get the files. This information is given by <code>docker container ls</code>. For instance, runing the previous command will tell us that the ID for the container we just created is 4c8b3b99fb5a. We can also use part of it like 4c8b.</p>
 <div class="fragment"><div class="line">$ docker container ls</div>
 <div class="line">CONTAINER ID   IMAGE                    COMMAND   CREATED         STATUS         PORTS     NAMES</div>
-<div class="line">4c8b3b99fb5a   amarrerd/dignea:latest   &quot;bash&quot;    5 minutes ago   Up 5 minutes             bold_gates</div>
+<div class="line">4c8b3b99fb5a   dignea/dignea:latest   &quot;bash&quot;    5 minutes ago   Up 5 minutes             bold_gates</div>
 </div><!-- fragment --><p>Now that we know the container ID we can copy files to our local machine using <code>docker container cp</code>. For example, let's copy the README.md inside the "dignea/" directory to our current directory in the local machine. For that, you should run the following:</p>
 <div class="fragment"><div class="line">myusername@mymachinename:~/current_directory$ docker cp 4c8b:/dignea/README.md .</div>
 </div><!-- fragment --><p>Also, to copy files from your local machine TO the container you could use:</p>
