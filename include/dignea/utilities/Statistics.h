@@ -18,6 +18,27 @@
 #include <vector>
 
 /**
+ * @brief Normalizes a vector. Returns a copy of the vector normalized
+ *
+ * @tparam T
+ * @param vec
+ * @return std::vector<T>
+ */
+template <typename T>
+std::vector<float> normalize(vector<T> &vec) {
+    if (vec.empty()) return vector<float>(vec.begin(), vec.end());
+
+    std::vector<float> normalized = vector<float>(vec.begin(), vec.end());
+    T magnitude = std::sqrt(std::inner_product(
+        normalized.begin(), normalized.end(), normalized.begin(), 0.0f));
+    if (magnitude != 0.0f) {
+        std::transform(normalized.begin(), normalized.end(), normalized.begin(),
+                       [magnitude](float value) { return value / magnitude; });
+    }
+    return normalized;
+}
+
+/**
  * @brief Computes the mean value of the given vector. Returns NaN if empty
  * @tparam T
  * @param variables
@@ -124,4 +145,27 @@ double standardDev(double mean, const vector<vector<T>> &matrix) {
     return std::sqrt(variance(mean, matrix));
 }
 
+/**
+ * @brief Computes the median of the vector. Returns NaN if empty.
+ *
+ * @tparam T
+ * @param v
+ * @return T
+ */
+template <typename T>
+T median(const std::vector<T> &v) {
+    if (v.empty()) {
+        return std::numeric_limits<int>::quiet_NaN();
+    }
+    std::vector<T> sorted = v;
+    size_t n = sorted.size() / 2;
+    std::nth_element(sorted.begin(), sorted.begin() + n, sorted.end());
+    int vn = sorted[n];
+    if (sorted.size() % 2 == 1) {
+        return vn;
+    } else {
+        std::nth_element(sorted.begin(), sorted.begin() + n - 1, sorted.end());
+        return 0.5 * (vn + v[n - 1]);
+    }
+}
 #endif  // DIGNEA_STATISTICS_H

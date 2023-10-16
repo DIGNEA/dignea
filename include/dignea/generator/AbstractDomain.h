@@ -30,7 +30,7 @@ class AbstractDomain : public Problem<InstSolution> {
     AbstractDomain();
 
     AbstractDomain(const int &numberOfVars, const int &numberOfObjectives,
-               const int &nCons);
+                   const int &nCons);
 
     virtual ~AbstractDomain() = default;
 
@@ -43,6 +43,18 @@ class AbstractDomain : public Problem<InstSolution> {
      */
     virtual shared_ptr<OptProblem> genOptProblem(
         const InstSolution &instance) const = 0;
+
+    /**
+     * @brief Returns the optimization direction for each objective in the
+     * problem. It returns Minimize or Maximize accordingly. This method must be
+     * implemented in the subclasses.
+     *
+     * @param i Dimension to check
+     * @return Minimize or Maximize constants.
+     */
+    virtual int getOptimizationDirection(const int i) const {
+        return Maximize;
+    };
 
     /**
      * @brief Generates and returns a vector of InstSolutions. Instances of the
@@ -71,18 +83,19 @@ class AbstractDomain : public Problem<InstSolution> {
 };
 
 /**
- * @brief Construct a new AbstractDomain<OptProblem, InstSolution>::AbstractDomain
- * object
+ * @brief Construct a new AbstractDomain<OptProblem,
+ * InstSolution>::AbstractDomain object
  *
  * @tparam OptSolution Solution type of the optimisation problem.
  * @tparam InstSolution Solution type of the EIG problem.
  */
 template <typename OptProblem, typename InstSolution>
-AbstractDomain<OptProblem, InstSolution>::AbstractDomain() : Problem<InstSolution>() {}
+AbstractDomain<OptProblem, InstSolution>::AbstractDomain()
+    : Problem<InstSolution>(), internalDimension(-1) {}
 
 /**
- * @brief Construct a new AbstractDomain<OptProblem, InstSolution>::AbstractDomain
- * object
+ * @brief Construct a new AbstractDomain<OptProblem,
+ * InstSolution>::AbstractDomain object
  *
  * @tparam OptSolution Solution type of the optimisation problem.
  * @tparam InstSolution Solution type of the EIG problem.
@@ -93,9 +106,9 @@ AbstractDomain<OptProblem, InstSolution>::AbstractDomain() : Problem<InstSolutio
  * @param nCons Integer representing the number of constraints of the solution
  */
 template <typename OptProblem, typename InstSolution>
-AbstractDomain<OptProblem, InstSolution>::AbstractDomain(const int &numberOfVars,
-                                                 const int &numberOfObjectives,
-                                                 const int &nCons)
-    : Problem<InstSolution>(numberOfVars, numberOfObjectives, nCons) {}
+AbstractDomain<OptProblem, InstSolution>::AbstractDomain(
+    const int &numberOfVars, const int &numberOfObjectives, const int &nCons)
+    : Problem<InstSolution>(numberOfVars, numberOfObjectives, nCons),
+      internalDimension(-1) {}
 
 #endif  // DIGNEA_EIGPROBLEM_H

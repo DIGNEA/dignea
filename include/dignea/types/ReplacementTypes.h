@@ -7,11 +7,6 @@
 
 using namespace std;
 
-namespace ReplacementTypes {
-using ReplacementT = int;
-const ReplacementT GENERATIONAL = 0;
-const ReplacementT REP_WORST = 1;
-const ReplacementT FIRST_IMPRO = 2;
-}  // namespace ReplacementTypes
+enum class ReplacementTypes { Generational, FirstImprove, ReplaceWorst };
 
 #endif

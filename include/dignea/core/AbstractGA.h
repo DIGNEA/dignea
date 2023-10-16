@@ -23,19 +23,19 @@
 #include <memory>
 #include <vector>
 
-#include "AbstractSolver.h"
+#include "AbstractEA.h"
 
 using namespace std;
 
 /**
  * @brief Class to represent an Abstract Genetic Algorithm.
  * Base skeleton is defined here, to extend in particular versions of GAs.
- * This class extends AbstractSolver. Use this class to create your own version of
+ * This class extends AbstractEA. Use this class to create your own version of
  * GAs.
  * @tparam S Type of individual in the population.
  */
 template <class S>
-class AbstractGA : public AbstractSolver<S> {
+class AbstractGA : public AbstractEA<S> {
    public:
     AbstractGA();
 
@@ -137,7 +137,7 @@ int AbstractGA<S>::DEFAULT_POPULATION_SIZE = 32;
  */
 template <class S>
 AbstractGA<S>::AbstractGA()
-    : AbstractSolver<S>(),
+    : AbstractEA<S>(),
       mutationRate(DEFAULT_MUTATION_RATE),
       crossRate(DEFAULT_CROSSOVER_RATE) {
     this->populationSize = DEFAULT_POPULATION_SIZE;
@@ -461,7 +461,7 @@ Front<S> AbstractGA<S>::getResults() const {
  */
 template <class S>
 json AbstractGA<S>::to_json() const {
-    json data = AbstractSolver<S>::to_json();
+    json data = AbstractEA<S>::to_json();
     if (mutation) data["mutation"] = this->mutation->getName();
     if (crossover) data["crossover"] = this->crossover->getName();
     if (selection) data["selection"] = this->selection->getName();

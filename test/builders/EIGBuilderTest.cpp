@@ -5,8 +5,8 @@
 #include <dignea/algorithms/singleobjective/ParallelGeneticAlgorithm.h>
 #include <dignea/builders/EIGBuilder.h>
 #include <dignea/builders/ParGABuilder.h>
-#include <dignea/generator/evaluations/EasyInstances.h>
 #include <dignea/generator/domains/KPDomain.h>
+#include <dignea/generator/evaluations/EasyInstances.h>
 #include <dignea/generator/instances/KPInstance.h>
 #include <dignea/problems/KPNR.h>
 #include <dignea/searches/NSFeatures.h>
@@ -21,7 +21,7 @@ TEST_CASE("EIGBuilder tests", "[EIGBuilder]") {
     using OP = KPNR;
     using IS = KPInstance;
     using IP = KPDomain;
-    using EA = AbstractSolver<OS>;
+    using EA = AbstractEA<OS>;
     const int maxEvals = 1e5;
     const int nInstances = 100;
     const int popSize = 32;
@@ -35,8 +35,8 @@ TEST_CASE("EIGBuilder tests", "[EIGBuilder]") {
     SECTION("Creates a EIG for KNP") {
         // configurations
         vector<unique_ptr<EA>> algorithms;
-        auto instKP = make_unique<KPDomain>(instanceSize, nInstances, 1,
-                                              upperBound, 1, upperBound);
+        auto instKP = make_unique<KPDomain>(instanceSize, 1, nInstances, 1,
+                                            upperBound, 1, upperBound);
         for (const float cRate : crossRates) {
             unique_ptr<ParallelGeneticAlgorithm<OS>> algorithm =
                 ParGABuilder<OS>::create()
@@ -56,14 +56,14 @@ TEST_CASE("EIGBuilder tests", "[EIGBuilder]") {
             make_unique<EasyInstances>();
 
         unique_ptr<EIG<IP, IS, OP, OS>> generator =
-            EIGBuilder<IP, IS, OP, OS>::create()
+            EIGBuilder<IP, IS, OP, OS>::create(GeneratorType::LinearScaled)
                 .toSolve(move(instKP))
                 .with()
                 .portfolio(algorithms)
                 .evalWith(move(easyEvaluator))
                 .repeating(reps)
                 .withSearch(NSType::Features, make_unique<Euclidean<float>>(),
-                            3.0, 15)
+                            3.0, 3.0, 15)
                 .with()
                 .crossover(CXType::Uniform)
                 .mutation(MutType::UniformOne)
@@ -75,7 +75,8 @@ TEST_CASE("EIGBuilder tests", "[EIGBuilder]") {
         REQUIRE(generator);
         REQUIRE(generator->getSelection()->getName() ==
                 "Binary Tournament Selection");
-        REQUIRE(generator->getCrossover()->getName() == "Uniform One Crossover");
+        REQUIRE(generator->getCrossover()->getName() ==
+                "Uniform One Crossover");
         REQUIRE(generator->getMutation()->getName() == "Uniform One Mutation");
         REQUIRE(generator->getPopulationSize() == nInstances);
         REQUIRE(generator->getGenerations() == nIterationsEIG);
@@ -88,8 +89,8 @@ TEST_CASE("EIGBuilder tests", "[EIGBuilder]") {
     SECTION("Throws exception if component is missing") {
         // configurations
         vector<unique_ptr<EA>> algorithms;
-        auto instKP = make_unique<KPDomain>(instanceSize, nInstances, 1,
-                                              upperBound, 1, upperBound);
+        auto instKP = make_unique<KPDomain>(instanceSize, 1, nInstances, 1,
+                                            upperBound, 1, upperBound);
         for (const float cRate : crossRates) {
             unique_ptr<ParallelGeneticAlgorithm<OS>> algorithm =
                 ParGABuilder<OS>::create()
@@ -108,17 +109,18 @@ TEST_CASE("EIGBuilder tests", "[EIGBuilder]") {
         unique_ptr<InstanceFitness> easyEvaluator =
             make_unique<EasyInstances>();
 
-        REQUIRE_THROWS(EIGBuilder<IP, IS, OP, OS>::create()
-                           .toSolve(move(instKP))
-                           .with()
-                           .crossover(CXType::Uniform)
-                           .selection(SelType::Binary)
-                           .withMutRate(mutationRate)
-                           .withCrossRate(meaCXRate)
-                           .populationOf(nInstances)
-                           .runDuring(nIterationsEIG)
-                           .
-                           operator unique_ptr<EIG<IP, IS, OP, OS>>());
+        REQUIRE_THROWS(
+            EIGBuilder<IP, IS, OP, OS>::create(GeneratorType::LinearScaled)
+                .toSolve(move(instKP))
+                .with()
+                .crossover(CXType::Uniform)
+                .selection(SelType::Binary)
+                .withMutRate(mutationRate)
+                .withCrossRate(meaCXRate)
+                .populationOf(nInstances)
+                .runDuring(nIterationsEIG)
+                .
+                operator unique_ptr<EIG<IP, IS, OP, OS>>());
     }
     std::cout.clear();
     std::cerr.clear();

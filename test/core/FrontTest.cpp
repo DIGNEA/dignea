@@ -3,6 +3,7 @@
 //
 
 #include <dignea/core/Front.h>
+#include <dignea/problems/DoubleSphere.h>
 #include <dignea/types/SolutionTypes.h>
 
 #include <vector>
@@ -55,9 +56,9 @@ TEST_CASE("Front tests", "[Front]") {
 
     SECTION("Adding a solution to the Front") {
         auto front = make_unique<Front<FloatSolution>>(solutions);
-        FloatSolution newSolution(nVars, nObjs, constraints);
+        FloatSolution newSolution(nVars, 1, constraints);
         newSolution.setVariables(vars);
-        newSolution.setObjectives(objs);
+        newSolution.setObjectives({10.0});
         newSolution.setFitness(100 * 1000.0);
         front->addSolution(newSolution);
         solutions.push_back(newSolution);

@@ -10,13 +10,19 @@
  *
  */
 
+#include <dignea/algorithms/kp_heuristics/Default.h>
+#include <dignea/algorithms/kp_heuristics/ExpKnap.h>
+#include <dignea/algorithms/kp_heuristics/MPW.h>
+#include <dignea/algorithms/kp_heuristics/MaP.h>
+#include <dignea/algorithms/kp_heuristics/MiW.h>
 #include <dignea/algorithms/singleobjective/ParallelGeneticAlgorithm.h>
 #include <dignea/builders/ExpBuilder.h>
 #include <dignea/builders/ParGABuilder.h>
-#include <dignea/core/AbstractSolver.h>
+#include <dignea/core/AbstractEA.h>
 #include <dignea/mutations/UniformOneMutation.h>
 #include <dignea/problems/KPNR.h>
 #include <dignea/utilities/printer/JSONPrinter.h>
+#include <fmt/core.h>
 
 #include <array>
 #include <filesystem>
@@ -27,7 +33,7 @@ namespace fs = std::filesystem;
 
 using S = BoolFloatSolution;
 using P = Problem<S>;
-using EA = AbstractSolver<S>;
+using EA = AbstractEA<S>;
 using GA = ParallelGeneticAlgorithm<S>;
 using ParGA = ParallelGeneticAlgorithm<S>;
 
@@ -40,8 +46,7 @@ int main(int argc, char **argv) {
         exit(EXIT_FAILURE);
     }
     // Parametros del experimento
-    auto repetitions = 10;
-    auto evaluation = 1e5;
+    auto evaluation = 1e4;
     auto cores = 32;
     string pathToInstance(argv[1]);
     string pathToResults(argv[2]);
@@ -56,9 +61,9 @@ int main(int argc, char **argv) {
             std::cout << "Instance: " << entry.path() << std::endl;
 
             // Probabilidad de cruce como 1 / N.
-            double mutRate = 1.0 / 100;  // El instanceSize en EIG es N * 2
-            string outputFile =
-                "GA_" + to_string(crossRate) + entry.path().filename().string();
+            double mutRate = 1.0 / 1000;  // El instanceSize en MEA es N * 2
+            string outputFile = "GA_" + fmt::format("{:.2f}", crossRate) + "_" +
+                                entry.path().filename().string();
             unique_ptr<ParGA> algorithm = ParGABuilder<S>::create()
                                               .usingCores(cores)
                                               .toSolve(move(problem))
@@ -72,16 +77,24 @@ int main(int argc, char **argv) {
                                               .populationOf(popsize)
                                               .runDuring(evaluation);
 
-            unique_ptr<Experiment<S>> experiment =
-                ExpBuilder<S>::create(outputFile)
-                    .saveResultsIn(pathToResults)
-                    .usingAlgorithm(move(algorithm))
-                    .toSolve(move(expProblem))
-                    .repeat(repetitions);
-            experiment->run();
-            json data = experiment->to_json();
-            auto printer = make_unique<JSONPrinter>("printer");
-            printer->print(outputFile, data);
+            algorithm->run();
+            std::cout << setw(2) << algorithm->getResults().to_json()
+                      << std::endl;
+            // unique_ptr<Experiment<S>> experiment =
+            //     ExpBuilder<S>::create(outputFile)
+            //         .saveResultsIn(pathToResults)
+            //         .usingAlgorithm(move(algorithm))
+            //         .toSolve(move(expProblem))
+            //         .repeat(repetitions);
+            // experiment->run();
+            // json data = experiment->to_json();
+            // auto printer = make_unique<JSONPrinter>("printer");
+            // printer->print(outputFile, data);
+
+            // unique_ptr<EA> heuristic = make_unique<ExpKnap>();
+            // heuristic->setProblem(problem.get());
+            // heuristic->run();
+            // std::cout << "OK" << std::endl;
         }
     }
 

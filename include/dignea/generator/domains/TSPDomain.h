@@ -37,7 +37,7 @@ class TSPDomain : public AbstractDomain<TSP, TSPInstance> {
     /// The default limits for the coordinates are [0, 1000], eps = 5.0 and
     /// minNeighbors = 2.
     /// @param numberOfVars
-    explicit TSPDomain(const int &numberOfVars);
+    explicit TSPDomain(const int &numberOfVars, const int &numberOfObjs = 1);
 
     /// @brief Creates a TSPDomain object copying the information from other
     /// object
@@ -57,8 +57,9 @@ class TSPDomain : public AbstractDomain<TSP, TSPInstance> {
     /// @param minL Lower bound
     /// @param e Epsilon threshold to consider two points neighbors in DBSCAN
     /// @param minN Minimum number of neighbors to consider a cluster.
-    TSPDomain(const int &numberOfVars, const float &maxL, const float &minL,
-                const float e = 5.0, const int minN = 2);
+    TSPDomain(const int &numberOfVars, const int &numberOfObjs,
+                const float &maxL, const float &minL, const float e = 5.0,
+                const int minN = 2);
 
     /// @brief Generates a TSP problem with the information in the TSPInstance
     /// to be solved in the EIG by the algorithms in the portfolio.
@@ -70,7 +71,7 @@ class TSPDomain : public AbstractDomain<TSP, TSPInstance> {
     /// @param solution
     void evaluate(TSPInstance &solution) const override { return; };
 
-    /// @brief Creates a vector of initial instances (TSPInstances) for the EIG
+    /// @brief Creates a vector of initial instances (ITSPSolutions) for the EIG
     /// @param maxSolutions
     /// @return
     vector<TSPInstance> createSolutions(

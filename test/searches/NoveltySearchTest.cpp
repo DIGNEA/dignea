@@ -8,16 +8,14 @@
 #include <dignea/searches/NoveltySearch.h>
 
 #include <algorithm>
+#include <catch2/catch_all.hpp>
 #include <nlohmann/json.hpp>
 #include <random>
 #include <vector>
 
-#include <catch2/catch_all.hpp>
-
 TEST_CASE("Novelty Searchs tests", "[Novelty Search]") {
     auto dist = make_unique<Euclidean<float>>();
-    auto iters{100};
-    auto ns = make_unique<NoveltySearch<KPInstance, float>>(move(dist), iters);
+    auto ns = make_unique<NoveltySearch<KPInstance>>(move(dist));
 
     SECTION("Check NS run") {
         auto pSize = 50;

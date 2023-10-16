@@ -18,33 +18,34 @@
 using namespace std;
 using json = nlohmann::json;
 
-using vars = vector<float>;
-
 /**
  * @brief Class to represent the Novelty Search Algorithm
  * This specialization is exclusively for EIG because it uses
  * the vector of performance of each algorithm over the generated instance to
  * compute novelty
  *
- * @tparam MS --> AbstractInstance type
+ * @tparam
  */
-template <typename MS>
-class NSPerformance : public NSFeatures<MS> {
+template <typename S>
+class NSPerformance : public NoveltySearch<S> {
    public:
     NSPerformance() = default;
 
     explicit NSPerformance(unique_ptr<Distance<float>> dist,
-                           const int &iterations, const float &threshold = 2000,
-                           const int &k = 15);
+                           const float &threshold = 2000,
+                           const float &finalThresh = 2000, const int &k = 15);
 
     virtual ~NSPerformance() = default;
-
-    void insertIntoArchive(const MS &solution) override;
 
     virtual json to_json() override;
 
    protected:
-    virtual vector<vars> beforeRun(vector<MS> &population) override;
+    virtual vector<Descriptor> beforeRun(const vector<S> &population) override;
+
+    virtual vector<Descriptor> beforeCmpFinals(
+        const vector<S> &population) override;
+
+    virtual void insertFinal(const S &solution);
 };
 
 /**
@@ -55,54 +56,69 @@ class NSPerformance : public NSFeatures<MS> {
  * @param dist
  * @param k
  */
-template <typename MS>
-NSPerformance<MS>::NSPerformance(unique_ptr<Distance<float>> dist,
-                                 const int &iterations, const float &threshold,
-                                 const int &k)
-    : NSFeatures<MS>(move(dist), iterations, threshold, k) {}
+template <typename S>
+NSPerformance<S>::NSPerformance(unique_ptr<Distance<float>> dist,
+                                const float &threshold,
+                                const float &finalThresh, const int &k)
+    : NoveltySearch<S>(move(dist), threshold, finalThresh, k) {}
 
 /**
- * @brief Performs computational work necessary for running the NS
+ * @brief PerforS computational work necessary for running the NS
  *  This method creats a combined population using the individuals from the NS
  * archive and the population. The resulting vector contains the average
  * performance of each algorithm for each individual
- * @tparam MS
+ * @tparam S
  * @param population
  */
-template <typename MS>
-vector<vars> NSPerformance<MS>::beforeRun(vector<MS> &population) {
-    vector<vars> combinedPop;
+template <typename S>
+vector<Descriptor> NSPerformance<S>::beforeRun(const vector<S> &population) {
+    vector<Descriptor> combinedPop;
     combinedPop.reserve(population.size() + this->noveltyArchive.size());
-    for (MS &solution : population) {
+    for (const S &solution : population) {
         combinedPop.push_back(solution.getAvgPortFitness());
     }
-    combinedPop.insert(combinedPop.end(), this->noveltyFeatures.begin(),
-                       this->noveltyFeatures.end());
+    for (const S &solution : this->noveltyArchive) {
+        combinedPop.push_back(solution.getAvgPortFitness());
+    }
+    // combinedPop.insert(combinedPop.end(), this->noveltyArchive.begin(),
+    //                    this->noveltyArchive.end(),
+    //                    [](const S &s) { return s.getAvgPortFitness(); });
     return combinedPop;
+}
+
+template <typename S>
+vector<Descriptor> NSPerformance<S>::beforeCmpFinals(
+    const vector<S> &population) {
+    vector<Descriptor> descriptors;
+    descriptors.reserve(population.size());
+    for (const S &solution : population) {
+        descriptors.push_back(solution.getAvgPortFitness());
+    }
+    return descriptors;
 }
 
 /**
  * @brief Method to insert a new individual into the noveltyArchive of novelty
- * MSs
+ * Ss
  * @tparam Problem
- * @tparam MS
- * @param MS
+ * @tparam S
+ * @param S
  */
-template <typename MS>
-void NSPerformance<MS>::insertIntoArchive(const MS &solution) {
-    this->noveltyArchive.push_back(solution);
-    this->noveltyFeatures.push_back(solution.getAvgPortFitness());
+template <typename S>
+void NSPerformance<S>::insertFinal(const S &solution) {
+    this->finalSs.push_back(solution);
+    this->finalSsDesc.push_back(solution.getAvgPortFitness());
 }
 
 /**
  * @brief Generates a json object with the relevant information of the class
  *
- * @tparam MS
+ * @tparam S
  * @return json
  */
-template <typename MS>
-json NSPerformance<MS>::to_json() {
-    json data = NSFeatures<MS>::to_json();
+template <typename S>
+json NSPerformance<S>::to_json() {
+    json data = NoveltySearch<S>::to_json();
     data["name"] = "NSPerformance";
 
     return data;

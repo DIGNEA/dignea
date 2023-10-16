@@ -1,5 +1,5 @@
 /**
- * @file TSPInstanceTest.cpp
+ * @file ITSPSolutionTest.cpp
  * @author Alejandro Marrero (amarrerd@ull.edu.es)
  * @brief
  * @version 0.1
@@ -20,7 +20,7 @@
 
 using json = nlohmann::json;
 
-TEST_CASE("TSPInstances can be created", "[TSPInstances]") {
+TEST_CASE("ITSPSolutions can be created", "[ITSPSolutions]") {
     int nVars = 30;
     int nObjs = 1;
     int nCons = 0;

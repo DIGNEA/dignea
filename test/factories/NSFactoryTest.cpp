@@ -5,9 +5,8 @@
 #include <dignea/generator/instances/KPInstance.h>
 #include <dignea/types/SolutionTypes.h>
 
-#include <nlohmann/json.hpp>
-
 #include <catch2/catch_all.hpp>
+#include <nlohmann/json.hpp>
 
 using IS = KPInstance;
 using json = nlohmann::json;
@@ -17,8 +16,9 @@ TEST_CASE("NSFactory Tests", "[NSFactory]") {
         auto thresholdNS = 3;
         auto k = 3;
         auto distance = make_unique<Euclidean<float>>();
-        auto novelty = NSFactory<IS>().create(NSType::Standard, move(distance),
-                                              thresholdNS, k);
+        auto novelty =
+            NSFactory<IS>().create(NSType::Standard, move(distance),
+                                   thresholdNS, thresholdNS, k, false);
         auto data = novelty->to_json();
         REQUIRE(novelty);
         REQUIRE(data.is_object());
@@ -30,8 +30,9 @@ TEST_CASE("NSFactory Tests", "[NSFactory]") {
         auto thresholdNS = 3;
         auto k = 3;
         auto distance = make_unique<Euclidean<float>>();
-        auto novelty = NSFactory<IS>().create(NSType::Features, move(distance),
-                                              thresholdNS, k);
+        auto novelty =
+            NSFactory<IS>().create(NSType::Features, move(distance),
+                                   thresholdNS, thresholdNS, k, false);
         auto data = novelty->to_json();
         REQUIRE(novelty);
         REQUIRE(data.is_object());
@@ -43,8 +44,9 @@ TEST_CASE("NSFactory Tests", "[NSFactory]") {
         auto thresholdNS = 3;
         auto k = 3;
         auto distance = make_unique<Euclidean<float>>();
-        auto novelty = NSFactory<IS>().create(NSType::Performance,
-                                              move(distance), thresholdNS, k);
+        auto novelty =
+            NSFactory<IS>().create(NSType::Performance, move(distance),
+                                   thresholdNS, thresholdNS, k, false);
         auto data = novelty->to_json();
         REQUIRE(novelty);
         REQUIRE(data.is_object());

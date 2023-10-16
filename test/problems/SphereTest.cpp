@@ -2,6 +2,7 @@
 // Created by amarrero on 21/12/20.
 //
 
+#include <dignea/problems/DoubleSphere.h>
 #include <dignea/problems/Sphere.h>
 
 #include <catch2/catch_all.hpp>
@@ -57,5 +58,25 @@ TEST_CASE("Sphere can be evaluated", "[Sphere]") {
             REQUIRE_FALSE(solution.getVarAt(i) < -5.12);
             REQUIRE_FALSE(solution.getVarAt(i) > 5.12);
         }
+    }
+
+    SECTION("Creation of a DoubleSphere") {
+        int dimension = 30;
+        auto problem = make_unique<DoubleSphere>(dimension);
+        FloatSolution optimal = problem->createSolution();
+
+        REQUIRE(problem->getNumberOfObjs() == 2);
+        REQUIRE(optimal.getNumberOfObjs() == 2);
+        for (auto i = 0; i < problem->getNumberOfObjs(); i++) {
+            REQUIRE(problem->getLowerLimit(i) == -5.12f);
+            REQUIRE(problem->getUpperLimit(i) == 5.12f);
+        }
+
+        for (int i = 0; i < dimension; i++) {
+            optimal.setVarAt(i, 0.0);
+        }
+        problem->evaluate(optimal);
+        REQUIRE(optimal.getObjAt(0) == 0.0);
+        REQUIRE(optimal.getObjAt(1) == 0.0);
     }
 }

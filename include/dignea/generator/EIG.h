@@ -12,9 +12,10 @@
 #ifndef DIGNEA_EIG_H
 #define DIGNEA_EIG_H
 
-#include <dignea/core/AbstractSolver.h>
+#include <dignea/core/AbstractEA.h>
 #include <dignea/core/Crossover.h>
 #include <dignea/core/Mutation.h>
+#include <dignea/core/Replacement.h>
 #include <dignea/core/Selection.h>
 #include <dignea/crossovers/UniformCrossover.h>
 #include <dignea/distances/Euclidean.h>
@@ -25,6 +26,7 @@
 #include <dignea/metrics/AverageFitness.h>
 #include <dignea/metrics/BestFitness.h>
 #include <dignea/mutations/UniformOneMutation.h>
+#include <dignea/replacements/EGenerational.h>
 #include <dignea/searches/NSFeatures.h>
 #include <dignea/searches/NoveltySearch.h>
 #include <dignea/selections/BinaryTournamentSelection.h>
@@ -50,9 +52,9 @@ using namespace std;
  * @tparam OS Solutions to the OP type
  */
 template <typename IP, typename IS, typename OP, typename OS>
-class EIG : public AbstractSolver<IS> {
+class EIG : public AbstractEA<IS> {
    public:
-    using Alg = AbstractSolver<OS>; /*!< Acronym for an AbstractSolver<OS> */
+    using Alg = AbstractEA<OS>; /*!< Acronym for an AbstractEA<OS> */
 
     /**
      * @brief Construct a new EIG object using a fitness ratio of 0.6 and
@@ -171,6 +173,12 @@ class EIG : public AbstractSolver<IS> {
         this->selection = move(sel);
     }
 
+    /// @brief Set the selection operator. Takes ownership of the pointer.
+    /// @param sel
+    void setReplacement(unique_ptr<Replacement<IS>> rep) {
+        this->repOperator = move(rep);
+    }
+
     /**
      * @brief Get the evaluation approach for the instances.
      *
@@ -191,12 +199,12 @@ class EIG : public AbstractSolver<IS> {
 
     /// @brief Get the Novelty Search approach used in EIG.
     /// @return
-    const NoveltySearch<IS, float> *getNoveltySearch() const {
+    const NoveltySearch<IS> *getNoveltySearch() const {
         return noveltySearch.get();
     }
     /// @brief Set the Novelty Search approach to use.
     /// @param noveltySearch
-    void setNoveltySearch(unique_ptr<NoveltySearch<IS, float>> noveltySearch) {
+    void setNoveltySearch(unique_ptr<NoveltySearch<IS>> noveltySearch) {
         this->noveltySearch = move(noveltySearch);
     }
 
@@ -222,11 +230,11 @@ class EIG : public AbstractSolver<IS> {
 
     [[maybe_unused]] void evaluateIndividual(IS &individual);
 
-    void evaluationPhase(vector<IS> &individuals);
+    virtual void evaluationPhase(vector<IS> &individuals);
 
-    void reproduction(IS &solution, IS &solution2);
+    virtual void reproduction(IS &solution, IS &solution2);
 
-    void replacement(vector<IS> &individuals);
+    virtual void replacement(vector<IS> &individuals);
 
     virtual void updateEvolution(vector<IS> &solutions);
 
@@ -238,12 +246,13 @@ class EIG : public AbstractSolver<IS> {
     unique_ptr<Mutation<IS>> mutation;   /*!< Mutation operator */
     unique_ptr<Crossover<IS>> crossover; /*!< Crossover operator */
     unique_ptr<Selection<IS>> selection; /*!< Selection operator */
+    unique_ptr<Replacement<IS>> repOperator;
 
     float mutationRate;  /*!< Mutation rate */
     float crossoverRate; /*!< Crossover rate */
     int repetitions; /*!< Number of repetitions to perform by the algorithms */
 
-    unique_ptr<NoveltySearch<IS, float>> noveltySearch; /*!< Novelty Search */
+    unique_ptr<NoveltySearch<IS>> noveltySearch;  /*!< Novelty Search */
     unique_ptr<InstanceFitness> instanceFitness;  // Evaluation formulation
     unique_ptr<Weighted<IS>> weightedFitness;
 
@@ -263,7 +272,7 @@ class EIG : public AbstractSolver<IS> {
  */
 template <typename IP, typename IS, typename OP, typename OS>
 EIG<IP, IS, OP, OS>::EIG(const float &fitness, const float &novelty)
-    : AbstractSolver<IS>(),
+    : AbstractEA<IS>(),
       mutationRate(0.05),
       crossoverRate(0.8),
       repetitions(10),
@@ -291,6 +300,10 @@ void EIG<IP, IS, OP, OS>::run() {
 #ifdef DEBUG
         std::cout << "Running EIG" << std::endl;
 #endif
+        // Defines FirstImprove replacement if other not set
+        if (!repOperator) {
+            this->repOperator = make_unique<FirstImprove<IS>>();
+        }
         createInitialPopulation();
         this->startTime = chrono::system_clock::now();
         vector<IS> offspring(this->populationSize);
@@ -360,6 +373,15 @@ void EIG<IP, IS, OP, OS>::evaluationPhase(vector<IS> &individuals) {
     // Computes the diversity of each individual
     individuals = noveltySearch->run(individuals, this->instProb.get());
     // Computes the weighted sum of both fit + div
+#ifdef DEBUG
+    auto [fRatio, nRatio] = this->weightedFitness->getFAndNRatios();
+    std::cout << fmt::format("{:=^120}", "") << std::endl;
+    std::cout << fmt::format("{:^20}({})\t{:^20}({})\t{:^20}",
+                             "Performance Score ", fRatio, "Diversity Score ",
+                             nRatio, "Fitness")
+              << std::endl;
+    std::cout << fmt::format("{:=^120}", "") << std::endl;
+#endif
     weightedFitness->computeFitness(individuals);
 }
 
@@ -442,6 +464,11 @@ void EIG<IP, IS, OP, OS>::createInitialPopulation() {
     this->population.reserve(this->populationSize);
     this->population = instProb->createSolutions(this->populationSize);
     evaluatePopulation(this->population);
+    // Computes the diversity of each individual
+    this->population =
+        noveltySearch->run(this->population, this->instProb.get());
+    // Computes the weighted sum of both fit + div
+    weightedFitness->computeFitness(this->population);
     this->updateEvolution(this->population);
     initProgress();
 }
@@ -567,17 +594,19 @@ void EIG<IP, IS, OP, OS>::replacement(vector<IS> &individuals) {
     }
     const float probIncl = this->populationSize / 100.0;
     for (int i = 0; i < this->populationSize; i++) {
-        if (cmpByFitness(individuals[i], this->population[i]) == FIRST_BEST) {
-            this->population[i] = individuals[i];
-        }
-        if ((PseudoRandom::randDouble() > probIncl) &&
-            (this->population[i].getBiasedFitness() > 0)) {
+        if (this->population[i].getDiversity() >=
+                this->noveltySearch->getThreshold() ||
+            ((PseudoRandom::randDouble() > probIncl) &&
+             (this->population[i].getBiasedFitness() > 0))) {
             // Always check feasibility
             this->noveltySearch->insertIntoArchive(this->population[i]);
         }
     }
-    // Novelty Search procedures to include individuals in the archives
+    // Novelty Search procedures to include individuals in the solution set
     this->noveltySearch->cmpFinals(this->population);
+    // Performs the replacement operator
+    this->population =
+        this->repOperator->replace(this->population, individuals);
 }
 
 /**
@@ -620,7 +649,7 @@ void EIG<IP, IS, OP, OS>::setInstanceProblem(unique_ptr<IP> problem) {
  * @return
  */
 template <typename IP, typename IS, typename OP, typename OS>
-vector<AbstractSolver<OS> *> EIG<IP, IS, OP, OS>::getPortfolio() const {
+vector<AbstractEA<OS> *> EIG<IP, IS, OP, OS>::getPortfolio() const {
     vector<Alg *> configurations;
     configurations.reserve(algPortfolio.size());
     for (const unique_ptr<Alg> &config : algPortfolio) {
@@ -648,6 +677,7 @@ json EIG<IP, IS, OP, OS>::to_json() const {
     data["pop_size"] = this->populationSize;
     data["mutation"] = this->mutation->getName();
     data["crossover"] = this->crossover->getName();
+    data["replacement"] = this->repOperator->getName();
     data["mutation_rate"] = this->mutationRate;
     data["crossover_rate"] = this->crossoverRate;
     data["elapsed_time"] = this->elapsedTime;
@@ -665,6 +695,7 @@ json EIG<IP, IS, OP, OS>::to_json() const {
         i++;
         target = false;
     }
+
     return data;
 }
 

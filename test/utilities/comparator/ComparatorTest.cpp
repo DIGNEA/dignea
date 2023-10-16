@@ -2,6 +2,7 @@
 // Created by amarrero on 15/12/20.
 //
 
+#include <dignea/problems/DoubleSphere.h>
 #include <dignea/problems/SampleProblem.h>
 #include <dignea/types/SolutionTypes.h>
 #include <dignea/utilities/Comparator.h>
@@ -75,5 +76,72 @@ TEST_CASE("Comparator can be created", "[Comparator]") {
         auto sample = make_shared<SampleProblem>(dimension);
         REQUIRE_THROWS(
             cmpByObj(firstInd, secondInd, numObjectives + 2, sample.get()));
+    }
+
+    SECTION("Dominance Test of two DoubleSphere solutions- First Wins") {
+        int dimension = 30;
+        auto problem = make_unique<DoubleSphere>(dimension);
+        FloatSolution solution1 = problem->createSolution();
+        FloatSolution solution2 = problem->createSolution();
+
+        for (int i = 0; i < dimension; i++) {
+            solution1.setVarAt(i, 0.0);
+            solution2.setVarAt(i, 4.0);
+        }
+        problem->evaluate(solution1);
+        problem->evaluate(solution2);
+        REQUIRE(dominanceTest(solution1, solution2, problem.get()) ==
+                FIRST_DOMINATES);
+    }
+
+    SECTION("Dominance Test of two DoubleSphere solutions- Second Wins") {
+        int dimension = 30;
+        auto problem = make_unique<DoubleSphere>(dimension);
+        FloatSolution solution1 = problem->createSolution();
+        FloatSolution solution2 = problem->createSolution();
+
+        for (int i = 0; i < dimension; i++) {
+            solution1.setVarAt(i, 4.0);
+            solution2.setVarAt(i, 0.0);
+        }
+        problem->evaluate(solution1);
+        problem->evaluate(solution2);
+        REQUIRE(dominanceTest(solution1, solution2, problem.get()) ==
+                SECOND_DOMINATES);
+    }
+
+    SECTION("Dominance Test of two DoubleSphere solutions- Equals Wins") {
+        int dimension = 30;
+        auto problem = make_unique<DoubleSphere>(dimension);
+        FloatSolution solution1 = problem->createSolution();
+        FloatSolution solution2 = problem->createSolution();
+
+        for (int i = 0; i < dimension; i++) {
+            solution1.setVarAt(i, 0.0);
+            solution2.setVarAt(i, 0.0);
+        }
+        problem->evaluate(solution1);
+        problem->evaluate(solution2);
+        REQUIRE(dominanceTest(solution1, solution2, problem.get()) ==
+                NON_DOMINANCES_EQUALS);
+    }
+
+    SECTION("Comparing a population") {
+        auto numOfSolutions = 10;
+        vector<FloatSolution> population{};
+        auto problem = make_unique<DoubleSphere>(dimension);
+
+        for (int i = 0; i < numOfSolutions; i++) {
+            FloatSolution solution(10, 2);
+            solution.setObjAt(0, 0);
+            solution.setObjAt(1, 0.5);
+            population.push_back(move(solution));
+        }
+        for (int i = 0; i < numOfSolutions - 1; i++) {
+            for (int j = 1; j < numOfSolutions; j++) {
+                REQUIRE(dominanceTest(population[i], population[j],
+                                      problem.get()) == NON_DOMINANCES_EQUALS);
+            }
+        }
     }
 }

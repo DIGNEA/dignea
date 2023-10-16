@@ -14,11 +14,20 @@
 
 using json = nlohmann::json;
 
-TEST_CASE("KPInstances can be created", "[KPInstances]") {
+TEST_CASE("IKPSolutions can be created", "[IKPSolutions]") {
     int nVars = 30;
     int nObjs = 1;
     int nCons = 0;
     KPInstance solution(nVars);
+
+    SECTION("Checking not isReducedSpace") {
+        REQUIRE_FALSE(solution.isReducedSpace());
+    }
+
+    SECTION("Checking isReducedSpace") {
+        KPInstance solRed(nVars, 1, true);
+        REQUIRE(solRed.isReducedSpace());
+    }
 
     SECTION("Creating an empty Solution") {
         KPInstance emptySolution;
@@ -29,6 +38,7 @@ TEST_CASE("KPInstances can be created", "[KPInstances]") {
         REQUIRE(emptySolution.getVariables().empty());
         REQUIRE(emptySolution.getObjectives().empty());
         REQUIRE(emptySolution.getConstraints().empty());
+        REQUIRE_FALSE(emptySolution.isReducedSpace());
     }
 
     SECTION("Creating a Solution from pointer") {
@@ -39,6 +49,7 @@ TEST_CASE("KPInstances can be created", "[KPInstances]") {
         REQUIRE(pointerSolution->getNumberOfCons() == copy.getNumberOfCons());
         REQUIRE(pointerSolution->getNumberOfObjs() == copy.getNumberOfObjs());
         REQUIRE(pointerSolution->getFitness() == copy.getFitness());
+        REQUIRE_FALSE(pointerSolution->isReducedSpace());
     }
 
     SECTION("Changing the capacity") {
@@ -57,6 +68,7 @@ TEST_CASE("KPInstances can be created", "[KPInstances]") {
         REQUIRE(copySolution.getObjectives() == solution.getObjectives());
         REQUIRE(copySolution.getConstraints() == solution.getConstraints());
         REQUIRE(copySolution.getCapacity() == solution.getCapacity());
+        REQUIRE_FALSE(copySolution.isReducedSpace());
     }
 
     SECTION("Accessing members") {
@@ -116,16 +128,39 @@ TEST_CASE("KPInstances can be created", "[KPInstances]") {
         auto dim = 100;
         auto knp = make_shared<KPDomain>(dim);
         KPInstance solution = knp->createSolution();
-        REQUIRE(solution.getNumberOfVars() == dim * 2);
+        REQUIRE(solution.getNumberOfVars() == dim);
         REQUIRE(solution.getNumberOfObjs() == 1);
         REQUIRE(solution.getNumberOfCons() == 0);
         REQUIRE(solution.getCapacity() == 0);
         json features = solution.to_json();
-        REQUIRE(features["n_vars"] == dim * 2);
+        REQUIRE(features["n_vars"] == dim);
         REQUIRE(features["diversity"] == 0.0f);
         REQUIRE(features["biasedFitness"] == 0.0f);
         REQUIRE(features["fitness"] == 0.0f);
         REQUIRE(features["conf_fitness"].is_array());
         REQUIRE(features["features"].is_object());
+        REQUIRE_FALSE(features["isReducedSpace"]);
+        REQUIRE_FALSE(features["features"].contains("x0"));
+        REQUIRE_FALSE(features["features"].contains("x1"));
+    }
+
+    SECTION("KPInstance reduced space to_json") {
+        auto dim = 100;
+        auto knp = make_shared<KPDomain>(dim, 1, 10, 1, 1000, 1, 1000, true);
+        KPInstance solution = knp->createSolution();
+        REQUIRE(solution.getNumberOfVars() == dim);
+        REQUIRE(solution.getNumberOfObjs() == 1);
+        REQUIRE(solution.getNumberOfCons() == 0);
+        REQUIRE(solution.getCapacity() == 0);
+        json features = solution.to_json();
+        REQUIRE(features["isReducedSpace"]);
+        REQUIRE(features["n_vars"] == dim);
+        REQUIRE(features["diversity"] == 0.0f);
+        REQUIRE(features["biasedFitness"] == 0.0f);
+        REQUIRE(features["fitness"] == 0.0f);
+        REQUIRE(features["conf_fitness"].is_array());
+        REQUIRE(features["features"].is_object());
+        REQUIRE(features["features"]["x0"] == -1.0);
+        REQUIRE(features["features"]["x1"] == -1.0);
     }
 }

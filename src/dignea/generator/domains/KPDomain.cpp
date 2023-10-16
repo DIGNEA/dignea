@@ -4,28 +4,46 @@
 
 #include <dignea/generator/domains/KPDomain.h>
 #include <dignea/generator/instances/KPInstance.h>
+#include <dignea/utilities/PCA.h>
 #include <dignea/utilities/Statistics.h>
 #include <dignea/utilities/random/PseudoRandom.h>
 
-KPDomain::KPDomain()
-    : AbstractDomain<KPNR, KPInstance>(1, 1, 0), generatedInstances(0) {}
+#include <ranges>
 
-KPDomain::KPDomain(const int &numberOfVars)
-    : AbstractDomain<KPNR, KPInstance>(numberOfVars * 2, 1, 0),
-      generatedInstances(0) {}
+KPDomain::KPDomain()
+    : AbstractDomain<KPNR, KPInstance>(1, 1, 0),
+      numberOfInstances(-1),
+      lowWeight(0),
+      upWeight(0),
+      lowProfit(0),
+      upProfit(0),
+      generatedInstances(0),
+      reducedSpace(false) {}
+
+KPDomain::KPDomain(const int &numberOfVars, const int &numberOfObjs)
+    : AbstractDomain<KPNR, KPInstance>(numberOfVars, numberOfObjs, 0),
+      numberOfInstances(-1),
+      lowWeight(0),
+      upWeight(0),
+      lowProfit(0),
+      upProfit(0),
+      generatedInstances(0),
+      reducedSpace(false) {}
 
 KPDomain::~KPDomain() {}
 
-KPDomain::KPDomain(const int &numberOfVars, const int &numOfInstances,
-                       const int &lowerWeight, const int &upperWeight,
-                       const int &lowerProfit, const int &upperProfit)
-    : AbstractDomain<KPNR, KPInstance>(numberOfVars, 1, 0),
+KPDomain::KPDomain(const int &numberOfVars, const int &numberOfObjs,
+                   const int &numOfInstances, const int &lowerWeight,
+                   const int &upperWeight, const int &lowerProfit,
+                   const int &upperProfit, bool reducedSpace)
+    : AbstractDomain<KPNR, KPInstance>(numberOfVars, numberOfObjs, 0),
       numberOfInstances(numOfInstances),
       lowWeight(lowerWeight),
       upWeight(upperWeight),
       lowProfit(lowerProfit),
       upProfit(upperProfit),
-      generatedInstances(0) {}
+      generatedInstances(0),
+      reducedSpace(reducedSpace) {}
 
 /**
  * Method which evaluates a solution of the Knapsack Instance Generation Problem
@@ -39,7 +57,7 @@ void KPDomain::evaluate(KPInstance &solution) const { return; }
  * @return
  */
 KPInstance KPDomain::createSolution(const int &instanceIndex,
-                                       const int &maxInstances) const {
+                                    const int &maxInstances) const {
     vector<int> vars(this->numberOfVars, 0);
     float sumOfWeights = 0;
     for (int i = 0; i < this->numberOfVars; i += 2) {
@@ -50,7 +68,8 @@ KPInstance KPDomain::createSolution(const int &instanceIndex,
     // Computing the capacity of the KP Instance Solution
     int capacity = (int)0.8 * sumOfWeights;
     //(int)(((float)instanceIndex / (float)(maxInstances + 1)) * sumOfWeights);
-    KPInstance solution(this->numberOfVars);
+    KPInstance solution(this->numberOfVars, this->numberOfObjs,
+                        this->reducedSpace);
     solution.setVariables(vars);
     solution.setCapacity(capacity);
     return solution;
@@ -153,7 +172,7 @@ shared_ptr<KPNR> KPDomain::genOptProblem(const KPInstance &instance) const {
  * @return
  */
 int KPDomain::getOptimizationDirection(const int i) const {
-    if (i < 0 || i >= this->getNumberOfObjs()) {
+    if (i < 0 || i >= 2) {
         std::string where =
             "getOptimizationDirection in EKPP with index = " + to_string(i);
         throw(OutOfRange(where));
@@ -180,8 +199,8 @@ vector<KPInstance> KPDomain::createSolutions(const int &maxSolutions) const {
  * @param vector1
  */
 void KPDomain::beforeEvaluation(vector<KPInstance> &solutions) {
-    int maxInstances = solutions.size();
-    int instanceIndex = 1;
+    // int maxInstances = solutions.size();
+    // int instanceIndex = 1;
     for (KPInstance &ekpSolution : solutions) {
         int sumOfWeights = 0;
         vector<int> vars = ekpSolution.getVariables();
@@ -189,12 +208,10 @@ void KPDomain::beforeEvaluation(vector<KPInstance> &solutions) {
             sumOfWeights += vars[i];
         }
         // Computing the capacity of the KP Instance Solution
-        int capacity =
-            (int)(((float)instanceIndex / (float)(maxInstances + 1)) *
-                  sumOfWeights);
+        int capacity = (int)(0.8 * sumOfWeights);
 
         ekpSolution.setCapacity(capacity);
-        instanceIndex++;
+        // instanceIndex++;
     }
 }
 
@@ -214,8 +231,13 @@ void KPDomain::afterEvaluation(vector<KPInstance> &solutions) {
         float minW = std::numeric_limits<float>::max();
         float minP = std::numeric_limits<float>::max();
         float avgEff = 0.0f;
-        float solMEan = mean(vars);
-        float std = standardDev(solMEan, vars);
+        float solMean = mean(vars);
+        float std = standardDev(solMean, vars);
+        vector<float> weights;
+        vector<float> profits;
+        weights.reserve(vars.size() / 2);
+        profits.reserve(vars.size() / 2);
+
         for (unsigned int i = 0; i < vars.size(); i++) {
             if (i % 2 == 0) {  // Weight
                 if (vars[i] > maxW) {
@@ -227,23 +249,63 @@ void KPDomain::afterEvaluation(vector<KPInstance> &solutions) {
                 if (i != vars.size() - 1) {
                     avgEff += vars[i + 1] / vars[i];
                 }
+                // Include profits and weights to PCA
+                weights.push_back((float)vars[i]);
+
             } else {  // Profit
                 if (vars[i] > maxP) {
                     maxP = vars[i];
                 } else if (vars[i] < minP) {
                     minP = vars[i];
                 }
+                profits.push_back((float)vars[i]);
             }
         }
         avgEff /= solution.getNumberOfVars();
-        vector<float> features = {(float)solution.getCapacity(),
-                                  maxP,
-                                  maxW,
-                                  minP,
-                                  minW,
-                                  avgEff,
-                                  solMEan,
-                                  std};
-        solution.setFeatures(features);
+        if (reducedSpace) {
+            // We're testing the 6D to 2D space PCA using
+            //"capacity", "min_p", "std", "mean", "avg_eff", "max_w"
+            vector<float> highDimFeatures = {(float)solution.getCapacity(),
+                                             minP,
+                                             std,
+                                             solMean,
+                                             avgEff,
+                                             maxW};
+            // vector<float> highDimFeatures = {(float)solution.getCapacity(),
+            //                                  avgEff,
+            //                                  maxP,
+            //                                  maxW,
+            //                                  solMean,
+            //                                  minP,
+            //                                  minW,
+            //                                  std};
+            nc::NdArray<float> f = {highDimFeatures};
+            auto coords = PCA::PCA(f);
+            // Includes (x0, x1) principal components in the features
+            vector<float> features = {
+                coords[0], coords[1], (float)solution.getCapacity(),
+                avgEff,    maxP,      maxW,
+                solMean,   minP,      minW,
+                std};
+            solution.setFeatures(features);
+        } else {
+            // When we are not using a reduced space search
+            // the NS was original fed with the features in this order
+            vector<float> highDimFeatures = {(float)solution.getCapacity(),
+                                             maxP,
+                                             maxW,
+                                             minP,
+                                             minW,
+                                             avgEff,
+                                             solMean,
+                                             std};
+            solution.setFeatures(highDimFeatures);
+        }
     }
+}
+
+json KPDomain::to_json() const {
+    json data = AbstractDomain<KPNR, KPInstance>::to_json();
+    data["isReducedSpace"] = this->reducedSpace;
+    return data;
 }

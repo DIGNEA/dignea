@@ -25,29 +25,34 @@ using namespace std;
  * algorithms on the go.
  * @tparam S
  */
-template <class MS, typename T = float>
+template <class S>
 class NSFactory {
    private:
-    map<NSType,
-        function<unique_ptr<NoveltySearch<MS, T>>(
-            unique_ptr<Distance<T>> dist, const float& thres, const int k)>>
+    map<NSType, function<unique_ptr<NoveltySearch<S>>(
+                    unique_ptr<Distance<float>> dist, const float& thres,
+                    const float& finalThresh, const int k, bool warmUp)>>
         factories;
 
    public:
     NSFactory() {
-        factories[NSType::Standard] = [](unique_ptr<Distance<T>> dist,
-                                         const float& thres, const int k) {
-            return make_unique<NoveltySearch<MS, T>>(move(dist), 1000, thres,
-                                                     k);
-        };
-        factories[NSType::Features] = [](unique_ptr<Distance<T>> dist,
-                                         const float& thres, const int k) {
-            return make_unique<NSFeatures<MS>>(move(dist), 1000, thres, k);
-        };
-        factories[NSType::Performance] = [](unique_ptr<Distance<T>> dist,
-                                            const float& thres, const int k) {
-            return make_unique<NSPerformance<MS>>(move(dist), 1000, thres, k);
-        };
+        factories[NSType::Standard] =
+            [](unique_ptr<Distance<float>> dist, const float& thres,
+               const float& finalThresh, const int k, bool warmUp) {
+                return make_unique<NoveltySearch<S>>(move(dist), thres,
+                                                     finalThresh, k);
+            };
+        factories[NSType::Features] =
+            [](unique_ptr<Distance<float>> dist, const float& thres,
+               const float& finalThresh, const int k, bool warmUp) {
+                return make_unique<NSFeatures<S>>(move(dist), thres,
+                                                  finalThresh, k, warmUp);
+            };
+        factories[NSType::Performance] =
+            [](unique_ptr<Distance<float>> dist, const float& thres,
+               const float& finalThresh, const int k, bool warmUp) {
+                return make_unique<NSPerformance<S>>(move(dist), thres,
+                                                     finalThresh, k);
+            };
     }
 
     /**
@@ -56,10 +61,12 @@ class NSFactory {
      * @param type
      * @return
      */
-    unique_ptr<NoveltySearch<MS, T>> create(NSType type,
-                                            unique_ptr<Distance<T>> dist,
-                                            const float& thres, const int k) {
-        return factories[type](move(dist), thres, k);
+    unique_ptr<NoveltySearch<S>> create(NSType type,
+                                        unique_ptr<Distance<float>> dist,
+                                        const float& thres,
+                                        const float& finalThresh, const int k,
+                                        bool warmUp) {
+        return factories[type](move(dist), thres, finalThresh, k, warmUp);
     }
 };
 

@@ -17,14 +17,14 @@
 #include <dignea/builders/ParGABuilder.h>
 #include <dignea/core/Front.h>
 #include <dignea/crossovers/OrderCrossover.h>
+#include <dignea/generator/EIG.h>
+#include <dignea/generator/domains/TSPDomain.h>
+#include <dignea/generator/evaluations/EasyInstances.h>
+#include <dignea/generator/instances/TSPInstance.h>
 #include <dignea/problems/TSP.h>
 #include <dignea/types/SolutionTypes.h>
 #include <dignea/utilities/printer/InstPrinter.h>
 #include <dignea/utilities/printer/JSONPrinter.h>
-#include <dignea/generator/EIG.h>
-#include <dignea/generator/evaluations/EasyInstances.h>
-#include <dignea/generator/domains/TSPDomain.h>
-#include <dignea/generator/instances/TSPInstance.h>
 #include <fmt/core.h>
 
 #include <iostream>
@@ -37,7 +37,7 @@ using OSS = IntFloatSolution;
 using OP = TSP;
 using IS = TSPInstance;
 using IP = TSPDomain;
-using EA = AbstractSolver<OSS>;
+using EA = AbstractEA<OSS>;
 
 int main(int argc, char** argv) {
     auto PARAMS = 7;
@@ -83,7 +83,7 @@ int main(int argc, char** argv) {
     auto distance = make_unique<Euclidean<float>>();
 
     // TSPDomain with 100 cities and bounds [0.0, 100.0]
-    auto instTSP = make_unique<IP>(instanceSize, upperBound, lowerBound);
+    auto instTSP = make_unique<IP>(instanceSize, 1, upperBound, lowerBound);
     vector<unique_ptr<EA>> algorithms;
 
     // Building the EA configurations
@@ -104,14 +104,15 @@ int main(int argc, char** argv) {
 
     // Building the EIG
     unique_ptr<EIG<IP, IS, OP, OSS>> generator =
-        EIGBuilder<IP, IS, OP, OSS>::create()
+        EIGBuilder<IP, IS, OP, OSS>::create(GeneratorType::LinearScaled)
             .toSolve(move(instTSP))
             .with()
             .weights(fitnessRatio, diversityRatio)
             .portfolio(algorithms)
             .evalWith(move(easyEvaluator))
             .repeating(reps)
-            .withSearch(NSType::Features, move(distance), thresholdNS, k)
+            .withSearch(NSType::Features, move(distance), thresholdNS,
+                        thresholdNS, k)
             .with()
             .crossover(CXType::Uniform)
             .mutation(MutType::UniformOne)

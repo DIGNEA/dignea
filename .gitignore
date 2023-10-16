@@ -24,3 +24,6 @@ docs/html/*
 docs/xml/*.idea/
 libdbscan.so libdbscan.so.1 libdbscan.so.1.0.0
 libdbscan.so*
+.vscode
+include/dignea/generator/MOEIG.h
+test/generator/MOEIGTest.cpp

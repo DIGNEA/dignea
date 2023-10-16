@@ -30,17 +30,39 @@ TEST_CASE("KPDomain can be created", "[KPDomain]") {
         int lower = 1;
         int upper = 100;
         int numberOfInstances = 100;
-        knp = make_shared<KPDomain>(dimension, numberOfInstances, lower,
-                                      upper, lower, upper);
+        knp = make_shared<KPDomain>(dimension, 1, numberOfInstances, lower,
+                                    upper, lower, upper);
         REQUIRE_FALSE(knp == nullptr);
+        REQUIRE_FALSE(knp->isReducedSpace());
+    }
+
+    SECTION("Checking to_json") {
+        int lower = 1;
+        int upper = 100;
+        int numberOfInstances = 100;
+        knp = make_shared<KPDomain>(dimension, 1, numberOfInstances, lower,
+                                    upper, lower, upper, true);
+        json data = knp->to_json();
+        REQUIRE(data["name"] == "KPDomain");
+        REQUIRE(data["isReducedSpace"]);
+    }
+
+    SECTION("Creating a object with all parameters and reducedSpace") {
+        int lower = 1;
+        int upper = 100;
+        int numberOfInstances = 100;
+        knp = make_shared<KPDomain>(dimension, 1, numberOfInstances, lower,
+                                    upper, lower, upper, true);
+        REQUIRE_FALSE(knp == nullptr);
+        REQUIRE(knp->isReducedSpace());
     }
 
     SECTION("Checking Getters and Setters") {
         int lower = 1;
         int upper = 100;
         int numberOfInstances = 100;
-        knp = make_shared<KPDomain>(dimension, numberOfInstances, lower,
-                                      upper, lower, upper);
+        knp = make_shared<KPDomain>(dimension, 1, numberOfInstances, lower,
+                                    upper, lower, upper);
         REQUIRE(knp->getOptimizationDirection(0) == Maximize);
         REQUIRE(knp->getNumberOfCons() == 0);
         REQUIRE(knp->getNumberOfObjs() == 1);
@@ -74,8 +96,8 @@ TEST_CASE("KPDomain can be created", "[KPDomain]") {
         int lowerP = 50;
         int upperP = 300;
         int numberOfInstances = 100;
-        knp = make_shared<KPDomain>(dimension, numberOfInstances, lowerW,
-                                      upperW, lowerP, upperP);
+        knp = make_shared<KPDomain>(dimension, 1, numberOfInstances, lowerW,
+                                    upperW, lowerP, upperP);
         for (int i = 0; i < dimension; i++) {
             if (i % 2 == 0) {
                 REQUIRE(knp->getLowerLimit(i) == lowerW);
@@ -101,7 +123,7 @@ TEST_CASE("KPDomain can be created", "[KPDomain]") {
     SECTION("Checking create solution") {
         knp = make_shared<KPDomain>(dimension);
         KPInstance solution = knp->createSolution();
-        REQUIRE(solution.getNumberOfVars() == dimension * 2);
+        REQUIRE(solution.getNumberOfVars() == dimension);
         REQUIRE(solution.getNumberOfObjs() == 1);
         REQUIRE(solution.getNumberOfCons() == 0);
         REQUIRE_NOTHROW(knp->evaluate(solution));
@@ -114,7 +136,7 @@ TEST_CASE("KPDomain can be created", "[KPDomain]") {
         vector<KPInstance> individuals = knp->createSolutions(populationSize);
         int i = 1;
         for (const KPInstance &solution : individuals) {
-            REQUIRE(solution.getNumberOfVars() == dimension * 2);
+            REQUIRE(solution.getNumberOfVars() == dimension);
             REQUIRE(solution.getNumberOfObjs() == 1);
             REQUIRE(solution.getNumberOfCons() == 0);
             vector<int> variables = solution.getVariables();
@@ -139,7 +161,7 @@ TEST_CASE("KPDomain can be created", "[KPDomain]") {
         vector<KPInstance> individuals(populationSize);
         for (int i = 1; i <= populationSize; i++) {
             KPInstance solution = knp->createSolution();
-            REQUIRE(solution.getNumberOfVars() == dimension * 2);
+            REQUIRE(solution.getNumberOfVars() == dimension);
             REQUIRE(solution.getNumberOfObjs() == 1);
             REQUIRE(solution.getNumberOfCons() == 0);
             REQUIRE(solution.getCapacity() == 0);
@@ -154,7 +176,7 @@ TEST_CASE("KPDomain can be created", "[KPDomain]") {
         ParallelPRNG random;
         for (int i = 1; i <= populationSize; i++) {
             KPInstance solution = knp->createSolution(random);
-            REQUIRE(solution.getNumberOfVars() == dimension * 2);
+            REQUIRE(solution.getNumberOfVars() == dimension);
             REQUIRE(solution.getNumberOfObjs() == 1);
             REQUIRE(solution.getNumberOfCons() == 0);
             REQUIRE(solution.getCapacity() == 0);

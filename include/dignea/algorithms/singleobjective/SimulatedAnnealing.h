@@ -5,7 +5,7 @@
 #ifndef DIGNEA_SIMULATEDANNEALING_H
 #define DIGNEA_SIMULATEDANNEALING_H
 
-#include <dignea/core/AbstractSolver.h>
+#include <dignea/core/AbstractEA.h>
 #include <dignea/utilities/exceptions/NoMOAllowed.h>
 #include <dignea/utilities/random/PseudoRandom.h>
 
@@ -20,7 +20,7 @@ using namespace std;
  * @tparam S Type of individual in the population
  */
 template <class S>
-class SimulatedAnnealing : public AbstractSolver<S> {
+class SimulatedAnnealing : public AbstractEA<S> {
    public:
     SimulatedAnnealing(const int &maxEvaluations, const float &initialTemp,
                        const float &tempVariation);
@@ -114,7 +114,7 @@ template <class S>
 SimulatedAnnealing<S>::SimulatedAnnealing(const int &maxEvaluations,
                                           const float &initialTemp,
                                           const float &tempVariation)
-    : AbstractSolver<S>(maxEvaluations, 1),
+    : AbstractEA<S>(maxEvaluations, 1),
       tempVariation(tempVariation),
       currentTemp(initialTemp) {}
 

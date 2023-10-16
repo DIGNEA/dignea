@@ -9,12 +9,12 @@
  *
  */
 
-#include "dignea/generator/instances/TSPInstance.h"
-
 #include <algorithm>
 #include <map>
 #include <utility>
 #include <vector>
+
+#include "dignea/generator/instances/TSPInstance.h"
 
 using namespace std;
 
@@ -29,8 +29,8 @@ TSPInstance::TSPInstance() : AbstractInstance<float, float>() {}
  *
  * @param nVars
  */
-TSPInstance::TSPInstance(const int &nVars)
-    : AbstractInstance<float, float>(nVars, 1, 0) {}
+TSPInstance::TSPInstance(const int &nVars, const int &nObjs)
+    : AbstractInstance<float, float>(nVars, nObjs, 0) {}
 
 /**
  * @brief Construct a new TSPInstance::TSPInstance object
@@ -84,6 +84,7 @@ vector<coords> TSPInstance::to_coords() const {
 json TSPInstance::to_json() const {
     json data;
     data["n_vars"] = this->nVars;
+    data["n_objs"] = this->nObjs;
     data["coords"] = this->variables;
     data["diversity"] = this->diversity;
     data["biasedFitness"] = this->biasedFitness;

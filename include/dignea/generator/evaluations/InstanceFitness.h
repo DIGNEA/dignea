@@ -17,6 +17,8 @@
 class InstanceFitness {
    public:
     InstanceFitness() = default;
+
+    virtual ~InstanceFitness() = default;
     /**
      * @brief Computes the fitness of an instance evolved by EIG based on the
      * performance of several solvers. This method must be implemented in the

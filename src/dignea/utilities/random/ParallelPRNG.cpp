@@ -7,7 +7,7 @@
 // Created by amarrero on 15/12/20.
 //
 
-ParallelPRNG::ParallelPRNG() {
+ParallelPRNG::ParallelPRNG() : randomGenerator_() {
     randomGenerator_ = std::make_unique<RandomGenerator>();
 }
 
