@@ -116,6 +116,36 @@ class Solution {
         this->nCons = nConstraints;
     }
 
+    /**
+     * @brief Set the identifier of the solution in the population.
+     * Only used in the Non-Dominated Sorting operator
+     *
+     * @param id
+     */
+    virtual void setRank(int id) { this->rank = id; }
+
+    /**
+     * @brief Get the identifier of the solution in the population.
+     * Only used in the Non-Dominated Sorting operator
+     *
+     * @return unsigned int
+     */
+    virtual int getRank() const { return this->rank; }
+
+    /**
+     * @brief Set the Crow Distance object
+     *
+     * @param d
+     */
+    virtual void setCrowDistance(float d) { this->crowDistance = d; }
+
+    /**
+     * @brief Get the Crow Distance object
+     *
+     * @return float
+     */
+    virtual float getCrowDistance() const { return this->crowDistance; }
+
     virtual void setVarAt(const int &, const V &v);
 
     virtual void setObjAt(const int &, const O &obj);
@@ -172,6 +202,11 @@ class Solution {
     vector<O> objectives;  /*!<  Objective values of the solution */
     vector<V> variables;   /*!<  Variable values of the solution (genotype) */
     vector<O> constraints; /*!<  Constraint values of the solution */
+
+   private:
+    int rank; /*!<  Rank for Non-Dominated Sorting operator*/
+    float
+        crowDistance; /*!<  Crow distance value used in the crowding operator*/
 };
 
 /**
@@ -189,7 +224,9 @@ Solution<V, O>::Solution()
       constraintCoeff(0.0f),
       objectives({}),
       variables({}),
-      constraints({}) {}
+      constraints({}),
+      rank(-1),
+      crowDistance(-1.0) {}
 
 /**
  * @brief Creates a new solution with the given dimension (nVars) and nObjs
@@ -207,7 +244,11 @@ Solution<V, O>::Solution(const int &nVars, const int &nObjs)
       nCons(0),
       fitness(0.0f),
       constraintCoeff(0.0f),
-      constraints({}) {
+      objectives{},
+      variables{},
+      constraints({}),
+      rank(-1),
+      crowDistance(-1.0) {
     variables.resize(nVars, (V)0);
     objectives.resize(nObjs, (O)0.0);
 }
@@ -228,7 +269,12 @@ Solution<V, O>::Solution(const int &nVars, const int &nObjs, const int &nCons)
       nObjs(nObjs),
       nCons(nCons),
       fitness(0.0f),
-      constraintCoeff(0.0f) {
+      constraintCoeff(0.0f),
+      objectives{},
+      variables{},
+      constraints{},
+      rank(-1),
+      crowDistance(-1.0) {
     variables.resize(nVars, (V)0);
     objectives.resize(nObjs, (O)0);
     constraints.resize(nCons, (O)0);
@@ -242,12 +288,17 @@ Solution<V, O>::Solution(const int &nVars, const int &nObjs, const int &nCons)
  * @param copy
  */
 template <typename V, typename O>
-Solution<V, O>::Solution(const Solution<V, O> &copy) {
-    nVars = copy.nVars;
-    nObjs = copy.nObjs;
-    nCons = copy.nCons;
-    fitness = copy.fitness;
-    constraintCoeff = copy.constraintCoeff;
+Solution<V, O>::Solution(const Solution<V, O> &copy)
+    : nVars(copy.nVars),
+      nObjs(copy.nObjs),
+      nCons(copy.nCons),
+      fitness(copy.fitness),
+      constraintCoeff(copy.constraintCoeff),
+      objectives{},
+      variables{},
+      constraints{},
+      rank(copy.rank),
+      crowDistance(copy.crowDistance) {
     variables.resize(nVars);
     objectives.resize(nObjs);
     constraints.resize(nCons);
@@ -284,6 +335,8 @@ Solution<V, O>::Solution(const Solution<V, O> *copy) {
     this->variables.resize(this->nVars);
     this->objectives.resize(this->nObjs);
     this->constraints.resize(this->nCons);
+    this->rank = copy->rank;
+    this->crowDistance = copy->crowDistance;
     for (int i = 0; i < this->nVars; i++) {
         this->variables[i] = copy->variables[i];
     }
@@ -505,7 +558,8 @@ Solution<V, O> &Solution<V, O>::operator=(const Solution &copy) {
     variables = copy.variables;
     objectives = copy.objectives;
     constraints = copy.constraints;
-
+    rank = copy.rank;
+    crowDistance = copy.crowDistance;
     return *this;
 }
 
@@ -545,6 +599,12 @@ bool Solution<V, O>::operator==(const Solution &other) const {
     if (other.constraintCoeff != this->constraintCoeff) {
         return false;
     }
+    if (other.rank != this->rank) {
+        return false;
+    }
+    if (other.crowDistance != this->crowDistance) {
+        return false;
+    }
     return true;
 }
 
@@ -565,6 +625,8 @@ json Solution<V, O>::to_json() const {
     data["vars"] = this->variables;
     data["objs"] = this->objectives;
     data["cons"] = this->constraints;
+    data["rank"] = this->rank;
+    data["crow_distance"] = this->crowDistance;
     return data;
 }
 

@@ -20,7 +20,7 @@ TEST_CASE("Experiment tests", "[Experiment]") {
     std::cout.setstate(std::ios_base::failbit);
     std::cerr.setstate(std::ios_base::failbit);
 
-    using AEAPtr = unique_ptr<AbstractSolver<FloatSolution>>;
+    using AEAPtr = unique_ptr<AbstractEA<FloatSolution>>;
 
     SECTION("Creating an Experiment") {
         AEAPtr gga = make_unique<GenerationalGA<FloatSolution>>();

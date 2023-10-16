@@ -4,11 +4,13 @@
 
 #ifndef DIGNEA_WEIGHTED_H
 #define DIGNEA_WEIGHTED_H
-
 #include <dignea/generator/AbstractInstance.h>
 #include <dignea/generator/evaluations/InstanceFitness.h>
 #include <dignea/searches/NoveltySearch.h>
+#include <fmt/core.h>
 
+#include <string>
+#include <string_view>
 #include <tuple>
 
 /**
@@ -37,7 +39,7 @@ class Weighted {
         return {fitnessRatio, diversityRatio};
     }
 
-   private:
+      private:
     float fitnessRatio;
     float diversityRatio;
     unique_ptr<InstanceFitness> fitnessFunc;
@@ -53,7 +55,7 @@ class Weighted {
  */
 template <class AbstractInstance>
 Weighted<AbstractInstance>::Weighted(const float &fRatio, const float &dRatio)
-    : fitnessRatio(fRatio), diversityRatio(dRatio) {}
+    : fitnessRatio(fRatio), diversityRatio(dRatio), fitnessFunc() {}
 
 /**
  * @brief Computes the actual fitness of the solutions based on the
@@ -65,16 +67,19 @@ Weighted<AbstractInstance>::Weighted(const float &fRatio, const float &dRatio)
  * @param solutions
  */
 template <class AbstractInstance>
-void Weighted<AbstractInstance>::computeFitness(vector<AbstractInstance> &solutions) {
+void Weighted<AbstractInstance>::computeFitness(
+    vector<AbstractInstance> &solutions) {
     for (unsigned int i = 0; i < solutions.size(); i++) {
         auto fullFitness = solutions[i].getBiasedFitness() * fitnessRatio +
                            solutions[i].getDiversity() * diversityRatio;
 
 #ifdef DEBUG
-        std::cout << "RF: " << solutions[i].getBiasedFitness()
-                  << " D: " << solutions[i].getDiversity()
-                  << " FF: " << fullFitness << std::endl;
+        std::cout << fmt::format("{:>20}\t{:>20}\t{:>20}",
+                                 solutions[i].getBiasedFitness(),
+                                 solutions[i].getDiversity(), fullFitness)
+                  << std::endl;
 #endif
+
         solutions[i].setFitness(fullFitness);
     }
 }

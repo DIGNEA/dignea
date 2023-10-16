@@ -8,16 +8,14 @@
 #include <dignea/searches/NSFeatures.h>
 
 #include <algorithm>
+#include <catch2/catch_all.hpp>
 #include <nlohmann/json.hpp>
 #include <random>
 #include <vector>
 
-#include <catch2/catch_all.hpp>
-
 TEST_CASE("NSFeatures Searchs tests", "[NSFeatures Search]") {
     auto dist = make_unique<Euclidean<float>>();
-    auto iters{100};
-    auto ns = make_unique<NSFeatures<KPInstance>>(move(dist), iters);
+    auto ns = make_unique<NSFeatures<KPInstance>>(move(dist));
 
     SECTION("Check NS-EIG run") {
         auto pSize = 50;

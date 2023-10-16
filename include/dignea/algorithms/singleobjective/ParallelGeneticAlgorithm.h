@@ -11,6 +11,9 @@
 #include <dignea/utilities/random/ParallelPRNG.h>
 #include <omp.h>
 
+#include <algorithm>
+#include <iterator>
+#include <ranges>
 #include <vector>
 
 using namespace std;
@@ -88,6 +91,7 @@ class ParallelGeneticAlgorithm : public AbstractGA<S> {
 
     vector<S> individuals;
     shared_ptr<Problem<S>> problem;
+    vector<float> bestEvolution;
 };
 
 /**
@@ -132,6 +136,7 @@ void ParallelGeneticAlgorithm<S>::createInitialPopulation() {
         individuals[i] = problem->createSolution();
         problem->evaluate(individuals[i]);
     }
+    this->nextCheckpoint = 0;
     this->initProgress();
 }
 
@@ -159,6 +164,7 @@ template <class S>
 void ParallelGeneticAlgorithm<S>::run() {
     if (this->problem) {
         this->configureEnv();
+        this->bestEvolution.clear();
         this->startTime = chrono::system_clock::now();
         this->createInitialPopulation();
         this->runEvolution();
@@ -177,48 +183,61 @@ void ParallelGeneticAlgorithm<S>::run() {
  */
 template <class S>
 void ParallelGeneticAlgorithm<S>::runEvolution() {
-    const int popDim = this->populationSize;
-    const int MAX_EVALS = this->maxEvaluations;
     const float eps = 1e-9;
-#pragma omp parallel default(none) shared(popDim, MAX_EVALS, eps)
-    {
-        int evals = popDim;
-        int numberOfThreads = omp_get_num_threads();
-        int tid = omp_get_thread_num();
-        int myMaxEvals = MAX_EVALS / numberOfThreads;
-        if (tid < MAX_EVALS % numberOfThreads) myMaxEvals += popDim;
-        do {
-#pragma omp for schedule(dynamic, chunks) nowait
-            for (int i = 0; i < popDim; ++i) {
-                // Splits the population in chunks to perform the selection
-                int init = tid * chunks;
-                int end = init + (chunks - 1);
-                S child1 = parallelSelection(init, end);
-                S child2 = parallelSelection(init, end);
-                this->reproduction(child1, child2);
-                problem->evaluate(child1);
-                // Replacement
-                bool update = false;
-                double childPenalty = child1.getConstraintCoeff();
-                double individualPenalty = individuals[i].getConstraintCoeff();
-                double childFitness = child1.getFitness();
-                double individualFitness = individuals[i].getFitness();
-                // If child has less penalty or in equal penalty values it has
-                // better fitness
-                if (childPenalty < individualPenalty) {
-                    update = true;
-                } else if ((abs(childPenalty - individualPenalty) < eps) &&
-                           (childFitness > individualFitness)) {
-                    update = true;
-                }
-                if (update) {
-                    individuals[i] = child1;
-                }
+    const int GENERATIONS = this->maxEvaluations / this->populationSize;
+    int performedGenerations = 0;
+    const int popDim = this->populationSize - 1;
+    do {
+        vector<S> offspring(this->populationSize);
+#pragma omp parallel for schedule(dynamic)
+        for (int i = 0; i < this->populationSize; i++) {
+            // Previously we splitted the population by cores
+            // Splits thepopulation in chunks to perform the selection
+            // int init = omp_get_thread_num() * chunks;
+            // int end = init + (chunks - 1);
+            int idx1 = min(prng.randInt(0, popDim), prng.randInt(0, popDim));
+            int idx2 = min(prng.randInt(0, popDim), prng.randInt(0, popDim));
+            S child1 = individuals[idx1];
+            S child2 = individuals[idx2];
+            this->reproduction(child1, child2);
+            this->problem->evaluate(child1);
+            // Replacement
+            bool update = false;
+            double childPenalty = child1.getConstraintCoeff();
+            double individualPenalty = individuals[i].getConstraintCoeff();
+            double childFitness = child1.getFitness();
+            double individualFitness = individuals[i].getFitness();
+            // If child has less penalty or in equal penalty values it has
+            // better fitness
+            if (childPenalty < individualPenalty) {
+                update = true;
+            } else if ((abs(childPenalty - individualPenalty) < eps) &&
+                       (childFitness > individualFitness)) {
+                update = true;
             }
-            // Updating the performed evaluations
-            evals += this->populationSize;
-        } while (evals < myMaxEvals);
-    }
+            if (update) {
+                offspring[i] = child1;
+                // individuals[i] = child1;
+            } else {
+                offspring[i] = individuals[i];
+            }
+        }
+// Replacement
+#pragma omp parallel for schedule(dynamic)
+        for (int i = 0; i < this->populationSize; i++) {
+            this->individuals[i] = offspring[i];
+        }
+#ifdef EVOLUTION
+        // Get the best fitness in the generation
+        auto it = std::ranges::max_element(individuals, {}, &S::getFitness);
+        if (it != end(individuals)) {
+            const auto pos = std::distance(begin(individuals), it);
+            this->bestEvolution.push_back(individuals[pos].getFitness());
+        }
+#endif
+        // Updating the performed evaluations
+        performedGenerations++;
+    } while (performedGenerations < GENERATIONS);
     // Updates superclass variables with this variables used for parallel
     // executions
     this->population = this->individuals;
@@ -281,6 +300,9 @@ template <class S>
 json ParallelGeneticAlgorithm<S>::to_json() const {
     json data = AbstractGA<S>::to_json();
     data["num_cores"] = this->numberOfCores;
+#ifdef EVOLUTION
+    data["evolution"] = this->bestEvolution;
+#endif
     return data;
 }
 

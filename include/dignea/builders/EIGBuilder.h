@@ -8,11 +8,20 @@
 #include <dignea/factories/CXFactory.h>
 #include <dignea/factories/MutFactory.h>
 #include <dignea/factories/NSFactory.h>
+#include <dignea/factories/RepFactory.h>
 #include <dignea/factories/SelFactory.h>
 #include <dignea/generator/AbstractDomain.h>
 #include <dignea/generator/EIG.h>
+// #include <dignea/generator/MOEIG.h>
+#include <dignea/generator/MapElites.h>
 #include <dignea/searches/NSFeatures.h>
 #include <dignea/searches/NSPerformance.h>
+
+/**
+ * @brief
+ *
+ */
+enum class GeneratorType { LinearScaled, MultiObjective, MapElites };
 
 /**
  * @brief Class which represents a Builder for the EIG.
@@ -24,10 +33,10 @@
  */
 template <typename IP, typename IS, typename OP, typename S>
 class EIGBuilder {
-    using EA = unique_ptr<AbstractSolver<S>>;
+    using EA = unique_ptr<AbstractEA<S>>;
 
    public:
-    static EIGBuilder<IP, IS, OP, S> create();
+    static EIGBuilder<IP, IS, OP, S> create(GeneratorType type);
 
     virtual ~EIGBuilder() = default;
 
@@ -49,7 +58,9 @@ class EIGBuilder {
 
     EIGBuilder<IP, IS, OP, S> &withSearch(NSType nsType,
                                           unique_ptr<Distance<float>> dist,
-                                          const float &thres, const int k);
+                                          const float &thres,
+                                          const float &finalThresh, const int k,
+                                          bool warmUp = false);
 
     EIGBuilder<IP, IS, OP, S> &evalWith(unique_ptr<InstanceFitness> evalMethod);
 
@@ -65,12 +76,16 @@ class EIGBuilder {
 
     EIGBuilder<IP, IS, OP, S> &selection(SelType selType);
 
+    EIGBuilder<IP, IS, OP, S> &replacement(ReplacementTypes reType);
+
     EIGBuilder<IP, IS, OP, S> &populationOf(const int &popsize);
 
     EIGBuilder<IP, IS, OP, S> &runDuring(const int &generations);
 
+    EIGBuilder<IP, IS, OP, S> &setFeatures(const Features &f);
+
    private:
-    EIGBuilder();
+    EIGBuilder(GeneratorType t);
 
     void newCompSet() { compSet++; }
 
@@ -78,11 +93,12 @@ class EIGBuilder {
     unique_ptr<EIG<IP, IS, OP, S>> generator;
     int compSet;
     bool problemSet;
-    static const int MUST_COMPS;
+    GeneratorType type;
+    static int MUST_COMPS;
 };
 
 template <typename IP, typename IS, typename OP, typename S>
-const int EIGBuilder<IP, IS, OP, S>::MUST_COMPS = 12;
+int EIGBuilder<IP, IS, OP, S>::MUST_COMPS = 12;
 
 /**
  * @brief Creates a EIGBuilder object
@@ -94,8 +110,8 @@ const int EIGBuilder<IP, IS, OP, S>::MUST_COMPS = 12;
  * @return EIGBuilder<IP, IS, OP, S>
  */
 template <typename IP, typename IS, typename OP, typename S>
-EIGBuilder<IP, IS, OP, S> EIGBuilder<IP, IS, OP, S>::create() {
-    return EIGBuilder<IP, IS, OP, S>();
+EIGBuilder<IP, IS, OP, S> EIGBuilder<IP, IS, OP, S>::create(GeneratorType t) {
+    return EIGBuilder<IP, IS, OP, S>(t);
 }
 
 /**
@@ -108,8 +124,28 @@ EIGBuilder<IP, IS, OP, S> EIGBuilder<IP, IS, OP, S>::create() {
  * @tparam S
  */
 template <typename IP, typename IS, typename OP, typename S>
-EIGBuilder<IP, IS, OP, S>::EIGBuilder() : compSet(0), problemSet(false) {
-    this->generator = make_unique<EIG<IP, IS, OP, S>>();
+EIGBuilder<IP, IS, OP, S>::EIGBuilder(GeneratorType t)
+    : compSet(0), problemSet(false), type(t) {
+    this->type = t;  // Saves the type we're building
+    switch (type) {
+        case GeneratorType::LinearScaled:
+            this->generator = make_unique<EIG<IP, IS, OP, S>>();
+            break;
+        // case GeneratorType::MultiObjective:
+        //     this->generator = make_unique<MOEIG<IP, IS, OP, S>>();
+        //     break;
+        case GeneratorType::MapElites:
+            MUST_COMPS = 10;  // MapElites does not need NS parameters
+            this->generator = make_unique<MapElites<IP, IS, OP, S>>();
+            break;
+        default:
+            std::cerr << "Unknown type in EIGBuilder. LinearScaled algorithm "
+                         "created by default"
+                      << std::endl;
+            this->generator = make_unique<EIG<IP, IS, OP, S>>();
+
+            break;
+    }
 }
 
 /**
@@ -221,9 +257,9 @@ EIGBuilder<IP, IS, OP, S> &EIGBuilder<IP, IS, OP, S>::portfolio(
 template <typename IP, typename IS, typename OP, typename S>
 EIGBuilder<IP, IS, OP, S> &EIGBuilder<IP, IS, OP, S>::withSearch(
     NSType nsType, unique_ptr<Distance<float>> dist, const float &thres,
-    const int k) {
-    NSFactory<IS, float> factory;
-    auto ns = factory.create(nsType, move(dist), thres, k);
+    const float &finalThresh, const int k, bool warmUp) {
+    NSFactory<IS> factory;
+    auto ns = factory.create(nsType, move(dist), thres, finalThresh, k, warmUp);
     this->generator->setNoveltySearch(move(ns));
     newCompSet();
     return *this;
@@ -365,6 +401,16 @@ EIGBuilder<IP, IS, OP, S> &EIGBuilder<IP, IS, OP, S>::selection(
     return *this;
 }
 
+template <typename IP, typename IS, typename OP, typename S>
+EIGBuilder<IP, IS, OP, S> &EIGBuilder<IP, IS, OP, S>::replacement(
+    ReplacementTypes repType) {
+    RepFactory<IS> factory;
+    auto rep = factory.create(repType);
+    this->generator->setReplacement(move(rep));
+    newCompSet();
+    return *this;
+}
+
 /**
  * @brief Defines the population of instances to use. This is the number of
  * instances that the EIG will be evolving at each generation.
@@ -401,6 +447,28 @@ EIGBuilder<IP, IS, OP, S> &EIGBuilder<IP, IS, OP, S>::runDuring(
     const int &generations) {
     this->generator->setMaxEvaluations(generations);
     newCompSet();
+    return *this;
+}
+
+/**
+ * @brief Defines the Feature information for MapElites
+ *
+ * @tparam IP
+ * @tparam IS
+ * @tparam OP
+ * @tparam S
+ * @param generations
+ * @return EIGBuilder<IP, IS, OP, S>&
+ */
+template <typename IP, typename IS, typename OP, typename S>
+EIGBuilder<IP, IS, OP, S> &EIGBuilder<IP, IS, OP, S>::setFeatures(
+    const Features &f) {
+    if (this->type == GeneratorType::MapElites) {
+        static_cast<MapElites<IP, IS, OP, S> *>(this->generator.get())
+            ->setFeaturesInfo(f);
+        newCompSet();
+        return *this;
+    }
     return *this;
 }
 

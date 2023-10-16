@@ -23,10 +23,10 @@ class Distance {
     virtual ~Distance() = default;
 
     /**
-     * @brief Computes the distance between the vectors of type T and returns the value.
-     * This method must be implemented in the subclasses.
-     * 
-     * @return T 
+     * @brief Computes the distance between the vectors of type T and returns
+     * the value. This method must be implemented in the subclasses.
+     *
+     * @return T
      */
     virtual T compute(const vector<T>&, const vector<T>&) = 0;
 };

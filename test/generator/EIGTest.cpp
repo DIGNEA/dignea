@@ -12,13 +12,12 @@
 #include <dignea/problems/KPNR.h>
 #include <dignea/types/SolutionTypes.h>
 
+#include <catch2/catch_all.hpp>
 #include <chrono>
 #include <iostream>  // std::cout
 #include <nlohmann/json.hpp>
 #include <typeinfo>  // operator typeid
 #include <vector>
-
-#include <catch2/catch_all.hpp>
 using json = nlohmann::json;
 using namespace std;
 
@@ -30,7 +29,7 @@ TEST_CASE("EIG tests", "[EIG]") {
     using IS = KPInstance;
     using OP = KPNR;
     using OS = BoolFloatSolution;
-    using AEA = AbstractSolver<OS>;
+    using AEA = AbstractEA<OS>;
 
     SECTION("Creating a EIG object") {
         auto generator = make_unique<EIG<IGP, IS, OP, OS>>();
@@ -84,7 +83,8 @@ TEST_CASE("EIG tests", "[EIG]") {
         REQUIRE(generator->getMutationRate() == mutRate);
         REQUIRE(generator->getCrossoverRate() == crossRate);
         REQUIRE(generator->getPortfolio().size() == 1);
-        REQUIRE(generator->getInstanceProblem()->getName() == problemCopy->getName());
+        REQUIRE(generator->getInstanceProblem()->getName() ==
+                problemCopy->getName());
 
         auto mutCopy = make_unique<UniformOneMutation<IS>>();
         auto CXCopy = make_unique<UniformCrossover<IS>>();
@@ -130,11 +130,13 @@ TEST_CASE("EIG tests", "[EIG]") {
         REQUIRE(generator->getMutationRate() == mutRate);
         REQUIRE(generator->getCrossoverRate() == crossRate);
         REQUIRE(generator->getPortfolio().size() == 1);
-        REQUIRE(generator->getInstanceProblem()->getName() == problemCopy->getName());
+        REQUIRE(generator->getInstanceProblem()->getName() ==
+                problemCopy->getName());
 
         REQUIRE(generator->getMutation()->getName() == mutCopy->getName());
         REQUIRE(generator->getCrossover()->getName() == crossCopy->getName());
-        REQUIRE(generator->getSelection()->getName() == selectionCopy->getName());
+        REQUIRE(generator->getSelection()->getName() ==
+                selectionCopy->getName());
     }
 
     SECTION("Setting CrossoverRate in EIG") {
@@ -170,7 +172,8 @@ TEST_CASE("EIG tests", "[EIG]") {
         REQUIRE(generator->getMutationRate() == mutRate);
         REQUIRE(generator->getCrossoverRate() == crossRate);
         REQUIRE(generator->getPortfolio().size() == 1);
-        REQUIRE(generator->getInstanceProblem()->getName() == problemCopy->getName());
+        REQUIRE(generator->getInstanceProblem()->getName() ==
+                problemCopy->getName());
 
         auto mutCopy = make_unique<UniformOneMutation<IS>>();
         auto CXCopy = make_unique<UniformCrossover<IS>>();
@@ -210,7 +213,8 @@ TEST_CASE("EIG tests", "[EIG]") {
         REQUIRE(generator->getMutationRate() == mutRate);
         REQUIRE(generator->getCrossoverRate() == crossRate);
         REQUIRE(generator->getPortfolio().size() == 1);
-        REQUIRE(generator->getInstanceProblem()->getName() == problemCopy->getName());
+        REQUIRE(generator->getInstanceProblem()->getName() ==
+                problemCopy->getName());
 
         float newMutaRate = 0.1;
         generator->setMutationRate(newMutaRate);
@@ -244,7 +248,8 @@ TEST_CASE("EIG tests", "[EIG]") {
         REQUIRE(generator->getMutationRate() == mutRate);
         REQUIRE(generator->getCrossoverRate() == crossRate);
         REQUIRE(generator->getPortfolio().size() == 1);
-        REQUIRE(generator->getInstanceProblem()->getName() == problemCopy->getName());
+        REQUIRE(generator->getInstanceProblem()->getName() ==
+                problemCopy->getName());
 
         int newReps = 1000;
         generator->setRepetitions(newReps);
@@ -278,7 +283,8 @@ TEST_CASE("EIG tests", "[EIG]") {
         REQUIRE(generator->getMutationRate() == mutRate);
         REQUIRE(generator->getCrossoverRate() == crossRate);
         REQUIRE(generator->getPortfolio().size() == 1);
-        REQUIRE(generator->getInstanceProblem()->getName() == problemCopy->getName());
+        REQUIRE(generator->getInstanceProblem()->getName() ==
+                problemCopy->getName());
 
         unique_ptr<Mutation<IS>> mutation =
             make_unique<UniformAllMutation<IS>>();
@@ -313,7 +319,7 @@ TEST_CASE("EIG tests", "[EIG]") {
         using OP = KPNR;
         using IS = KPInstance;
         using IP = KPDomain;
-        using EA = AbstractSolver<OS>;
+        using EA = AbstractEA<OS>;
 
         // EIG Parameters
         auto generations = 2;
@@ -335,13 +341,14 @@ TEST_CASE("EIG tests", "[EIG]") {
         auto thresholdNS = 3;
         auto k = 3;
         auto distance = make_unique<Euclidean<float>>();
-        auto novelty = NSFactory<IS>().create(
-            NSType::Features, make_unique<Euclidean<float>>(), thresholdNS, k);
+        auto novelty = NSFactory<IS>().create(NSType::Features,
+                                              make_unique<Euclidean<float>>(),
+                                              thresholdNS, thresholdNS, k, false);
         json novelty_json = novelty->to_json();
 
         vector<unique_ptr<EA>> algorithms;
-        auto instKP = make_unique<KPDomain>(instanceSize, nInstances, 1,
-                                              upperBound, 1, upperBound);
+        auto instKP = make_unique<KPDomain>(instanceSize, 1, nInstances, 1,
+                                            upperBound, 1, upperBound);
 
         // Building the EA configurations
         for (float c : crossRates) {
@@ -361,14 +368,15 @@ TEST_CASE("EIG tests", "[EIG]") {
 
         // Building the EIG
         unique_ptr<EIG<IP, IS, OP, OS>> generator =
-            EIGBuilder<IP, IS, OP, OS>::create()
+            EIGBuilder<IP, IS, OP, OS>::create(GeneratorType::LinearScaled)
                 .toSolve(move(instKP))
                 .with()
                 .weights(fitnessRatio, diversityRatio)
                 .portfolio(algorithms)
                 .evalWith(move(easyEvaluator))
                 .repeating(reps)
-                .withSearch(NSType::Features, move(distance), thresholdNS, k)
+                .withSearch(NSType::Features, move(distance), thresholdNS,
+                            thresholdNS, k)
                 .with()
                 .crossover(CXType::Uniform)
                 .mutation(MutType::UniformOne)

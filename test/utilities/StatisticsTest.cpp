@@ -3,11 +3,11 @@
 //
 
 #include <dignea/types/SolutionTypes.h>
+#include <dignea/utilities/Comparator.h>
 #include <dignea/utilities/Statistics.h>
 
-#include <cmath>
-
 #include <catch2/catch_all.hpp>
+#include <cmath>
 
 TEST_CASE("Statistics tests", "[Statistics]") {
     const int dimension = 100;
@@ -88,5 +88,35 @@ TEST_CASE("Statistics tests", "[Statistics]") {
         auto mean = 39.0 / 9.0;
         double expected = 1.825;
         REQUIRE(expected <= standardDev(mean, matrix));
+    }
+
+    SECTION("Normalizes a vector with 4 items") {
+        vector data = {3.0f, 4.0f, 1.0f, 2.0f};
+        vector normalized = normalize(data);
+        vector expected = {0.5477225575f, 0.7302967433f, 0.1825741858f,
+                           0.3651483717f};
+        REQUIRE(areEqual(normalized, expected));
+    }
+
+    SECTION("Normalizes a sequential vector with 4 items") {
+        vector data = {1.0f, 2.0f, 3.0f, 4.0f};
+        vector normalized = normalize(data);
+        vector expected = {0.1825741858f, 0.3651483717f, 0.5477225575f,
+                           0.7302967433f};
+        REQUIRE(areEqual(normalized, expected));
+    }
+
+    SECTION("Normalizes a vector with 4 zeros") {
+        vector data = {0.0f, 0.0f, 0.0f, 0.0f};
+        vector normalized = normalize(data);
+        vector expected = {0.0f, 0.0f, 0.0f, 0.0f};
+        REQUIRE(areEqual(normalized, expected));
+    }
+
+    SECTION("Normalizes a vector with 3 negative numbers") {
+        vector data = {-2.0f, 4.0f, -6.0f};
+        vector normalized = normalize(data);
+        vector expected = {-0.2672612419f, 0.5345224838f, -0.8017837257f};
+        REQUIRE(areEqual(normalized, expected));
     }
 }

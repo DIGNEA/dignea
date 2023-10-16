@@ -8,133 +8,140 @@
 #include <dignea/distances/Distance.h>
 #include <dignea/generator/AbstractInstance.h>
 #include <dignea/searches/NoveltySearch.h>
+#include <dignea/searches/Search.h>
 #include <dignea/utilities/KNN.h>
+#include <dignea/utilities/NSWarmUp.h>
 #include <dignea/utilities/Sorter.h>
 
 #include <iostream>
 #include <nlohmann/json.hpp>
 #include <vector>
 
-#include "dignea/searches/Search.h"
+#include "NumCpp.hpp"
 
 using namespace std;
 using json = nlohmann::json;
-
-using vars = vector<float>;
 
 /**
  * @brief Class to represent the Novelty Search Algorithm
  * This specialization is exclusively for EIG because it uses
  * the vector of features of each generated instance to compute novelty
  *
- * @tparam MS --> AbstractInstance type
+ * @tparam S --> AbstractInstance type
  */
-template <typename MS>
-class NSFeatures : public NoveltySearch<MS, float> {
+template <typename S>
+class NSFeatures : public NoveltySearch<S> {
    public:
     NSFeatures() = default;
 
-    explicit NSFeatures(unique_ptr<Distance<float>> dist, const int &iterations,
-                        const float &threshold = 2000, const int &k = 15);
+    explicit NSFeatures(unique_ptr<Distance<float>> dist,
+                        const float &threshold = 2000,
+                        const float &finalThresh = 2000, const int &k = 15,
+                        bool warmUp = false);
 
     virtual ~NSFeatures() = default;
-
-    vector<MS> run(vector<MS> &population, const Problem<MS> *problem) override;
-
-    void insertIntoArchive(const MS &solution);
-
-    [[nodiscard]] vector<vars> getArchive() const { return noveltyFeatures; };
 
     virtual json to_json() override;
 
    protected:
-    virtual vector<vars> beforeRun(vector<MS> &population);
+    virtual vector<Descriptor> beforeRun(const vector<S> &population) override;
+
+    virtual vector<Descriptor> beforeCmpFinals(
+        const vector<S> &population) override;
+
+    virtual void insertFinal(const S &solution) override;
 
    protected:
-    vector<vars> noveltyFeatures;
+    bool warmed;
 };
 
 /**
- * @brief Creates a new Novelty Search instance
- * @tparam P
+ * @brief Construct a new NSFeatures<S>::NSFeatures object
+ *  If warmUp is set, the NS archive is initialised with random points from
+ * the KP space
  * @tparam S
- * @param threshold
  * @param dist
+ * @param iterations
+ * @param threshold
  * @param k
+ * @param warmUp
  */
-template <typename MS>
-NSFeatures<MS>::NSFeatures(unique_ptr<Distance<float>> dist,
-                           const int &iterations, const float &threshold,
-                           const int &k)
-    : NoveltySearch<MS, float>(move(dist), iterations, threshold, k) {}
+template <typename S>
+NSFeatures<S>::NSFeatures(unique_ptr<Distance<float>> dist,
+                          const float &threshold, const float &finalThresh,
+                          const int &k, bool warmUp)
+    : NoveltySearch<S>(move(dist), threshold, finalThresh, k), warmed(warmUp) {
+    // if (warmUp) {
+    //     auto seed = 42;
+    //     nc::random::seed(seed);
+    //     auto indexes =
+    //         nc::random::randInt(nc::Shape(1, 50), (long unsigned int)0,
+    //                             NSWarmUp::warmUpData.size());
 
-/**
- * @brief Performs computational work necessary for running the NS
- *  This method creats a combined population using the individuals from the NS
- * archive and the population. The resulting vector contains the features of
- * each individual
- * @tparam MS
- * @param population
- */
-template <typename MS>
-vector<vars> NSFeatures<MS>::beforeRun(vector<MS> &population) {
-    vector<vars> combinedPop;
-    combinedPop.reserve(population.size() + this->noveltyArchive.size());
-    for (MS &solution : population) {
-        combinedPop.push_back(solution.getFeatures());
-    }
-    combinedPop.insert(combinedPop.end(), this->noveltyFeatures.begin(),
-                       this->noveltyFeatures.end());
-    return combinedPop;
+    //     for (auto ix : indexes) {
+    //         this->noveltyFeatures.push_back(NSWarmUp::warmUpData[ix]);
+    //     }
+    // }
 }
 
 /**
- * @brief Main method of the NS algorithm
- * Computes the sparseness of each individual in the noveltyArchive and
- * population
- * @tparam Problem
- * @tparam MS
- * @tparam T
+ * @brief Performs computational work necessary for running the NS
+ *  This method creates a combined population using the individuals from the NS
+ * archive and the population. The resulting vector contains the features of
+ * each individual
+ * @tparam S
  * @param population
- * @param problem
- * @return
  */
-template <typename MS>
-vector<MS> NSFeatures<MS>::run(vector<MS> &population,
-                               const Problem<MS> *problem) {
-    vector combinedPop = this->beforeRun(population);
-    vector<float> spars =
-        sparseness(combinedPop, this->distance.get(), this->k);
-    for (unsigned int i = 0; i < population.size(); i++) {
-        population[i].setDiversity(spars[i]);
+template <typename S>
+vector<Descriptor> NSFeatures<S>::beforeRun(const vector<S> &population) {
+    vector<Descriptor> combinedPop;
+    combinedPop.reserve(population.size() + this->noveltyArchive.size());
+    for (const S &solution : population) {
+        combinedPop.push_back(solution.getFeatures());
     }
-    return population;
+    for (const S &solution : this->noveltyArchive) {
+        combinedPop.push_back(solution.getFeatures());
+    }
+    // combinedPop.insert(combinedPop.end(), this->noveltyArchive.begin(),
+    //                    this->noveltyArchive.end(),
+    //                    [](const S &s) { return s.getFeatures(); });
+    return combinedPop;
+}
+
+template <typename S>
+vector<Descriptor> NSFeatures<S>::beforeCmpFinals(const vector<S> &population) {
+    vector<Descriptor> descriptors;
+    descriptors.reserve(population.size());
+    for (const S &solution : population) {
+        descriptors.push_back(solution.getFeatures());
+    }
+    return descriptors;
 }
 
 /**
  * @brief Method to insert a new individual into the noveltyArchive of novelty
- * MSs
+ * Ss
  * @tparam Problem
- * @tparam MS
- * @param MS
+ * @tparam S
+ * @param S
  */
-template <typename MS>
-void NSFeatures<MS>::insertIntoArchive(const MS &solution) {
-    this->noveltyArchive.push_back(solution);
-    this->noveltyFeatures.push_back(solution.getFeatures());
+template <typename S>
+void NSFeatures<S>::insertFinal(const S &solution) {
+    this->finalSs.push_back(solution);
+    this->finalSsDesc.push_back(solution.getFeatures());
 }
 
 /**
  * @brief Generates a json object with the relevant information of the class
  *
- * @tparam MS
+ * @tparam S
  * @return json
  */
-template <typename MS>
-json NSFeatures<MS>::to_json() {
-    json data = NoveltySearch<MS, float>::to_json();
+template <typename S>
+json NSFeatures<S>::to_json() {
+    json data = NoveltySearch<S>::to_json();
     data["name"] = "NSFeatures";
-
+    data["warm-up"] = this->warmed;
     return data;
 }
 

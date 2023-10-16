@@ -15,7 +15,7 @@ using namespace std;
  *  http://www.iitk.ac.in/kangal/codes/nsga2/nsga2-v1.1.tar
  **/
 
-RandomGenerator::RandomGenerator() {
+RandomGenerator::RandomGenerator() : seed_(0.0), oldrand_(), jrand_() {
     srand(time(NULL));
     // srand(0);
     // cout << (unsigned)time(0) << endl;

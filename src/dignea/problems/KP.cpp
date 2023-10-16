@@ -11,22 +11,29 @@ const string KP::CAPACITY = "Capacity";
 const string KP::WEIGHTS = "Weights";
 const string KP::PROFITS = "Profits";
 
-KP::KP() : Problem<BoolFloatSolution>(0, 1, 1) {
-    lowWeight = 0;
-    upWeight = 0;
-    lowProfit = 0;
-    upProfit = 0;
-    capacity = 0;
-    pathToInstance = "";
-}
+KP::KP()
+    : Problem<BoolFloatSolution>(0, 1, 1),
+      lowWeight(0),
+      upWeight(0),
+      lowProfit(0),
+      upProfit(0),
+      profits{},
+      weights{},
+      capacity(0),
+      pathToInstance(""),
+      itemsEff{} {}
 
-KP::KP(const int &numberOfVars) : Problem(numberOfVars, 1, 1) {
-    lowWeight = 0;
-    upWeight = 0;
-    lowProfit = 0;
-    upProfit = 0;
-    capacity = 0;
-    pathToInstance = "";
+KP::KP(const int &numberOfVars)
+    : Problem(numberOfVars, 1, 1),
+      lowWeight(0),
+      upWeight(0),
+      lowProfit(0),
+      upProfit(0),
+      profits{},
+      weights{},
+      capacity(0),
+      pathToInstance(""),
+      itemsEff{} {
     weights.reserve(numberOfVars);
     profits.reserve(numberOfVars);
     int totalWeight = 0;
@@ -47,7 +54,11 @@ KP::KP(const int &numberOfVars, const int &lowerWeight, const int &upperWeight,
       upWeight(upperWeight),
       lowProfit(lowerProfit),
       upProfit(upperProfit),
-      pathToInstance() {
+      profits{},
+      weights{},
+      capacity(0),
+      pathToInstance(""),
+      itemsEff{} {
     profits.reserve(numberOfVars);
     weights.reserve(numberOfVars);
     capacity = 0;
@@ -118,6 +129,13 @@ KP::KP(const string &path) : Problem<BoolFloatSolution>(0, 1, 1) {
             profits.push_back(p);
         }
         inputFile.close();
+        auto maxW = *max_element(begin(weights), end(weights));
+        auto maxP = *max_element(begin(profits), end(profits));
+
+        lowWeight = 1;
+        lowProfit = 1;
+        upProfit = maxP;
+        upWeight = maxW;
     } catch (const exception &e) {
         throw(std::runtime_error(error));
     }
@@ -154,6 +172,14 @@ void KP::readData(const string &path) {
             profits.push_back(p);
         }
         inputFile.close();
+        auto maxW = *max_element(begin(weights), end(weights));
+        auto maxP = *max_element(begin(profits), end(profits));
+
+        lowWeight = 1;
+        lowProfit = 1;
+        upProfit = maxP;
+        upWeight = maxW;
+
     } catch (const exception &e) {
         throw(std::runtime_error(error));
     }

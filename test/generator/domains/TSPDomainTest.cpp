@@ -23,6 +23,7 @@ using json = nlohmann::json;
 
 TEST_CASE("TSPDomain can be created", "[TSPDomain]") {
     int dimension = 100;
+    int objs = 1;
     SECTION("Creating a default object") {
         auto tsp = make_unique<TSPDomain>();
         REQUIRE_FALSE(tsp == nullptr);
@@ -38,7 +39,7 @@ TEST_CASE("TSPDomain can be created", "[TSPDomain]") {
     SECTION("Creating a object with all parameters") {
         int lower = 1;
         int upper = 100;
-        auto tsp = make_unique<TSPDomain>(dimension, upper, lower);
+        auto tsp = make_unique<TSPDomain>(dimension, objs, upper, lower);
         REQUIRE_FALSE(tsp == nullptr);
         REQUIRE(tsp->getNumberOfVars() == dimension);
         REQUIRE(tsp->getNumberOfObjs() == 1);
@@ -50,7 +51,7 @@ TEST_CASE("TSPDomain can be created", "[TSPDomain]") {
     SECTION("Cloning a ITSP problem") {
         int lower = 1;
         int upper = 100;
-        auto tsp = make_unique<TSPDomain>(dimension, upper, lower);
+        auto tsp = make_unique<TSPDomain>(dimension, objs, upper, lower);
         auto cloned = make_unique<TSPDomain>(tsp.get());
         REQUIRE_FALSE(tsp == nullptr);
         REQUIRE_FALSE(cloned == nullptr);
@@ -70,7 +71,7 @@ TEST_CASE("TSPDomain can be created", "[TSPDomain]") {
     SECTION("ITSP does nothing before evals") {
         int lower = 1;
         int upper = 100;
-        auto tsp = make_unique<TSPDomain>(dimension, upper, lower);
+        auto tsp = make_unique<TSPDomain>(dimension, objs, upper, lower);
         vector<TSPInstance> solutions{};
         REQUIRE_NOTHROW(tsp->beforeEvaluation(solutions));
     }
@@ -78,7 +79,7 @@ TEST_CASE("TSPDomain can be created", "[TSPDomain]") {
     SECTION("Checking Getters and Setters") {
         int lower = 1;
         int upper = 100;
-        auto tsp = make_unique<TSPDomain>(dimension, upper, lower);
+        auto tsp = make_unique<TSPDomain>(dimension, objs, upper, lower);
 
         REQUIRE(tsp->getOptimizationDirection(0) == Minimize);
         REQUIRE(tsp->getNumberOfCons() == 0);
@@ -111,7 +112,7 @@ TEST_CASE("TSPDomain can be created", "[TSPDomain]") {
     SECTION("Checking limits") {
         int upper = 100;
         int lower = 50;
-        auto tsp = make_unique<TSPDomain>(dimension, upper, lower);
+        auto tsp = make_unique<TSPDomain>(dimension, objs, upper, lower);
         for (int i = 0; i < dimension; i++) {
             REQUIRE(tsp->getLowerLimit(i) == lower);
             REQUIRE(tsp->getUpperLimit(i) == upper);
@@ -189,7 +190,7 @@ TEST_CASE("TSPDomain can be created", "[TSPDomain]") {
     SECTION("TSPDomain afterEvaluation") {
         auto eTSP = make_unique<TSPDomain>(10);
         auto solution{TSPInstance(10)};
-        auto expectedLength = 9;
+        auto expectedLength = 7;
         solution.setVariables(
             {1.0, 1.0, 2.0, 2.0, 3.0, 3.0, 4.0, 4.0, 5.0, 5.0});
         vector sols{solution};

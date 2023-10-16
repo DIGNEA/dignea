@@ -40,7 +40,7 @@ class TSPInstance : public AbstractInstance<float, float> {
     /// variables must be divided by two to contain the coordinates for each
     /// city.
     /// @param nVars
-    explicit TSPInstance(const int &nVars);
+    explicit TSPInstance(const int &nVars, const int &nObjs = 1);
 
     /// @brief Creates a new TSPInstance object with the information from other
     /// solution

@@ -175,10 +175,10 @@ Problem<S>::Problem() : numberOfVars(0), numberOfObjs(0), numberOfCons(0) {}
  * @param ind
  */
 template <class S>
-Problem<S>::Problem::Problem(const Problem *ind) {
-    numberOfVars = ind->numberOfVars;
-    numberOfObjs = ind->numberOfObjs;
-}
+Problem<S>::Problem::Problem(const Problem *ind)
+    : numberOfVars(ind->numberOfVars),
+      numberOfObjs(ind->numberOfObjs),
+      numberOfCons(ind->numberOfCons) {}
 
 /**
  * @brief Construct a new Problem with all the given parameters
@@ -189,11 +189,8 @@ Problem<S>::Problem::Problem(const Problem *ind) {
  * @param nCons  Number of constraint in the problem
  */
 template <class S>
-Problem<S>::Problem(const int &nVars, const int &nObjs, const int &nCons) {
-    this->numberOfVars = nVars;
-    this->numberOfObjs = nObjs;
-    this->numberOfCons = nCons;
-}
+Problem<S>::Problem(const int &nVars, const int &nObjs, const int &nCons)
+    : numberOfVars(nVars), numberOfObjs(nObjs), numberOfCons(nCons) {}
 
 /**
  * @brief Creates a JSON object with the information of the Problem

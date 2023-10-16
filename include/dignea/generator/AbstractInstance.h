@@ -32,7 +32,7 @@ class AbstractInstance : public Solution<V, O> {
     AbstractInstance();
 
     explicit AbstractInstance(const int &nVars, const int &nObjs = 1,
-                         const int &nCons = 0);
+                              const int &nCons = 0);
 
     AbstractInstance(const AbstractInstance &solution);
 
@@ -52,7 +52,7 @@ class AbstractInstance : public Solution<V, O> {
      *
      * @return json
      */
-    json to_json() const override { return json{}; }
+    json to_json() const override { return Solution<V, O>::to_json(); }
 
     /**
      * @brief Set the features descriptor of this instance.
@@ -66,7 +66,7 @@ class AbstractInstance : public Solution<V, O> {
      *
      * @return vector<float> with the features of the solution
      */
-    vector<float> getFeatures() const { return features; }
+    virtual vector<float> getFeatures() const { return features; }
 
     /**
      * @brief Get the Diversity of the solution.
@@ -81,7 +81,9 @@ class AbstractInstance : public Solution<V, O> {
      *
      * @param diversity of type float
      */
-    void setDiversity(float diversity) { AbstractInstance::diversity = diversity; }
+    void setDiversity(float diversity) {
+        AbstractInstance::diversity = diversity;
+    }
 
     /**
      * @brief Get the Biased Fitness value. The BiasedFitness is the fitness
@@ -222,7 +224,7 @@ AbstractInstance<V, O>::AbstractInstance()
  */
 template <typename V, typename O>
 AbstractInstance<V, O>::AbstractInstance(const int &nVars, const int &nObjs,
-                               const int &nCons)
+                                         const int &nCons)
     : Solution<V, O>(nVars, nObjs, nCons),
       features({}),
       diversity(0.0),
@@ -231,8 +233,8 @@ AbstractInstance<V, O>::AbstractInstance(const int &nVars, const int &nObjs,
       avgPortFitness({}) {}
 
 /**
- * @brief Construct a new AbstractInstance<V, O>::AbstractInstance object from the data in
- * the given solution
+ * @brief Construct a new AbstractInstance<V, O>::AbstractInstance object from
+ * the data in the given solution
  *
  * @tparam V Variable type for the solution representation
  * @tparam O Objective type for the fitness
@@ -240,17 +242,16 @@ AbstractInstance<V, O>::AbstractInstance(const int &nVars, const int &nObjs,
  */
 template <typename V, typename O>
 AbstractInstance<V, O>::AbstractInstance(const AbstractInstance &solution)
-    : Solution<V, O>(solution) {
-    this->features = solution.features;
-    this->diversity = solution.diversity;
-    this->biasedFitness = solution.biasedFitness;
-    this->portFitness = solution.portFitness;
-    this->avgPortFitness = solution.avgPortFitness;
-}
+    : Solution<V, O>(solution),
+      features(solution.features),
+      diversity(solution.diversity),
+      biasedFitness(solution.biasedFitness),
+      portFitness(solution.portFitness),
+      avgPortFitness(solution.avgPortFitness) {}
 
 /**
- * @brief Construct a new AbstractInstance<V, O>::AbstractInstance object from the data in
- * the given solution
+ * @brief Construct a new AbstractInstance<V, O>::AbstractInstance object from
+ * the data in the given solution
  *
  * @tparam V Variable type for the solution representation
  * @tparam O Objective type for the fitness
@@ -258,13 +259,12 @@ AbstractInstance<V, O>::AbstractInstance(const AbstractInstance &solution)
  */
 template <typename V, typename O>
 AbstractInstance<V, O>::AbstractInstance(const AbstractInstance *solution)
-    : Solution<V, O>(solution) {
-    this->features = solution->features;
-    this->diversity = solution->diversity;
-    this->biasedFitness = solution->biasedFitness;
-    this->portFitness = solution->portFitness;
-    this->avgPortFitness = solution->avgPortFitness;
-}
+    : Solution<V, O>(solution),
+      features(solution->features),
+      diversity(solution->diversity),
+      biasedFitness(solution->biasedFitness),
+      portFitness(solution->portFitness),
+      avgPortFitness(solution->avgPortFitness) {}
 
 /**
  * @brief Updates the  features of the  solution
@@ -287,7 +287,8 @@ void AbstractInstance<V, O>::setFeatures(const vector<float> &v) {
  * @return Solution<V, O>&
  */
 template <typename V, typename O>
-AbstractInstance<V, O> &AbstractInstance<V, O>::operator=(const AbstractInstance &copy) {
+AbstractInstance<V, O> &AbstractInstance<V, O>::operator=(
+    const AbstractInstance &copy) {
     if (this == &copy) {
         return *this;
     }

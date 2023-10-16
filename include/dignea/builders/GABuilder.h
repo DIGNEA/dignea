@@ -5,6 +5,7 @@
 #ifndef __GA_BUILDER_H__
 #define __GA_BUILDER_H__
 
+#include <dignea/algorithms/multiobjective/NSGA2.h>
 #include <dignea/algorithms/singleobjective/FIGA.h>
 #include <dignea/algorithms/singleobjective/GenerationalGA.h>
 #include <dignea/algorithms/singleobjective/ParallelGeneticAlgorithm.h>
@@ -26,9 +27,10 @@ using namespace std;
  * - First Improve GA
  * - Parallel GA
  * - Steady State GA
+ * - Non-Dominated Sorting Genetic Algorithm II
  *
  */
-enum class GAType { Generational, FIGA, Parallel, Steady };
+enum class GAType { Generational, FIGA, Parallel, Steady, NSGA2 };
 
 /**
  * @brief Genetic Algorithm Factory. This function allows to create default
@@ -49,6 +51,7 @@ unique_ptr<AbstractGA<S>> createDefaultGA(GAType type) {
     factories[GAType::Parallel] = [] {
         return make_unique<ParallelGeneticAlgorithm<S>>();
     };
+    factories[GAType::NSGA2] = [] { return make_unique<NSGA2<S>>(); };
 
     return factories[type]();
 }

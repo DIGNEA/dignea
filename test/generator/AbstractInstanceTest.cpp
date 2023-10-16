@@ -74,7 +74,8 @@ TEST_CASE("AbstractInstance tests", "[AbstractInstance]") {
         REQUIRE(solution->getNumberOfCons() == 0);
     }
 
-    SECTION("Creating a AbstractInstance from other using assignment operators") {
+    SECTION(
+        "Creating a AbstractInstance from other using assignment operators") {
         auto solution = AbstractInstance<int, int>(100, 2);
         REQUIRE(solution.getNumberOfVars() == 100);
         REQUIRE(solution.getNumberOfObjs() == 2);
@@ -91,7 +92,7 @@ TEST_CASE("AbstractInstance tests", "[AbstractInstance]") {
         REQUIRE(solution == other);
     }
 
-    SECTION("Comparing two  AbstractInstances") {
+    SECTION("Comparing two  EIGSolutions") {
         auto solution = AbstractInstance<int, int>(100, 2);
         auto other = AbstractInstance<int, int>(100, 2);
         REQUIRE(solution == other);
@@ -151,7 +152,7 @@ TEST_CASE("AbstractInstance tests", "[AbstractInstance]") {
         solution->setConstraints({0});
         solution->setVariables({1, 1, 1, 1});
         auto j = solution->to_json();
-        REQUIRE(j.empty());
+        REQUIRE_FALSE(j.empty());
     }
 
     SECTION("AbstractInstance to_instance") {

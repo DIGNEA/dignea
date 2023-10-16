@@ -18,8 +18,6 @@
 #include <cmath>
 #include <set>
 
-#include "dbscan.h"
-
 TSPDomain::TSPDomain()
     : AbstractDomain<TSP, TSPInstance>(1, 1, 0),
       upperLimit(1000),
@@ -35,8 +33,8 @@ TSPDomain::TSPDomain()
 /// The default limits for the coordinates are [0, 1000], eps = 5.0 and
 /// minNeighbors = 2.
 /// @param numberOfVars
-TSPDomain::TSPDomain(const int &numberOfVars)
-    : AbstractDomain<TSP, TSPInstance>(numberOfVars, 1, 0),
+TSPDomain::TSPDomain(const int &numberOfVars, const int &numberOfObjs)
+    : AbstractDomain<TSP, TSPInstance>(numberOfVars, numberOfObjs, 0),
       upperLimit(1000),
       lowerLimit(0),
       eps(5.0),
@@ -49,27 +47,27 @@ TSPDomain::TSPDomain(const int &numberOfVars)
 /// @param minL Lower bound
 /// @param e Epsilon threshold to consider two points neighbors in DBSCAN
 /// @param minN Minimum number of neighbors to consider a cluster.
-TSPDomain::TSPDomain(const int &numberOfVars, const float &maxL,
-                         const float &minL, const float e, const int minN)
-    : AbstractDomain<TSP, TSPInstance>(numberOfVars, 1, 0),
+TSPDomain::TSPDomain(const int &numberOfVars, const int &numberOfObjs,
+                     const float &maxL, const float &minL, const float e,
+                     const int minN)
+    : AbstractDomain<TSP, TSPInstance>(numberOfVars, numberOfObjs, 0),
       upperLimit(maxL),
       lowerLimit(minL),
       eps(e),
       minNeighbors(minN) {}
 
 TSPDomain::TSPDomain(const TSPDomain *other)
-    : AbstractDomain<TSP, TSPInstance>(other->numberOfVars, 1, 0) {
-    upperLimit = other->upperLimit;
-    lowerLimit = other->lowerLimit;
-    eps = other->eps;
-    minNeighbors = other->minNeighbors;
-}
+    : AbstractDomain<TSP, TSPInstance>(other->numberOfVars, other->numberOfObjs,
+                                       0),
+      upperLimit(other->upperLimit),
+      lowerLimit(other->lowerLimit),
+      eps(other->eps),
+      minNeighbors(other->minNeighbors) {}
 
-/// @brief Creates a vector of initial instances (TSPInstances) for the EIG
+/// @brief Creates a vector of initial instances (ITSPSolutions) for the EIG
 /// @param maxSolutions
 /// @return
-vector<TSPInstance> TSPDomain::createSolutions(
-    const int &maxSolutions) const {
+vector<TSPInstance> TSPDomain::createSolutions(const int &maxSolutions) const {
     vector<TSPInstance> solutions;
     solutions.reserve(maxSolutions);
     for (int i = 0; i < maxSolutions; i++) {
@@ -80,7 +78,7 @@ vector<TSPInstance> TSPDomain::createSolutions(
                 PseudoRandom::randDouble(this->lowerLimit, this->upperLimit);
             vars.push_back(x);
         }
-        TSPInstance solution(this->numberOfVars);
+        TSPInstance solution(this->numberOfVars, this->numberOfObjs);
         solution.setVariables(vars);
         solutions.push_back(solution);
     }
@@ -147,7 +145,7 @@ shared_ptr<TSP> TSPDomain::genOptProblem(const TSPInstance &instance) const {
 /// @param i
 /// @return
 int TSPDomain::getOptimizationDirection(const int i) const {
-    if (i < 0 || i >= this->getNumberOfObjs()) {
+    if (i < 0 || i >= 2) {
         std::string where =
             "getOptimizationDirection in ITSProblem with index = " +
             to_string(i);
@@ -192,7 +190,7 @@ coords TSPDomain::computeCentroid(const vector<coords> &points) {
  * @return float
  */
 float TSPDomain::instanceRadius(const vector<coords> &points,
-                                  const coords &centroid) {
+                                const coords &centroid) {
     auto radius = 0.0f;
     for (auto [x, y] : points) {
         radius += sqrt(((x - centroid.first) * (x - centroid.first)) +
@@ -232,31 +230,30 @@ void TSPDomain::afterEvaluation(vector<TSPInstance> &solutions) {
         auto distances = this->genOptProblem(solution)->getDistances();
         auto points = solution.to_coords();
 
-        DBSCAN dbscan(minNeighbors, eps, points);
-        auto nClusters = dbscan.run();
-        float clusterRatio = -1.0f;
-        float clusterRadius = -1.0f;
-        if (nClusters != 0) {
-            clusterRatio = vars.size() / nClusters;
-            clusterRadius = dbscan.radiusOfClusters();
-        }
-        if (clusterRatio == std::numeric_limits<float>::infinity() ||
-            isnan(clusterRatio)) {
-            clusterRatio = -1.0f;
-        }
-        if (isnan(clusterRadius)) {
-            clusterRadius = -1.0f;
-        }
+        // DBSCAN dbscan(minNeighbors, eps, points);
+        // auto nClusters = dbscan.run();
+        // float clusterRatio = -1.0f;
+        // float clusterRadius = -1.0f;
+        // if (nClusters != 0) {
+        //     clusterRatio = vars.size() / nClusters;
+        //     clusterRadius = dbscan.radiusOfClusters();
+        // }
+        // if (clusterRatio == std::numeric_limits<float>::infinity() ||
+        //     isnan(clusterRatio)) {
+        //     clusterRatio = -1.0f;
+        // }
+        // if (isnan(clusterRadius)) {
+        //     clusterRadius = -1.0f;
+        // }
         coords centroid = computeCentroid(points);
         float radius = instanceRadius(points, centroid);
         float fractionDist = distinctDistances(distances);
         float meanDist = mean(distances);
         float stdDist = standardDev(meanDist, distances);
 
-        vector<float> features = {
-            (float)vars.size(), meanDist,        stdDist,
-            centroid.first,     centroid.second, radius,
-            clusterRatio,       clusterRadius,   fractionDist};
+        vector<float> features = {(float)vars.size(), meanDist,        stdDist,
+                                  centroid.first,     centroid.second, radius,
+                                  fractionDist};
 
         solution.setFeatures(features);
     }

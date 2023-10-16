@@ -28,15 +28,16 @@ class KPDomain : public AbstractDomain<KPNR, KPInstance> {
    public:
     KPDomain();
 
-    explicit KPDomain(const int &numberOfVars);
+    explicit KPDomain(const int &numberOfVars, const int &numberOfObjs = 1);
 
     virtual ~KPDomain();
 
     KPDomain(const string &pathToInstance) = delete;
 
-    KPDomain(const int &numberOfVars, const int &numOfInstances,
-               const int &lowerWeight, const int &upperWeight,
-               const int &lowerProfit, const int &upperProfit);
+    KPDomain(const int &numberOfVars, const int &numberOfObjs,
+               const int &numOfInstances, const int &lowerWeight,
+               const int &upperWeight, const int &lowerProfit,
+               const int &upperProfit, bool reducedSpace = false);
 
     shared_ptr<KPNR> genOptProblem(const KPInstance &instance) const override;
 
@@ -96,9 +97,15 @@ class KPDomain : public AbstractDomain<KPNR, KPInstance> {
         KPDomain::generatedInstances = generatedInstances;
     }
 
+    /// @brief Check if the search is performed in a PCA space
+    /// @return true if reducedSpace false otherwise
+    bool isReducedSpace() const { return reducedSpace; }
+
+    json to_json() const override;
+
    private:
     KPInstance createSolution(const int &instanceIndex,
-                               const int &maxInstances) const;
+                              const int &maxInstances) const;
 
    protected:
     int numberOfInstances;
@@ -108,6 +115,8 @@ class KPDomain : public AbstractDomain<KPNR, KPInstance> {
     int upProfit;
     // This allows to call createSolution without args
     int generatedInstances;
+
+    bool reducedSpace;  // <! Flag to consider searching in the PCA space !>
 
    public:
     // Unimplemented Methods

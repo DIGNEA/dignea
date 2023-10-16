@@ -7,17 +7,34 @@ on:
 
 env:
   BUILD_TYPE: Debug
+  EXAMPLES: False
+  TESTS: True
+  COV: False
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - name: Build DIGNEA
-        uses: dignea/build_dignea_action@master
+      - name: Install boost
+        uses: MarkusJx/install-boost@v2.3.1
+        id: install-boost
         with:
-          variant: env.BUILD_TYPE
-          examples: False
-          tests: True
-          coverage: False
+          boost_version: 1.78.0
+          toolset: gcc
+          platform_version: 20.04
+
+      - name: "Setups GCC 10"
+        uses: egor-tensin/setup-gcc@v1
+        with:
+          version: 10
+          platform: x64
+
+      - name: Configures project
+        shell: bash
+        run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINCLUDE_EXAMPLES=${{env.EXAMPLES}} -DINCLUDE_TESTS=${{env.TESTS}} -DINCLUDE_COVERAGE=${{env.COV}} -DNUMCPP_NO_USE_BOOST:BOOL=True -DCMAKE_CXX_COMPILER:FILEPATH=/usr/bin/g++-10
+
+      - name: Build
+        shell: bash
+        run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}  --target all -- -j 14
