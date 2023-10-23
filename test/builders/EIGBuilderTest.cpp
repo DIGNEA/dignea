@@ -32,6 +32,7 @@ TEST_CASE("EIGBuilder tests", "[EIGBuilder]") {
     const int upperBound = 1000;
     const int nIterationsEIG = 1000;
     const int reps = 10;
+
     SECTION("Creates a EIG for KNP") {
         // configurations
         vector<unique_ptr<EA>> algorithms;
@@ -84,6 +85,105 @@ TEST_CASE("EIGBuilder tests", "[EIGBuilder]") {
         REQUIRE(generator->getCrossoverRate() == meaCXRate);
         REQUIRE(generator->getRepetitions() == reps);
         REQUIRE(generator->getPortfolio().size() == 3);
+    }
+
+    SECTION("Creates a MAP-Elites generator for KNP") {
+        // configurations
+        vector<unique_ptr<EA>> algorithms;
+        auto instKP = make_unique<KPDomain>(instanceSize, 1, nInstances, 1,
+                                            upperBound, 1, upperBound);
+        for (const float cRate : crossRates) {
+            unique_ptr<ParallelGeneticAlgorithm<OS>> algorithm =
+                ParGABuilder<OS>::create()
+                    .usingCores(32)
+                    .with()
+                    .mutation(MutType::UniformOne)
+                    .crossover(CXType::Uniform)
+                    .selection(SelType::Binary)
+                    .populationOf(popSize)
+                    .withMutRate(mutationRate)
+                    .withCrossRate(cRate)
+                    .runDuring(maxEvals);
+            // Two configurations for EIG
+            algorithms.push_back(move(algorithm));
+        }
+        unique_ptr<InstanceFitness> easyEvaluator =
+            make_unique<EasyInstances>();
+
+        unique_ptr<EIG<IP, IS, OP, OS>> generator =
+            EIGBuilder<IP, IS, OP, OS>::create(GeneratorType::MapElites)
+                .toSolve(move(instKP))
+                .with()
+                .portfolio(algorithms)
+                .evalWith(move(easyEvaluator))
+                .repeating(reps)
+                .withSearch(NSType::Features, make_unique<Euclidean<float>>(),
+                            3.0, 3.0, 15)
+                .with()
+                .crossover(CXType::Uniform)
+                .mutation(MutType::UniformOne)
+                .selection(SelType::Binary)
+                .withMutRate(mutationRate)
+                .withCrossRate(meaCXRate)
+                .populationOf(nInstances)
+                .runDuring(nIterationsEIG);
+        REQUIRE(generator);
+        REQUIRE(generator->getName() == "MapElites");
+        REQUIRE(generator->getSelection()->getName() ==
+                "Binary Tournament Selection");
+        REQUIRE(generator->getCrossover()->getName() ==
+                "Uniform One Crossover");
+        REQUIRE(generator->getMutation()->getName() == "Uniform One Mutation");
+        REQUIRE(generator->getPopulationSize() == nInstances);
+        REQUIRE(generator->getGenerations() == nIterationsEIG);
+        REQUIRE(generator->getMutationRate() == mutationRate);
+        REQUIRE(generator->getCrossoverRate() == meaCXRate);
+        REQUIRE(generator->getRepetitions() == reps);
+        REQUIRE(generator->getPortfolio().size() == 3);
+    }
+
+    SECTION("Creates a EIG when unknown type") {
+        // configurations
+        vector<unique_ptr<EA>> algorithms;
+        auto instKP = make_unique<KPDomain>(instanceSize, 1, nInstances, 1,
+                                            upperBound, 1, upperBound);
+        for (const float cRate : crossRates) {
+            unique_ptr<ParallelGeneticAlgorithm<OS>> algorithm =
+                ParGABuilder<OS>::create()
+                    .usingCores(32)
+                    .with()
+                    .mutation(MutType::UniformOne)
+                    .crossover(CXType::Uniform)
+                    .selection(SelType::Binary)
+                    .populationOf(popSize)
+                    .withMutRate(mutationRate)
+                    .withCrossRate(cRate)
+                    .runDuring(maxEvals);
+            // Two configurations for EIG
+            algorithms.push_back(move(algorithm));
+        }
+        unique_ptr<InstanceFitness> easyEvaluator =
+            make_unique<EasyInstances>();
+
+        unique_ptr<EIG<IP, IS, OP, OS>> generator =
+            EIGBuilder<IP, IS, OP, OS>::create(GeneratorType::MultiObjective)
+                .toSolve(move(instKP))
+                .with()
+                .portfolio(algorithms)
+                .evalWith(move(easyEvaluator))
+                .repeating(reps)
+                .withSearch(NSType::Features, make_unique<Euclidean<float>>(),
+                            3.0, 3.0, 15)
+                .with()
+                .crossover(CXType::Uniform)
+                .mutation(MutType::UniformOne)
+                .selection(SelType::Binary)
+                .withMutRate(mutationRate)
+                .withCrossRate(meaCXRate)
+                .populationOf(nInstances)
+                .runDuring(nIterationsEIG);
+        REQUIRE(generator);
+        REQUIRE(generator->getName() == "EIG");
     }
 
     SECTION("Throws exception if component is missing") {

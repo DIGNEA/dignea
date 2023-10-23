@@ -15,11 +15,10 @@
 #include <dignea/problems/DoubleSphere.h>
 #include <dignea/selections/BinaryTournamentSelection.h>
 
+#include <catch2/catch_all.hpp>
 #include <memory>
 #include <nlohmann/json.hpp>
 #include <vector>
-
-#include <catch2/catch_all.hpp>
 
 using namespace std;
 using json = nlohmann::json;
@@ -43,10 +42,16 @@ TEST_CASE("Non-Dominated Sorting Genetic Algorith II Tests", "[NSGA-II]") {
         REQUIRE(ga->getSelection() == nullptr);
     }
 
-    SECTION("Getting NSGA-II") {
+    SECTION("Getting NSGA-II ID") {
         unique_ptr<AbstractGA<FloatSolution>> ga =
             make_unique<NSGA2<FloatSolution>>();
         REQUIRE(ga->getID() == "NSGA-II");
+    }
+
+    SECTION("Getting NSGA-II name") {
+        unique_ptr<AbstractGA<FloatSolution>> ga =
+            make_unique<NSGA2<FloatSolution>>();
+        REQUIRE(ga->getName() == "Non-dominated Sorting Genetic Algorithm II");
     }
 
     SECTION("Setting maxEvaluations") {
@@ -116,5 +121,25 @@ TEST_CASE("Non-Dominated Sorting Genetic Algorith II Tests", "[NSGA-II]") {
                 .withCrossRate(0.8)
                 .runDuring(evals);
         REQUIRE(ga);
+    }
+
+    SECTION("NSGA2 run to solve Double Sphere") {
+        unique_ptr<AbstractGA<FloatSolution>> ga =
+            GABuilder<FloatSolution>::create(GAType::NSGA2)
+                .toSolve(make_unique<DoubleSphere>(dimension))
+                .with()
+                .populationOf(populationSize)
+                .with()
+                .mutation(MutType::UniformAll)
+                .crossover(CXType::Uniform)
+                .selection(SelType::Binary)
+                .withMutRate(0.05)
+                .withCrossRate(0.8)
+                .runDuring(evals);
+        REQUIRE_NOTHROW(ga->run());
+        Front result = ga->getResults();
+        REQUIRE_FALSE(result.empty());
+        vector bestObjs = result.getSolutions()[0].getObjectives();
+        REQUIRE(bestObjs[0] == bestObjs[1]);
     }
 }

@@ -4,9 +4,8 @@
 
 #include <dignea/core/Solution.h>
 
-#include <nlohmann/json.hpp>
-
 #include <catch2/catch_all.hpp>
+#include <nlohmann/json.hpp>
 
 using json = nlohmann::json;
 
@@ -165,20 +164,33 @@ TEST_CASE("Solutions can be created", "[Solution]") {
         REQUIRE(solution.getConstraints().size() == (long unsigned int)nCons);
     }
 
-    SECTION("Updating the fitness of a solution") {
+    SECTION("Updating the objetcive of a solution") {
         double newObjective = 50.0;
         solution.setObjAt(0, newObjective);
         REQUIRE(solution.getObjAt(0) == newObjective);
     }
 
-    SECTION("Getting the fitness of a solution - Going out-of-range + 1") {
+    SECTION("Getting the objective of a solution - Going out-of-range + 1") {
         REQUIRE_THROWS(solution.getObjAt(1));
     }
 
-    SECTION("Updating the fitness of a solution - Going out-of-range + 1") {
+    SECTION("Updating the objective of a solution - Going out-of-range + 1") {
         double newObjective = 50.0;
         // Cuando accedemos a un objetivo que no existe salta un error
         REQUIRE_THROWS(solution.setObjAt(1, newObjective));
+    }
+
+    SECTION("Updating the objectives of a solution - Full vector throws") {
+        vector objectives = {100.0, 100.0};
+        // Cuando accedemos a un objetivo que no existe salta un error
+        REQUIRE_THROWS(solution.setObjectives(objectives));
+    }
+
+    SECTION("Updating the objectives of a solution - Full vector") {
+        vector objectives = {100.0};
+        // Cuando accedemos a un objetivo que no existe salta un error
+        REQUIRE_NOTHROW(solution.setObjectives(objectives));
+        REQUIRE(solution.getObjAt(0) == 100.0);
     }
 
     SECTION("Updating the variables of a solution - Position 0") {
@@ -191,8 +203,16 @@ TEST_CASE("Solutions can be created", "[Solution]") {
         vector<int> variables(nVars);
         iota(variables.begin(), variables.end(), 0);
         // Cuando actualizamos todas las variables
-        solution.setVariables(variables);
+        REQUIRE_NOTHROW(solution.setVariables(variables));
         REQUIRE(solution.getVariables() == variables);
+    }
+
+    SECTION("Updating the variables of a solution - Whole vector throws") {
+        vector<int> variables(nVars * 2);
+        iota(variables.begin(), variables.end(), 0);
+        vector currentVars = solution.getVariables();
+        REQUIRE_THROWS(solution.setVariables(variables));
+        REQUIRE(solution.getVariables() == currentVars);
     }
 
     SECTION("Updating the variables of a solution - out of range + 2") {
@@ -205,8 +225,15 @@ TEST_CASE("Solutions can be created", "[Solution]") {
 
     SECTION("Updating the constraints of a solution - Whole vector") {
         vector<double> constraints = {25.0, -50.1};
-        solution.setConstraints(constraints);
+        REQUIRE_NOTHROW(solution.setConstraints(constraints));
         REQUIRE(solution.getConstraints() == constraints);
+    }
+
+    SECTION("Updating the constraints of a solution - Whole vector") {
+        vector<double> constraints = {25.0, -50.1, 100.0, 50.0};
+        vector currentConst = solution.getConstraints();
+        REQUIRE_THROWS(solution.setConstraints(constraints));
+        REQUIRE(solution.getConstraints() == currentConst);
     }
 
     SECTION("Updating the constraints of a solution - Get 0") {
@@ -273,5 +300,12 @@ TEST_CASE("Solutions can be created", "[Solution]") {
     SECTION("Throwing exception when copying null solution") {
         Solution<int, int> *sample = nullptr;
         REQUIRE_THROWS(Solution<int, int>(sample));
+    }
+
+    SECTION("Checks crowDistance getter and setter") {
+        auto crow = 100.0;
+        REQUIRE(solution.getCrowDistance() == -1.0);  // Default value is  -1.0
+        solution.setCrowDistance(crow);
+        REQUIRE(solution.getCrowDistance() == crow);
     }
 }

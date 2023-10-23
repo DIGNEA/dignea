@@ -4,11 +4,11 @@
 
 #include <dignea/core/Front.h>
 #include <dignea/problems/DoubleSphere.h>
+#include <dignea/problems/ZDT.h>
 #include <dignea/types/SolutionTypes.h>
 
-#include <vector>
-
 #include <catch2/catch_all.hpp>
+#include <vector>
 
 using namespace std;
 
@@ -79,5 +79,29 @@ TEST_CASE("Front tests", "[Front]") {
         auto copyFront = make_unique<Front<FloatSolution>>(front.get());
         REQUIRE(front->getNumOfSolutions() == copyFront->getNumOfSolutions());
         REQUIRE(front->getSolutions() == copyFront->getSolutions());
+    }
+
+    SECTION("Adding a 2D solution") {
+        auto front = make_unique<Front<FloatSolution>>(solutions);
+        REQUIRE_THROWS(front->addSolution(solutions[0]));
+    }
+
+    SECTION("Adding a 1D solution using addSolution with problem") {
+        auto front = make_unique<Front<FloatSolution>>(solutions);
+        auto problem = make_unique<ZDT>(ZDT_MODE::ZDT1, 30);
+        FloatSolution newSolution(nVars, 1, constraints);
+        newSolution.setVariables(vars);
+        newSolution.setObjectives({10.0});
+        REQUIRE_NOTHROW(front->addSolution(newSolution, problem.get()));
+    }
+
+    SECTION("Adding a 2D solution using addSolution with problem") {
+        auto front = make_unique<Front<FloatSolution>>(0);
+        auto problem = make_unique<ZDT>(ZDT_MODE::ZDT1, 30);
+        for (const FloatSolution &solution : solutions) {
+            REQUIRE_NOTHROW(front->addSolution(solution, problem.get()));
+        }
+        // They should be the same
+        REQUIRE(front->getNumOfSolutions() == 1);
     }
 }

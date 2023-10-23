@@ -50,7 +50,7 @@ jobs:
           make
           make digneaTestCoverage
           mkdir ${{github.workspace}}/coverage 
-          lcov --remove digneaTestCoverage.info "/usr/*" "*/build/_deps/*" "*/examples/*" "*/lib/*" "*/test/" -o ${{github.workspace}}/coverage/lcov.info
+          lcov --remove digneaTestCoverage.info "/usr/*" "*/build/_deps/*" "*/examples/*" "*/lib/*" "*/test/" "*/algorithms/kp_heuristics/Combo*" "*/algorithms/kp_heuristics/ExpKnap*" "*/algorithms/kp_heuristics/MinKnap*" -o ${{github.workspace}}/coverage/lcov.info
 
       - name: Send to Coveralls
         uses: coverallsapp/github-action@master

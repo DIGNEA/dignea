@@ -40,8 +40,6 @@ class Solution {
 
     bool operator==(const Solution &other) const;
 
-    virtual unique_ptr<Solution<V, O>> clone();
-
     /**
      * @brief Returns the objective values of the solution
      *
@@ -356,31 +354,6 @@ Solution<V, O>::~Solution() {
     objectives.shrink_to_fit();
     variables.shrink_to_fit();
     constraints.shrink_to_fit();
-}
-
-/**\deprecated Clones the solution and returns a new unique_ptr with the exact
- * same information.
- *
- *
- * @tparam V
- * @tparam O
- * @return unique_ptr<Solution<V, O>>
- */
-template <typename V, typename O>
-unique_ptr<Solution<V, O>> Solution<V, O>::clone() {
-    auto solution = make_unique<Solution<V, O>>(nVars, nObjs, nCons);
-    solution->fitness = this->fitness;
-    solution->constraintCoeff = this->constraintCoeff;
-    for (int i = 0; i < this->nVars; i++) {
-        solution->variables[i] = this->variables[i];
-    }
-    for (int i = 0; i < this->nObjs; i++) {
-        solution->objectives[i] = this->objectives[i];
-    }
-    for (int i = 0; i < this->nCons; i++) {
-        solution->constraints[i] = this->constraints[i];
-    }
-    return solution;
 }
 
 /**
