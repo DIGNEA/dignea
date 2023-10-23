@@ -317,6 +317,8 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR INCLUDE_TESTS)
                 test/experiment/ExperimentTest.cpp
                 test/generator/evaluations/EasyInstancesTest.cpp
                 test/generator/evaluations/WeightedTest.cpp
+                test/generator/evaluations/PisPerformanceTest.cpp
+
                 test/generator/EIGTest.cpp
 
                 # test/generator/MOEIGTest.cpp
@@ -376,6 +378,8 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR INCLUDE_TESTS)
                 test/distances/ManhattanTest.cpp
                 test/distances/HammingTest.cpp
                 test/searches/NSFeaturesTest.cpp
+                test/searches/NSPerformanceTest.cpp
+
                 src/dignea/problems/TSP.cpp
                 test/problems/TSPTest.cpp
                 test/mutations/SwapMutationTest.cpp

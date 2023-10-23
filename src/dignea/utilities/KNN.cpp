@@ -67,40 +67,6 @@ neighMatrix KNN::run(const vector<Descriptor> &population,
 }
 
 /**
- * @brief Computes the inverse of KNN
- *
- * @tparam S
- * @tparam T
- * @param population
- * @param metric
- * @param k
- * @return neighMatrix<T>
- */
-neighMatrix KNN::inverse(const vector<Descriptor> &population,
-                         Distance<float> *metric, const int &k) {
-    if ((unsigned int)k > population.size()) {
-        throw runtime_error(
-            "K is " + to_string(k) +
-            " and population are only: " + to_string(population.size()));
-    }
-    neighMatrix nearest;
-    nearest.reserve(population.size());
-    for (unsigned int i = 0; i < population.size(); i++) {
-        neighVector distances = {};
-        distances.reserve(population.size() - 1);
-        for (unsigned int j = 0; j < population.size(); j++) {
-            if (i == j) continue;
-            float dist = metric->compute(population[i], population[j]);
-            distances.push_back({dist, j});
-        }
-        // Ordenamos los vecinos de I por su distancia a I
-        sort(distances.rbegin(), distances.rend());
-        nearest.push_back({distances.begin(), distances.begin() + k});
-    }
-    return nearest;
-}
-
-/**
  * @brief Computes the sparseness of all individuals in the population vector
  * Based on the Novelty Search from Exploiting Open-Endedness to Solve Problems
  * Through the Search for Novelty

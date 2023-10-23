@@ -119,4 +119,26 @@ TEST_CASE("Statistics tests", "[Statistics]") {
         vector expected = {-0.2672612419f, 0.5345224838f, -0.8017837257f};
         REQUIRE(areEqual(normalized, expected));
     }
+
+    SECTION("Median function returns NaN if the vector is empty") {
+        vector<float> data = {};
+        auto result = median(data);
+        REQUIRE(std::numeric_limits<int>::quiet_NaN() == result);
+    }
+
+    SECTION("Median works on vector [1, 3, 5, 7] -> 4") {
+        vector data = {1, 3, 5, 7};
+        auto expected = 4;
+        auto result = median(data);
+        REQUIRE(expected == result);
+    }
+
+    SECTION(
+        "Median works with negative numbers ([-5, -5, -3, -4, 0, -1]) -> "
+        "-3.0") {
+        vector<float> data = {-5.0, -5.0, -3.0, -4.0, 0.0, -1.0};
+        auto expected = -3.0;
+        auto result = median(data);
+        REQUIRE(expected == result);
+    }
 }

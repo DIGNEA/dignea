@@ -13,6 +13,8 @@
 using namespace std;
 
 TEST_CASE("Front tests", "[Front]") {
+    std::cout.setstate(std::ios_base::failbit);
+    std::cerr.setstate(std::ios_base::failbit);
     const int nSolutions = 30;
     const int nVars = 10;
     const int nObjs = 2;

@@ -92,4 +92,16 @@ TEST_CASE("KNN tests", "[KNN]") {
         // sparseness throws runtime error
         REQUIRE_THROWS(sparseness(solutions, hamming.get(), k * 10));
     }
+
+    SECTION("KNN throws when the number of solutions is less than k") {
+        const int k = 15;
+        vector<vector<float>> descriptors = {{1, 2, 3, 4, 5, 6, 7, 8, 9},
+                                             {1, 2, 3, 4, 5, 6, 7, 8, 9},
+                                             {1, 2, 3, 4, 5, 6, 7, 8, 9}};
+
+        auto euclidean = make_unique<Euclidean<float>>();
+        auto knn = make_unique<KNN>();
+        REQUIRE_THROWS(
+            knn->run(descriptors[0], descriptors, euclidean.get(), k));
+    }
 }

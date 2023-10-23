@@ -4,6 +4,7 @@
 
 #include <dignea/problems/DoubleSphere.h>
 #include <dignea/problems/SampleProblem.h>
+#include <dignea/problems/Sphere.h>
 #include <dignea/types/SolutionTypes.h>
 #include <dignea/utilities/Comparator.h>
 
@@ -124,6 +125,28 @@ TEST_CASE("Comparator can be created", "[Comparator]") {
         problem->evaluate(solution2);
         REQUIRE(dominanceTest(solution1, solution2, problem.get()) ==
                 NON_DOMINANCES_EQUALS);
+    }
+
+    SECTION("Dominance Test of two single-objective solutions- Throws") {
+        int dimension = 30;
+        auto problem = make_unique<Sphere>(dimension);
+        FloatSolution solution1 = problem->createSolution();
+        FloatSolution solution2 = problem->createSolution();
+
+        REQUIRE_THROWS(dominanceTest(solution1, solution2, problem.get()) ==
+                       NON_DOMINANCES_EQUALS);
+    }
+
+    SECTION(
+        "Dominance Test of multi-objective solutions with different "
+        "objectives- Throws") {
+        int dimension = 30;
+        auto problem = make_unique<DoubleSphere>(dimension);
+        FloatSolution solution1(100, 2, 0);
+        FloatSolution solution2(100, 3, 0);
+
+        REQUIRE_THROWS(dominanceTest(solution1, solution2, problem.get()) ==
+                       NON_DOMINANCES_EQUALS);
     }
 
     SECTION("Comparing a population") {

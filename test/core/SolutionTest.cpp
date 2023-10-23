@@ -10,6 +10,8 @@
 using json = nlohmann::json;
 
 TEST_CASE("Solutions can be created", "[Solution]") {
+    std::cout.setstate(std::ios_base::failbit);
+    std::cerr.setstate(std::ios_base::failbit);
     int nVars = 30;
     int nObjs = 1;
     int nCons = 2;

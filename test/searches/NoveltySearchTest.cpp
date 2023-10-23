@@ -17,6 +17,12 @@ TEST_CASE("Novelty Searchs tests", "[Novelty Search]") {
     auto dist = make_unique<Euclidean<float>>();
     auto ns = make_unique<NoveltySearch<KPInstance>>(move(dist));
 
+    SECTION("NS default parameters") {
+        REQUIRE(ns->getK() == 15);
+        REQUIRE(ns->getThreshold() == 2000);
+        REQUIRE(ns->getFinalThresh() == 0.0001f);
+    }
+
     SECTION("Check NS run") {
         auto pSize = 50;
         auto defaultNS = -1.0f;
@@ -49,9 +55,25 @@ TEST_CASE("Novelty Searchs tests", "[Novelty Search]") {
     }
 
     SECTION("Check NS compare final throws") {
-        vector<KPInstance> emptySols(0);
+        vector<KPInstance> emptySols;
+        REQUIRE_THROWS(ns->cmpFinals(emptySols));
+    }
 
-        // TODO  REQUIRE_THROWS(ns->cmpFinals(emptySols));
+    SECTION("Check NS insertFinal works") {
+        auto pSize = 50;
+        auto nVars = 100;
+        auto problem = make_unique<KPDomain>(nVars);
+        auto inds = std::vector<KPInstance>{};
+        // FinalsS should be empty
+        // so at least the first solution should be inserted
+        for (int i = 0; i < pSize; i++) {
+            KPInstance ind = problem->createSolution();
+            ind.setFitness(1.0f);
+            ind.setBiasedFitness(1.0f);
+            inds.push_back(ind);
+        }
+        REQUIRE_NOTHROW(ns->cmpFinals(inds));
+        REQUIRE(ns->getResults().getNumOfSolutions() >= 1);
     }
 
     SECTION("Check NS to_json") {
