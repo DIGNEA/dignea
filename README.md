@@ -4,7 +4,6 @@
   
 [![Build](https://github.com/DIGNEA/dignea/actions/workflows/cmake.yml/badge.svg)](https://github.com/DIGNEA/dignea/actions/workflows/cmake.yml/badge.svg)
 [![Test](https://github.com/DIGNEA/dignea/actions/workflows/catch.yml/badge.svg)](https://github.com/DIGNEA/dignea/actions/workflows/catch.yml//badge.svg)
-[![Cpp-check](https://github.com/DIGNEA/dignea/actions/workflows/cppcheck.yml/badge.svg)](https://github.com/DIGNEA/dignea/actions/workflows/cppcheck.yml//badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/DIGNEA/dignea/badge.svg?branch=main)](https://coveralls.io/github/DIGNEA/dignea?branch=main)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Documentation](https://github.com/DIGNEA/dignea/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/DIGNEA/dignea/actions/workflows/pages/pages-build-deployment//badge.svg)
