@@ -1,5 +1,5 @@
 var classNSFactory =
 [
-    [ "NSFactory", "classNSFactory.html#a340996ae198f45af7c80f0fcdea8baf7", null ],
-    [ "create", "classNSFactory.html#a729469a6a814fa1a5848f93c975c51ba", null ]
+    [ "NSFactory", "classNSFactory.html#ab1c92736f0b0ee9731728eecffe932d0", null ],
+    [ "create", "classNSFactory.html#a1a7f9c3053a523457f1c87cf513b6735", null ]
 ];

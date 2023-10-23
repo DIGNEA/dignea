@@ -5,6 +5,9 @@ var dir_409f3f8fd16f36c92ee1c0a964bf74d0 =
     [ "NSFactory.h", "NSFactory_8h.html", [
       [ "NSFactory", "classNSFactory.html", "classNSFactory" ]
     ] ],
+    [ "RepFactory.h", "RepFactory_8h.html", [
+      [ "RepFactory", "classRepFactory.html", "classRepFactory" ]
+    ] ],
     [ "SelFactory.h", "SelFactory_8h.html", [
       [ "SelFactory", "classSelFactory.html", "classSelFactory" ]
     ] ]

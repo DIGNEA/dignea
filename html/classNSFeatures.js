@@ -1,12 +1,11 @@
 var classNSFeatures =
 [
-    [ "NSFeatures", "classNSFeatures.html#a4e2f1a36be57ef4b0685f6ea4496a573", null ],
-    [ "NSFeatures", "classNSFeatures.html#ad98b7bcedfbb22128eb19367a1404007", null ],
-    [ "~NSFeatures", "classNSFeatures.html#a7089746359ebb5c47a11980ef0ed34ae", null ],
-    [ "beforeRun", "classNSFeatures.html#a9ec29bc2a19bc1952484cdf6b08c9ad0", null ],
-    [ "getArchive", "classNSFeatures.html#ade6593f4f1f58c2896cbab1c9a1d49c9", null ],
-    [ "insertIntoArchive", "classNSFeatures.html#a4a1d9d75c8cea38e8413f54d9bb19a41", null ],
-    [ "run", "classNSFeatures.html#a6ac6d69b59f1059a83649d6ebaca61d9", null ],
-    [ "to_json", "classNSFeatures.html#ad438d7121fea5fde2fe95c404d18de81", null ],
-    [ "noveltyFeatures", "classNSFeatures.html#a289c696620f721f3facafe0fea5c1a32", null ]
+    [ "NSFeatures", "classNSFeatures.html#a300eddc1cf1d0b689ede7f17edc34ccd", null ],
+    [ "NSFeatures", "classNSFeatures.html#afba842ead9ba963314cfbb40d409658f", null ],
+    [ "~NSFeatures", "classNSFeatures.html#ab7e9ddc52d0498a20f7566169b2f6a67", null ],
+    [ "beforeCmpFinals", "classNSFeatures.html#a53785d5bc904993ef02c1a73f43a041c", null ],
+    [ "beforeRun", "classNSFeatures.html#abf35e3c80077b805f4bbba0b52338b97", null ],
+    [ "insertFinal", "classNSFeatures.html#ac3f2640a79f5e4e8acd21d70eeaa6e48", null ],
+    [ "to_json", "classNSFeatures.html#a20629ef4dbe385e5e5aa7d13f1dde01d", null ],
+    [ "warmed", "classNSFeatures.html#ac1d1598c3daa5d5dbc64dca755fa6f86", null ]
 ];

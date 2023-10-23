@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['upthresratio_747',['upThresRatio',['../classNoveltySearch.html#acad8e69bf4677f1c3785935d8e8bd62b',1,'NoveltySearch']]]
+  ['warmupdata_917',['warmUpData',['../NSWarmUp_8h.html#a5cbc5176ecb597be0c25ebfb8dfc6c37',1,'NSWarmUp']]]
 ];

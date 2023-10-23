@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['figa_391',['FIGA',['../classFIGA.html',1,'']]],
-  ['firstimprove_392',['FirstImprove',['../classFirstImprove.html',1,'']]],
-  ['front_393',['Front',['../classFront.html',1,'']]]
+  ['figa_486',['FIGA',['../classFIGA.html',1,'']]],
+  ['firstfit_487',['FirstFit',['../classFirstFit.html',1,'']]],
+  ['firstimprove_488',['FirstImprove',['../classFirstImprove.html',1,'']]],
+  ['front_489',['Front',['../classFront.html',1,'']]]
 ];

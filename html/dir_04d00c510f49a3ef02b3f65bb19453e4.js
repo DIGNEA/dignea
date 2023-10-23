@@ -11,5 +11,6 @@ var dir_04d00c510f49a3ef02b3f65bb19453e4 =
     ] ],
     [ "EIG.h", "EIG_8h.html", [
       [ "EIG", "classEIG.html", "classEIG" ]
-    ] ]
+    ] ],
+    [ "MapElites.h", "MapElites_8h.html", "MapElites_8h" ]
 ];

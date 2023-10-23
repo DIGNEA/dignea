@@ -105,16 +105,16 @@ $(document).ready(function(){initNavTree('md_docs_markdown_03_create_instance_ge
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md39">Creating the Travelling Salesman Problem (TSP)</a></li>
-<li class="level1"><a href="#autotoc_md40">Create the new AbstractDomain subclass: TSPDomain class.</a><ul><li class="level2"><a href="#autotoc_md41">Constructors</a></li>
-<li class="level2"><a href="#autotoc_md42">Generate Optimization Problem from Instance Solution</a></li>
-<li class="level2"><a href="#autotoc_md43">Create new solutions</a></li>
-<li class="level2"><a href="#autotoc_md44">Evaluation and feature calculation</a></li>
-<li class="level2"><a href="#autotoc_md45">Getters and Setters</a></li>
+<ul><li class="level1"><a href="#autotoc_md45">Creating the Travelling Salesman Problem (TSP)</a></li>
+<li class="level1"><a href="#autotoc_md46">Create the new AbstractDomain subclass: TSPDomain class.</a><ul><li class="level2"><a href="#autotoc_md47">Constructors</a></li>
+<li class="level2"><a href="#autotoc_md48">Generate Optimization Problem from Instance Solution</a></li>
+<li class="level2"><a href="#autotoc_md49">Create new solutions</a></li>
+<li class="level2"><a href="#autotoc_md50">Evaluation and feature calculation</a></li>
+<li class="level2"><a href="#autotoc_md51">Getters and Setters</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#autotoc_md46">Create the solution for the instance generation problem: TSPInstance class.</a><ul><li class="level2"><a href="#autotoc_md47">Constructors</a></li>
-<li class="level2"><a href="#autotoc_md48">Representation</a></li>
+<li class="level1"><a href="#autotoc_md52">Create the solution for the instance generation problem: TSPInstance class.</a><ul><li class="level2"><a href="#autotoc_md53">Constructors</a></li>
+<li class="level2"><a href="#autotoc_md54">Representation</a></li>
 </ul>
 </li>
 </ul>
@@ -134,10 +134,10 @@ $(document).ready(function(){initNavTree('md_docs_markdown_03_create_instance_ge
 <li>The radius of the instance.</li>
 <li>From the DBSCAN algorithm: the cluster ratio, cluster radius and fraction of distance.</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md39"></a>
+<h1><a class="anchor" id="autotoc_md45"></a>
 Creating the Travelling Salesman Problem (TSP)</h1>
 <p>First of all we should define the optimization problem for which the instance will be generated for. Since we are using the <a class="el" href="classTSP.html" title="Traveling Salesman Problem implemented in dignea. Uses a IntFloat representation where the solutions ...">TSP</a>, just go to the <a class="el" href="md_docs_markdown_02_create_problem.html">how to create a problem setion</a>.</p>
-<h1><a class="anchor" id="autotoc_md40"></a>
+<h1><a class="anchor" id="autotoc_md46"></a>
 Create the new AbstractDomain subclass: TSPDomain class.</h1>
 <p><b>NOTE:</b> For the sake of simplicity, we will combine the code from <a class="el" href="TSPDomain_8h.html" title="Evolutionary Traveling Salesman Problem. Problem for the EIG to generate TSP Problem Instances The nu...">TSPDomain.h</a> and <a class="el" href="TSPDomain_8cpp.html">TSPDomain.cpp</a> in the same page. However, note that you should split the code appropiately.</p>
 <p>First, the <a class="el" href="classTSPDomain.html" title="Instance Generator TSP Problem. Problem for the EIG to generate TSP Instances.">TSPDomain</a> must be defined as a subclass of the <a class="el" href="classAbstractDomain.html" title="EIG Instance Generation Problem. Abstract Problem for the EIG. This problem will be used as a supercl...">AbstractDomain</a> class. Since this is a specialization of the template, we can defined the exact template parameters that we will use. In this case, <a class="el" href="classAbstractDomain.html" title="EIG Instance Generation Problem. Abstract Problem for the EIG. This problem will be used as a supercl...">AbstractDomain</a> expects two template parameters:</p>
@@ -174,7 +174,7 @@ Create the new AbstractDomain subclass: TSPDomain class.</h1>
 <div class="ttc" id="aclassAbstractDomain_html"><div class="ttname"><a href="classAbstractDomain.html">AbstractDomain</a></div><div class="ttdoc">EIG Instance Generation Problem. Abstract Problem for the EIG. This problem will be used as a supercl...</div><div class="ttdef"><b>Definition:</b> AbstractDomain.h:28</div></div>
 <div class="ttc" id="aclassTSPDomain_html"><div class="ttname"><a href="classTSPDomain.html">TSPDomain</a></div><div class="ttdoc">Instance Generator TSP Problem. Problem for the EIG to generate TSP Instances.</div><div class="ttdef"><b>Definition:</b> TSPDomain.h:27</div></div>
 </div><!-- fragment --><p>After that, we can start to defined the methods that we will implement in <a class="el" href="classTSPDomain.html" title="Instance Generator TSP Problem. Problem for the EIG to generate TSP Instances.">TSPDomain</a>. Most of then are inherited from <a class="el" href="classAbstractDomain.html" title="EIG Instance Generation Problem. Abstract Problem for the EIG. This problem will be used as a supercl...">AbstractDomain</a>.</p>
-<h2><a class="anchor" id="autotoc_md41"></a>
+<h2><a class="anchor" id="autotoc_md47"></a>
 Constructors</h2>
 <p>The constructors will allow us to create new <a class="el" href="classTSPDomain.html" title="Instance Generator TSP Problem. Problem for the EIG to generate TSP Instances.">TSPDomain</a> objects. Notice that in some constructors we are passing some parameters for the configuration of the DBSCAN algorithm. This is necessary for using the <a class="el" href="classNSFeatures.html" title="Class to represent the Novelty Search Algorithm This specialization is exclusively for EIG because it...">NSFeatures</a>. The information received in the constructors is treated as follows:</p>
 <ol type="1">
@@ -212,10 +212,10 @@ Constructors</h2>
 <div class="line">    eps = other-&gt;eps;</div>
 <div class="line">    minNeighbors = other-&gt;minNeighbors;</div>
 <div class="line">}</div>
-<div class="ttc" id="aclassTSPDomain_html_a200bfb6fd2c6a1108ed2364a2f5a0102"><div class="ttname"><a href="classTSPDomain.html#a200bfb6fd2c6a1108ed2364a2f5a0102">TSPDomain::TSPDomain</a></div><div class="ttdeci">TSPDomain()</div><div class="ttdoc">Creates a default TSPDomain.</div><div class="ttdef"><b>Definition:</b> TSPDomain.cpp:23</div></div>
+<div class="ttc" id="aclassTSPDomain_html_a200bfb6fd2c6a1108ed2364a2f5a0102"><div class="ttname"><a href="classTSPDomain.html#a200bfb6fd2c6a1108ed2364a2f5a0102">TSPDomain::TSPDomain</a></div><div class="ttdeci">TSPDomain()</div><div class="ttdoc">Creates a default TSPDomain.</div><div class="ttdef"><b>Definition:</b> TSPDomain.cpp:21</div></div>
 <div class="ttc" id="aclassTSPInstance_html"><div class="ttname"><a href="classTSPInstance.html">TSPInstance</a></div><div class="ttdoc">Instance Traveling Salesman Problem Solution. Class which represents the solution for the Instance Tr...</div><div class="ttdef"><b>Definition:</b> TSPInstance.h:33</div></div>
 <div class="ttc" id="aclassTSP_html"><div class="ttname"><a href="classTSP.html">TSP</a></div><div class="ttdoc">Traveling Salesman Problem implemented in dignea. Uses a IntFloat representation where the solutions ...</div><div class="ttdef"><b>Definition:</b> TSP.h:35</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md42"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md48"></a>
 Generate Optimization Problem from Instance Solution</h2>
 <p>This method simply gets a <a class="el" href="classTSPInstance.html" title="Instance Traveling Salesman Problem Solution. Class which represents the solution for the Instance Tr...">TSPInstance</a> object and constructs a <a class="el" href="classTSP.html" title="Traveling Salesman Problem implemented in dignea. Uses a IntFloat representation where the solutions ...">TSP</a> object with all the information related. It returns a shared_ptr since this object will be used by several algorithms in <a class="el" href="classEIG.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (EIG). This algorithm uses a Weig...">EIG</a> and none of them will own the object.</p>
 <div class="fragment"><div class="line">shared_ptr&lt;TSP&gt; genOptProblem(<span class="keyword">const</span> <a class="code" href="classTSPInstance.html">TSPInstance</a> &amp;instance)<span class="keyword"> const override </span>{</div>
@@ -226,9 +226,9 @@ Generate Optimization Problem from Instance Solution</h2>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">return</span> make_shared&lt;TSP&gt;(variables.size(), variables);</div>
 <div class="line">};</div>
-<div class="ttc" id="aclassSolution_html_a17ee3004b6360e1e0d6c0fb97a2f19a1"><div class="ttname"><a href="classSolution.html#a17ee3004b6360e1e0d6c0fb97a2f19a1">Solution::getVariables</a></div><div class="ttdeci">virtual const vector&lt; V &gt; &amp; getVariables() const</div><div class="ttdoc">Get the variables of the solution.</div><div class="ttdef"><b>Definition:</b> Solution.h:59</div></div>
+<div class="ttc" id="aclassSolution_html_a17ee3004b6360e1e0d6c0fb97a2f19a1"><div class="ttname"><a href="classSolution.html#a17ee3004b6360e1e0d6c0fb97a2f19a1">Solution::getVariables</a></div><div class="ttdeci">virtual const vector&lt; V &gt; &amp; getVariables() const</div><div class="ttdoc">Get the variables of the solution.</div><div class="ttdef"><b>Definition:</b> Solution.h:57</div></div>
 <div class="ttc" id="aclassTSPInstance_html_a19d908cb3b516da1a5670b6a741b4ae1"><div class="ttname"><a href="classTSPInstance.html#a19d908cb3b516da1a5670b6a741b4ae1">TSPInstance::to_coords</a></div><div class="ttdeci">vector&lt; coords &gt; to_coords() const</div><div class="ttdoc">Generates the vector of coordinates for the instance. Look the TSP getPoints() method.</div><div class="ttdef"><b>Definition:</b> TSPInstance.cpp:71</div></div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md43"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md49"></a>
 Create new solutions</h2>
 <p>We define three methods to generate new solutions in the <a class="el" href="classTSPDomain.html" title="Instance Generator TSP Problem. Problem for the EIG to generate TSP Instances.">TSPDomain</a>. The first one, will create a vector of size maxSolution with <a class="el" href="classTSPInstance.html" title="Instance Traveling Salesman Problem Solution. Class which represents the solution for the Instance Tr...">TSPInstance</a> objects each of them representing a new <a class="el" href="classTSP.html" title="Traveling Salesman Problem implemented in dignea. Uses a IntFloat representation where the solutions ...">TSP</a> instance. Each <a class="el" href="classTSPInstance.html" title="Instance Traveling Salesman Problem Solution. Class which represents the solution for the Instance Tr...">TSPInstance</a> object is created by defining the number of variables (dimension) and a vector of randomly generated floats. Notice that this vector actually encodes a <a class="el" href="classTSP.html" title="Traveling Salesman Problem implemented in dignea. Uses a IntFloat representation where the solutions ...">TSP</a> instance representation where the coordinates (x, y) are stored in the even and odd positions of the vector respectively: [x0, y0, x1, y1, ..., xn-1, yn-1].</p>
 <p>The other two methods will generate only one solution at a time following a similar procedure.</p>
@@ -255,7 +255,7 @@ Create new solutions</h2>
 <div class="line"> </div>
 <div class="line"><a class="code" href="classTSPInstance.html">TSPInstance</a> createSolution(ParallelPRNG &amp;engine) <span class="keyword">const override</span>;</div>
 <div class="ttc" id="aclassPseudoRandom_html_a6a85657b19f803952051e045c4181e20"><div class="ttname"><a href="classPseudoRandom.html#a6a85657b19f803952051e045c4181e20">PseudoRandom::randDouble</a></div><div class="ttdeci">static double randDouble()</div><div class="ttdoc">Generates a random double value between 0.0 and 1.0.</div><div class="ttdef"><b>Definition:</b> PseudoRandom.cpp:31</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md44"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md50"></a>
 Evaluation and feature calculation</h2>
 <p><a class="el" href="classAbstractDomain.html" title="EIG Instance Generation Problem. Abstract Problem for the EIG. This problem will be used as a supercl...">AbstractDomain</a> are not meant to use the evaluation methods. However, we must define them anyway since they are subclasses of <a class="el" href="classProblem.html" title="Class to represent a Problem in the tool. It includes the basic information for a problem a few metho...">Problem</a>. From <a class="el" href="classProblem.html" title="Class to represent a Problem in the tool. It includes the basic information for a problem a few metho...">Problem</a>, we must define <b>evaluate</b> and <b>evaluateConstraints</b> to do nothing. From <a class="el" href="classAbstractDomain.html" title="EIG Instance Generation Problem. Abstract Problem for the EIG. This problem will be used as a supercl...">AbstractDomain</a>, we must implement <b>beforeEvaluation</b> and <b>afterEvaluation</b>. This methods are quite useful to perform some ad-hoc computation to the TSPInstances before and after trying to solve the instances with the algorithms from the portfolio (<a class="el" href="classEIG.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (EIG). This algorithm uses a Weig...">EIG</a>).</p>
 <p>For TSPInstances, we do not need to perform any calculation before evaluating the instances. However, after evaluting the instances we should compute the set of features for each of them. This is done in the <b>afterEvaluation</b> method. For each instance (<a class="el" href="classTSPInstance.html" title="Instance Traveling Salesman Problem Solution. Class which represents the solution for the Instance Tr...">TSPInstance</a>) we use some private methods and DBSCAN to calculate the set of features that we mentioned at the begining of this tutorial:</p>
@@ -300,7 +300,7 @@ Evaluation and feature calculation</h2>
 <div class="line">    coords centroid = computeCentroid(points);</div>
 <div class="line">    <span class="keywordtype">float</span> radius = instanceRadius(points, centroid);</div>
 <div class="line">    <span class="keywordtype">float</span> fractionDist = distinctDistances(distances);</div>
-<div class="line">    <span class="keywordtype">float</span> meanDist = <a class="code" href="Statistics_8h.html#ae069181dfb45575d854c18b6de6ae54a">mean</a>(distances);</div>
+<div class="line">    <span class="keywordtype">float</span> meanDist = <a class="code" href="PCA_8h.html#af0c6778f7846900cdb436c6e53be2e8d">mean</a>(distances);</div>
 <div class="line">    <span class="keywordtype">float</span> stdDist = <a class="code" href="Statistics_8h.html#ad878bb4ba51a9031061d77ebd428f2c3">standardDev</a>(meanDist, distances);</div>
 <div class="line"> </div>
 <div class="line">    vector&lt;float&gt; features = {</div>
@@ -311,9 +311,9 @@ Evaluation and feature calculation</h2>
 <div class="line">    solution.setFeatures(features);</div>
 <div class="line">    }</div>
 <div class="line">};</div>
-<div class="ttc" id="aStatistics_8h_html_ad878bb4ba51a9031061d77ebd428f2c3"><div class="ttname"><a href="Statistics_8h.html#ad878bb4ba51a9031061d77ebd428f2c3">standardDev</a></div><div class="ttdeci">double standardDev(double mean, const vector&lt; T &gt; &amp;variables)</div><div class="ttdoc">Computes the Standard Deviation of the vector based on the mean value. Returns NaN if empty.</div><div class="ttdef"><b>Definition:</b> Statistics.h:110</div></div>
-<div class="ttc" id="aStatistics_8h_html_ae069181dfb45575d854c18b6de6ae54a"><div class="ttname"><a href="Statistics_8h.html#ae069181dfb45575d854c18b6de6ae54a">mean</a></div><div class="ttdeci">double mean(const vector&lt; T &gt; &amp;variables)</div><div class="ttdoc">Computes the mean value of the given vector. Returns NaN if empty.</div><div class="ttdef"><b>Definition:</b> Statistics.h:27</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md45"></a>
+<div class="ttc" id="aPCA_8h_html_af0c6778f7846900cdb436c6e53be2e8d"><div class="ttname"><a href="PCA_8h.html#af0c6778f7846900cdb436c6e53be2e8d">PCA::mean</a></div><div class="ttdeci">nc::NdArray&lt; float &gt; mean</div><div class="ttdoc">This is the PCA mean we obtained using only 5000 samples and considering only the 8-dimensional featu...</div><div class="ttdef"><b>Definition:</b> PCA.h:43</div></div>
+<div class="ttc" id="aStatistics_8h_html_ad878bb4ba51a9031061d77ebd428f2c3"><div class="ttname"><a href="Statistics_8h.html#ad878bb4ba51a9031061d77ebd428f2c3">standardDev</a></div><div class="ttdeci">double standardDev(double mean, const vector&lt; T &gt; &amp;variables)</div><div class="ttdoc">Computes the Standard Deviation of the vector based on the mean value. Returns NaN if empty.</div><div class="ttdef"><b>Definition:</b> Statistics.h:131</div></div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md51"></a>
 Getters and Setters</h2>
 <p>Finally, the getters and setters for this class are as simple as other optimization problem.</p>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span> getOptimizationDirection(<span class="keyword">const</span> <span class="keywordtype">int</span> i)<span class="keyword"> const override </span>{</div>
@@ -359,7 +359,7 @@ Getters and Setters</h2>
 <div class="line"><span class="keywordtype">int</span> getMinNeighbors()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> minNeighbors; }</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> readData(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;path)<span class="keyword"> override</span>{};</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md46"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md52"></a>
 Create the solution for the instance generation problem: TSPInstance class.</h1>
 <p>A <a class="el" href="classTSPInstance.html" title="Instance Traveling Salesman Problem Solution. Class which represents the solution for the Instance Tr...">TSPInstance</a> object is solution for the <a class="el" href="classTSPDomain.html" title="Instance Generator TSP Problem. Problem for the EIG to generate TSP Instances.">TSPDomain</a> class. This class is considerably simpler than the previous one. Here we only need to define some constructors, getters and setters and some representation methods. As before, the code shown here must be splitted appropiately in a <a class="el" href="TSPInstance_8h.html" title="Evolutionary TSP Solution. Class which represents the solution for the Instance Generation TSP Proble...">TSPInstance.h</a> and a <a class="el" href="TSPInstance_8cpp.html">TSPInstance.cpp</a> files.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="AbstractInstance_8h.html">dignea/generator/AbstractInstance.h</a>&gt;</span></div>
@@ -374,7 +374,7 @@ Create the solution for the instance generation problem: TSPInstance class.</h1>
 <div class="line">};</div>
 <div class="ttc" id="aAbstractInstance_8h_html"><div class="ttname"><a href="AbstractInstance_8h.html">AbstractInstance.h</a></div></div>
 <div class="ttc" id="aclassAbstractInstance_html"><div class="ttname"><a href="classAbstractInstance.html">AbstractInstance</a></div><div class="ttdoc">Solution for a Instance Generation Problem used in the EIG. This is a solution for AbstractDomain.</div><div class="ttdef"><b>Definition:</b> AbstractInstance.h:30</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md47"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md53"></a>
 Constructors</h2>
 <p>The constructors for <a class="el" href="classTSPInstance.html" title="Instance Traveling Salesman Problem Solution. Class which represents the solution for the Instance Tr...">TSPInstance</a> class only need to call the super <a class="el" href="classAbstractInstance.html" title="Solution for a Instance Generation Problem used in the EIG. This is a solution for AbstractDomain.">AbstractInstance</a> constructor to build the object. Notice that passing nVars = 100 will create a 50 cities since the number of variables must be divided by two to contain the coordinates for each city.</p>
 <div class="fragment"><div class="line"><a class="code" href="classTSPInstance.html#a29774f788149cd83c5d34e66b4ef988d">TSPInstance::TSPInstance</a>() : <a class="code" href="classAbstractInstance.html">AbstractInstance</a>&lt;float, float&gt;() {}</div>
@@ -388,7 +388,7 @@ Constructors</h2>
 <div class="line"><a class="code" href="classTSPInstance.html#a29774f788149cd83c5d34e66b4ef988d">TSPInstance::TSPInstance</a>(<span class="keyword">const</span> <a class="code" href="classTSPInstance.html">TSPInstance</a> *solution)</div>
 <div class="line">    : <a class="code" href="classAbstractInstance.html">AbstractInstance</a>&lt;float, float&gt;(solution) {}</div>
 <div class="ttc" id="aclassTSPInstance_html_a29774f788149cd83c5d34e66b4ef988d"><div class="ttname"><a href="classTSPInstance.html#a29774f788149cd83c5d34e66b4ef988d">TSPInstance::TSPInstance</a></div><div class="ttdeci">TSPInstance()</div><div class="ttdoc">Creates a default TSPInstance.</div><div class="ttdef"><b>Definition:</b> TSPInstance.cpp:25</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md48"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md54"></a>
 Representation</h2>
 <p>Finally, the following methods will get a new representation of the <a class="el" href="classTSP.html" title="Traveling Salesman Problem implemented in dignea. Uses a IntFloat representation where the solutions ...">TSP</a> instance (a <a class="el" href="classTSPInstance.html" title="Instance Traveling Salesman Problem Solution. Class which represents the solution for the Instance Tr...">TSPInstance</a> object) in JSON, in a instance file format or as a vector of coordinates.</p>
 <p>to_json will create and fill a new json object with all the necessary information. We must include the features, the number of variables, the coords of the cities (so we can construct the actual <a class="el" href="classTSP.html" title="Traveling Salesman Problem implemented in dignea. Uses a IntFloat representation where the solutions ...">TSP</a> instance later), the diversity, fitness and biasedFitness values.</p>
@@ -409,7 +409,7 @@ Representation</h2>
 <div class="line">        <span class="keyword">auto</span> zip = [](<span class="keyword">const</span> std::string &amp;s, <span class="keywordtype">float</span> f) {</div>
 <div class="line">            <span class="keywordflow">return</span> std::make_pair(s, f);</div>
 <div class="line">        };</div>
-<div class="line">        transform(keys.begin(), keys.end(), values.begin(),</div>
+<div class="line">        <a class="code" href="PCA_8h.html#ab4b66ceedd2664ecd6252e38cf41cc82">transform</a>(keys.begin(), keys.end(), values.begin(),</div>
 <div class="line">                inserter(featuresMap, featuresMap.end()), zip);</div>
 <div class="line">        data[<span class="stringliteral">&quot;features&quot;</span>] = featuresMap;</div>
 <div class="line">        <span class="keywordflow">return</span> data;</div>
@@ -432,6 +432,7 @@ Representation</h2>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">};</div>
+<div class="ttc" id="aPCA_8h_html_ab4b66ceedd2664ecd6252e38cf41cc82"><div class="ttname"><a href="PCA_8h.html#ab4b66ceedd2664ecd6252e38cf41cc82">PCA::transform</a></div><div class="ttdeci">nc::NdArray&lt; float &gt; transform(const nc::NdArray&lt; float &gt; &amp;sample)</div><div class="ttdoc">Transforms the sample using a PCA model previously built.</div><div class="ttdef"><b>Definition:</b> PCA.h:107</div></div>
 </div><!-- fragment --><p>The result of to_instance is something like the following:</p>
 <div class="fragment"><div class="line">100 # Number of cities</div>
 <div class="line">1380 939 # x0 y0</div>

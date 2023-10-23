@@ -114,102 +114,116 @@ $(document).ready(function(){initNavTree('NSFeatures_8h_source.html',''); initRe
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;dignea/distances/Distance.h&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="AbstractInstance_8h.html">dignea/generator/AbstractInstance.h</a>&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;dignea/searches/NoveltySearch.h&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="KNN_8h.html">dignea/utilities/KNN.h</a>&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Sorter_8h.html">dignea/utilities/Sorter.h</a>&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;dignea/searches/Search.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;dignea/searches/Search.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="KNN_8h.html">dignea/utilities/KNN.h</a>&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="NSWarmUp_8h.html">dignea/utilities/NSWarmUp.h</a>&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Sorter_8h.html">dignea/utilities/Sorter.h</a>&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">using</span> json = nlohmann::json;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">using</span> vars = vector&lt;float&gt;;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;NumCpp.hpp&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">using</span> json = <a class="code" href="MinKnap_8h.html#ab701e3ac61a85b337ec5c1abaad6742d">nlohmann::json</a>;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> MS&gt;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classNSFeatures.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNSFeatures.html">NSFeatures</a> : <span class="keyword">public</span> <a class="code" href="classNoveltySearch.html">NoveltySearch</a>&lt;MS, float&gt; {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> S&gt;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classNSFeatures.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNSFeatures.html">NSFeatures</a> : <span class="keyword">public</span> <a class="code" href="classNoveltySearch.html">NoveltySearch</a>&lt;S&gt; {</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;   <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classNSFeatures.html">NSFeatures</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classNSFeatures.html">NSFeatures</a>(unique_ptr&lt;<a class="code" href="classDistance.html">Distance&lt;float&gt;</a>&gt; dist, <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;iterations,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                        <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;threshold = 2000, <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;k = 15);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classNSFeatures.html">NSFeatures</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classNSFeatures.html">NSFeatures</a>(unique_ptr&lt;<a class="code" href="classDistance.html">Distance&lt;float&gt;</a>&gt; dist,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                        <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;threshold = 2000,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                        <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;finalThresh = 2000, <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;k = 15,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                        <span class="keywordtype">bool</span> warmUp = <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    vector&lt;MS&gt; run(vector&lt;MS&gt; &amp;population, <span class="keyword">const</span> <a class="code" href="classProblem.html">Problem&lt;MS&gt;</a> *problem) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classNSFeatures.html">NSFeatures</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> insertIntoArchive(<span class="keyword">const</span> MS &amp;solution);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">virtual</span> json to_json() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    [[nodiscard]] vector&lt;vars&gt; getArchive()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> noveltyFeatures; };</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">virtual</span> json to_json() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;   <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">virtual</span> vector&lt;vars&gt; beforeRun(vector&lt;MS&gt; &amp;population);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;   <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    vector&lt;vars&gt; noveltyFeatures;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> MS&gt;</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classNSFeatures.html#ad98b7bcedfbb22128eb19367a1404007">   66</a></span>&#160;<a class="code" href="classNSFeatures.html">NSFeatures&lt;MS&gt;::NSFeatures</a>(unique_ptr&lt;<a class="code" href="classDistance.html">Distance&lt;float&gt;</a>&gt; dist,</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                           <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;iterations, <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;threshold,</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                           <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;k)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    : <a class="code" href="classNoveltySearch.html">NoveltySearch</a>&lt;MS, float&gt;(move(dist), iterations, threshold, k) {}</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> MS&gt;</div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classNSFeatures.html#a9ec29bc2a19bc1952484cdf6b08c9ad0">   80</a></span>&#160;vector&lt;vars&gt; <a class="code" href="classNSFeatures.html#a9ec29bc2a19bc1952484cdf6b08c9ad0">NSFeatures&lt;MS&gt;::beforeRun</a>(vector&lt;MS&gt; &amp;population) {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    vector&lt;vars&gt; combinedPop;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    combinedPop.reserve(population.size() + this-&gt;noveltyArchive.size());</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">for</span> (MS &amp;solution : population) {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        combinedPop.push_back(solution.getFeatures());</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    combinedPop.insert(combinedPop.end(), this-&gt;noveltyFeatures.begin(),</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                       this-&gt;noveltyFeatures.end());</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">return</span> combinedPop;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> MS&gt;</div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="classNSFeatures.html#a6ac6d69b59f1059a83649d6ebaca61d9">  103</a></span>&#160;vector&lt;MS&gt; <a class="code" href="classNSFeatures.html#a6ac6d69b59f1059a83649d6ebaca61d9">NSFeatures&lt;MS&gt;::run</a>(vector&lt;MS&gt; &amp;population,</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                               <span class="keyword">const</span> <a class="code" href="classProblem.html">Problem&lt;MS&gt;</a> *problem) {</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    vector combinedPop = this-&gt;beforeRun(population);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    vector&lt;float&gt; spars =</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="KNN_8h.html#ac52eec70ee3293d11fe2b45125424dda">sparseness</a>(combinedPop, this-&gt;distance.get(), this-&gt;k);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; population.size(); i++) {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        population[i].setDiversity(spars[i]);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">return</span> population;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> MS&gt;</div>
-<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="classNSFeatures.html#a4a1d9d75c8cea38e8413f54d9bb19a41">  122</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classNSFeatures.html#a4a1d9d75c8cea38e8413f54d9bb19a41">NSFeatures&lt;MS&gt;::insertIntoArchive</a>(<span class="keyword">const</span> MS &amp;solution) {</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    this-&gt;noveltyArchive.push_back(solution);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    this-&gt;noveltyFeatures.push_back(solution.getFeatures());</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> MS&gt;</div>
-<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="classNSFeatures.html#ad438d7121fea5fde2fe95c404d18de81">  134</a></span>&#160;json <a class="code" href="classNSFeatures.html#ad438d7121fea5fde2fe95c404d18de81">NSFeatures&lt;MS&gt;::to_json</a>() {</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    json data = <a class="code" href="classNoveltySearch.html">NoveltySearch&lt;MS, float&gt;::to_json</a>();</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    data[<span class="stringliteral">&quot;name&quot;</span>] = <span class="stringliteral">&quot;NSFeatures&quot;</span>;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordflow">return</span> data;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;}</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// DIGNEA_NOVELTYEIG_H</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;   <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">virtual</span> vector&lt;Descriptor&gt; beforeRun(<span class="keyword">const</span> vector&lt;S&gt; &amp;population) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">virtual</span> vector&lt;Descriptor&gt; beforeCmpFinals(</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">const</span> vector&lt;S&gt; &amp;population) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> insertFinal(<span class="keyword">const</span> S &amp;solution) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;   <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">bool</span> warmed;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> S&gt;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classNSFeatures.html#afba842ead9ba963314cfbb40d409658f">   70</a></span>&#160;<a class="code" href="classNSFeatures.html">NSFeatures&lt;S&gt;::NSFeatures</a>(unique_ptr&lt;<a class="code" href="classDistance.html">Distance&lt;float&gt;</a>&gt; dist,</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                          <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;threshold, <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;finalThresh,</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                          <span class="keyword">const</span> <span class="keywordtype">int</span> &amp;k, <span class="keywordtype">bool</span> warmUp)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    : <a class="code" href="classNoveltySearch.html">NoveltySearch</a>&lt;S&gt;(move(dist), threshold, finalThresh, k), warmed(warmUp) {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">// if (warmUp) {</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">//     auto seed = 42;</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">//     nc::random::seed(seed);</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">//     auto indexes =</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">//         nc::random::randInt(nc::Shape(1, 50), (long unsigned int)0,</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">//                             NSWarmUp::warmUpData.size());</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">//     for (auto ix : indexes) {</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">//         this-&gt;noveltyFeatures.push_back(NSWarmUp::warmUpData[ix]);</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">//     }</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">// }</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> S&gt;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="classNSFeatures.html#abf35e3c80077b805f4bbba0b52338b97">   96</a></span>&#160;vector&lt;Descriptor&gt; <a class="code" href="classNSFeatures.html#abf35e3c80077b805f4bbba0b52338b97">NSFeatures&lt;S&gt;::beforeRun</a>(<span class="keyword">const</span> vector&lt;S&gt; &amp;population) {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    vector&lt;Descriptor&gt; combinedPop;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    combinedPop.reserve(population.size() + this-&gt;noveltyArchive.size());</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> S &amp;solution : population) {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        combinedPop.push_back(solution.getFeatures());</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> S &amp;solution : this-&gt;noveltyArchive) {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        combinedPop.push_back(solution.getFeatures());</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="comment">// combinedPop.insert(combinedPop.end(), this-&gt;noveltyArchive.begin(),</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="comment">//                    this-&gt;noveltyArchive.end(),</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="comment">//                    [](const S &amp;s) { return s.getFeatures(); });</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">return</span> combinedPop;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> S&gt;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;vector&lt;Descriptor&gt; <a class="code" href="classNSFeatures.html">NSFeatures&lt;S&gt;::beforeCmpFinals</a>(<span class="keyword">const</span> vector&lt;S&gt; &amp;population) {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    vector&lt;Descriptor&gt; descriptors;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    descriptors.reserve(population.size());</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> S &amp;solution : population) {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        descriptors.push_back(solution.getFeatures());</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">return</span> descriptors;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> S&gt;</div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="classNSFeatures.html#ac3f2640a79f5e4e8acd21d70eeaa6e48">  129</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classNSFeatures.html#ac3f2640a79f5e4e8acd21d70eeaa6e48">NSFeatures&lt;S&gt;::insertFinal</a>(<span class="keyword">const</span> S &amp;solution) {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    this-&gt;finalSs.push_back(solution);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    this-&gt;finalSsDesc.push_back(solution.getFeatures());</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;}</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> S&gt;</div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="classNSFeatures.html#a20629ef4dbe385e5e5aa7d13f1dde01d">  141</a></span>&#160;json <a class="code" href="classNSFeatures.html#a20629ef4dbe385e5e5aa7d13f1dde01d">NSFeatures&lt;S&gt;::to_json</a>() {</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    json data = <a class="code" href="classNoveltySearch.html">NoveltySearch&lt;S&gt;::to_json</a>();</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    data[<span class="stringliteral">&quot;name&quot;</span>] = <span class="stringliteral">&quot;NSFeatures&quot;</span>;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    data[<span class="stringliteral">&quot;warm-up&quot;</span>] = this-&gt;warmed;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordflow">return</span> data;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;}</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// DIGNEA_NOVELTYEIG_H</span></div>
 <div class="ttc" id="aAbstractInstance_8h_html"><div class="ttname"><a href="AbstractInstance_8h.html">AbstractInstance.h</a></div></div>
 <div class="ttc" id="aKNN_8h_html"><div class="ttname"><a href="KNN_8h.html">KNN.h</a></div></div>
-<div class="ttc" id="aKNN_8h_html_ac52eec70ee3293d11fe2b45125424dda"><div class="ttname"><a href="KNN_8h.html#ac52eec70ee3293d11fe2b45125424dda">sparseness</a></div><div class="ttdeci">vector&lt; T &gt; sparseness(const vector&lt; S &gt; &amp;population, Distance&lt; T &gt; *metric, const int k=3)</div><div class="ttdoc">Computes the sparseness of all individuals in the population vector Based on the Novelty Search from ...</div><div class="ttdef"><b>Definition:</b> KNN.h:254</div></div>
+<div class="ttc" id="aMinKnap_8h_html_ab701e3ac61a85b337ec5c1abaad6742d"><div class="ttname"><a href="MinKnap_8h.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a></div><div class="ttdeci">nlohmann::json json</div><div class="ttdef"><b>Definition:</b> MinKnap.h:85</div></div>
+<div class="ttc" id="aNSWarmUp_8h_html"><div class="ttname"><a href="NSWarmUp_8h.html">NSWarmUp.h</a></div></div>
 <div class="ttc" id="aSorter_8h_html"><div class="ttname"><a href="Sorter_8h.html">Sorter.h</a></div></div>
 <div class="ttc" id="aclassDistance_html"><div class="ttname"><a href="classDistance.html">Distance&lt; float &gt;</a></div></div>
 <div class="ttc" id="aclassNSFeatures_html"><div class="ttname"><a href="classNSFeatures.html">NSFeatures</a></div><div class="ttdoc">Class to represent the Novelty Search Algorithm This specialization is exclusively for EIG because it...</div><div class="ttdef"><b>Definition:</b> NSFeatures.h:33</div></div>
-<div class="ttc" id="aclassNSFeatures_html_a4a1d9d75c8cea38e8413f54d9bb19a41"><div class="ttname"><a href="classNSFeatures.html#a4a1d9d75c8cea38e8413f54d9bb19a41">NSFeatures::insertIntoArchive</a></div><div class="ttdeci">void insertIntoArchive(const MS &amp;solution)</div><div class="ttdoc">Method to insert a new individual into the noveltyArchive of novelty MSs.</div><div class="ttdef"><b>Definition:</b> NSFeatures.h:122</div></div>
-<div class="ttc" id="aclassNSFeatures_html_a6ac6d69b59f1059a83649d6ebaca61d9"><div class="ttname"><a href="classNSFeatures.html#a6ac6d69b59f1059a83649d6ebaca61d9">NSFeatures::run</a></div><div class="ttdeci">vector&lt; MS &gt; run(vector&lt; MS &gt; &amp;population, const Problem&lt; MS &gt; *problem) override</div><div class="ttdoc">Main method of the NS algorithm Computes the sparseness of each individual in the noveltyArchive and ...</div><div class="ttdef"><b>Definition:</b> NSFeatures.h:103</div></div>
-<div class="ttc" id="aclassNSFeatures_html_a9ec29bc2a19bc1952484cdf6b08c9ad0"><div class="ttname"><a href="classNSFeatures.html#a9ec29bc2a19bc1952484cdf6b08c9ad0">NSFeatures::beforeRun</a></div><div class="ttdeci">virtual vector&lt; vars &gt; beforeRun(vector&lt; MS &gt; &amp;population)</div><div class="ttdoc">Performs computational work necessary for running the NS This method creats a combined population usi...</div><div class="ttdef"><b>Definition:</b> NSFeatures.h:80</div></div>
-<div class="ttc" id="aclassNSFeatures_html_ad438d7121fea5fde2fe95c404d18de81"><div class="ttname"><a href="classNSFeatures.html#ad438d7121fea5fde2fe95c404d18de81">NSFeatures::to_json</a></div><div class="ttdeci">virtual json to_json() override</div><div class="ttdoc">Generates a json object with the relevant information of the class.</div><div class="ttdef"><b>Definition:</b> NSFeatures.h:134</div></div>
-<div class="ttc" id="aclassNoveltySearch_html"><div class="ttname"><a href="classNoveltySearch.html">NoveltySearch</a></div><div class="ttdoc">Class to represent the Novelty Search Algorithm.</div><div class="ttdef"><b>Definition:</b> NoveltySearch.h:29</div></div>
-<div class="ttc" id="aclassProblem_html"><div class="ttname"><a href="classProblem.html">Problem</a></div><div class="ttdoc">Class to represent a Problem in the tool. It includes the basic information for a problem a few metho...</div><div class="ttdef"><b>Definition:</b> Problem.h:29</div></div>
+<div class="ttc" id="aclassNSFeatures_html_a20629ef4dbe385e5e5aa7d13f1dde01d"><div class="ttname"><a href="classNSFeatures.html#a20629ef4dbe385e5e5aa7d13f1dde01d">NSFeatures::to_json</a></div><div class="ttdeci">virtual json to_json() override</div><div class="ttdoc">Generates a json object with the relevant information of the class.</div><div class="ttdef"><b>Definition:</b> NSFeatures.h:141</div></div>
+<div class="ttc" id="aclassNSFeatures_html_abf35e3c80077b805f4bbba0b52338b97"><div class="ttname"><a href="classNSFeatures.html#abf35e3c80077b805f4bbba0b52338b97">NSFeatures::beforeRun</a></div><div class="ttdeci">virtual vector&lt; Descriptor &gt; beforeRun(const vector&lt; S &gt; &amp;population) override</div><div class="ttdoc">Performs computational work necessary for running the NS This method creates a combined population us...</div><div class="ttdef"><b>Definition:</b> NSFeatures.h:96</div></div>
+<div class="ttc" id="aclassNSFeatures_html_ac3f2640a79f5e4e8acd21d70eeaa6e48"><div class="ttname"><a href="classNSFeatures.html#ac3f2640a79f5e4e8acd21d70eeaa6e48">NSFeatures::insertFinal</a></div><div class="ttdeci">virtual void insertFinal(const S &amp;solution) override</div><div class="ttdoc">Method to insert a new individual into the noveltyArchive of novelty Ss.</div><div class="ttdef"><b>Definition:</b> NSFeatures.h:129</div></div>
+<div class="ttc" id="aclassNoveltySearch_html"><div class="ttname"><a href="classNoveltySearch.html">NoveltySearch</a></div><div class="ttdoc">Class to represent the Novelty Search Algorithm.</div><div class="ttdef"><b>Definition:</b> NoveltySearch.h:50</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

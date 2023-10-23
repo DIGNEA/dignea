@@ -111,11 +111,12 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 </li>
 <li>genOptProblem()
 : <a class="el" href="classAbstractDomain.html#ac5d3bb47fb04691cc424a24e01cb3951">AbstractDomain&lt; OptProblem, InstSolution &gt;</a>
+, <a class="el" href="classBPPDomain.html#a7b905dbf294f64716cba6954f8ead082">BPPDomain</a>
 , <a class="el" href="classKPDomain.html#a7e93db03fb329d3a6e3164b988b03f34">KPDomain</a>
 , <a class="el" href="classTSPDomain.html#a61dfe7061809736add71be0616f6d3e7">TSPDomain</a>
 </li>
 <li>getAlgorithm()
-: <a class="el" href="classExperiment.html#a13f07567faeb5bb9dcbe11e76423c9a3">Experiment&lt; S &gt;</a>
+: <a class="el" href="classExperiment.html#ab23ddd7e6b3c3696de6986a01cd3f3dc">Experiment&lt; S &gt;</a>
 </li>
 <li>getAvgPortFitness()
 : <a class="el" href="classAbstractInstance.html#a423339c6d81c8e5a0940dd69d44a5337">AbstractInstance&lt; V, O &gt;</a>
@@ -145,6 +146,9 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 <li>getCrossRate()
 : <a class="el" href="classAbstractGA.html#ad9d7aefb75fd4a14692b72bad6c6eef8">AbstractGA&lt; S &gt;</a>
 </li>
+<li>getCrowDistance()
+: <a class="el" href="classSolution.html#a74349c493989214219b6b90bdce65e58">Solution&lt; V, O &gt;</a>
+</li>
 <li>getCurrentTemp()
 : <a class="el" href="classSimulatedAnnealing.html#a982c56beaa2fc9a65048c0ef16b94bcb">SimulatedAnnealing&lt; S &gt;</a>
 </li>
@@ -158,7 +162,8 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 : <a class="el" href="classAbstractInstance.html#adfbb87e0aa65fb498ce74b8a5c70b545">AbstractInstance&lt; V, O &gt;</a>
 </li>
 <li>getElapsedTime()
-: <a class="el" href="classAbstractSolver.html#a1ebcdf9762e14a3d8061c374fcc7e8dc">AbstractSolver&lt; S &gt;</a>
+: <a class="el" href="classAbstractEA.html#ad3b785e7eae9c2c56a801675b8e16b19">AbstractEA&lt; S &gt;</a>
+, <a class="el" href="classAbstractSolver.html#a1ebcdf9762e14a3d8061c374fcc7e8dc">AbstractSolver&lt; S &gt;</a>
 </li>
 <li>getEPS()
 : <a class="el" href="classTSPDomain.html#a4ab0f6b06daaf4bb4cd794cf7f246e41">TSPDomain</a>
@@ -167,16 +172,20 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 : <a class="el" href="classEIG.html#a79b8b5492af9c3d851bd24ddbd4bf19a">EIG&lt; IP, IS, OP, OS &gt;</a>
 </li>
 <li>getEvaluator()
-: <a class="el" href="classAbstractSolver.html#a4b9259f60508026cd1c1a841b79b3704">AbstractSolver&lt; S &gt;</a>
+: <a class="el" href="classAbstractEA.html#a44b86d22cd0ca44f33400c0d9171101e">AbstractEA&lt; S &gt;</a>
+, <a class="el" href="classAbstractSolver.html#a4b9259f60508026cd1c1a841b79b3704">AbstractSolver&lt; S &gt;</a>
 </li>
 <li>getEvolution()
-: <a class="el" href="classAbstractSolver.html#a978b7cef3793544b8c6d7927046c9079">AbstractSolver&lt; S &gt;</a>
+: <a class="el" href="classAbstractEA.html#acdc6df5b19e3d5980b8a4092afe77a1e">AbstractEA&lt; S &gt;</a>
+, <a class="el" href="classAbstractSolver.html#a978b7cef3793544b8c6d7927046c9079">AbstractSolver&lt; S &gt;</a>
 </li>
 <li>getFAndNRatios()
 : <a class="el" href="classWeighted.html#a7754d0dd77853d721c18ca2458336090">Weighted&lt; AbstractInstance &gt;</a>
 </li>
 <li>getFeatures()
-: <a class="el" href="classAbstractInstance.html#affc1b352432dff882f5a6b8ef4cb190e">AbstractInstance&lt; V, O &gt;</a>
+: <a class="el" href="classAbstractInstance.html#a083abad9d3ee563238cb5d88d46dfb9f">AbstractInstance&lt; V, O &gt;</a>
+, <a class="el" href="classBPPInstance.html#a6d23a8700ca42ed1b0024019c7529c83">BPPInstance</a>
+, <a class="el" href="classKPInstance.html#a15a4fa5df5cd396a03657048a5e735f2">KPInstance</a>
 </li>
 <li>getFitness()
 : <a class="el" href="classSolution.html#a09a6431d936ecf7bbc945e297300e54f">Solution&lt; V, O &gt;</a>
@@ -185,33 +194,50 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 : <a class="el" href="classEIG.html#affbaa3fa043e3668364ee64572f62065">EIG&lt; IP, IS, OP, OS &gt;</a>
 </li>
 <li>getID()
-: <a class="el" href="classAbstractSolver.html#a1912110e14bb0b38c150f52a452b56fb">AbstractSolver&lt; S &gt;</a>
+: <a class="el" href="classAbstractEA.html#a7ae5c10e0dced0228d28afa6a75a6b1a">AbstractEA&lt; S &gt;</a>
+, <a class="el" href="classAbstractSolver.html#a1912110e14bb0b38c150f52a452b56fb">AbstractSolver&lt; S &gt;</a>
+, <a class="el" href="classBestFit.html#ad6bf2132351f979743bcec00efc7c9de">BestFit</a>
+, <a class="el" href="classCombo.html#aa5cc3edf5bdc46007cbc25a4c7a05bd6">Combo</a>
 , <a class="el" href="classDefault.html#a92a24e5e549188dc1e6d4d44de9ae507">Default</a>
 , <a class="el" href="classEIG.html#ac6f7574bab642dd282d1c9bf75d8101a">EIG&lt; IP, IS, OP, OS &gt;</a>
+, <a class="el" href="classExpKnap.html#a40644d5d7b32b6c2b02ca40d38eed23f">ExpKnap</a>
 , <a class="el" href="classFIGA.html#a8b02f95840c51cb4346804a3ae8b657b">FIGA&lt; S &gt;</a>
+, <a class="el" href="classFirstFit.html#a65e78384351ecefc8dbfc769d27a05b8">FirstFit</a>
 , <a class="el" href="classGenerationalGA.html#a3ab173f6b140276617cd9742324e8445">GenerationalGA&lt; S &gt;</a>
 , <a class="el" href="classHeuristic.html#a840b0cace9e9e4e0c98077005b5779b9">Heuristic&lt; S &gt;</a>
 , <a class="el" href="classMaP.html#ad0d3d6f7ad67f154ba428e73b958de4f">MaP</a>
+, <a class="el" href="classMinKnap.html#a008c77e00647b4e977dce7cbac2f0826">MinKnap</a>
 , <a class="el" href="classMiW.html#aadbb0718ab65a9401803c1b8c3c4aa78">MiW</a>
 , <a class="el" href="classMPW.html#a75b107e6c357e73f7e136ecc1a90dd47">MPW</a>
+, <a class="el" href="classNextFit.html#a100f56e50c5889e27be4a9fe88406b41">NextFit</a>
+, <a class="el" href="classNSGA2.html#ad704cd29c6a1ccb1963554bc2742ea4d">NSGA2&lt; S &gt;</a>
 , <a class="el" href="classParallelGeneticAlgorithm.html#a6c5d507ef705d714122ba0bbb278da4f">ParallelGeneticAlgorithm&lt; S &gt;</a>
 , <a class="el" href="classSimulatedAnnealing.html#a8b59880604b604cc60c35ba2b5022777">SimulatedAnnealing&lt; S &gt;</a>
 , <a class="el" href="classSteadyGA.html#af1cb60839426ae9e42ede885ab5654fd">SteadyGA&lt; S &gt;</a>
+, <a class="el" href="classtsp__heuristics_1_1Greedy.html#aca08c02e5898326ae5c064875d4838f8">tsp_heuristics::Greedy</a>
+, <a class="el" href="classtsp__heuristics_1_1NearestNeighbour.html#aec9ef2508ac1422067f8b7b6658d317f">tsp_heuristics::NearestNeighbour</a>
+, <a class="el" href="classtsp__heuristics_1_1TwoOpt.html#afd5a9e2acc65ad80d8120bdb20e0b144">tsp_heuristics::TwoOpt</a>
+, <a class="el" href="classWorstFit.html#ae9729c6b2326ea82e7b507bdd6658020">WorstFit</a>
 </li>
 <li>getInstanceProblem()
 : <a class="el" href="classEIG.html#aee7c81df816e26f3e83fd9df9317a7ee">EIG&lt; IP, IS, OP, OS &gt;</a>
 </li>
 <li>getLowerLimit()
-: <a class="el" href="classKP.html#a71ab3d85146ee83fdfc89337c2cdcaa3">KP</a>
+: <a class="el" href="classBPP.html#a45a57a586c2e1423e5bec5e728166256">BPP</a>
+, <a class="el" href="classBPPDomain.html#a01ef15f4281bac2a48507e7682e03d58">BPPDomain</a>
+, <a class="el" href="classDoubleSphere.html#a9aaf11cb816801987ffbee1b1a833d7f">DoubleSphere</a>
+, <a class="el" href="classKP.html#a71ab3d85146ee83fdfc89337c2cdcaa3">KP</a>
 , <a class="el" href="classKPDomain.html#a9eab7d398d41c6287322bf34fc4de57f">KPDomain</a>
 , <a class="el" href="classProblem.html#a54e7a21c6eaf2bef76c7a72919f30c53">Problem&lt; S &gt;</a>
 , <a class="el" href="classRastrigin.html#a23bedb08e4f272728a65cdb158f823bb">Rastrigin</a>
 , <a class="el" href="classSphere.html#a69cfe4118dbccfd770143c0e6fd6e1c5">Sphere</a>
 , <a class="el" href="classTSP.html#ad7a387d4c598c212918a49e92db4979f">TSP</a>
 , <a class="el" href="classTSPDomain.html#a2c0d570364136161c1c50b74c80c080c">TSPDomain</a>
+, <a class="el" href="classZDT.html#ab2c2d0dc4f9954607ea861f1f71478db">ZDT</a>
 </li>
 <li>getMaxEvaluations()
-: <a class="el" href="classAbstractSolver.html#a732ee564cf87b71d988cdca90d9bea58">AbstractSolver&lt; S &gt;</a>
+: <a class="el" href="classAbstractEA.html#ad954dd12576776773406fc1c4ae3531c">AbstractEA&lt; S &gt;</a>
+, <a class="el" href="classAbstractSolver.html#a732ee564cf87b71d988cdca90d9bea58">AbstractSolver&lt; S &gt;</a>
 </li>
 <li>getMinNeighbors()
 : <a class="el" href="classTSPDomain.html#aac4e53cf436ce09fc1fea0a3d301896d">TSPDomain</a>
@@ -225,19 +251,31 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 , <a class="el" href="classEIG.html#a15cf70550b0984ed70bdd48107eda36a">EIG&lt; IP, IS, OP, OS &gt;</a>
 </li>
 <li>getName()
-: <a class="el" href="classAbstractGA.html#ad0da6becc7ada8d796311af029787b82">AbstractGA&lt; S &gt;</a>
+: <a class="el" href="classAbstractEA.html#a67d06f805640f1e6c0a5ad971a2d8837">AbstractEA&lt; S &gt;</a>
+, <a class="el" href="classAbstractGA.html#ad0da6becc7ada8d796311af029787b82">AbstractGA&lt; S &gt;</a>
 , <a class="el" href="classAbstractSolver.html#a7399f85c9f0f59dce96bd9a8765ed13c">AbstractSolver&lt; S &gt;</a>
+, <a class="el" href="classBestFit.html#a8be25a15d6ceda6769ea8ccd9a06e0d5">BestFit</a>
+, <a class="el" href="classBPP.html#ac1b890fb9e9170e81d74f3a29794c263">BPP</a>
+, <a class="el" href="classBPPDomain.html#ae8c5abd39bb84f5d5125f2309c72a4d7">BPPDomain</a>
+, <a class="el" href="classCombo.html#af96871f7eb827cbdd33a0645692d656c">Combo</a>
 , <a class="el" href="classDefault.html#a171958b376a6a1df88eb5b73961f0779">Default</a>
+, <a class="el" href="classDoubleSphere.html#af5a1d14d41637779da12147735f21439">DoubleSphere</a>
 , <a class="el" href="classEIG.html#ad73f12e54c053203fcff59e06e4ec727">EIG&lt; IP, IS, OP, OS &gt;</a>
 , <a class="el" href="classExperiment.html#a6c541faf5219c041005c0f6c0567efb2">Experiment&lt; S &gt;</a>
+, <a class="el" href="classExpKnap.html#aedd92fdfe85c976c5cfb32c76532cedc">ExpKnap</a>
 , <a class="el" href="classFIGA.html#a3017c11fa0829063f2a90b4981bc37c2">FIGA&lt; S &gt;</a>
+, <a class="el" href="classFirstFit.html#ae722538b7d89bcf98ff8754b6d9def7b">FirstFit</a>
 , <a class="el" href="classGenerationalGA.html#a26c586a162821ea13944e01a40bd6690">GenerationalGA&lt; S &gt;</a>
 , <a class="el" href="classHeuristic.html#ad24a3b90a5c409abafa7d3d0a3772bae">Heuristic&lt; S &gt;</a>
 , <a class="el" href="classKP.html#a30f8bd1a935be7549193effb5704648e">KP</a>
 , <a class="el" href="classKPDomain.html#aee3b10f310370fd73a91830b7f5950eb">KPDomain</a>
 , <a class="el" href="classMaP.html#ac6eb4b7c2d7c820584af79e91b8bb64e">MaP</a>
+, <a class="el" href="classMapElites.html#abb2144dd6049846c78a644b5282e66ca">MapElites&lt; IP, IS, OP, OS &gt;</a>
+, <a class="el" href="classMinKnap.html#a4b4439c24724e3d07106d319699f9e3c">MinKnap</a>
 , <a class="el" href="classMiW.html#a31b7cab96210078aaf149081c791c66e">MiW</a>
 , <a class="el" href="classMPW.html#ab709549dcd496097cf8b2288d75e4a58">MPW</a>
+, <a class="el" href="classNextFit.html#a005a3cc61e370cb872dc82b7e8605636">NextFit</a>
+, <a class="el" href="classNSGA2.html#af75bd4fa01e0ede72a0050c9ad1a50f0">NSGA2&lt; S &gt;</a>
 , <a class="el" href="classParallelGeneticAlgorithm.html#ac395ecf5b4a7cc3b669ebfec77bf95c2">ParallelGeneticAlgorithm&lt; S &gt;</a>
 , <a class="el" href="classProblem.html#a8dc9e323a52b67222bfcc7b317ca829f">Problem&lt; S &gt;</a>
 , <a class="el" href="classRastrigin.html#ad298578171633bd505e0ae434f1f6d51">Rastrigin</a>
@@ -245,10 +283,15 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 , <a class="el" href="classSphere.html#a4af56f346fd25888cd9a0d168419d0e7">Sphere</a>
 , <a class="el" href="classSteadyGA.html#a9b0e9212c1d07163542f227d8373eefb">SteadyGA&lt; S &gt;</a>
 , <a class="el" href="classTSP.html#a731d4bdd48717be24c156305bc4f7d13">TSP</a>
+, <a class="el" href="classtsp__heuristics_1_1Greedy.html#a3be0e98cbee3627faefff2352622a70c">tsp_heuristics::Greedy</a>
+, <a class="el" href="classtsp__heuristics_1_1NearestNeighbour.html#a13211cdc380ddbc550ab5fa169fed888">tsp_heuristics::NearestNeighbour</a>
+, <a class="el" href="classtsp__heuristics_1_1TwoOpt.html#a9b8f299d2754ea7cac6359918c44afc9">tsp_heuristics::TwoOpt</a>
 , <a class="el" href="classTSPDomain.html#a73f73781e4c22b1243c2925d487b8561">TSPDomain</a>
+, <a class="el" href="classWorstFit.html#a338ce2240576a62bdf48a2868236d69f">WorstFit</a>
+, <a class="el" href="classZDT.html#a9f465ef9feffa2d50d57714040bc8b73">ZDT</a>
 </li>
 <li>getNoveltySearch()
-: <a class="el" href="classEIG.html#a07eeb8ff6c33fd25237a3431d4f7232d">EIG&lt; IP, IS, OP, OS &gt;</a>
+: <a class="el" href="classEIG.html#ad82c6919d14bb6deb90238d8fe4e1747">EIG&lt; IP, IS, OP, OS &gt;</a>
 </li>
 <li>getNumberOfCons()
 : <a class="el" href="classProblem.html#a835ca695b776c963b7dbf183035512e4">Problem&lt; S &gt;</a>
@@ -275,13 +318,18 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 : <a class="el" href="classSolution.html#add65fc6a9646264ae215654c63032a9a">Solution&lt; V, O &gt;</a>
 </li>
 <li>getOptimizationDirection()
-: <a class="el" href="classKP.html#a7f1e7061b2a5ef812ddb56dbd79b188f">KP</a>
+: <a class="el" href="classAbstractDomain.html#a40e8305c2478c9cde9c95bfdc98db9ca">AbstractDomain&lt; OptProblem, InstSolution &gt;</a>
+, <a class="el" href="classBPP.html#aa8aab761e9c3b5c65fe8599959f04495">BPP</a>
+, <a class="el" href="classBPPDomain.html#a6132a05cfd95b534ceaad6dc7670fe19">BPPDomain</a>
+, <a class="el" href="classDoubleSphere.html#a34057833962eb9acb2efd895af2d208a">DoubleSphere</a>
+, <a class="el" href="classKP.html#a7f1e7061b2a5ef812ddb56dbd79b188f">KP</a>
 , <a class="el" href="classKPDomain.html#a9c402867173817e599da7781f25f98e5">KPDomain</a>
 , <a class="el" href="classProblem.html#aae037f05af3c10d2b2c03248ec80a6d9">Problem&lt; S &gt;</a>
 , <a class="el" href="classRastrigin.html#a8317730628f5533d92a014e21eb8faf9">Rastrigin</a>
 , <a class="el" href="classSphere.html#afd6f4e4c849ffbc9f8786358c478c1d4">Sphere</a>
 , <a class="el" href="classTSP.html#a19efa2c1e6ec344466ab0a3c67a0f56d">TSP</a>
 , <a class="el" href="classTSPDomain.html#a3cfb48d27cd33fee6010a2cf893646b1">TSPDomain</a>
+, <a class="el" href="classZDT.html#a0b56f4114473a418890cd123e31969b6">ZDT</a>
 </li>
 <li>getOutputFilename()
 : <a class="el" href="classJSONPrinter.html#a2a3eebe6b37a998e944ba347192cf682">JSONPrinter</a>
@@ -290,47 +338,68 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 : <a class="el" href="classTSP.html#ad48c6dfb24d4aaf09ca354280b8016bc">TSP</a>
 </li>
 <li>getPerformedEvaluations()
-: <a class="el" href="classAbstractSolver.html#acb6d405828932c36307f8f0fb77be97a">AbstractSolver&lt; S &gt;</a>
+: <a class="el" href="classAbstractEA.html#aab784f853cb8283cf07dd9aa60708351">AbstractEA&lt; S &gt;</a>
+, <a class="el" href="classAbstractSolver.html#acb6d405828932c36307f8f0fb77be97a">AbstractSolver&lt; S &gt;</a>
 </li>
 <li>getPoints()
 : <a class="el" href="classTSP.html#a24272fcb7776155758e7883464c8dec1">TSP</a>
 </li>
 <li>getPopulation()
-: <a class="el" href="classAbstractSolver.html#a9344ad22d094d8dffee7affd3dcce616">AbstractSolver&lt; S &gt;</a>
+: <a class="el" href="classAbstractEA.html#a1cd7c64dd6bfb8e82180a36598346dd1">AbstractEA&lt; S &gt;</a>
+, <a class="el" href="classAbstractSolver.html#a9344ad22d094d8dffee7affd3dcce616">AbstractSolver&lt; S &gt;</a>
 </li>
 <li>getPopulationSize()
-: <a class="el" href="classAbstractSolver.html#a182812f782330a4e72a0e1dd8c2b78e8">AbstractSolver&lt; S &gt;</a>
+: <a class="el" href="classAbstractEA.html#a7de549af68643c20e0a4fa864169d139">AbstractEA&lt; S &gt;</a>
+, <a class="el" href="classAbstractSolver.html#a182812f782330a4e72a0e1dd8c2b78e8">AbstractSolver&lt; S &gt;</a>
 </li>
 <li>getPortFitness()
 : <a class="el" href="classAbstractInstance.html#add139dfc6469a794c08037b33333ad2e">AbstractInstance&lt; V, O &gt;</a>
 </li>
 <li>getPortfolio()
-: <a class="el" href="classEIG.html#a01cc73ca56dacb6da354d347e3d4305f">EIG&lt; IP, IS, OP, OS &gt;</a>
+: <a class="el" href="classEIG.html#ae16ac1d11bc2c66ff1549b166f131c90">EIG&lt; IP, IS, OP, OS &gt;</a>
 </li>
 <li>getPrintingInterval()
-: <a class="el" href="classAbstractSolver.html#a53eb9e80b12693a7ffbc789fc0117db7">AbstractSolver&lt; S &gt;</a>
+: <a class="el" href="classAbstractEA.html#a72f3f6ba6928a3b2c25808c2370de45f">AbstractEA&lt; S &gt;</a>
+, <a class="el" href="classAbstractSolver.html#a53eb9e80b12693a7ffbc789fc0117db7">AbstractSolver&lt; S &gt;</a>
 </li>
 <li>getProblem()
-: <a class="el" href="classAbstractSolver.html#a2691c0f6f8b17f1a5b4bb6b4f72b2f99">AbstractSolver&lt; S &gt;</a>
+: <a class="el" href="classAbstractEA.html#a2f8f258bbc05b1ed09a1a97fadeef530">AbstractEA&lt; S &gt;</a>
+, <a class="el" href="classAbstractSolver.html#a2691c0f6f8b17f1a5b4bb6b4f72b2f99">AbstractSolver&lt; S &gt;</a>
 , <a class="el" href="classParallelGeneticAlgorithm.html#a9b021be022c28e8ee4659f2fe0627a9d">ParallelGeneticAlgorithm&lt; S &gt;</a>
 </li>
 <li>getProblemToSolve()
 : <a class="el" href="classExperiment.html#aed6ae9b9c5dbb4024f3c95868bbf231f">Experiment&lt; S &gt;</a>
+</li>
+<li>getRank()
+: <a class="el" href="classSolution.html#aa35d8b4cb1ccae140461d67f289bd2a1">Solution&lt; V, O &gt;</a>
 </li>
 <li>getRepetitions()
 : <a class="el" href="classEIG.html#a52f6bea874ede2fb71f2910092a0bd2d">EIG&lt; IP, IS, OP, OS &gt;</a>
 , <a class="el" href="classExperiment.html#a12e04adbab5a07cf6f23c7bae6547fda">Experiment&lt; S &gt;</a>
 </li>
 <li>getResults()
-: <a class="el" href="classAbstractGA.html#abed66dec98cabf30821e3c0ede063575">AbstractGA&lt; S &gt;</a>
+: <a class="el" href="classAbstractEA.html#a2406e6d77d2389db55d2b3ece4faccee">AbstractEA&lt; S &gt;</a>
+, <a class="el" href="classAbstractGA.html#abed66dec98cabf30821e3c0ede063575">AbstractGA&lt; S &gt;</a>
 , <a class="el" href="classAbstractSolver.html#a5261ec08e99ba9833389e396c21db719">AbstractSolver&lt; S &gt;</a>
+, <a class="el" href="classBestFit.html#a99a70c80bb78982c98900bc5eeddfec9">BestFit</a>
+, <a class="el" href="classCombo.html#aea4a9b6e64cf27882f4ffb5f0c5a7e1e">Combo</a>
 , <a class="el" href="classDefault.html#a1347ac02f84f42784174813ec0cad89e">Default</a>
 , <a class="el" href="classEIG.html#aa629a4c8b4ced09fc145423396253cd7">EIG&lt; IP, IS, OP, OS &gt;</a>
 , <a class="el" href="classExperiment.html#a22808451371a329c4c9f549424997c5c">Experiment&lt; S &gt;</a>
+, <a class="el" href="classExpKnap.html#a4f55e4287665752468738825200e6f50">ExpKnap</a>
+, <a class="el" href="classFirstFit.html#a78a8f5b61ff2f204605dcf2abe8020fa">FirstFit</a>
 , <a class="el" href="classHeuristic.html#ac3e0416407627c85b0d20b43e4fe61b0">Heuristic&lt; S &gt;</a>
-, <a class="el" href="classNoveltySearch.html#aa7b6213e43333175ef6c21b54ed97897">NoveltySearch&lt; S, T &gt;</a>
+, <a class="el" href="classMapElites.html#aabbba762c780418f7a56ab85500d78cf">MapElites&lt; IP, IS, OP, OS &gt;</a>
+, <a class="el" href="classMinKnap.html#a8834fb51682f460d48629550f65396c7">MinKnap</a>
+, <a class="el" href="classNextFit.html#afe0ddae223d9018caead525e4cc556fe">NextFit</a>
+, <a class="el" href="classNoveltySearch.html#a3ca6d80bcaa94c820ad935e3a23b3a52">NoveltySearch&lt; S &gt;</a>
+, <a class="el" href="classNSGA2.html#aa55cc974f685639b3cdfce4f1682d63b">NSGA2&lt; S &gt;</a>
 , <a class="el" href="classSearch.html#a57b02b734bd27c2cbbc6bec8d6a08807">Search&lt; S &gt;</a>
 , <a class="el" href="classSimulatedAnnealing.html#a4f35166b08340a0393f24764140c82d9">SimulatedAnnealing&lt; S &gt;</a>
+, <a class="el" href="classtsp__heuristics_1_1Greedy.html#af266efd16b0a4446012ca51d4e9b5ac3">tsp_heuristics::Greedy</a>
+, <a class="el" href="classtsp__heuristics_1_1NearestNeighbour.html#a70ccdf2ace9feca4915961929d3cd533">tsp_heuristics::NearestNeighbour</a>
+, <a class="el" href="classtsp__heuristics_1_1TwoOpt.html#afb067e6250be1fb7075aa74be0c57474">tsp_heuristics::TwoOpt</a>
+, <a class="el" href="classWorstFit.html#aaae706c71b77a2b1638c9ec1ffe6bc60">WorstFit</a>
 </li>
 <li>getSelection()
 : <a class="el" href="classAbstractGA.html#a5f0cf9a81f12eb70baf60337b957ff2b">AbstractGA&lt; S &gt;</a>
@@ -343,13 +412,17 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 : <a class="el" href="classSimulatedAnnealing.html#ac18010d626d0f5fb043c10f9ef6564cc">SimulatedAnnealing&lt; S &gt;</a>
 </li>
 <li>getUpperLimit()
-: <a class="el" href="classKP.html#a6a931c39c418f6bb8371c459bb96161b">KP</a>
+: <a class="el" href="classBPP.html#a687e1d525290b5c72560df96a5fbb04c">BPP</a>
+, <a class="el" href="classBPPDomain.html#a3b988a19f6dea45cbdd196e2b30c8b83">BPPDomain</a>
+, <a class="el" href="classDoubleSphere.html#a1af4b77a127ebf862462817610fcf728">DoubleSphere</a>
+, <a class="el" href="classKP.html#a6a931c39c418f6bb8371c459bb96161b">KP</a>
 , <a class="el" href="classKPDomain.html#a8b61c1cacff4e5df998453f198908fd9">KPDomain</a>
 , <a class="el" href="classProblem.html#acbbac704a46fbcc9027630f3357b1de8">Problem&lt; S &gt;</a>
 , <a class="el" href="classRastrigin.html#a80297bd715bcf8b7e8a4e8c9977396d5">Rastrigin</a>
 , <a class="el" href="classSphere.html#a4238a307664ed0f8f9c6db22cf790ecd">Sphere</a>
 , <a class="el" href="classTSP.html#a5378c054286252dd47634679cec55373">TSP</a>
 , <a class="el" href="classTSPDomain.html#a6613aba705f8488552c1d30e95fdc496">TSPDomain</a>
+, <a class="el" href="classZDT.html#a452bee670f2cbc8fbe6da15dc8f050fc">ZDT</a>
 </li>
 <li>getVarAt()
 : <a class="el" href="classSolution.html#af62a343a385340fac39176ce3dee2424">Solution&lt; V, O &gt;</a>

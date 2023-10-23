@@ -1,6 +1,11 @@
 var searchData=
 [
-  ['maxevaluations_725',['maxEvaluations',['../classAbstractSolver.html#ad823f4997ba6da5f95daaac569e9b435',1,'AbstractSolver']]],
-  ['mutation_726',['mutation',['../classAbstractGA.html#ab879408f3d998f9d8fcd022b95de337c',1,'AbstractGA::mutation()'],['../classEIG.html#a52d31d840e2b4fcffb76d74e9d0432b7',1,'EIG::mutation()']]],
-  ['mutationrate_727',['mutationRate',['../classAbstractGA.html#a89858673c304c85c25fef4b8bda1f142',1,'AbstractGA::mutationRate()'],['../classEIG.html#a16c665968ee28a591c01fe2155e6e062',1,'EIG::mutationRate()']]]
+  ['ncons_896',['nCons',['../classSolution.html#a1dd24e9feebfdc615d2822de69016bee',1,'Solution']]],
+  ['nobjs_897',['nObjs',['../classSolution.html#a1dd89b1938bf5458c22f8310c0a75495',1,'Solution']]],
+  ['noveltysearch_898',['noveltySearch',['../classEIG.html#a59df60c9dee0931f4a8b4422c3292644',1,'EIG']]],
+  ['numberofcons_899',['numberOfCons',['../classProblem.html#ace516bb5ea572854e2521eaea3f55def',1,'Problem']]],
+  ['numberofcores_900',['numberOfCores',['../classParallelGeneticAlgorithm.html#a60381a16a108cc12fca8edeebcca6bfd',1,'ParallelGeneticAlgorithm']]],
+  ['numberofobjs_901',['numberOfObjs',['../classProblem.html#a88b1ab3a9148707f97d4e46f562c6a35',1,'Problem']]],
+  ['numberofvars_902',['numberOfVars',['../classProblem.html#a31e064a07281056573f781a84856aef2',1,'Problem']]],
+  ['nvars_903',['nVars',['../classSolution.html#a0d7d82c30df61c6dc0d4c05f6425340c',1,'Solution']]]
 ];

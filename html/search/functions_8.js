@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kp_593',['KP',['../classKP.html#af2abf7bbc01a3913699dedf9b9646b26',1,'KP::KP(const string &amp;pathToInstance)'],['../classKP.html#a5c072bc0ba30e1c3a45741c4b981b752',1,'KP::KP(const int &amp;numberOfVars, const int &amp;capacity, const vector&lt; int &gt; &amp;weights, const vector&lt; int &gt; &amp;profits)']]]
+  ['jsonprinter_744',['JSONPrinter',['../classJSONPrinter.html#a1a9ba03490c0476caaa759e000968ed0',1,'JSONPrinter']]]
 ];

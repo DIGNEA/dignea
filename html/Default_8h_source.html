@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('Default_8h_source.html',''); initResiz
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">using</span> json = nlohmann::json;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">using</span> json = <a class="code" href="MinKnap_8h.html#ab701e3ac61a85b337ec5c1abaad6742d">nlohmann::json</a>;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classDefault.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classDefault.html">Default</a> : <span class="keyword">public</span> <a class="code" href="classHeuristic.html">Heuristic</a>&lt;BoolFloatSolution&gt; {</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;   <span class="keyword">public</span>:</div>
@@ -138,11 +138,12 @@ $(document).ready(function(){initNavTree('Default_8h_source.html',''); initResiz
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// DIGNEA_KP_DEFAULT_HEURISTIC_H</span></div>
 <div class="ttc" id="aKPNR_8h_html"><div class="ttname"><a href="KPNR_8h.html">KPNR.h</a></div></div>
+<div class="ttc" id="aMinKnap_8h_html_ab701e3ac61a85b337ec5c1abaad6742d"><div class="ttname"><a href="MinKnap_8h.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a></div><div class="ttdeci">nlohmann::json json</div><div class="ttdef"><b>Definition:</b> MinKnap.h:85</div></div>
 <div class="ttc" id="aclassDefault_html"><div class="ttname"><a href="classDefault.html">Default</a></div><div class="ttdoc">Default Heuristic for the Knapsack Problem. Tries to insert each item in the knapsack while there is ...</div><div class="ttdef"><b>Definition:</b> Default.h:19</div></div>
 <div class="ttc" id="aclassDefault_html_a171958b376a6a1df88eb5b73961f0779"><div class="ttname"><a href="classDefault.html#a171958b376a6a1df88eb5b73961f0779">Default::getName</a></div><div class="ttdeci">string getName() const</div><div class="ttdoc">Returns the name of the algorithm, this is used in the to_json method. Must be implemented in the sub...</div><div class="ttdef"><b>Definition:</b> Default.h:27</div></div>
 <div class="ttc" id="aclassDefault_html_a92a24e5e549188dc1e6d4d44de9ae507"><div class="ttname"><a href="classDefault.html#a92a24e5e549188dc1e6d4d44de9ae507">Default::getID</a></div><div class="ttdeci">string getID() const</div><div class="ttdoc">Returns the identificator of the algorithm, this is used in the to_json method. Must be implemented i...</div><div class="ttdef"><b>Definition:</b> Default.h:29</div></div>
-<div class="ttc" id="aclassFront_html"><div class="ttname"><a href="classFront.html">Front</a></div><div class="ttdoc">Front class which stores the final results of an EA execution.</div><div class="ttdef"><b>Definition:</b> Front.h:22</div></div>
-<div class="ttc" id="aclassHeuristic_html"><div class="ttname"><a href="classHeuristic.html">Heuristic</a></div><div class="ttdoc">Base heuristic class. This is the skeleton for future heuristic implementations. Extends AbstractSolv...</div><div class="ttdef"><b>Definition:</b> Heuristic.h:19</div></div>
+<div class="ttc" id="aclassFront_html"><div class="ttname"><a href="classFront.html">Front</a></div><div class="ttdoc">Front class which stores the final results of an EA execution.</div><div class="ttdef"><b>Definition:</b> Front.h:26</div></div>
+<div class="ttc" id="aclassHeuristic_html"><div class="ttname"><a href="classHeuristic.html">Heuristic</a></div><div class="ttdoc">Base heuristic class. This is the skeleton for future heuristic implementations. Extends AbstractEA f...</div><div class="ttdef"><b>Definition:</b> Heuristic.h:19</div></div>
 <div class="ttc" id="aclassKP_html"><div class="ttname"><a href="classKP.html">KP</a></div><div class="ttdoc">Class representing a Knapsack Problem.</div><div class="ttdef"><b>Definition:</b> KP.h:28</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

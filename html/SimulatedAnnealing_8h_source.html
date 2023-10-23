@@ -111,7 +111,7 @@ $(document).ready(function(){initNavTree('SimulatedAnnealing_8h_source.html','')
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef DIGNEA_SIMULATEDANNEALING_H</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define DIGNEA_SIMULATEDANNEALING_H</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="AbstractSolver_8h.html">dignea/core/AbstractSolver.h</a>&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="AbstractEA_8h.html">dignea/core/AbstractEA.h</a>&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;dignea/utilities/exceptions/NoMOAllowed.h&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;dignea/utilities/random/PseudoRandom.h&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
@@ -121,7 +121,7 @@ $(document).ready(function(){initNavTree('SimulatedAnnealing_8h_source.html','')
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> S&gt;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classSimulatedAnnealing.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSimulatedAnnealing.html">SimulatedAnnealing</a> : <span class="keyword">public</span> <a class="code" href="classAbstractSolver.html">AbstractSolver</a>&lt;S&gt; {</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classSimulatedAnnealing.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSimulatedAnnealing.html">SimulatedAnnealing</a> : <span class="keyword">public</span> <a class="code" href="classAbstractEA.html">AbstractEA</a>&lt;S&gt; {</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;   <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classSimulatedAnnealing.html">SimulatedAnnealing</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> &amp;maxEvaluations, <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;initialTemp,</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                       <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;tempVariation);</div>
@@ -177,7 +177,7 @@ $(document).ready(function(){initNavTree('SimulatedAnnealing_8h_source.html','')
 <div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="classSimulatedAnnealing.html#aefc2d5fd86c8e8f4f2e560feccf4258d">  114</a></span>&#160;<a class="code" href="classSimulatedAnnealing.html#aefc2d5fd86c8e8f4f2e560feccf4258d">SimulatedAnnealing&lt;S&gt;::SimulatedAnnealing</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> &amp;maxEvaluations,</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                                          <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;initialTemp,</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                                          <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;tempVariation)</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    : <a class="code" href="classAbstractSolver.html">AbstractSolver</a>&lt;S&gt;(maxEvaluations, 1),</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    : <a class="code" href="classAbstractEA.html">AbstractEA</a>&lt;S&gt;(maxEvaluations, 1),</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      tempVariation(tempVariation),</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      currentTemp(initialTemp) {}</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
@@ -290,9 +290,9 @@ $(document).ready(function(){initNavTree('SimulatedAnnealing_8h_source.html','')
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;}</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// DIGNEA_SIMULATEDANNEALING_H</span></div>
-<div class="ttc" id="aAbstractSolver_8h_html"><div class="ttname"><a href="AbstractSolver_8h.html">AbstractSolver.h</a></div></div>
-<div class="ttc" id="aclassAbstractSolver_html"><div class="ttname"><a href="classAbstractSolver.html">AbstractSolver</a></div><div class="ttdoc">Class to define an Abstract Evolutionary Algorithm. This is the base skeleton for future extensions.</div><div class="ttdef"><b>Definition:</b> AbstractSolver.h:42</div></div>
-<div class="ttc" id="aclassFront_html"><div class="ttname"><a href="classFront.html">Front</a></div><div class="ttdoc">Front class which stores the final results of an EA execution.</div><div class="ttdef"><b>Definition:</b> Front.h:22</div></div>
+<div class="ttc" id="aAbstractEA_8h_html"><div class="ttname"><a href="AbstractEA_8h.html">AbstractEA.h</a></div></div>
+<div class="ttc" id="aclassAbstractEA_html"><div class="ttname"><a href="classAbstractEA.html">AbstractEA</a></div><div class="ttdoc">Class to define an Abstract Evolutionary Algorithm. This is the base skeleton for future extensions.</div><div class="ttdef"><b>Definition:</b> AbstractEA.h:42</div></div>
+<div class="ttc" id="aclassFront_html"><div class="ttname"><a href="classFront.html">Front</a></div><div class="ttdoc">Front class which stores the final results of an EA execution.</div><div class="ttdef"><b>Definition:</b> Front.h:26</div></div>
 <div class="ttc" id="aclassProblem_html"><div class="ttname"><a href="classProblem.html">Problem</a></div><div class="ttdoc">Class to represent a Problem in the tool. It includes the basic information for a problem a few metho...</div><div class="ttdef"><b>Definition:</b> Problem.h:29</div></div>
 <div class="ttc" id="aclassProblem_html_a679e9f627591d774c3bde6c63f9be7b6"><div class="ttname"><a href="classProblem.html#a679e9f627591d774c3bde6c63f9be7b6">Problem::getNumberOfObjs</a></div><div class="ttdeci">int getNumberOfObjs() const</div><div class="ttdoc">Get the number of objectives of the problem.</div><div class="ttdef"><b>Definition:</b> Problem.h:135</div></div>
 <div class="ttc" id="aclassPseudoRandom_html_a6a85657b19f803952051e045c4181e20"><div class="ttname"><a href="classPseudoRandom.html#a6a85657b19f803952051e045c4181e20">PseudoRandom::randDouble</a></div><div class="ttdeci">static double randDouble()</div><div class="ttdoc">Generates a random double value between 0.0 and 1.0.</div><div class="ttdef"><b>Definition:</b> PseudoRandom.cpp:31</div></div>

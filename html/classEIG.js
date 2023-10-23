@@ -1,6 +1,6 @@
 var classEIG =
 [
-    [ "Alg", "classEIG.html#a1fde186757afa55505c7c4fda0889010", null ],
+    [ "Alg", "classEIG.html#ac80470ce0d579a491a23b9aa90bcee9f", null ],
     [ "EIG", "classEIG.html#aee252b5d621cf1e231da34ba39b6773b", null ],
     [ "~EIG", "classEIG.html#a2a4a59c64a543953984a1fc6e87ba45f", null ],
     [ "createInitialPopulation", "classEIG.html#a6b9f9520401dfaed3c1af050ced8f344", null ],
@@ -17,8 +17,8 @@ var classEIG =
     [ "getMutation", "classEIG.html#a6700d5460c1c1573ab39e2eb13dbca2a", null ],
     [ "getMutationRate", "classEIG.html#a15cf70550b0984ed70bdd48107eda36a", null ],
     [ "getName", "classEIG.html#ad73f12e54c053203fcff59e06e4ec727", null ],
-    [ "getNoveltySearch", "classEIG.html#a07eeb8ff6c33fd25237a3431d4f7232d", null ],
-    [ "getPortfolio", "classEIG.html#a01cc73ca56dacb6da354d347e3d4305f", null ],
+    [ "getNoveltySearch", "classEIG.html#ad82c6919d14bb6deb90238d8fe4e1747", null ],
+    [ "getPortfolio", "classEIG.html#ae16ac1d11bc2c66ff1549b166f131c90", null ],
     [ "getRepetitions", "classEIG.html#a52f6bea874ede2fb71f2910092a0bd2d", null ],
     [ "getResults", "classEIG.html#aa629a4c8b4ced09fc145423396253cd7", null ],
     [ "getSelection", "classEIG.html#a55162ad522bca9b748870760f7cf7e6e", null ],
@@ -33,9 +33,10 @@ var classEIG =
     [ "setInstanceProblem", "classEIG.html#a003c9f6ddf8cdc8fd6c4252ed82f63f2", null ],
     [ "setMutation", "classEIG.html#a93c4195dccd9dd38627d7ebdc971e7fc", null ],
     [ "setMutationRate", "classEIG.html#a32f5ae61950b8dfb8977c2dfadeaad0d", null ],
-    [ "setNoveltySearch", "classEIG.html#aa2b0ff65b9807391965721e4112893cc", null ],
+    [ "setNoveltySearch", "classEIG.html#a8927d86dcd790b56eb9b6ee2e466e9f2", null ],
     [ "setPortfolio", "classEIG.html#a61569552c1d0837a962fd529cdf5b1e9", null ],
     [ "setRepetitions", "classEIG.html#a73291473f92ae682f459ca3c5123cf87", null ],
+    [ "setReplacement", "classEIG.html#a030e8a7cd3712a56a62a730f15d781ef", null ],
     [ "setSelection", "classEIG.html#a44c5da8dddbff67dbba8dffa4b92de28", null ],
     [ "setWeightedFunction", "classEIG.html#a96d3f081963959df35f8bc96766d889d", null ],
     [ "to_json", "classEIG.html#a576fd174d98beedf9ae84df8da0a8ef5", null ],
@@ -50,8 +51,9 @@ var classEIG =
     [ "instProb", "classEIG.html#a8b057fe65173f4c083a966c0ab840715", null ],
     [ "mutation", "classEIG.html#a52d31d840e2b4fcffb76d74e9d0432b7", null ],
     [ "mutationRate", "classEIG.html#a16c665968ee28a591c01fe2155e6e062", null ],
-    [ "noveltySearch", "classEIG.html#a60fd072ff6b9c364a3a676a6a93aece1", null ],
+    [ "noveltySearch", "classEIG.html#a59df60c9dee0931f4a8b4422c3292644", null ],
     [ "repetitions", "classEIG.html#a14c50ab67b0c70ef7542ca97ca2c1fae", null ],
+    [ "repOperator", "classEIG.html#a206df4e37db62262031e6e0d50b67e17", null ],
     [ "selection", "classEIG.html#aff2f4cdc4e04f8085c79f79a89363a05", null ],
     [ "weightedFitness", "classEIG.html#ac13609977d170897579a93e0ce91d571", null ]
 ];

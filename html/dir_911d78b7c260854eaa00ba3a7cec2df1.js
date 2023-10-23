@@ -1,5 +1,11 @@
 var dir_911d78b7c260854eaa00ba3a7cec2df1 =
 [
+    [ "BPP.h", "BPP_8h.html", [
+      [ "BPP", "classBPP.html", "classBPP" ]
+    ] ],
+    [ "DoubleSphere.h", "DoubleSphere_8h.html", [
+      [ "DoubleSphere", "classDoubleSphere.html", "classDoubleSphere" ]
+    ] ],
     [ "KP.h", "KP_8h.html", "KP_8h" ],
     [ "KPNR.h", "KPNR_8h.html", [
       [ "KPNR", "classKPNR.html", "classKPNR" ]
@@ -10,5 +16,6 @@ var dir_911d78b7c260854eaa00ba3a7cec2df1 =
     [ "Sphere.h", "Sphere_8h.html", [
       [ "Sphere", "classSphere.html", "classSphere" ]
     ] ],
-    [ "TSP.h", "TSP_8h.html", "TSP_8h" ]
+    [ "TSP.h", "TSP_8h.html", "TSP_8h" ],
+    [ "ZDT.h", "ZDT_8h.html", "ZDT_8h" ]
 ];

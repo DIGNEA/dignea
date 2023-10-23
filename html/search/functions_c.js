@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['parallelgeneticalgorithm_605',['ParallelGeneticAlgorithm',['../classParallelGeneticAlgorithm.html#ac679057b5bd7d419552e23449b89e933',1,'ParallelGeneticAlgorithm']]],
-  ['parallelselection_606',['parallelSelection',['../classParallelGeneticAlgorithm.html#acecce5ac68240948ae4966ba074cfbd8',1,'ParallelGeneticAlgorithm']]],
-  ['populationof_607',['populationOf',['../classEIGBuilder.html#add7c295f055e92e5702eb01d90713849',1,'EIGBuilder::populationOf()'],['../classGABuilder.html#ac98e778e30657d4dccce8d452b82c12c',1,'GABuilder::populationOf()'],['../classParGABuilder.html#af6216c22b27c45be820526b1e495d821',1,'ParGABuilder::populationOf()']]],
-  ['portfolio_608',['portfolio',['../classEIGBuilder.html#adb2c67316f30a71851d393ca43bd3851',1,'EIGBuilder']]],
-  ['print_609',['print',['../classJSONPrinter.html#a31c4a82ea4f9e2b075697843fde679a8',1,'JSONPrinter']]],
-  ['printinstances_610',['printInstances',['../classInstPrinter.html#a885268b10c6a5243381248d73114846c',1,'InstPrinter']]],
-  ['problem_611',['Problem',['../classProblem.html#af1653fa69a639fafe86a6aec459cc889',1,'Problem::Problem()'],['../classProblem.html#a8144f1f27ed0a28b5524a54f6c9a9f70',1,'Problem::Problem(const int &amp;numberOfVars, const int &amp;numberOfObjectives, const int &amp;nCons)']]]
+  ['operator_20unique_5fptr_3c_20abstractga_3c_20s_20_3e_3e_755',['operator unique_ptr&lt; AbstractGA&lt; S &gt;&gt;',['../classGABuilder.html#a4e0fd372be942bb23477b62155bfffaa',1,'GABuilder']]],
+  ['operator_20unique_5fptr_3c_20eig_3c_20ip_2c_20is_2c_20op_2c_20s_20_3e_3e_756',['operator unique_ptr&lt; EIG&lt; IP, IS, OP, S &gt;&gt;',['../classEIGBuilder.html#a888897a5134d6b0f4ac8b7b8758db000',1,'EIGBuilder']]],
+  ['operator_20unique_5fptr_3c_20experiment_3c_20s_20_3e_3e_757',['operator unique_ptr&lt; Experiment&lt; S &gt;&gt;',['../classExpBuilder.html#a5e9d9eb285f3fca94fa6d464758f4197',1,'ExpBuilder']]],
+  ['operator_20unique_5fptr_3c_20parallelgeneticalgorithm_3c_20s_20_3e_3e_758',['operator unique_ptr&lt; ParallelGeneticAlgorithm&lt; S &gt;&gt;',['../classParGABuilder.html#ac684453e09fbc60a8b54980c747701e1',1,'ParGABuilder']]],
+  ['operator_3d_759',['operator=',['../classSolution.html#a378090493db8fda6d9c7b77b6b3c4c42',1,'Solution::operator=()'],['../classAbstractInstance.html#a56723124242660f4527bc29894f411d8',1,'AbstractInstance::operator=()'],['../classBPPInstance.html#ad550074383a45226d0dce18dec7d0710',1,'BPPInstance::operator=()'],['../classKPInstance.html#a7f407897de1a790d97935fceb3074444',1,'KPInstance::operator=()']]],
+  ['operator_3d_3d_760',['operator==',['../classSolution.html#aa6961a40a1350bd8a0ea693dd5287034',1,'Solution::operator==()'],['../classAbstractInstance.html#acd49facfcfd64b3db99d249f3ec77413',1,'AbstractInstance::operator==()'],['../classBPPInstance.html#a195654eb3106c42e4e4156db191aa1c3',1,'BPPInstance::operator==()'],['../classKPInstance.html#add2fa84435a9b18fba8f094b0df85de8',1,'KPInstance::operator==()']]]
 ];

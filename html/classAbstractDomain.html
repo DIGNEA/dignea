@@ -126,14 +126,17 @@ Inheritance diagram for AbstractDomain&lt; OptProblem, InstSolution &gt;:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a721e65f39d1d35d06f028e954ad670ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractDomain.html#a721e65f39d1d35d06f028e954ad670ca">AbstractDomain</a> ()</td></tr>
-<tr class="memdesc:a721e65f39d1d35d06f028e954ad670ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classAbstractDomain.html#a721e65f39d1d35d06f028e954ad670ca" title="Construct a new AbstractDomain&lt;OptProblem, InstSolution&gt;::AbstractDomain object.">AbstractDomain&lt;OptProblem, InstSolution&gt;::AbstractDomain</a> object.  <a href="classAbstractDomain.html#a721e65f39d1d35d06f028e954ad670ca">More...</a><br /></td></tr>
+<tr class="memdesc:a721e65f39d1d35d06f028e954ad670ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classAbstractDomain.html" title="EIG Instance Generation Problem. Abstract Problem for the EIG. This problem will be used as a supercl...">AbstractDomain</a>&lt;OptProblem, InstSolution&gt;<a class="el" href="classAbstractDomain.html" title="EIG Instance Generation Problem. Abstract Problem for the EIG. This problem will be used as a supercl...">AbstractDomain</a> object.  <a href="classAbstractDomain.html#a721e65f39d1d35d06f028e954ad670ca">More...</a><br /></td></tr>
 <tr class="separator:a721e65f39d1d35d06f028e954ad670ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c88714a857f48e4d61201889a19db2e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractDomain.html#a3c88714a857f48e4d61201889a19db2e">AbstractDomain</a> (const int &amp;<a class="el" href="classProblem.html#a31e064a07281056573f781a84856aef2">numberOfVars</a>, const int &amp;numberOfObjectives, const int &amp;nCons)</td></tr>
-<tr class="memdesc:a3c88714a857f48e4d61201889a19db2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classAbstractDomain.html#a721e65f39d1d35d06f028e954ad670ca" title="Construct a new AbstractDomain&lt;OptProblem, InstSolution&gt;::AbstractDomain object.">AbstractDomain&lt;OptProblem, InstSolution&gt;::AbstractDomain</a> object.  <a href="classAbstractDomain.html#a3c88714a857f48e4d61201889a19db2e">More...</a><br /></td></tr>
+<tr class="memdesc:a3c88714a857f48e4d61201889a19db2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classAbstractDomain.html" title="EIG Instance Generation Problem. Abstract Problem for the EIG. This problem will be used as a supercl...">AbstractDomain</a>&lt;OptProblem, InstSolution&gt;<a class="el" href="classAbstractDomain.html" title="EIG Instance Generation Problem. Abstract Problem for the EIG. This problem will be used as a supercl...">AbstractDomain</a> object.  <a href="classAbstractDomain.html#a3c88714a857f48e4d61201889a19db2e">More...</a><br /></td></tr>
 <tr class="separator:a3c88714a857f48e4d61201889a19db2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5d3bb47fb04691cc424a24e01cb3951"><td class="memItemLeft" align="right" valign="top">virtual shared_ptr&lt; OptProblem &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractDomain.html#ac5d3bb47fb04691cc424a24e01cb3951">genOptProblem</a> (const InstSolution &amp;instance) const =0</td></tr>
 <tr class="memdesc:ac5d3bb47fb04691cc424a24e01cb3951"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a shared_ptr to an optimisation problem represented in the InstSolution given as a parameter.  <a href="classAbstractDomain.html#ac5d3bb47fb04691cc424a24e01cb3951">More...</a><br /></td></tr>
 <tr class="separator:ac5d3bb47fb04691cc424a24e01cb3951"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40e8305c2478c9cde9c95bfdc98db9ca"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractDomain.html#a40e8305c2478c9cde9c95bfdc98db9ca">getOptimizationDirection</a> (const int i) const</td></tr>
+<tr class="memdesc:a40e8305c2478c9cde9c95bfdc98db9ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the optimization direction for each objective in the problem. It returns Minimize or Maximize accordingly. This method must be implemented in the subclasses.  <a href="classAbstractDomain.html#a40e8305c2478c9cde9c95bfdc98db9ca">More...</a><br /></td></tr>
+<tr class="separator:a40e8305c2478c9cde9c95bfdc98db9ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addd791c4c25df3cb081bc5670e2a9313"><td class="memItemLeft" align="right" valign="top">virtual vector&lt; InstSolution &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractDomain.html#addd791c4c25df3cb081bc5670e2a9313">createSolutions</a> (const int &amp;maxSolutions) const =0</td></tr>
 <tr class="memdesc:addd791c4c25df3cb081bc5670e2a9313"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates and returns a vector of InstSolutions. Instances of the optimisation problem.  <a href="classAbstractDomain.html#addd791c4c25df3cb081bc5670e2a9313">More...</a><br /></td></tr>
 <tr class="separator:addd791c4c25df3cb081bc5670e2a9313"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,9 +170,6 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:aa5ce76025bbaec5e024d07cc72e7ded9 inherit pub_methods_classProblem"><td class="memItemLeft" align="right" valign="top"><a id="aa5ce76025bbaec5e024d07cc72e7ded9"></a>
 virtual InstSolution&#160;</td><td class="memItemRight" valign="bottom"><b>createSolution</b> (ParallelPRNG &amp;engine) const=0</td></tr>
 <tr class="separator:aa5ce76025bbaec5e024d07cc72e7ded9 inherit pub_methods_classProblem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae037f05af3c10d2b2c03248ec80a6d9 inherit pub_methods_classProblem"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProblem.html#aae037f05af3c10d2b2c03248ec80a6d9">getOptimizationDirection</a> (const int i) const=0</td></tr>
-<tr class="memdesc:aae037f05af3c10d2b2c03248ec80a6d9 inherit pub_methods_classProblem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the optimization direction for each objective in the problem. It returns Minimize or Maximize accordingly. This method must be implemented in the subclasses.  <a href="classProblem.html#aae037f05af3c10d2b2c03248ec80a6d9">More...</a><br /></td></tr>
-<tr class="separator:aae037f05af3c10d2b2c03248ec80a6d9 inherit pub_methods_classProblem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbbac704a46fbcc9027630f3357b1de8 inherit pub_methods_classProblem"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProblem.html#acbbac704a46fbcc9027630f3357b1de8">getUpperLimit</a> (const int i) const=0</td></tr>
 <tr class="memdesc:acbbac704a46fbcc9027630f3357b1de8 inherit pub_methods_classProblem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the upper bound to the problem at dimension i. This method must be implemented in the subclasses.  <a href="classProblem.html#acbbac704a46fbcc9027630f3357b1de8">More...</a><br /></td></tr>
 <tr class="separator:acbbac704a46fbcc9027630f3357b1de8 inherit pub_methods_classProblem"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -182,7 +182,7 @@ virtual InstSolution&#160;</td><td class="memItemRight" valign="bottom"><b>creat
 <tr class="memitem:a20217da53ae81892a043ccecccb2e0cd inherit pub_methods_classProblem"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProblem.html#a20217da53ae81892a043ccecccb2e0cd">readData</a> (const std::string &amp;path)=0</td></tr>
 <tr class="memdesc:a20217da53ae81892a043ccecccb2e0cd inherit pub_methods_classProblem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to read problem information from the given path. This method must be implemented in the subclasses.  <a href="classProblem.html#a20217da53ae81892a043ccecccb2e0cd">More...</a><br /></td></tr>
 <tr class="separator:a20217da53ae81892a043ccecccb2e0cd inherit pub_methods_classProblem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fbb9e5e920217e88d61d2f2ff0cc528 inherit pub_methods_classProblem"><td class="memItemLeft" align="right" valign="top">virtual json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProblem.html#a6fbb9e5e920217e88d61d2f2ff0cc528">to_json</a> () const</td></tr>
+<tr class="memitem:a6fbb9e5e920217e88d61d2f2ff0cc528 inherit pub_methods_classProblem"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="MinKnap_8h.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProblem.html#a6fbb9e5e920217e88d61d2f2ff0cc528">to_json</a> () const</td></tr>
 <tr class="memdesc:a6fbb9e5e920217e88d61d2f2ff0cc528 inherit pub_methods_classProblem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a JSON object with the information of the <a class="el" href="classProblem.html" title="Class to represent a Problem in the tool. It includes the basic information for a problem a few metho...">Problem</a>.  <a href="classProblem.html#a6fbb9e5e920217e88d61d2f2ff0cc528">More...</a><br /></td></tr>
 <tr class="separator:a6fbb9e5e920217e88d61d2f2ff0cc528 inherit pub_methods_classProblem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1339b7fdf16d7d1e4bce2abe1d18bf72 inherit pub_methods_classProblem"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProblem.html#a1339b7fdf16d7d1e4bce2abe1d18bf72">getNumberOfVars</a> () const</td></tr>
@@ -244,7 +244,7 @@ template&lt;typename OptProblem , typename InstSolution &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Construct a new <a class="el" href="classAbstractDomain.html#a721e65f39d1d35d06f028e954ad670ca" title="Construct a new AbstractDomain&lt;OptProblem, InstSolution&gt;::AbstractDomain object.">AbstractDomain&lt;OptProblem, InstSolution&gt;::AbstractDomain</a> object. </p>
+<p>Construct a new <a class="el" href="classAbstractDomain.html" title="EIG Instance Generation Problem. Abstract Problem for the EIG. This problem will be used as a supercl...">AbstractDomain</a>&lt;OptProblem, InstSolution&gt;<a class="el" href="classAbstractDomain.html" title="EIG Instance Generation Problem. Abstract Problem for the EIG. This problem will be used as a supercl...">AbstractDomain</a> object. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">OptSolution</td><td><a class="el" href="classSolution.html" title="Class to represent a solution to the optimization problems in the tool.">Solution</a> type of the optimisation problem. </td></tr>
@@ -289,7 +289,7 @@ template&lt;typename OptProblem , typename InstSolution &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Construct a new <a class="el" href="classAbstractDomain.html#a721e65f39d1d35d06f028e954ad670ca" title="Construct a new AbstractDomain&lt;OptProblem, InstSolution&gt;::AbstractDomain object.">AbstractDomain&lt;OptProblem, InstSolution&gt;::AbstractDomain</a> object. </p>
+<p>Construct a new <a class="el" href="classAbstractDomain.html" title="EIG Instance Generation Problem. Abstract Problem for the EIG. This problem will be used as a supercl...">AbstractDomain</a>&lt;OptProblem, InstSolution&gt;<a class="el" href="classAbstractDomain.html" title="EIG Instance Generation Problem. Abstract Problem for the EIG. This problem will be used as a supercl...">AbstractDomain</a> object. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">OptSolution</td><td><a class="el" href="classSolution.html" title="Class to represent a solution to the optimization problems in the tool.">Solution</a> type of the optimisation problem. </td></tr>
@@ -344,7 +344,7 @@ template&lt;typename OptProblem , typename InstSolution &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>vector&lt;InstSolution&gt; </dd></dl>
 
-<p>Implemented in <a class="el" href="classTSPDomain.html#a9b2e45907ec978cd6e96414a8751788a">TSPDomain</a>, and <a class="el" href="classKPDomain.html#a82dd1f0826b63eb85e9122c073c4a5b3">KPDomain</a>.</p>
+<p>Implemented in <a class="el" href="classTSPDomain.html#a9b2e45907ec978cd6e96414a8751788a">TSPDomain</a>, <a class="el" href="classKPDomain.html#a82dd1f0826b63eb85e9122c073c4a5b3">KPDomain</a>, and <a class="el" href="classBPPDomain.html#a024624edabfa0773f921e41112a114cc">BPPDomain</a>.</p>
 
 </div>
 </div>
@@ -383,7 +383,48 @@ template&lt;typename OptProblem , typename InstSolution &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>shared_ptr&lt;OptProblem&gt; </dd></dl>
 
-<p>Implemented in <a class="el" href="classTSPDomain.html#a61dfe7061809736add71be0616f6d3e7">TSPDomain</a>, and <a class="el" href="classKPDomain.html#a7e93db03fb329d3a6e3164b988b03f34">KPDomain</a>.</p>
+<p>Implemented in <a class="el" href="classTSPDomain.html#a61dfe7061809736add71be0616f6d3e7">TSPDomain</a>, <a class="el" href="classKPDomain.html#a7e93db03fb329d3a6e3164b988b03f34">KPDomain</a>, and <a class="el" href="classBPPDomain.html#a7b905dbf294f64716cba6954f8ead082">BPPDomain</a>.</p>
+
+</div>
+</div>
+<a id="a40e8305c2478c9cde9c95bfdc98db9ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40e8305c2478c9cde9c95bfdc98db9ca">&#9670;&nbsp;</a></span>getOptimizationDirection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename OptProblem , typename InstSolution &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int <a class="el" href="classAbstractDomain.html">AbstractDomain</a>&lt; OptProblem, InstSolution &gt;::getOptimizationDirection </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the optimization direction for each objective in the problem. It returns Minimize or Maximize accordingly. This method must be implemented in the subclasses. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Dimension to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Minimize or Maximize constants. </dd></dl>
+
+<p>Implements <a class="el" href="classProblem.html#aae037f05af3c10d2b2c03248ec80a6d9">Problem&lt; InstSolution &gt;</a>.</p>
+
+<p>Reimplemented in <a class="el" href="classTSPDomain.html#a3cfb48d27cd33fee6010a2cf893646b1">TSPDomain</a>, <a class="el" href="classKPDomain.html#a9c402867173817e599da7781f25f98e5">KPDomain</a>, and <a class="el" href="classBPPDomain.html#a6132a05cfd95b534ceaad6dc7670fe19">BPPDomain</a>.</p>
 
 </div>
 </div>

@@ -110,6 +110,7 @@ $(document).ready(function(){initNavTree('KNN_8h.html',''); initResizable(); });
 <div class="contents">
 <div class="textblock"><code>#include &lt;dignea/core/Solution.h&gt;</code><br />
 <code>#include &lt;dignea/distances/Distance.h&gt;</code><br />
+<code>#include &lt;dignea/searches/NoveltySearch.h&gt;</code><br />
 <code>#include &lt;functional&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
@@ -126,37 +127,27 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a08634cbea7ae606892eb0cb55ec9548f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a08634cbea7ae606892eb0cb55ec9548f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="KNN_8h.html#a08634cbea7ae606892eb0cb55ec9548f">neighborT</a> = pair&lt; T, int &gt;</td></tr>
-<tr class="memdesc:a08634cbea7ae606892eb0cb55ec9548f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data type which represents a close neighbours. The first value is the distance to the individual The second value is the index of the neighbour in the array (Distance_to_other, other_index)  <a href="KNN_8h.html#a08634cbea7ae606892eb0cb55ec9548f">More...</a><br /></td></tr>
-<tr class="separator:a08634cbea7ae606892eb0cb55ec9548f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5de02400308fc4aae728b6ff3250bf3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:af5de02400308fc4aae728b6ff3250bf3"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="KNN_8h.html#af5de02400308fc4aae728b6ff3250bf3">neighVector</a> = vector&lt; <a class="el" href="KNN_8h.html#a08634cbea7ae606892eb0cb55ec9548f">neighborT</a>&lt; T &gt; &gt;</td></tr>
-<tr class="memdesc:af5de02400308fc4aae728b6ff3250bf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of neighbours Each element is of type neighborT. [(Distance_to_other_0, other_index_0), (Distance_to_other_1, other_index_1), (...), (Distance_to_other_n-1, other_index_n-1)].  <a href="KNN_8h.html#af5de02400308fc4aae728b6ff3250bf3">More...</a><br /></td></tr>
-<tr class="separator:af5de02400308fc4aae728b6ff3250bf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7e790a3d6ca715dfd36cee2dd8e65b5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aa7e790a3d6ca715dfd36cee2dd8e65b5"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="KNN_8h.html#aa7e790a3d6ca715dfd36cee2dd8e65b5">neighMatrix</a> = vector&lt; <a class="el" href="KNN_8h.html#af5de02400308fc4aae728b6ff3250bf3">neighVector</a>&lt; T &gt; &gt;</td></tr>
-<tr class="memdesc:aa7e790a3d6ca715dfd36cee2dd8e65b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data type which represents a matrix of close neighbours. The first value is the index of the neighbour in the array The second value is the distance to the individual [ [ (Distance_to_other_0, other_index_0), (Distance_to_other_1, other_index_1), (...), (Distance_to_other_n-1, other_index_n-1) ], [ (Distance_to_other_0, other_index_0), (Distance_to_other_1, other_index_1), (...), (Distance_to_other_n-1, other_index_n-1) ] ].  <a href="KNN_8h.html#aa7e790a3d6ca715dfd36cee2dd8e65b5">More...</a><br /></td></tr>
-<tr class="separator:aa7e790a3d6ca715dfd36cee2dd8e65b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7aa7f9e134122979e3f58360ed5d2767"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="KNN_8h.html#a7aa7f9e134122979e3f58360ed5d2767">neighborT</a> = pair&lt; float, int &gt;</td></tr>
+<tr class="memdesc:a7aa7f9e134122979e3f58360ed5d2767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data type which represents a close neighbours. The first value is the distance to the individual The second value is the index of the neighbour in the array (Distance_to_other, other_index)  <a href="KNN_8h.html#a7aa7f9e134122979e3f58360ed5d2767">More...</a><br /></td></tr>
+<tr class="separator:a7aa7f9e134122979e3f58360ed5d2767"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1c17ba137eeb8329583c111387b6efe"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="KNN_8h.html#ab1c17ba137eeb8329583c111387b6efe">neighVector</a> = vector&lt; <a class="el" href="KNN_8h.html#a7aa7f9e134122979e3f58360ed5d2767">neighborT</a> &gt;</td></tr>
+<tr class="memdesc:ab1c17ba137eeb8329583c111387b6efe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of neighbours Each element is of type neighborT. [(Distance_to_other_0, other_index_0), (Distance_to_other_1, other_index_1), (...), (Distance_to_other_n-1, other_index_n-1)].  <a href="KNN_8h.html#ab1c17ba137eeb8329583c111387b6efe">More...</a><br /></td></tr>
+<tr class="separator:ab1c17ba137eeb8329583c111387b6efe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ca6c38d1bf1897d19fd72de303b047a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="KNN_8h.html#a1ca6c38d1bf1897d19fd72de303b047a">neighMatrix</a> = vector&lt; <a class="el" href="KNN_8h.html#ab1c17ba137eeb8329583c111387b6efe">neighVector</a> &gt;</td></tr>
+<tr class="memdesc:a1ca6c38d1bf1897d19fd72de303b047a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data type which represents a matrix of close neighbours. The first value is the index of the neighbour in the array The second value is the distance to the individual [ [ (Distance_to_other_0, other_index_0), (Distance_to_other_1, other_index_1), (...), (Distance_to_other_n-1, other_index_n-1) ], [ (Distance_to_other_0, other_index_0), (Distance_to_other_1, other_index_1), (...), (Distance_to_other_n-1, other_index_n-1) ] ].  <a href="KNN_8h.html#a1ca6c38d1bf1897d19fd72de303b047a">More...</a><br /></td></tr>
+<tr class="separator:a1ca6c38d1bf1897d19fd72de303b047a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c8ef1e5837e2200c935ea95e3def1de"><td class="memItemLeft" align="right" valign="top"><a id="a6c8ef1e5837e2200c935ea95e3def1de"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Descriptor</b> = vector&lt; float &gt;</td></tr>
+<tr class="separator:a6c8ef1e5837e2200c935ea95e3def1de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac52eec70ee3293d11fe2b45125424dda"><td class="memTemplParams" colspan="2">template&lt;typename T , typename S &gt; </td></tr>
-<tr class="memitem:ac52eec70ee3293d11fe2b45125424dda"><td class="memTemplItemLeft" align="right" valign="top">vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="KNN_8h.html#ac52eec70ee3293d11fe2b45125424dda">sparseness</a> (const vector&lt; S &gt; &amp;population, <a class="el" href="classDistance.html">Distance</a>&lt; T &gt; *metric, const int k=3)</td></tr>
-<tr class="memdesc:ac52eec70ee3293d11fe2b45125424dda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the sparseness of all individuals in the population vector Based on the Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> from Exploiting Open-Endedness to Solve Problems Through the <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> for Novelty.  <a href="KNN_8h.html#ac52eec70ee3293d11fe2b45125424dda">More...</a><br /></td></tr>
-<tr class="separator:ac52eec70ee3293d11fe2b45125424dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae429bdc4982593df4b176dd36017a3ca"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ae429bdc4982593df4b176dd36017a3ca"><td class="memTemplItemLeft" align="right" valign="top">vector&lt; float &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="KNN_8h.html#ae429bdc4982593df4b176dd36017a3ca">sparseness</a> (const vector&lt; vector&lt; float &gt;&gt; &amp;population, <a class="el" href="classDistance.html">Distance</a>&lt; T &gt; *metric, const int k=3)</td></tr>
-<tr class="memdesc:ae429bdc4982593df4b176dd36017a3ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the sparseness of all individuals in the population vector Based on the Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> from Exploiting Open-Endedness to Solve Problems Through the <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> for Novelty.  <a href="KNN_8h.html#ae429bdc4982593df4b176dd36017a3ca">More...</a><br /></td></tr>
-<tr class="separator:ae429bdc4982593df4b176dd36017a3ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdaa3ec3401a48b12d41f05b0655c70b"><td class="memTemplParams" colspan="2">template&lt;typename T , typename S &gt; </td></tr>
-<tr class="memitem:acdaa3ec3401a48b12d41f05b0655c70b"><td class="memTemplItemLeft" align="right" valign="top">float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="KNN_8h.html#acdaa3ec3401a48b12d41f05b0655c70b">sparseness</a> (S &amp;solution, const vector&lt; S &gt; &amp;population, <a class="el" href="classDistance.html">Distance</a>&lt; T &gt; *metric, const int k=1)</td></tr>
-<tr class="memdesc:acdaa3ec3401a48b12d41f05b0655c70b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the sparseness score of the individual against the rest of individuals in the population list Based on the Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> from Exploiting Open-Endedness to Solve Problems Through the <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> for Novelty.  <a href="KNN_8h.html#acdaa3ec3401a48b12d41f05b0655c70b">More...</a><br /></td></tr>
-<tr class="separator:acdaa3ec3401a48b12d41f05b0655c70b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7694d25167ba4643dfe94194f884c25"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:af7694d25167ba4643dfe94194f884c25"><td class="memTemplItemLeft" align="right" valign="top">float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="KNN_8h.html#af7694d25167ba4643dfe94194f884c25">sparseness</a> (vector&lt; float &gt; &amp;solution, const vector&lt; vector&lt; float &gt;&gt; &amp;population, <a class="el" href="classDistance.html">Distance</a>&lt; T &gt; *metric, const int k=1)</td></tr>
-<tr class="memdesc:af7694d25167ba4643dfe94194f884c25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the sparseness score of the individual against the rest of individuals in the population list Based on the Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> from Exploiting Open-Endedness to Solve Problems Through the <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> for Novelty.  <a href="KNN_8h.html#af7694d25167ba4643dfe94194f884c25">More...</a><br /></td></tr>
-<tr class="separator:af7694d25167ba4643dfe94194f884c25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4487c966c1a5e6023469da967ee20955"><td class="memItemLeft" align="right" valign="top">vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="KNN_8h.html#a4487c966c1a5e6023469da967ee20955">sparseness</a> (const vector&lt; Descriptor &gt; &amp;population, <a class="el" href="classDistance.html">Distance</a>&lt; float &gt; *metric, const int k)</td></tr>
+<tr class="memdesc:a4487c966c1a5e6023469da967ee20955"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the sparseness of all individuals in the population vector Based on the Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> from Exploiting Open-Endedness to Solve Problems Through the <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> for Novelty.  <a href="KNN_8h.html#a4487c966c1a5e6023469da967ee20955">More...</a><br /></td></tr>
+<tr class="separator:a4487c966c1a5e6023469da967ee20955"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62db17da76eb81e6b87c9267bd1c065a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="KNN_8h.html#a62db17da76eb81e6b87c9267bd1c065a">sparseness</a> (const Descriptor &amp;solution, const vector&lt; Descriptor &gt; &amp;population, <a class="el" href="classDistance.html">Distance</a>&lt; float &gt; *metric, const int k)</td></tr>
+<tr class="memdesc:a62db17da76eb81e6b87c9267bd1c065a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the sparseness score of the individual against the rest of individuals in the population list Based on the Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> from Exploiting Open-Endedness to Solve Problems Through the <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> for Novelty.  <a href="KNN_8h.html#a62db17da76eb81e6b87c9267bd1c065a">More...</a><br /></td></tr>
+<tr class="separator:a62db17da76eb81e6b87c9267bd1c065a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Alejandro Marrero (<a href="#" onclick="location.href='mai'+'lto:'+'ama'+'rr'+'erd'+'@u'+'ll.'+'ed'+'u.e'+'s'; return false;">amarr<span style="display: none;">.nosp@m.</span>erd@<span style="display: none;">.nosp@m.</span>ull.e<span style="display: none;">.nosp@m.</span>du.e<span style="display: none;">.nosp@m.</span>s</a>) </dd></dl>
@@ -164,16 +155,14 @@ Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>2022-10-11</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2022 </dd></dl>
 </div><h2 class="groupheader">Typedef Documentation</h2>
-<a id="a08634cbea7ae606892eb0cb55ec9548f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08634cbea7ae606892eb0cb55ec9548f">&#9670;&nbsp;</a></span>neighborT</h2>
+<a id="a7aa7f9e134122979e3f58360ed5d2767"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7aa7f9e134122979e3f58360ed5d2767">&#9670;&nbsp;</a></span>neighborT</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="KNN_8h.html#a08634cbea7ae606892eb0cb55ec9548f">neighborT</a> =  pair&lt;T, int&gt;</td>
+          <td class="memname">using <a class="el" href="KNN_8h.html#a7aa7f9e134122979e3f58360ed5d2767">neighborT</a> =  pair&lt;float, int&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -188,16 +177,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="aa7e790a3d6ca715dfd36cee2dd8e65b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa7e790a3d6ca715dfd36cee2dd8e65b5">&#9670;&nbsp;</a></span>neighMatrix</h2>
+<a id="a1ca6c38d1bf1897d19fd72de303b047a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ca6c38d1bf1897d19fd72de303b047a">&#9670;&nbsp;</a></span>neighMatrix</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="KNN_8h.html#aa7e790a3d6ca715dfd36cee2dd8e65b5">neighMatrix</a> =  vector&lt;<a class="el" href="KNN_8h.html#af5de02400308fc4aae728b6ff3250bf3">neighVector</a>&lt;T&gt; &gt;</td>
+          <td class="memname">using <a class="el" href="KNN_8h.html#a1ca6c38d1bf1897d19fd72de303b047a">neighMatrix</a> =  vector&lt;<a class="el" href="KNN_8h.html#ab1c17ba137eeb8329583c111387b6efe">neighVector</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -212,16 +199,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="af5de02400308fc4aae728b6ff3250bf3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5de02400308fc4aae728b6ff3250bf3">&#9670;&nbsp;</a></span>neighVector</h2>
+<a id="ab1c17ba137eeb8329583c111387b6efe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1c17ba137eeb8329583c111387b6efe">&#9670;&nbsp;</a></span>neighVector</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="KNN_8h.html#af5de02400308fc4aae728b6ff3250bf3">neighVector</a> =  vector&lt;<a class="el" href="KNN_8h.html#a08634cbea7ae606892eb0cb55ec9548f">neighborT</a>&lt;T&gt; &gt;</td>
+          <td class="memname">using <a class="el" href="KNN_8h.html#ab1c17ba137eeb8329583c111387b6efe">neighVector</a> =  vector&lt;<a class="el" href="KNN_8h.html#a7aa7f9e134122979e3f58360ed5d2767">neighborT</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -237,31 +222,35 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ac52eec70ee3293d11fe2b45125424dda"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac52eec70ee3293d11fe2b45125424dda">&#9670;&nbsp;</a></span>sparseness() <span class="overload">[1/4]</span></h2>
+<a id="a62db17da76eb81e6b87c9267bd1c065a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62db17da76eb81e6b87c9267bd1c065a">&#9670;&nbsp;</a></span>sparseness() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename S &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt;T&gt; sparseness </td>
+          <td class="memname">float sparseness </td>
           <td>(</td>
-          <td class="paramtype">const vector&lt; S &gt; &amp;&#160;</td>
+          <td class="paramtype">const Descriptor &amp;&#160;</td>
+          <td class="paramname"><em>solution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const vector&lt; Descriptor &gt; &amp;&#160;</td>
           <td class="paramname"><em>population</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classDistance.html">Distance</a>&lt; T &gt; *&#160;</td>
+          <td class="paramtype"><a class="el" href="classDistance.html">Distance</a>&lt; float &gt; *&#160;</td>
           <td class="paramname"><em>metric</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>k</em> = <code>3</code>&#160;</td>
+          <td class="paramname"><em>k</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -271,7 +260,7 @@ template&lt;typename T , typename S &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Computes the sparseness of all individuals in the population vector Based on the Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> from Exploiting Open-Endedness to Solve Problems Through the <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> for Novelty. </p>
+<p>Computes the sparseness score of the individual against the rest of individuals in the population list Based on the Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> from Exploiting Open-Endedness to Solve Problems Through the <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> for Novelty. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td></td></tr>
@@ -291,31 +280,29 @@ template&lt;typename T , typename S &gt; </div>
 
 </div>
 </div>
-<a id="ae429bdc4982593df4b176dd36017a3ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae429bdc4982593df4b176dd36017a3ca">&#9670;&nbsp;</a></span>sparseness() <span class="overload">[2/4]</span></h2>
+<a id="a4487c966c1a5e6023469da967ee20955"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4487c966c1a5e6023469da967ee20955">&#9670;&nbsp;</a></span>sparseness() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">vector&lt;float&gt; sparseness </td>
           <td>(</td>
-          <td class="paramtype">const vector&lt; vector&lt; float &gt;&gt; &amp;&#160;</td>
+          <td class="paramtype">const vector&lt; Descriptor &gt; &amp;&#160;</td>
           <td class="paramname"><em>population</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classDistance.html">Distance</a>&lt; T &gt; *&#160;</td>
+          <td class="paramtype"><a class="el" href="classDistance.html">Distance</a>&lt; float &gt; *&#160;</td>
           <td class="paramname"><em>metric</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>k</em> = <code>3</code>&#160;</td>
+          <td class="paramname"><em>k</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -326,126 +313,6 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Computes the sparseness of all individuals in the population vector Based on the Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> from Exploiting Open-Endedness to Solve Problems Through the <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> for Novelty. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">individual</td><td></td></tr>
-    <tr><td class="paramname">neighbours</td><td></td></tr>
-    <tr><td class="paramname">metric</td><td></td></tr>
-    <tr><td class="paramname">k</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
-
-</div>
-</div>
-<a id="acdaa3ec3401a48b12d41f05b0655c70b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acdaa3ec3401a48b12d41f05b0655c70b">&#9670;&nbsp;</a></span>sparseness() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename S &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">float sparseness </td>
-          <td>(</td>
-          <td class="paramtype">S &amp;&#160;</td>
-          <td class="paramname"><em>solution</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const vector&lt; S &gt; &amp;&#160;</td>
-          <td class="paramname"><em>population</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classDistance.html">Distance</a>&lt; T &gt; *&#160;</td>
-          <td class="paramname"><em>metric</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>k</em> = <code>1</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Computes the sparseness score of the individual against the rest of individuals in the population list Based on the Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> from Exploiting Open-Endedness to Solve Problems Through the <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> for Novelty. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">individual</td><td></td></tr>
-    <tr><td class="paramname">neighbours</td><td></td></tr>
-    <tr><td class="paramname">metric</td><td></td></tr>
-    <tr><td class="paramname">k</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
-
-</div>
-</div>
-<a id="af7694d25167ba4643dfe94194f884c25"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7694d25167ba4643dfe94194f884c25">&#9670;&nbsp;</a></span>sparseness() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">float sparseness </td>
-          <td>(</td>
-          <td class="paramtype">vector&lt; float &gt; &amp;&#160;</td>
-          <td class="paramname"><em>solution</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const vector&lt; vector&lt; float &gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>population</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classDistance.html">Distance</a>&lt; T &gt; *&#160;</td>
-          <td class="paramname"><em>metric</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>k</em> = <code>1</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Computes the sparseness score of the individual against the rest of individuals in the population list Based on the Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> from Exploiting Open-Endedness to Solve Problems Through the <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> for Novelty. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td></td></tr>

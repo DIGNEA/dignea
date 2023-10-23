@@ -1,10 +1,12 @@
 var searchData=
 [
-  ['easyinstances_384',['EasyInstances',['../classEasyInstances.html',1,'']]],
-  ['egenerational_385',['EGenerational',['../classEGenerational.html',1,'']]],
-  ['eig_386',['EIG',['../classEIG.html',1,'']]],
-  ['eigbuilder_387',['EIGBuilder',['../classEIGBuilder.html',1,'']]],
-  ['euclidean_388',['Euclidean',['../classEuclidean.html',1,'']]],
-  ['expbuilder_389',['ExpBuilder',['../classExpBuilder.html',1,'']]],
-  ['experiment_390',['Experiment',['../classExperiment.html',1,'']]]
+  ['easyinstances_477',['EasyInstances',['../classEasyInstances.html',1,'']]],
+  ['egenerational_478',['EGenerational',['../classEGenerational.html',1,'']]],
+  ['eig_479',['EIG',['../classEIG.html',1,'']]],
+  ['eigbuilder_480',['EIGBuilder',['../classEIGBuilder.html',1,'']]],
+  ['euclidean_481',['Euclidean',['../classEuclidean.html',1,'']]],
+  ['exitem_482',['exitem',['../structExpKnapSpace_1_1exitem.html',1,'ExpKnapSpace']]],
+  ['expbuilder_483',['ExpBuilder',['../classExpBuilder.html',1,'']]],
+  ['experiment_484',['Experiment',['../classExperiment.html',1,'']]],
+  ['expknap_485',['ExpKnap',['../classExpKnap.html',1,'']]]
 ];

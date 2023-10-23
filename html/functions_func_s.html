@@ -119,13 +119,16 @@ $(document).ready(function(){initNavTree('functions_func_s.html',''); initResiza
 , <a class="el" href="classParGABuilder.html#afed53027afece2775bdd1ce8c66eb35e">ParGABuilder&lt; S &gt;</a>
 </li>
 <li>setAlgorithm()
-: <a class="el" href="classExperiment.html#a176c2472711e54f37c78852ad007d167">Experiment&lt; S &gt;</a>
+: <a class="el" href="classExperiment.html#ad718c9ddd658bb22f19fff18e5eb431b">Experiment&lt; S &gt;</a>
 </li>
 <li>setAvgConfigFitness()
 : <a class="el" href="classAbstractInstance.html#a6f4efce25349f0a799f4b34e2a686178">AbstractInstance&lt; V, O &gt;</a>
 </li>
 <li>setBiasedFitness()
 : <a class="el" href="classAbstractInstance.html#a5f58a1e4dfbaa2585da7225567e898dd">AbstractInstance&lt; V, O &gt;</a>
+</li>
+<li>setCapacity()
+: <a class="el" href="classBPP.html#a4369a82caf438f3613cb86eb912ded1a">BPP</a>
 </li>
 <li>setConfigFitness()
 : <a class="el" href="classAbstractInstance.html#acc6daaa00698fae9cd9f49e3debf62b5">AbstractInstance&lt; V, O &gt;</a>
@@ -149,6 +152,9 @@ $(document).ready(function(){initNavTree('functions_func_s.html',''); initResiza
 <li>setCrossRate()
 : <a class="el" href="classAbstractGA.html#a4639c0a08d2d58b34df5054f9769ff9f">AbstractGA&lt; S &gt;</a>
 </li>
+<li>setCrowDistance()
+: <a class="el" href="classSolution.html#a21832c78c9a92c3db086a3057b0b1401">Solution&lt; V, O &gt;</a>
+</li>
 <li>setCurrentTemp()
 : <a class="el" href="classSimulatedAnnealing.html#ae563b77adc373f8758b791b915e0d6a1">SimulatedAnnealing&lt; S &gt;</a>
 </li>
@@ -159,10 +165,15 @@ $(document).ready(function(){initNavTree('functions_func_s.html',''); initResiza
 : <a class="el" href="classTSPDomain.html#abc11b59f00521b48753befb892dc09c0">TSPDomain</a>
 </li>
 <li>setEvaluator()
-: <a class="el" href="classAbstractSolver.html#a6f27b966561b17d3ee34854745592709">AbstractSolver&lt; S &gt;</a>
+: <a class="el" href="classAbstractEA.html#ad6dd7d7b62ec2ccf01ac750a709d64dd">AbstractEA&lt; S &gt;</a>
+, <a class="el" href="classAbstractSolver.html#a6f27b966561b17d3ee34854745592709">AbstractSolver&lt; S &gt;</a>
 </li>
 <li>setFeatures()
 : <a class="el" href="classAbstractInstance.html#ac8584719919a5ca2dbe744e6026e8ffd">AbstractInstance&lt; V, O &gt;</a>
+, <a class="el" href="classEIGBuilder.html#ae71a9b61d7a92bddfd4a4e39be3d8069">EIGBuilder&lt; IP, IS, OP, S &gt;</a>
+</li>
+<li>setFeaturesInfo()
+: <a class="el" href="classMapElites.html#afe5cdbb9b50ed7d1ecdca4c5ed691247">MapElites&lt; IP, IS, OP, OS &gt;</a>
 </li>
 <li>setFitness()
 : <a class="el" href="classSolution.html#a363c0b771429ebcf8063fd3edfd5130a">Solution&lt; V, O &gt;</a>
@@ -177,7 +188,8 @@ $(document).ready(function(){initNavTree('functions_func_s.html',''); initResiza
 : <a class="el" href="classTSPDomain.html#a1511dbd906cf58e092edad3126e7c5af">TSPDomain</a>
 </li>
 <li>setMaxEvaluations()
-: <a class="el" href="classAbstractSolver.html#af776fc33e54e05459705e7a5b72447ad">AbstractSolver&lt; S &gt;</a>
+: <a class="el" href="classAbstractEA.html#a273d8171e5d887fff210f08e20a08048">AbstractEA&lt; S &gt;</a>
+, <a class="el" href="classAbstractSolver.html#af776fc33e54e05459705e7a5b72447ad">AbstractSolver&lt; S &gt;</a>
 </li>
 <li>setMinNeighbors()
 : <a class="el" href="classTSPDomain.html#a91426d901879930e8d5ba6e199e896c1">TSPDomain</a>
@@ -194,7 +206,7 @@ $(document).ready(function(){initNavTree('functions_func_s.html',''); initResiza
 : <a class="el" href="classExperiment.html#a7e734640f6fcf877ba2c34f64c2f2332">Experiment&lt; S &gt;</a>
 </li>
 <li>setNoveltySearch()
-: <a class="el" href="classEIG.html#aa2b0ff65b9807391965721e4112893cc">EIG&lt; IP, IS, OP, OS &gt;</a>
+: <a class="el" href="classEIG.html#a8927d86dcd790b56eb9b6ee2e466e9f2">EIG&lt; IP, IS, OP, OS &gt;</a>
 </li>
 <li>setNumberOfbjs()
 : <a class="el" href="classSolution.html#adbf8da66cd6f3e3c95abe5baeee4d2a5">Solution&lt; V, O &gt;</a>
@@ -220,30 +232,41 @@ $(document).ready(function(){initNavTree('functions_func_s.html',''); initResiza
 : <a class="el" href="classSolution.html#a1e3b690d1c791f474fbd09afcef8433a">Solution&lt; V, O &gt;</a>
 </li>
 <li>setPerformedEvaluations()
-: <a class="el" href="classAbstractSolver.html#a3364ecf74f27b868efab052a52e8f9b9">AbstractSolver&lt; S &gt;</a>
+: <a class="el" href="classAbstractEA.html#a410e0cb662fef1486e09ae3acaa54edc">AbstractEA&lt; S &gt;</a>
+, <a class="el" href="classAbstractSolver.html#a3364ecf74f27b868efab052a52e8f9b9">AbstractSolver&lt; S &gt;</a>
 </li>
 <li>setPopulation()
-: <a class="el" href="classAbstractSolver.html#a0aeb95c959ed8210bd6bdf87811e806e">AbstractSolver&lt; S &gt;</a>
+: <a class="el" href="classAbstractEA.html#a1a15b52651cc503b12e258b86829eb01">AbstractEA&lt; S &gt;</a>
+, <a class="el" href="classAbstractSolver.html#a0aeb95c959ed8210bd6bdf87811e806e">AbstractSolver&lt; S &gt;</a>
 </li>
 <li>setPopulationSize()
-: <a class="el" href="classAbstractSolver.html#ab0b6ee75cf0aebcde6d66e001fcd7e9e">AbstractSolver&lt; S &gt;</a>
+: <a class="el" href="classAbstractEA.html#a774604de6da1e65e6366556538efeeb4">AbstractEA&lt; S &gt;</a>
+, <a class="el" href="classAbstractSolver.html#ab0b6ee75cf0aebcde6d66e001fcd7e9e">AbstractSolver&lt; S &gt;</a>
 , <a class="el" href="classSimulatedAnnealing.html#aa268376e2af84bda597ebbc103362bfd">SimulatedAnnealing&lt; S &gt;</a>
 </li>
 <li>setPortfolio()
 : <a class="el" href="classEIG.html#a61569552c1d0837a962fd529cdf5b1e9">EIG&lt; IP, IS, OP, OS &gt;</a>
 </li>
 <li>setProblem()
-: <a class="el" href="classAbstractGA.html#a13266c925a56a2b8c67519aaa6891d7c">AbstractGA&lt; S &gt;</a>
+: <a class="el" href="classAbstractEA.html#aa2d4c2ac5b3e2cc894498f7bfaf291c9">AbstractEA&lt; S &gt;</a>
+, <a class="el" href="classAbstractGA.html#a13266c925a56a2b8c67519aaa6891d7c">AbstractGA&lt; S &gt;</a>
 , <a class="el" href="classAbstractSolver.html#a35dde7561949da9ec3737c55261a5528">AbstractSolver&lt; S &gt;</a>
+, <a class="el" href="classNSGA2.html#abe766874da24d4fd3ff5edf353c5b32e">NSGA2&lt; S &gt;</a>
 , <a class="el" href="classParallelGeneticAlgorithm.html#af6827302c1a27242e38d92888341608f">ParallelGeneticAlgorithm&lt; S &gt;</a>
-, <a class="el" href="classSimulatedAnnealing.html#adc1af6eeafefa2b1ac091287b7f133d1">SimulatedAnnealing&lt; S &gt;</a>
+, <a class="el" href="classSimulatedAnnealing.html#a6f926c4439996a7d70136d66a8c6569a">SimulatedAnnealing&lt; S &gt;</a>
 </li>
 <li>setProblemToSolve()
 : <a class="el" href="classExperiment.html#ae06cc5aad66edcd6a6399de8de69a8af">Experiment&lt; S &gt;</a>
 </li>
+<li>setRank()
+: <a class="el" href="classSolution.html#ab148cb53496e2b505e0cf37ed7be4b94">Solution&lt; V, O &gt;</a>
+</li>
 <li>setRepetitions()
 : <a class="el" href="classEIG.html#a73291473f92ae682f459ca3c5123cf87">EIG&lt; IP, IS, OP, OS &gt;</a>
 , <a class="el" href="classExperiment.html#a9e85f8f49fb55607d890e20d46b2c082">Experiment&lt; S &gt;</a>
+</li>
+<li>setReplacement()
+: <a class="el" href="classEIG.html#a030e8a7cd3712a56a62a730f15d781ef">EIG&lt; IP, IS, OP, OS &gt;</a>
 </li>
 <li>setSelection()
 : <a class="el" href="classAbstractGA.html#ac9adf039d5af257d7d75006cfaf71b7a">AbstractGA&lt; S &gt;</a>
@@ -262,7 +285,8 @@ $(document).ready(function(){initNavTree('functions_func_s.html',''); initResiza
 : <a class="el" href="classSolution.html#a3f4c416fdb07e0e86577f79eba4351b9">Solution&lt; V, O &gt;</a>
 </li>
 <li>setVariables()
-: <a class="el" href="classKPInstance.html#aba2a92494a7a056aa9df394f8b255301">KPInstance</a>
+: <a class="el" href="classBPPInstance.html#a8c640eea77a224a1a5ab6ccb244ea8cb">BPPInstance</a>
+, <a class="el" href="classKPInstance.html#aba2a92494a7a056aa9df394f8b255301">KPInstance</a>
 , <a class="el" href="classSolution.html#af8a7f33a87b19d6923666b579bc9086a">Solution&lt; V, O &gt;</a>
 , <a class="el" href="classTSPInstance.html#a30c071b72e7b7fd5b2c8483bc978dc2a">TSPInstance</a>
 </li>

@@ -18,6 +18,7 @@ var classParallelGeneticAlgorithm =
     [ "setProblem", "classParallelGeneticAlgorithm.html#af6827302c1a27242e38d92888341608f", null ],
     [ "to_json", "classParallelGeneticAlgorithm.html#a55df4e9442db871e203100b5466dc12b", null ],
     [ "updateProgress", "classParallelGeneticAlgorithm.html#aba1938a3ea03ccdd4d6ae7832f2324bf", null ],
+    [ "bestEvolution", "classParallelGeneticAlgorithm.html#a477f69f59aaff901373d0caf0576a816", null ],
     [ "chunks", "classParallelGeneticAlgorithm.html#ad2ae5643929f24fd1aa2b774c882eb72", null ],
     [ "individuals", "classParallelGeneticAlgorithm.html#a7aa81e7e1bddd48ea1906d01b6e86951", null ],
     [ "numberOfCores", "classParallelGeneticAlgorithm.html#a60381a16a108cc12fca8edeebcca6bfd", null ],

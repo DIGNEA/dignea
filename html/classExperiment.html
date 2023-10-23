@@ -115,21 +115,21 @@ $(document).ready(function(){initNavTree('classExperiment.html',''); initResizab
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9d335c633f0b4a5976709443ada0857f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiment.html#a9d335c633f0b4a5976709443ada0857f">Experiment</a> (shared_ptr&lt; <a class="el" href="classProblem.html">Problem</a>&lt; S &gt;&gt; problem, unique_ptr&lt; <a class="el" href="classAbstractSolver.html">AbstractSolver</a>&lt; S &gt;&gt; algorithm, const std::string &amp;expName, const int &amp;reps)</td></tr>
-<tr class="memdesc:a9d335c633f0b4a5976709443ada0857f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classExperiment.html" title="Class to define computational experiments to perform The concept is to define and algorithm and a pro...">Experiment</a>.  <a href="classExperiment.html#a9d335c633f0b4a5976709443ada0857f">More...</a><br /></td></tr>
-<tr class="separator:a9d335c633f0b4a5976709443ada0857f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a37841a9fcefda5cd4faddea8630dfe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiment.html#a3a37841a9fcefda5cd4faddea8630dfe">Experiment</a> (shared_ptr&lt; <a class="el" href="classProblem.html">Problem</a>&lt; S &gt;&gt; problem, unique_ptr&lt; <a class="el" href="classAbstractEA.html">AbstractEA</a>&lt; S &gt;&gt; algorithm, const std::string &amp;expName, const int &amp;reps)</td></tr>
+<tr class="memdesc:a3a37841a9fcefda5cd4faddea8630dfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classExperiment.html" title="Class to define computational experiments to perform The concept is to define and algorithm and a pro...">Experiment</a>.  <a href="classExperiment.html#a3a37841a9fcefda5cd4faddea8630dfe">More...</a><br /></td></tr>
+<tr class="separator:a3a37841a9fcefda5cd4faddea8630dfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed6ae9b9c5dbb4024f3c95868bbf231f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classProblem.html">Problem</a>&lt; S &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiment.html#aed6ae9b9c5dbb4024f3c95868bbf231f">getProblemToSolve</a> () const</td></tr>
 <tr class="memdesc:aed6ae9b9c5dbb4024f3c95868bbf231f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a raw pointer to the problem to solve.  <a href="classExperiment.html#aed6ae9b9c5dbb4024f3c95868bbf231f">More...</a><br /></td></tr>
 <tr class="separator:aed6ae9b9c5dbb4024f3c95868bbf231f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae06cc5aad66edcd6a6399de8de69a8af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiment.html#ae06cc5aad66edcd6a6399de8de69a8af">setProblemToSolve</a> (shared_ptr&lt; <a class="el" href="classProblem.html">Problem</a>&lt; S &gt;&gt; problem)</td></tr>
 <tr class="memdesc:ae06cc5aad66edcd6a6399de8de69a8af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the problem to solve. Uses a shared_ptr.  <a href="classExperiment.html#ae06cc5aad66edcd6a6399de8de69a8af">More...</a><br /></td></tr>
 <tr class="separator:ae06cc5aad66edcd6a6399de8de69a8af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13f07567faeb5bb9dcbe11e76423c9a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAbstractSolver.html">AbstractSolver</a>&lt; S &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiment.html#a13f07567faeb5bb9dcbe11e76423c9a3">getAlgorithm</a> () const</td></tr>
-<tr class="memdesc:a13f07567faeb5bb9dcbe11e76423c9a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a raw pointer to the algorithm used in the experiment.  <a href="classExperiment.html#a13f07567faeb5bb9dcbe11e76423c9a3">More...</a><br /></td></tr>
-<tr class="separator:a13f07567faeb5bb9dcbe11e76423c9a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a176c2472711e54f37c78852ad007d167"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiment.html#a176c2472711e54f37c78852ad007d167">setAlgorithm</a> (unique_ptr&lt; <a class="el" href="classAbstractSolver.html">AbstractSolver</a>&lt; S &gt;&gt; algo)</td></tr>
-<tr class="memdesc:a176c2472711e54f37c78852ad007d167"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the algorithm to solve the problem. Uses a unique_ptr and takes ownership of the pointer.  <a href="classExperiment.html#a176c2472711e54f37c78852ad007d167">More...</a><br /></td></tr>
-<tr class="separator:a176c2472711e54f37c78852ad007d167"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab23ddd7e6b3c3696de6986a01cd3f3dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAbstractEA.html">AbstractEA</a>&lt; S &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiment.html#ab23ddd7e6b3c3696de6986a01cd3f3dc">getAlgorithm</a> () const</td></tr>
+<tr class="memdesc:ab23ddd7e6b3c3696de6986a01cd3f3dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a raw pointer to the algorithm used in the experiment.  <a href="classExperiment.html#ab23ddd7e6b3c3696de6986a01cd3f3dc">More...</a><br /></td></tr>
+<tr class="separator:ab23ddd7e6b3c3696de6986a01cd3f3dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad718c9ddd658bb22f19fff18e5eb431b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiment.html#ad718c9ddd658bb22f19fff18e5eb431b">setAlgorithm</a> (unique_ptr&lt; <a class="el" href="classAbstractEA.html">AbstractEA</a>&lt; S &gt;&gt; algo)</td></tr>
+<tr class="memdesc:ad718c9ddd658bb22f19fff18e5eb431b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the algorithm to solve the problem. Uses a unique_ptr and takes ownership of the pointer.  <a href="classExperiment.html#ad718c9ddd658bb22f19fff18e5eb431b">More...</a><br /></td></tr>
+<tr class="separator:ad718c9ddd658bb22f19fff18e5eb431b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12e04adbab5a07cf6f23c7bae6547fda"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiment.html#a12e04adbab5a07cf6f23c7bae6547fda">getRepetitions</a> () const</td></tr>
 <tr class="memdesc:a12e04adbab5a07cf6f23c7bae6547fda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of repetitions to perform.  <a href="classExperiment.html#a12e04adbab5a07cf6f23c7bae6547fda">More...</a><br /></td></tr>
 <tr class="separator:a12e04adbab5a07cf6f23c7bae6547fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,7 +151,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0bbd3cbc90070f77094f62d0a7807d45"><td class="memItemLeft" align="right" valign="top">vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiment.html#a0bbd3cbc90070f77094f62d0a7807d45">getBestFounds</a> () const</td></tr>
 <tr class="memdesc:a0bbd3cbc90070f77094f62d0a7807d45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the best fitnesses found after performing the experiment.  <a href="classExperiment.html#a0bbd3cbc90070f77094f62d0a7807d45">More...</a><br /></td></tr>
 <tr class="separator:a0bbd3cbc90070f77094f62d0a7807d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0708059d5602bdea5bd2e7fecd06a80"><td class="memItemLeft" align="right" valign="top">json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiment.html#ad0708059d5602bdea5bd2e7fecd06a80">to_json</a> ()</td></tr>
+<tr class="memitem:ad0708059d5602bdea5bd2e7fecd06a80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="MinKnap_8h.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExperiment.html#ad0708059d5602bdea5bd2e7fecd06a80">to_json</a> ()</td></tr>
 <tr class="memdesc:ad0708059d5602bdea5bd2e7fecd06a80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and returns a JSON object with all the information of the experiment. It contains the name of the experiment, the JSON information of the problem, the JSON information of the algorithm, the best solution found for each repetition and the <a class="el" href="classFront.html" title="Front class which stores the final results of an EA execution.">Front</a><s> of each repetition containing all results. </s> <a href="classExperiment.html#ad0708059d5602bdea5bd2e7fecd06a80">More...</a><br /></td></tr>
 <tr class="separator:ad0708059d5602bdea5bd2e7fecd06a80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -167,8 +167,8 @@ class Experiment&lt; S &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9d335c633f0b4a5976709443ada0857f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d335c633f0b4a5976709443ada0857f">&#9670;&nbsp;</a></span>Experiment()</h2>
+<a id="a3a37841a9fcefda5cd4faddea8630dfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a37841a9fcefda5cd4faddea8630dfe">&#9670;&nbsp;</a></span>Experiment()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -184,7 +184,7 @@ template&lt;class S &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unique_ptr&lt; <a class="el" href="classAbstractSolver.html">AbstractSolver</a>&lt; S &gt;&gt;&#160;</td>
+          <td class="paramtype">unique_ptr&lt; <a class="el" href="classAbstractEA.html">AbstractEA</a>&lt; S &gt;&gt;&#160;</td>
           <td class="paramname"><em>algorithm</em>, </td>
         </tr>
         <tr>
@@ -227,8 +227,8 @@ template&lt;class S &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a13f07567faeb5bb9dcbe11e76423c9a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13f07567faeb5bb9dcbe11e76423c9a3">&#9670;&nbsp;</a></span>getAlgorithm()</h2>
+<a id="ab23ddd7e6b3c3696de6986a01cd3f3dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab23ddd7e6b3c3696de6986a01cd3f3dc">&#9670;&nbsp;</a></span>getAlgorithm()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -239,7 +239,7 @@ template&lt;class S &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classAbstractSolver.html">AbstractSolver</a>&lt;S&gt;* <a class="el" href="classExperiment.html">Experiment</a>&lt; S &gt;::getAlgorithm </td>
+          <td class="memname"><a class="el" href="classAbstractEA.html">AbstractEA</a>&lt;S&gt;* <a class="el" href="classExperiment.html">Experiment</a>&lt; S &gt;::getAlgorithm </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -434,8 +434,8 @@ false otherwise </dd></dl>
 
 </div>
 </div>
-<a id="a176c2472711e54f37c78852ad007d167"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a176c2472711e54f37c78852ad007d167">&#9670;&nbsp;</a></span>setAlgorithm()</h2>
+<a id="ad718c9ddd658bb22f19fff18e5eb431b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad718c9ddd658bb22f19fff18e5eb431b">&#9670;&nbsp;</a></span>setAlgorithm()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -448,7 +448,7 @@ template&lt;class S &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classExperiment.html">Experiment</a>&lt; S &gt;::setAlgorithm </td>
           <td>(</td>
-          <td class="paramtype">unique_ptr&lt; <a class="el" href="classAbstractSolver.html">AbstractSolver</a>&lt; S &gt;&gt;&#160;</td>
+          <td class="paramtype">unique_ptr&lt; <a class="el" href="classAbstractEA.html">AbstractEA</a>&lt; S &gt;&gt;&#160;</td>
           <td class="paramname"><em>algo</em></td><td>)</td>
           <td></td>
         </tr>
@@ -587,7 +587,7 @@ template&lt;class S &gt; </div>
 template&lt;class S &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">json <a class="el" href="classExperiment.html">Experiment</a>&lt; S &gt;::to_json</td>
+          <td class="memname"><a class="el" href="MinKnap_8h.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> <a class="el" href="classExperiment.html">Experiment</a>&lt; S &gt;::to_json</td>
         </tr>
       </table>
 </div><div class="memdoc">

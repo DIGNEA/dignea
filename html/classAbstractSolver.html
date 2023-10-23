@@ -115,26 +115,6 @@ $(document).ready(function(){initNavTree('classAbstractSolver.html',''); initRes
  <a href="classAbstractSolver.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="AbstractSolver_8h_source.html">AbstractSolver.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for AbstractSolver&lt; S &gt;:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="classAbstractSolver.png" usemap="#AbstractSolver_3C_20S_20_3E_map" alt=""/>
-  <map id="AbstractSolver_3C_20S_20_3E_map" name="AbstractSolver_3C_20S_20_3E_map">
-<area href="classHeuristic.html" alt="Heuristic&lt; BoolFloatSolution &gt;" shape="rect" coords="194,56,378,80"/>
-<area href="classAbstractGA.html" title="Class to represent an Abstract Genetic Algorithm. Base skeleton is defined here, to extend in particu..." alt="AbstractGA&lt; S &gt;" shape="rect" coords="679,56,863,80"/>
-<area href="classHeuristic.html" title="Base heuristic class. This is the skeleton for future heuristic implementations. Extends AbstractSolv..." alt="Heuristic&lt; S &gt;" shape="rect" coords="873,56,1057,80"/>
-<area href="classSimulatedAnnealing.html" title="Simulated Annealing Algorithm." alt="SimulatedAnnealing&lt; S &gt;" shape="rect" coords="1067,56,1251,80"/>
-<area href="classDefault.html" title="Default Heuristic for the Knapsack Problem. Tries to insert each item in the knapsack while there is ..." alt="Default" shape="rect" coords="194,112,378,136"/>
-<area href="classFIGA.html" title="Class to represents a First Improve Genetic Algorithm (FIGA). This algorithms differentiate from othe..." alt="FIGA&lt; S &gt;" shape="rect" coords="388,112,572,136"/>
-<area href="classGenerationalGA.html" title="Class to represents a Generation Genetic Algorithm (GGA). This algorithms differentiate from others b..." alt="GenerationalGA&lt; S &gt;" shape="rect" coords="582,112,766,136"/>
-<area href="classParallelGeneticAlgorithm.html" title="Class to represents a Parallel Genetic Algorithm (ParGA). This algorithm runs the evolution in number..." alt="ParallelGeneticAlgorithm&lt; S &gt;" shape="rect" coords="776,112,960,136"/>
-<area href="classSteadyGA.html" title="Class to represents a Steady State Genetic Algorithm (SSGA) At each generation, a new individual is i..." alt="SteadyGA&lt; S &gt;" shape="rect" coords="970,112,1154,136"/>
-<area href="classMPW.html" title="Performs the Maximum Profit by Weight Ratio Heuristic for the Knapsack Problem It sorts the elements ..." alt="MPW" shape="rect" coords="0,168,184,192"/>
-<area href="classMaP.html" title="Maximum Profit Heuristic." alt="MaP" shape="rect" coords="194,168,378,192"/>
-<area href="classMiW.html" title="Performs the Minimum Weight Heuristic for the Knapsack Problem It sorts the elements based on their w..." alt="MiW" shape="rect" coords="388,168,572,192"/>
-  </map>
-</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -157,7 +137,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a1912110e14bb0b38c150f52a452b56fb"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#a1912110e14bb0b38c150f52a452b56fb">getID</a> () const =0</td></tr>
 <tr class="memdesc:a1912110e14bb0b38c150f52a452b56fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the identificator of the algorithm, this is used in the to_json method. Must be implemented in the subclasses. It should return the acronym of useful id for a particular configuration.  <a href="classAbstractSolver.html#a1912110e14bb0b38c150f52a452b56fb">More...</a><br /></td></tr>
 <tr class="separator:a1912110e14bb0b38c150f52a452b56fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4215f9a20bffb84416afe6e678bf59ce"><td class="memItemLeft" align="right" valign="top">virtual json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#a4215f9a20bffb84416afe6e678bf59ce">to_json</a> () const</td></tr>
+<tr class="memitem:a4215f9a20bffb84416afe6e678bf59ce"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="MinKnap_8h.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#a4215f9a20bffb84416afe6e678bf59ce">to_json</a> () const</td></tr>
 <tr class="memdesc:a4215f9a20bffb84416afe6e678bf59ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates and returns the JSON representation of the EA.  <a href="classAbstractSolver.html#a4215f9a20bffb84416afe6e678bf59ce">More...</a><br /></td></tr>
 <tr class="separator:a4215f9a20bffb84416afe6e678bf59ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5261ec08e99ba9833389e396c21db719"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classFront.html">Front</a>&lt; S &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#a5261ec08e99ba9833389e396c21db719">getResults</a> () const =0</td></tr>
@@ -570,8 +550,6 @@ template&lt;class S &gt; </div>
 <p>Returns the identificator of the algorithm, this is used in the to_json method. Must be implemented in the subclasses. It should return the acronym of useful id for a particular configuration. </p>
 <dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
 
-<p>Implemented in <a class="el" href="classHeuristic.html#a840b0cace9e9e4e0c98077005b5779b9">Heuristic&lt; BoolFloatSolution &gt;</a>, <a class="el" href="classEIG.html#ac6f7574bab642dd282d1c9bf75d8101a">EIG&lt; IP, IS, OP, OS &gt;</a>, <a class="el" href="classSteadyGA.html#af1cb60839426ae9e42ede885ab5654fd">SteadyGA&lt; S &gt;</a>, <a class="el" href="classSimulatedAnnealing.html#a8b59880604b604cc60c35ba2b5022777">SimulatedAnnealing&lt; S &gt;</a>, <a class="el" href="classParallelGeneticAlgorithm.html#a6c5d507ef705d714122ba0bbb278da4f">ParallelGeneticAlgorithm&lt; S &gt;</a>, <a class="el" href="classGenerationalGA.html#a3ab173f6b140276617cd9742324e8445">GenerationalGA&lt; S &gt;</a>, <a class="el" href="classFIGA.html#a8b02f95840c51cb4346804a3ae8b657b">FIGA&lt; S &gt;</a>, <a class="el" href="classHeuristic.html#a840b0cace9e9e4e0c98077005b5779b9">Heuristic&lt; S &gt;</a>, <a class="el" href="classMPW.html#a75b107e6c357e73f7e136ecc1a90dd47">MPW</a>, <a class="el" href="classMiW.html#aadbb0718ab65a9401803c1b8c3c4aa78">MiW</a>, <a class="el" href="classMaP.html#ad0d3d6f7ad67f154ba428e73b958de4f">MaP</a>, and <a class="el" href="classDefault.html#a92a24e5e549188dc1e6d4d44de9ae507">Default</a>.</p>
-
 </div>
 </div>
 <a id="a732ee564cf87b71d988cdca90d9bea58"></a>
@@ -631,8 +609,6 @@ template&lt;class S &gt; </div>
 
 <p>Returns the name of the algorithm, this is used in the to_json method. Must be implemented in the subclasses. </p>
 <dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
-
-<p>Implemented in <a class="el" href="classHeuristic.html#ad24a3b90a5c409abafa7d3d0a3772bae">Heuristic&lt; BoolFloatSolution &gt;</a>, <a class="el" href="classEIG.html#ad73f12e54c053203fcff59e06e4ec727">EIG&lt; IP, IS, OP, OS &gt;</a>, <a class="el" href="classSteadyGA.html#a9b0e9212c1d07163542f227d8373eefb">SteadyGA&lt; S &gt;</a>, <a class="el" href="classSimulatedAnnealing.html#a9274748a7f3d28a1373c45b46ae73e67">SimulatedAnnealing&lt; S &gt;</a>, <a class="el" href="classParallelGeneticAlgorithm.html#ac395ecf5b4a7cc3b669ebfec77bf95c2">ParallelGeneticAlgorithm&lt; S &gt;</a>, <a class="el" href="classGenerationalGA.html#a26c586a162821ea13944e01a40bd6690">GenerationalGA&lt; S &gt;</a>, <a class="el" href="classFIGA.html#a3017c11fa0829063f2a90b4981bc37c2">FIGA&lt; S &gt;</a>, <a class="el" href="classHeuristic.html#ad24a3b90a5c409abafa7d3d0a3772bae">Heuristic&lt; S &gt;</a>, <a class="el" href="classAbstractGA.html#ad0da6becc7ada8d796311af029787b82">AbstractGA&lt; S &gt;</a>, <a class="el" href="classMPW.html#ab709549dcd496097cf8b2288d75e4a58">MPW</a>, <a class="el" href="classMiW.html#a31b7cab96210078aaf149081c791c66e">MiW</a>, <a class="el" href="classMaP.html#ac6eb4b7c2d7c820584af79e91b8bb64e">MaP</a>, and <a class="el" href="classDefault.html#a171958b376a6a1df88eb5b73961f0779">Default</a>.</p>
 
 </div>
 </div>
@@ -814,8 +790,6 @@ template&lt;class S &gt; </div>
 <p>Returns a <a class="el" href="classFront.html" title="Front class which stores the final results of an EA execution.">Front</a> object with all the solutions of the evolutionary process. This method must be implemented in the subclasses. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classFront.html" title="Front class which stores the final results of an EA execution.">Front</a><s> </s></dd></dl>
 
-<p>Implemented in <a class="el" href="classHeuristic.html#ac3e0416407627c85b0d20b43e4fe61b0">Heuristic&lt; BoolFloatSolution &gt;</a>, <a class="el" href="classEIG.html#aa629a4c8b4ced09fc145423396253cd7">EIG&lt; IP, IS, OP, OS &gt;</a>, <a class="el" href="classSimulatedAnnealing.html#a4f35166b08340a0393f24764140c82d9">SimulatedAnnealing&lt; S &gt;</a>, <a class="el" href="classDefault.html#a1347ac02f84f42784174813ec0cad89e">Default</a>, <a class="el" href="classHeuristic.html#ac3e0416407627c85b0d20b43e4fe61b0">Heuristic&lt; S &gt;</a>, and <a class="el" href="classAbstractGA.html#abed66dec98cabf30821e3c0ede063575">AbstractGA&lt; S &gt;</a>.</p>
-
 </div>
 </div>
 <a id="a13e2fde2e2cdb315c6ac98c13fcfa7e4"></a>
@@ -847,8 +821,6 @@ template&lt;class S &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>true if the maximum number of evaluations have been performed </dd>
 <dd>
 false otherwise </dd></dl>
-
-<p>Implemented in <a class="el" href="classEIG.html#a6d6fd7d2dcd8c740b3d9a442cfbc92a2">EIG&lt; IP, IS, OP, OS &gt;</a>, <a class="el" href="classHeuristic.html#ac029d71e4a454854fbd20ac4ab0e5109">Heuristic&lt; S &gt;</a>, <a class="el" href="classHeuristic.html#ac029d71e4a454854fbd20ac4ab0e5109">Heuristic&lt; BoolFloatSolution &gt;</a>, <a class="el" href="classSimulatedAnnealing.html#ac0ef97095644bb42c7226e754fab1971">SimulatedAnnealing&lt; S &gt;</a>, and <a class="el" href="classAbstractGA.html#a944402e2db1aab7b67578007b311edb7">AbstractGA&lt; S &gt;</a>.</p>
 
 </div>
 </div>
@@ -1058,8 +1030,6 @@ template&lt;class S &gt; </div>
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classAbstractGA.html#af40240d08ac70d141d00a5a7ab5df66d">AbstractGA&lt; S &gt;</a>, and <a class="el" href="classSimulatedAnnealing.html#a6f926c4439996a7d70136d66a8c6569a">SimulatedAnnealing&lt; S &gt;</a>.</p>
-
 </div>
 </div>
 <a id="aa26fb8d6d24eb85ef01a442015ecf5d0"></a>
@@ -1096,8 +1066,6 @@ template&lt;class S &gt; </div>
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classAbstractGA.html#a13266c925a56a2b8c67519aaa6891d7c">AbstractGA&lt; S &gt;</a>, <a class="el" href="classSimulatedAnnealing.html#adc1af6eeafefa2b1ac091287b7f133d1">SimulatedAnnealing&lt; S &gt;</a>, and <a class="el" href="classParallelGeneticAlgorithm.html#af6827302c1a27242e38d92888341608f">ParallelGeneticAlgorithm&lt; S &gt;</a>.</p>
-
 </div>
 </div>
 <a id="a4215f9a20bffb84416afe6e678bf59ce"></a>
@@ -1112,7 +1080,7 @@ template&lt;class S &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">json <a class="el" href="classAbstractSolver.html">AbstractSolver</a>&lt; S &gt;::to_json</td>
+          <td class="memname"><a class="el" href="MinKnap_8h.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> <a class="el" href="classAbstractSolver.html">AbstractSolver</a>&lt; S &gt;::to_json</td>
         </tr>
       </table>
   </td>
@@ -1130,8 +1098,6 @@ template&lt;class S &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>json </dd></dl>
-
-<p>Reimplemented in <a class="el" href="classEIG.html#a576fd174d98beedf9ae84df8da0a8ef5">EIG&lt; IP, IS, OP, OS &gt;</a>, <a class="el" href="classAbstractGA.html#a01c2faaea101b1a3769b541ff715fd5b">AbstractGA&lt; S &gt;</a>, <a class="el" href="classParallelGeneticAlgorithm.html#a55df4e9442db871e203100b5466dc12b">ParallelGeneticAlgorithm&lt; S &gt;</a>, <a class="el" href="classHeuristic.html#a086529b8e07a62d698476eadde1c1bb8">Heuristic&lt; S &gt;</a>, and <a class="el" href="classHeuristic.html#a086529b8e07a62d698476eadde1c1bb8">Heuristic&lt; BoolFloatSolution &gt;</a>.</p>
 
 </div>
 </div>
@@ -1185,8 +1151,6 @@ template&lt;class S &gt; </div>
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classHeuristic.html#a182edcc2be6578e7126f8f8a9cb8c015">Heuristic&lt; S &gt;</a>.</p>
-
 </div>
 </div>
 <a id="af81c90e4105cfd14fc48254908983954"></a>
@@ -1227,8 +1191,6 @@ template&lt;class S &gt; </div>
   </table>
   </dd>
 </dl>
-
-<p>Reimplemented in <a class="el" href="classHeuristic.html#aaa5cf7069a2caabd8728a15db50118db">Heuristic&lt; S &gt;</a>.</p>
 
 </div>
 </div>

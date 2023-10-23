@@ -105,26 +105,26 @@ $(document).ready(function(){initNavTree('md_docs_markdown_04_docker_usage.html'
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md50">How to download DIGNEA from Docker Hub</a></li>
-<li class="level1"><a href="#autotoc_md51">How to run a container with DIGNEA</a></li>
-<li class="level1"><a href="#autotoc_md52">How to build DIGNEA</a></li>
-<li class="level1"><a href="#autotoc_md53">Examples and tests</a><ul><li class="level2"><a href="#autotoc_md54">Test suite</a></li>
-<li class="level2"><a href="#autotoc_md55">Generating KP instances</a><ul><li class="level3"><a href="#autotoc_md56">KP_HEURISTICS</a></li>
-<li class="level3"><a href="#autotoc_md57">EIGKPExperiment:</a></li>
+<ul><li class="level1"><a href="#autotoc_md56">How to download DIGNEA from Docker Hub</a></li>
+<li class="level1"><a href="#autotoc_md57">How to run a container with DIGNEA</a></li>
+<li class="level1"><a href="#autotoc_md58">How to build DIGNEA</a></li>
+<li class="level1"><a href="#autotoc_md59">Examples and tests</a><ul><li class="level2"><a href="#autotoc_md60">Test suite</a></li>
+<li class="level2"><a href="#autotoc_md61">Generating KP instances</a><ul><li class="level3"><a href="#autotoc_md62">KP_HEURISTICS</a></li>
+<li class="level3"><a href="#autotoc_md63">EIGKPExperiment:</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md58">Solving KP instances with DIGNEA</a></li>
-<li class="level2"><a href="#autotoc_md59">How to copy files from the container to your local machine</a></li>
+<li class="level2"><a href="#autotoc_md64">Solving KP instances with DIGNEA</a></li>
+<li class="level2"><a href="#autotoc_md65">How to copy files from the container to your local machine</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="textblock"><h1><a class="anchor" id="autotoc_md50"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md56"></a>
 How to download DIGNEA from Docker Hub</h1>
 <p>For downloading the DIGNEA image from Docker Hub you just simply run the following command:</p>
 <div class="fragment"><div class="line">docker pull dignea/dignea</div>
 </div><!-- fragment --><p>This will download the image and then you will be able to run a container with it. It is important that you have a working installation of Docker in your computer as well as checking that Docker is actually runing on your computer while you execute the previous command. If you need information on how to install Docker, please check the official documentation <a href="https://docs.docker.com/engine/install/">here</a>.</p>
-<h1><a class="anchor" id="autotoc_md51"></a>
+<h1><a class="anchor" id="autotoc_md57"></a>
 How to run a container with DIGNEA</h1>
 <p>Once you have the DIGNEA image in your local computer, the next step is to run a container with it. For this purpose, the only command you need is the following. This command will create the container using the DIGNEA image and it will locate you inside the "/dignea" directory.</p>
 <div class="fragment"><div class="line">docker run -it dignea/dignea:latest</div>
@@ -133,14 +133,14 @@ How to run a container with DIGNEA</h1>
 <div class="line">CMakeLists.txt      Dockerfile  License.md  bin    build.sh     cppcheck_report.txt  docs      include  scripts  test</div>
 <div class="line">CodeCoverage.cmake  Doxyfile    README.md   build  codecov.yml  data                 examples  lib      src</div>
 <div class="line">root@4c8b3b99fb5a:/dignea# </div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md52"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md58"></a>
 How to build DIGNEA</h1>
 <p>Once you start a container using DIGNEA image, you will find yourself inside the dignea/. It is not necessary to build DIGNEA from the start, but, if you create more experiments or update the software in any way, you should re-build the framework to include the changes. For that, just run the following command inside the container:</p>
 <div class="fragment"><div class="line">./build.sh</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md53"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md59"></a>
 Examples and tests</h1>
 <p>Inside the <em>dignea/bin</em> directory you will find the tests (digneaTest) and some examples of the framework. Notice that some examples such as KP_HEURISTICS or MEAs experiments will take lots of time to run.</p>
-<h2><a class="anchor" id="autotoc_md54"></a>
+<h2><a class="anchor" id="autotoc_md60"></a>
 Test suite</h2>
 <p>digneaTest is the executable which runs the test suite of DIGNEA. Its job is to check that everything is working fine. This executable does not produce any new file or data, only checks that every function and class of the software works as expected. The output of this executable should be something like the following:</p>
 <div class="fragment"><div class="line">Run tests</div>
@@ -149,18 +149,18 @@ Test suite</h2>
 <div class="line">All tests passed (461757 assertions in 69 test cases)</div>
 <div class="line"> </div>
 <div class="line">[100%] Built target digneaTest</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md55"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md61"></a>
 Generating KP instances</h2>
 <p>We include to executables to generate <a class="el" href="classKP.html" title="Class representing a Knapsack Problem.">KP</a> instances. One uses four deterministic heuristics and the other four different configurations of EAs.</p>
-<h3><a class="anchor" id="autotoc_md56"></a>
+<h3><a class="anchor" id="autotoc_md62"></a>
 KP_HEURISTICS</h3>
 <p>Generates sets of biased instances to four different <a class="el" href="classKP.html" title="Class representing a Knapsack Problem.">KP</a> heuristics. The results of the execution includes JSON files with information of the runs and <a class="el" href="classKP.html" title="Class representing a Knapsack Problem.">KP</a> instance files. This is a computational expensive experiment which uses the number of repetitions as a parameter to reduce the computation time.</p>
 <p>This file receives the number of repetitions to perform as parameter. Then, it generates a set of diverse instances for each <a class="el" href="classKP.html" title="Class representing a Knapsack Problem.">KP</a> heuristic in DIGNEA at this point. The heuristics are:</p>
 <ul>
-<li>1. <a class="el" href="classDefault.html" title="Default Heuristic for the Knapsack Problem. Tries to insert each item in the knapsack while there is ...">Default</a> <a class="el" href="classHeuristic.html" title="Base heuristic class. This is the skeleton for future heuristic implementations. Extends AbstractSolv...">Heuristic</a></li>
-<li>2. Maximum Profit per Weight Ratio <a class="el" href="classHeuristic.html" title="Base heuristic class. This is the skeleton for future heuristic implementations. Extends AbstractSolv...">Heuristic</a></li>
-<li>3. Maximum Profit <a class="el" href="classHeuristic.html" title="Base heuristic class. This is the skeleton for future heuristic implementations. Extends AbstractSolv...">Heuristic</a></li>
-<li>4. Minimum Weight <a class="el" href="classHeuristic.html" title="Base heuristic class. This is the skeleton for future heuristic implementations. Extends AbstractSolv...">Heuristic</a></li>
+<li>1. <a class="el" href="classDefault.html" title="Default Heuristic for the Knapsack Problem. Tries to insert each item in the knapsack while there is ...">Default</a> <a class="el" href="classHeuristic.html" title="Base heuristic class. This is the skeleton for future heuristic implementations. Extends AbstractEA f...">Heuristic</a></li>
+<li>2. Maximum Profit per Weight Ratio <a class="el" href="classHeuristic.html" title="Base heuristic class. This is the skeleton for future heuristic implementations. Extends AbstractEA f...">Heuristic</a></li>
+<li>3. Maximum Profit <a class="el" href="classHeuristic.html" title="Base heuristic class. This is the skeleton for future heuristic implementations. Extends AbstractEA f...">Heuristic</a></li>
+<li>4. Minimum Weight <a class="el" href="classHeuristic.html" title="Base heuristic class. This is the skeleton for future heuristic implementations. Extends AbstractEA f...">Heuristic</a></li>
 </ul>
 <p>The expected output is a JSON file for each solver and repetition. For instance, setting the number of repetitions parameter to 10 will produce 40 JSON file (10 for each solver). The structure of the JSON file is similar to the following. Please note that some information is omitted for a clearer visualisation.</p>
 <div class="fragment"><div class="line">{</div>
@@ -385,7 +385,7 @@ KP_HEURISTICS</h3>
 <div class="line">        &quot;up_limit&quot;: 1000.0</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md57"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md63"></a>
 EIGKPExperiment:</h3>
 <p>Generates sets of biased instances to four different GA configurations. The results of the execution includes JSON files with information of the runs and <a class="el" href="classKP.html" title="Class representing a Knapsack Problem.">KP</a> instance files. This is a computational expensive experiment which can take lots of time to finish (even a day depending on the computational resources). The expected parameters are: <br  />
 </p><ul>
@@ -396,7 +396,7 @@ EIGKPExperiment:</h3>
 <p><b>NOTE: The fitness and novelty ratios must sum-up to 1.0</b></p>
 <p>The expected output is a single JSON file for the given configuration. The structure of the JSON file is similar to the previous example.</p>
 <p>Moreover, this executable will produce a <a class="el" href="classKP.html" title="Class representing a Knapsack Problem.">KP</a> instance file (.kp) for each instance generated during the process. The results will similar format to the data include inside "dignea/data/instances/KnapsackProblem/**/*.kp" directory. Although this files are not generated by the previous executable, the instances can be easily built using the information inside the JSON files.</p>
-<h2><a class="anchor" id="autotoc_md58"></a>
+<h2><a class="anchor" id="autotoc_md64"></a>
 Solving KP instances with DIGNEA</h2>
 <p>Since all solvers and optimisation problems are integrated in DIGNEA, we are also able to solve the <a class="el" href="classKP.html" title="Class representing a Knapsack Problem.">KP</a> instance generated by DIGNEA itself. Although any other <a class="el" href="classKP.html" title="Class representing a Knapsack Problem.">KP</a> instance can be solved as well, just consider the expected format. For this purpose we include the executable known as Genetic_KNP.</p>
 <p><em>Genetic_KNP</em> solves all the <a class="el" href="classKP.html" title="Class representing a Knapsack Problem.">KP</a> instances located inside a directory using a Parallel Genetic Algorithm. There is a directory with lots of <a class="el" href="classKP.html" title="Class representing a Knapsack Problem.">KP</a> instances to try out this executable. You can find them in dignea/data/instances/KnapsackProblem/**.</p>
@@ -482,7 +482,7 @@ Solving KP instances with DIGNEA</h2>
 <div class="line">        (...)</div>
 <div class="line">    ]</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md59"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md65"></a>
 How to copy files from the container to your local machine</h2>
 <p>Once you run your experiments inside the Docker container, you can use the commands <code>docker container ls</code> and <code>docker container cp</code> to copy the results to your local machine. Note that it is mandatory that the container is running. Otherwise, it is not going to be possible to transfer files. Also, remember that the files generated inside a container will disappear once you stop the container.</p>
 <p>First, you must known the ID of the container to get the files. This information is given by <code>docker container ls</code>. For instance, runing the previous command will tell us that the ID for the container we just created is 4c8b3b99fb5a. We can also use part of it like 4c8b.</p>

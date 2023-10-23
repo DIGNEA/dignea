@@ -110,7 +110,9 @@ $(document).ready(function(){initNavTree('Sorter_8h.html',''); initResizable(); 
 <code>#include &lt;<a class="el" href="Comparator_8h_source.html">dignea/utilities/Comparator.h</a>&gt;</code><br />
 <code>#include &lt;dignea/utilities/exceptions/EmptyPopulation.h&gt;</code><br />
 <code>#include &lt;dignea/utilities/exceptions/OutOfRange.h&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;ranges&gt;</code><br />
 </div>
 <p><a href="Sorter_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -124,6 +126,17 @@ Functions</h2></td></tr>
 <tr class="memitem:acd82fd7f7eece096eac78b5d1c73983b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="Sorter_8h.html#acd82fd7f7eece096eac78b5d1c73983b">sortByFitness</a> (vector&lt; S &gt; &amp;population)</td></tr>
 <tr class="memdesc:acd82fd7f7eece096eac78b5d1c73983b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts the population by fitness in descending order.  <a href="Sorter_8h.html#acd82fd7f7eece096eac78b5d1c73983b">More...</a><br /></td></tr>
 <tr class="separator:acd82fd7f7eece096eac78b5d1c73983b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01adf7855ad05c7f7b2da3d1f0e598a0"><td class="memTemplParams" colspan="2">template&lt;typename S &gt; </td></tr>
+<tr class="memitem:a01adf7855ad05c7f7b2da3d1f0e598a0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="Sorter_8h.html#a01adf7855ad05c7f7b2da3d1f0e598a0">sortByCrowDistance</a> (vector&lt; S &gt; &amp;population)</td></tr>
+<tr class="memdesc:a01adf7855ad05c7f7b2da3d1f0e598a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts the population by their crow distance value in descending order.  <a href="Sorter_8h.html#a01adf7855ad05c7f7b2da3d1f0e598a0">More...</a><br /></td></tr>
+<tr class="separator:a01adf7855ad05c7f7b2da3d1f0e598a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaf0650a9533120567247843b6029192"><td class="memTemplParams" colspan="2">template&lt;typename S &gt; </td></tr>
+<tr class="memitem:adaf0650a9533120567247843b6029192"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="Sorter_8h.html#adaf0650a9533120567247843b6029192">crowOrder</a> (vector&lt; S &gt; &amp;population, const <a class="el" href="classProblem.html">Problem</a>&lt; S &gt; *problem)</td></tr>
+<tr class="separator:adaf0650a9533120567247843b6029192"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d02d5eaa67cb73dd0c3bfa55a46829a"><td class="memTemplParams" colspan="2">template&lt;class S &gt; </td></tr>
+<tr class="memitem:a1d02d5eaa67cb73dd0c3bfa55a46829a"><td class="memTemplItemLeft" align="right" valign="top">vector&lt; vector&lt; S &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="Sorter_8h.html#a1d02d5eaa67cb73dd0c3bfa55a46829a">fastNonDominatedSort</a> (vector&lt; S &gt; &amp;population, const <a class="el" href="classProblem.html">Problem</a>&lt; S &gt; *problem)</td></tr>
+<tr class="memdesc:a1d02d5eaa67cb73dd0c3bfa55a46829a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fast Non Dominated Sorting operator. Sorts the population in different fronts Used in NSGA-II.  <a href="Sorter_8h.html#a1d02d5eaa67cb73dd0c3bfa55a46829a">More...</a><br /></td></tr>
+<tr class="separator:a1d02d5eaa67cb73dd0c3bfa55a46829a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Alejandro Marrero (<a href="#" onclick="location.href='mai'+'lto:'+'ama'+'rr'+'erd'+'@u'+'ll.'+'ed'+'u.e'+'s'; return false;">amarr<span style="display: none;">.nosp@m.</span>erd@<span style="display: none;">.nosp@m.</span>ull.e<span style="display: none;">.nosp@m.</span>du.e<span style="display: none;">.nosp@m.</span>s</a>) </dd></dl>
@@ -131,6 +144,128 @@ Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>2020-12-02</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2022 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="adaf0650a9533120567247843b6029192"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaf0650a9533120567247843b6029192">&#9670;&nbsp;</a></span>crowOrder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename S &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void crowOrder </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; S &gt; &amp;&#160;</td>
+          <td class="paramname"><em>population</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classProblem.html">Problem</a>&lt; S &gt; *&#160;</td>
+          <td class="paramname"><em>problem</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">S</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">population</td><td></td></tr>
+    <tr><td class="paramname">problem</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1d02d5eaa67cb73dd0c3bfa55a46829a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d02d5eaa67cb73dd0c3bfa55a46829a">&#9670;&nbsp;</a></span>fastNonDominatedSort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class S &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;vector&lt;S&gt; &gt; fastNonDominatedSort </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; S &gt; &amp;&#160;</td>
+          <td class="paramname"><em>population</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classProblem.html">Problem</a>&lt; S &gt; *&#160;</td>
+          <td class="paramname"><em>problem</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fast Non Dominated Sorting operator. Sorts the population in different fronts Used in NSGA-II. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">S</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">notClassified</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>vector&lt;vector<s>&gt; </s></dd></dl>
+
+</div>
+</div>
+<a id="a01adf7855ad05c7f7b2da3d1f0e598a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01adf7855ad05c7f7b2da3d1f0e598a0">&#9670;&nbsp;</a></span>sortByCrowDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename S &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void sortByCrowDistance </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; S &gt; &amp;&#160;</td>
+          <td class="paramname"><em>population</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sorts the population by their crow distance value in descending order. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">S</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">population</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="acd82fd7f7eece096eac78b5d1c73983b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acd82fd7f7eece096eac78b5d1c73983b">&#9670;&nbsp;</a></span>sortByFitness()</h2>
 

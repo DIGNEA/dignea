@@ -1,7 +1,7 @@
 var classTSPInstance =
 [
     [ "TSPInstance", "classTSPInstance.html#a29774f788149cd83c5d34e66b4ef988d", null ],
-    [ "TSPInstance", "classTSPInstance.html#a52f0914e3dbcef80235173934d72bc21", null ],
+    [ "TSPInstance", "classTSPInstance.html#a397ee98634a15a54e1b8a5b4e1026712", null ],
     [ "TSPInstance", "classTSPInstance.html#a03ea02fda2f04cc10ae83274390ec1fd", null ],
     [ "TSPInstance", "classTSPInstance.html#a48748fffe6dfd091b34e125d00b777d4", null ],
     [ "TSPInstance", "classTSPInstance.html#aecdeda551fabc7661a2c0a69dd56ed77", null ],

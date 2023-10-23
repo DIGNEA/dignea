@@ -115,104 +115,38 @@ $(document).ready(function(){initNavTree('classKNN.html',''); initResizable(); }
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac0fceaff2ff3a61143607ef459bab171"><td class="memTemplParams" colspan="2">template&lt;typename S , typename T &gt; </td></tr>
-<tr class="memitem:ac0fceaff2ff3a61143607ef459bab171"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="KNN_8h.html#af5de02400308fc4aae728b6ff3250bf3">neighVector</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classKNN.html#ac0fceaff2ff3a61143607ef459bab171">run</a> (const S &amp;individual, const vector&lt; S &gt; &amp;neighbours, <a class="el" href="classDistance.html">Distance</a>&lt; T &gt; *metric, const int &amp;k=3)</td></tr>
-<tr class="memdesc:ac0fceaff2ff3a61143607ef459bab171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the <a class="el" href="classKNN.html" title="K-Nearest Neighbours Algorithm.">KNN</a> algorithm for the individual Returns the k nearest neighbours Ss in a vector.  <a href="classKNN.html#ac0fceaff2ff3a61143607ef459bab171">More...</a><br /></td></tr>
-<tr class="separator:ac0fceaff2ff3a61143607ef459bab171"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a597ccd5557eafb85c0001db6eda6bd22"><td class="memTemplParams" colspan="2">template&lt;typename S , typename T &gt; </td></tr>
-<tr class="memitem:a597ccd5557eafb85c0001db6eda6bd22"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="KNN_8h.html#aa7e790a3d6ca715dfd36cee2dd8e65b5">neighMatrix</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classKNN.html#a597ccd5557eafb85c0001db6eda6bd22">run</a> (const vector&lt; S &gt; &amp;population, <a class="el" href="classDistance.html">Distance</a>&lt; T &gt; *metric, const int &amp;k=3)</td></tr>
-<tr class="memdesc:a597ccd5557eafb85c0001db6eda6bd22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the <a class="el" href="classKNN.html" title="K-Nearest Neighbours Algorithm.">KNN</a> for the entire vector of individuals given.  <a href="classKNN.html#a597ccd5557eafb85c0001db6eda6bd22">More...</a><br /></td></tr>
-<tr class="separator:a597ccd5557eafb85c0001db6eda6bd22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85f7dc1afd870aa8fa69606a109c61fe"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a85f7dc1afd870aa8fa69606a109c61fe"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="KNN_8h.html#aa7e790a3d6ca715dfd36cee2dd8e65b5">neighMatrix</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classKNN.html#a85f7dc1afd870aa8fa69606a109c61fe">run</a> (const vector&lt; vector&lt; float &gt;&gt; &amp;population, <a class="el" href="classDistance.html">Distance</a>&lt; T &gt; *metric, const int &amp;k=3)</td></tr>
-<tr class="memdesc:a85f7dc1afd870aa8fa69606a109c61fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the <a class="el" href="classKNN.html" title="K-Nearest Neighbours Algorithm.">KNN</a> algorithm with a matrix of float values. This method is defined to be used by <a class="el" href="classEIG.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (EIG). This algorithm uses a Weig...">EIG</a> and <a class="el" href="classNSFeatures.html" title="Class to represent the Novelty Search Algorithm This specialization is exclusively for EIG because it...">NSFeatures</a> and the matrix defines the features of all individuals in the population (instances).  <a href="classKNN.html#a85f7dc1afd870aa8fa69606a109c61fe">More...</a><br /></td></tr>
-<tr class="separator:a85f7dc1afd870aa8fa69606a109c61fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41441bd72b878483e1bea67548f77d05"><td class="memTemplParams" colspan="2">template&lt;typename S , typename T &gt; </td></tr>
-<tr class="memitem:a41441bd72b878483e1bea67548f77d05"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="KNN_8h.html#aa7e790a3d6ca715dfd36cee2dd8e65b5">neighMatrix</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classKNN.html#a41441bd72b878483e1bea67548f77d05">inverse</a> (const vector&lt; S &gt; &amp;population, <a class="el" href="classDistance.html">Distance</a>&lt; T &gt; *metric, const int &amp;k=3)</td></tr>
-<tr class="memdesc:a41441bd72b878483e1bea67548f77d05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the inverse of <a class="el" href="classKNN.html" title="K-Nearest Neighbours Algorithm.">KNN</a>.  <a href="classKNN.html#a41441bd72b878483e1bea67548f77d05">More...</a><br /></td></tr>
-<tr class="separator:a41441bd72b878483e1bea67548f77d05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a922e9e7a8ea829c9bbe6f027bb3998f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="KNN_8h.html#ab1c17ba137eeb8329583c111387b6efe">neighVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKNN.html#a922e9e7a8ea829c9bbe6f027bb3998f6">run</a> (const Descriptor &amp;individual, const vector&lt; Descriptor &gt; &amp;neighbours, <a class="el" href="classDistance.html">Distance</a>&lt; float &gt; *metric, const int &amp;k=3)</td></tr>
+<tr class="memdesc:a922e9e7a8ea829c9bbe6f027bb3998f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the <a class="el" href="classKNN.html" title="K-Nearest Neighbours Algorithm.">KNN</a> algorithm for the individual Returns the k nearest neighbours Ss in a vector.  <a href="classKNN.html#a922e9e7a8ea829c9bbe6f027bb3998f6">More...</a><br /></td></tr>
+<tr class="separator:a922e9e7a8ea829c9bbe6f027bb3998f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dd342f57541df69ce2591c8e626a2c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="KNN_8h.html#a1ca6c38d1bf1897d19fd72de303b047a">neighMatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKNN.html#a0dd342f57541df69ce2591c8e626a2c7">run</a> (const vector&lt; Descriptor &gt; &amp;population, <a class="el" href="classDistance.html">Distance</a>&lt; float &gt; *metric, const int &amp;k=3)</td></tr>
+<tr class="memdesc:a0dd342f57541df69ce2591c8e626a2c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the <a class="el" href="classKNN.html" title="K-Nearest Neighbours Algorithm.">KNN</a> for the entire vector of individuals given.  <a href="classKNN.html#a0dd342f57541df69ce2591c8e626a2c7">More...</a><br /></td></tr>
+<tr class="separator:a0dd342f57541df69ce2591c8e626a2c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>K-Nearest Neighbours Algorithm. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a41441bd72b878483e1bea67548f77d05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41441bd72b878483e1bea67548f77d05">&#9670;&nbsp;</a></span>inverse()</h2>
+<a id="a922e9e7a8ea829c9bbe6f027bb3998f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a922e9e7a8ea829c9bbe6f027bb3998f6">&#9670;&nbsp;</a></span>run() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename S , typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="KNN_8h.html#aa7e790a3d6ca715dfd36cee2dd8e65b5">neighMatrix</a>&lt; T &gt; KNN::inverse </td>
+          <td class="memname"><a class="el" href="KNN_8h.html#ab1c17ba137eeb8329583c111387b6efe">neighVector</a> KNN::run </td>
           <td>(</td>
-          <td class="paramtype">const vector&lt; S &gt; &amp;&#160;</td>
-          <td class="paramname"><em>population</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classDistance.html">Distance</a>&lt; T &gt; *&#160;</td>
-          <td class="paramname"><em>metric</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int &amp;&#160;</td>
-          <td class="paramname"><em>k</em> = <code>3</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Computes the inverse of <a class="el" href="classKNN.html" title="K-Nearest Neighbours Algorithm.">KNN</a>. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">S</td><td></td></tr>
-    <tr><td class="paramname">T</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">population</td><td></td></tr>
-    <tr><td class="paramname">metric</td><td></td></tr>
-    <tr><td class="paramname">k</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>neighMatrix&lt;T&gt; </dd></dl>
-
-</div>
-</div>
-<a id="ac0fceaff2ff3a61143607ef459bab171"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0fceaff2ff3a61143607ef459bab171">&#9670;&nbsp;</a></span>run() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename S , typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="KNN_8h.html#af5de02400308fc4aae728b6ff3250bf3">neighVector</a>&lt; T &gt; KNN::run </td>
-          <td>(</td>
-          <td class="paramtype">const S &amp;&#160;</td>
+          <td class="paramtype">const Descriptor &amp;&#160;</td>
           <td class="paramname"><em>individual</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const vector&lt; S &gt; &amp;&#160;</td>
+          <td class="paramtype">const vector&lt; Descriptor &gt; &amp;&#160;</td>
           <td class="paramname"><em>neighbours</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classDistance.html">Distance</a>&lt; T &gt; *&#160;</td>
+          <td class="paramtype"><a class="el" href="classDistance.html">Distance</a>&lt; float &gt; *&#160;</td>
           <td class="paramname"><em>metric</em>, </td>
         </tr>
         <tr>
@@ -250,24 +184,22 @@ template&lt;typename S , typename T &gt; </div>
 
 </div>
 </div>
-<a id="a597ccd5557eafb85c0001db6eda6bd22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a597ccd5557eafb85c0001db6eda6bd22">&#9670;&nbsp;</a></span>run() <span class="overload">[2/3]</span></h2>
+<a id="a0dd342f57541df69ce2591c8e626a2c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dd342f57541df69ce2591c8e626a2c7">&#9670;&nbsp;</a></span>run() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename S , typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="KNN_8h.html#aa7e790a3d6ca715dfd36cee2dd8e65b5">neighMatrix</a>&lt; T &gt; KNN::run </td>
+          <td class="memname"><a class="el" href="KNN_8h.html#a1ca6c38d1bf1897d19fd72de303b047a">neighMatrix</a> KNN::run </td>
           <td>(</td>
-          <td class="paramtype">const vector&lt; S &gt; &amp;&#160;</td>
+          <td class="paramtype">const vector&lt; Descriptor &gt; &amp;&#160;</td>
           <td class="paramname"><em>population</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classDistance.html">Distance</a>&lt; T &gt; *&#160;</td>
+          <td class="paramtype"><a class="el" href="classDistance.html">Distance</a>&lt; float &gt; *&#160;</td>
           <td class="paramname"><em>metric</em>, </td>
         </tr>
         <tr>
@@ -304,61 +236,9 @@ template&lt;typename S , typename T &gt; </div>
 
 </div>
 </div>
-<a id="a85f7dc1afd870aa8fa69606a109c61fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85f7dc1afd870aa8fa69606a109c61fe">&#9670;&nbsp;</a></span>run() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="KNN_8h.html#aa7e790a3d6ca715dfd36cee2dd8e65b5">neighMatrix</a>&lt; T &gt; KNN::run </td>
-          <td>(</td>
-          <td class="paramtype">const vector&lt; vector&lt; float &gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>population</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classDistance.html">Distance</a>&lt; T &gt; *&#160;</td>
-          <td class="paramname"><em>metric</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int &amp;&#160;</td>
-          <td class="paramname"><em>k</em> = <code>3</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Runs the <a class="el" href="classKNN.html" title="K-Nearest Neighbours Algorithm.">KNN</a> algorithm with a matrix of float values. This method is defined to be used by <a class="el" href="classEIG.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (EIG). This algorithm uses a Weig...">EIG</a> and <a class="el" href="classNSFeatures.html" title="Class to represent the Novelty Search Algorithm This specialization is exclusively for EIG because it...">NSFeatures</a> and the matrix defines the features of all individuals in the population (instances). </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">population</td><td></td></tr>
-    <tr><td class="paramname">metric</td><td></td></tr>
-    <tr><td class="paramname">k</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>neighMatrix&lt;T&gt; </dd></dl>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/dignea/utilities/<a class="el" href="KNN_8h_source.html">KNN.h</a></li>
+<li>src/dignea/utilities/KNN.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

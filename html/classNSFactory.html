@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dignea: NSFactory&lt; MS, T &gt; Class Template Reference</title>
+<title>dignea: NSFactory&lt; S &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('classNSFactory.html',''); initResizabl
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classNSFactory-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">NSFactory&lt; MS, T &gt; Class Template Reference</div>  </div>
+<div class="title">NSFactory&lt; S &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -115,13 +115,13 @@ $(document).ready(function(){initNavTree('classNSFactory.html',''); initResizabl
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a729469a6a814fa1a5848f93c975c51ba"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="classNoveltySearch.html">NoveltySearch</a>&lt; MS, T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNSFactory.html#a729469a6a814fa1a5848f93c975c51ba">create</a> (<a class="el" href="NSTypes_8h.html#a06e42347c7a2b24804491331ec2029ae">NSType</a> type, unique_ptr&lt; <a class="el" href="classDistance.html">Distance</a>&lt; T &gt;&gt; dist, const float &amp;thres, const int k)</td></tr>
-<tr class="memdesc:a729469a6a814fa1a5848f93c975c51ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a unique pointer to a Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> algorithm of given type. Variants are available at NSType.  <a href="classNSFactory.html#a729469a6a814fa1a5848f93c975c51ba">More...</a><br /></td></tr>
-<tr class="separator:a729469a6a814fa1a5848f93c975c51ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a7f9c3053a523457f1c87cf513b6735"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="classNoveltySearch.html">NoveltySearch</a>&lt; S &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNSFactory.html#a1a7f9c3053a523457f1c87cf513b6735">create</a> (<a class="el" href="NSTypes_8h.html#a06e42347c7a2b24804491331ec2029ae">NSType</a> type, unique_ptr&lt; <a class="el" href="classDistance.html">Distance</a>&lt; float &gt;&gt; dist, const float &amp;thres, const float &amp;finalThresh, const int k, bool warmUp)</td></tr>
+<tr class="memdesc:a1a7f9c3053a523457f1c87cf513b6735"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a unique pointer to a Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> algorithm of given type. Variants are available at NSType.  <a href="classNSFactory.html#a1a7f9c3053a523457f1c87cf513b6735">More...</a><br /></td></tr>
+<tr class="separator:a1a7f9c3053a523457f1c87cf513b6735"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class MS, typename T = float&gt;<br />
-class NSFactory&lt; MS, T &gt;</h3>
+<div class="textblock"><h3>template&lt;class S&gt;<br />
+class NSFactory&lt; S &gt;</h3>
 
 <p>Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> factory which allows the user to create Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> algorithms on the go. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -131,19 +131,19 @@ class NSFactory&lt; MS, T &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a729469a6a814fa1a5848f93c975c51ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a729469a6a814fa1a5848f93c975c51ba">&#9670;&nbsp;</a></span>create()</h2>
+<a id="a1a7f9c3053a523457f1c87cf513b6735"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a7f9c3053a523457f1c87cf513b6735">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class MS , typename T  = float&gt; </div>
+template&lt;class S &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unique_ptr&lt;<a class="el" href="classNoveltySearch.html">NoveltySearch</a>&lt;MS, T&gt; &gt; <a class="el" href="classNSFactory.html">NSFactory</a>&lt; MS, T &gt;::create </td>
+          <td class="memname">unique_ptr&lt;<a class="el" href="classNoveltySearch.html">NoveltySearch</a>&lt;S&gt; &gt; <a class="el" href="classNSFactory.html">NSFactory</a>&lt; S &gt;::create </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="NSTypes_8h.html#a06e42347c7a2b24804491331ec2029ae">NSType</a>&#160;</td>
           <td class="paramname"><em>type</em>, </td>
@@ -151,7 +151,7 @@ template&lt;class MS , typename T  = float&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unique_ptr&lt; <a class="el" href="classDistance.html">Distance</a>&lt; T &gt;&gt;&#160;</td>
+          <td class="paramtype">unique_ptr&lt; <a class="el" href="classDistance.html">Distance</a>&lt; float &gt;&gt;&#160;</td>
           <td class="paramname"><em>dist</em>, </td>
         </tr>
         <tr>
@@ -163,8 +163,20 @@ template&lt;class MS , typename T  = float&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>finalThresh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>k</em>&#160;</td>
+          <td class="paramname"><em>k</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>warmUp</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

@@ -9,7 +9,7 @@ var classAbstractInstance =
     [ "getAvgPortFitness", "classAbstractInstance.html#a423339c6d81c8e5a0940dd69d44a5337", null ],
     [ "getBiasedFitness", "classAbstractInstance.html#adb760d59de94531fa3b202b7b95eac39", null ],
     [ "getDiversity", "classAbstractInstance.html#adfbb87e0aa65fb498ce74b8a5c70b545", null ],
-    [ "getFeatures", "classAbstractInstance.html#affc1b352432dff882f5a6b8ef4cb190e", null ],
+    [ "getFeatures", "classAbstractInstance.html#a083abad9d3ee563238cb5d88d46dfb9f", null ],
     [ "getPortFitness", "classAbstractInstance.html#add139dfc6469a794c08037b33333ad2e", null ],
     [ "operator=", "classAbstractInstance.html#a56723124242660f4527bc29894f411d8", null ],
     [ "operator==", "classAbstractInstance.html#acd49facfcfd64b3db99d249f3ec77413", null ],

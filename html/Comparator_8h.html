@@ -111,6 +111,7 @@ $(document).ready(function(){initNavTree('Comparator_8h.html',''); initResizable
 <code>#include &lt;dignea/core/Solution.h&gt;</code><br />
 <code>#include &lt;dignea/utilities/exceptions/OutOfRange.h&gt;</code><br />
 <code>#include &lt;numeric&gt;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
 </div>
 <p><a href="Comparator_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -128,6 +129,18 @@ Functions</h2></td></tr>
 <tr class="memitem:a0c2a3e20d5fd0d75c7f77e837190dd65"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="Comparator_8h.html#a0c2a3e20d5fd0d75c7f77e837190dd65">improves</a> (const S &amp;ind1, const S &amp;ind2)</td></tr>
 <tr class="memdesc:a0c2a3e20d5fd0d75c7f77e837190dd65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether a solution is improved by a new one. A solution (with constraints) is said to improve an existing one if:  <a href="Comparator_8h.html#a0c2a3e20d5fd0d75c7f77e837190dd65">More...</a><br /></td></tr>
 <tr class="separator:a0c2a3e20d5fd0d75c7f77e837190dd65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab97f6f03b2e05a95f52c8eb52665c7f1"><td class="memTemplParams" colspan="2">template&lt;typename S &gt; </td></tr>
+<tr class="memitem:ab97f6f03b2e05a95f52c8eb52665c7f1"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="Comparator_8h.html#ab97f6f03b2e05a95f52c8eb52665c7f1">dominanceTest</a> (const S &amp;ind1, const S &amp;ind2, const <a class="el" href="classProblem.html">Problem</a>&lt; S &gt; *problem)</td></tr>
+<tr class="memdesc:ab97f6f03b2e05a95f52c8eb52665c7f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test whether an individual dominates another. A individual dominates another if all their objectives are "better" (considering maximisation or minimisation) or equal and at least one of them is strictly better.  <a href="Comparator_8h.html#ab97f6f03b2e05a95f52c8eb52665c7f1">More...</a><br /></td></tr>
+<tr class="separator:ab97f6f03b2e05a95f52c8eb52665c7f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3062a8a131f5cd6bdad5d8bf28f38900"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a3062a8a131f5cd6bdad5d8bf28f38900"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="Comparator_8h.html#a3062a8a131f5cd6bdad5d8bf28f38900">areEqual</a> (const vector&lt; T &gt; &amp;v1, const vector&lt; T &gt; &amp;v2)</td></tr>
+<tr class="memdesc:a3062a8a131f5cd6bdad5d8bf28f38900"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare whether two vectors are equal within a tolerance.  <a href="Comparator_8h.html#a3062a8a131f5cd6bdad5d8bf28f38900">More...</a><br /></td></tr>
+<tr class="separator:a3062a8a131f5cd6bdad5d8bf28f38900"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a430245849e51bdbf905826272662e9bd"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a430245849e51bdbf905826272662e9bd"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="Comparator_8h.html#a430245849e51bdbf905826272662e9bd">areEqual</a> (const T &amp;a, const T &amp;b)</td></tr>
+<tr class="memdesc:a430245849e51bdbf905826272662e9bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare whether float/double values are equal within a tolerance.  <a href="Comparator_8h.html#a430245849e51bdbf905826272662e9bd">More...</a><br /></td></tr>
+<tr class="separator:a430245849e51bdbf905826272662e9bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -140,6 +153,18 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>SECOND_BE
 <tr class="memitem:a1fba296576780f35006b077d69bb5597"><td class="memItemLeft" align="right" valign="top"><a id="a1fba296576780f35006b077d69bb5597"></a>
 static const int&#160;</td><td class="memItemRight" valign="bottom"><b>TIE</b> = 0</td></tr>
 <tr class="separator:a1fba296576780f35006b077d69bb5597"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab86413ec34390bbf514f58d83841734f"><td class="memItemLeft" align="right" valign="top"><a id="ab86413ec34390bbf514f58d83841734f"></a>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><b>FIRST_DOMINATES</b> = -1</td></tr>
+<tr class="separator:ab86413ec34390bbf514f58d83841734f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b27e42990080173743a98c97c609c0f"><td class="memItemLeft" align="right" valign="top"><a id="a4b27e42990080173743a98c97c609c0f"></a>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><b>SECOND_DOMINATES</b> = 1</td></tr>
+<tr class="separator:a4b27e42990080173743a98c97c609c0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7eee782f0fdcf0de0bc853460598f3e9"><td class="memItemLeft" align="right" valign="top"><a id="a7eee782f0fdcf0de0bc853460598f3e9"></a>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><b>NON_DOMINANCES_EQUALS</b> = 2</td></tr>
+<tr class="separator:a7eee782f0fdcf0de0bc853460598f3e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a196c65cbd7c03297e53bd95387b582"><td class="memItemLeft" align="right" valign="top"><a id="a7a196c65cbd7c03297e53bd95387b582"></a>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><b>NON_DOMINANCES_NOT_EQUALS</b> = 3</td></tr>
+<tr class="separator:a7a196c65cbd7c03297e53bd95387b582"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Alejandro Marrero (<a href="#" onclick="location.href='mai'+'lto:'+'ama'+'rr'+'erd'+'@u'+'ll.'+'ed'+'u.e'+'s'; return false;">amarr<span style="display: none;">.nosp@m.</span>erd@<span style="display: none;">.nosp@m.</span>ull.e<span style="display: none;">.nosp@m.</span>du.e<span style="display: none;">.nosp@m.</span>s</a>) </dd></dl>
@@ -147,6 +172,102 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>TIE</b> =
 <dl class="section date"><dt>Date</dt><dd>2020-12-02</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2022 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a430245849e51bdbf905826272662e9bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a430245849e51bdbf905826272662e9bd">&#9670;&nbsp;</a></span>areEqual() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool areEqual </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compare whether float/double values are equal within a tolerance. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v1</td><td></td></tr>
+    <tr><td class="paramname">v2</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true </dd>
+<dd>
+false </dd></dl>
+
+</div>
+</div>
+<a id="a3062a8a131f5cd6bdad5d8bf28f38900"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3062a8a131f5cd6bdad5d8bf28f38900">&#9670;&nbsp;</a></span>areEqual() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool areEqual </td>
+          <td>(</td>
+          <td class="paramtype">const vector&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const vector&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compare whether two vectors are equal within a tolerance. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v1</td><td></td></tr>
+    <tr><td class="paramname">v2</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true </dd>
+<dd>
+false </dd></dl>
+
+</div>
+</div>
 <a id="a07d40d15553365d6e58b45470be6dbb2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a07d40d15553365d6e58b45470be6dbb2">&#9670;&nbsp;</a></span>cmpByFitness()</h2>
 
@@ -245,6 +366,59 @@ template&lt;typename S &gt; </div>
     <tr><td class="paramname">ind1</td><td></td></tr>
     <tr><td class="paramname">ind2</td><td></td></tr>
     <tr><td class="paramname">nObj</td><td></td></tr>
+    <tr><td class="paramname">problem</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+
+</div>
+</div>
+<a id="ab97f6f03b2e05a95f52c8eb52665c7f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab97f6f03b2e05a95f52c8eb52665c7f1">&#9670;&nbsp;</a></span>dominanceTest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename S &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int dominanceTest </td>
+          <td>(</td>
+          <td class="paramtype">const S &amp;&#160;</td>
+          <td class="paramname"><em>ind1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const S &amp;&#160;</td>
+          <td class="paramname"><em>ind2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classProblem.html">Problem</a>&lt; S &gt; *&#160;</td>
+          <td class="paramname"><em>problem</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Test whether an individual dominates another. A individual dominates another if all their objectives are "better" (considering maximisation or minimisation) or equal and at least one of them is strictly better. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">S</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ind1</td><td></td></tr>
+    <tr><td class="paramname">ind2</td><td></td></tr>
     <tr><td class="paramname">problem</td><td></td></tr>
   </table>
   </dd>

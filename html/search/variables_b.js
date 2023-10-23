@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['randomgenerator_5f_742',['randomGenerator_',['../classPseudoRandom.html#a167e15e2731a2db54e350d52a52fcd79',1,'PseudoRandom']]],
-  ['ratiochanges_743',['ratioChanges',['../classNoveltySearch.html#a24478f3e842d12f7cef8529e18b7c911',1,'NoveltySearch']]],
-  ['repetitions_744',['repetitions',['../classEIG.html#a14c50ab67b0c70ef7542ca97ca2c1fae',1,'EIG']]],
-  ['replacement_745',['replacement',['../classAbstractGA.html#ab0c80c4b4d31bc4bcb22885d8d927895',1,'AbstractGA']]]
+  ['scaler_5fmean_913',['scaler_mean',['../PCA_8h.html#a5dd8575facfdb87a3226c5e6579903f5',1,'PCA']]],
+  ['scaler_5fscale_914',['scaler_scale',['../PCA_8h.html#a92acc83fd79d934abd4d90b27c8f27ac',1,'PCA']]],
+  ['selection_915',['selection',['../classAbstractGA.html#a9c8fec5c3c0b05e225fe8b50afead1f6',1,'AbstractGA::selection()'],['../classEIG.html#aff2f4cdc4e04f8085c79f79a89363a05',1,'EIG::selection()']]]
 ];

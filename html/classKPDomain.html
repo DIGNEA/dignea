@@ -126,15 +126,15 @@ Inheritance diagram for KPDomain:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a60a6b23bde2b09384b460f64f5010527"><td class="memItemLeft" align="right" valign="top"><a id="a60a6b23bde2b09384b460f64f5010527"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KPDomain</b> (const int &amp;<a class="el" href="classProblem.html#a31e064a07281056573f781a84856aef2">numberOfVars</a>)</td></tr>
-<tr class="separator:a60a6b23bde2b09384b460f64f5010527"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add2db7e4e72867980fe963f252d3c918"><td class="memItemLeft" align="right" valign="top"><a id="add2db7e4e72867980fe963f252d3c918"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>KPDomain</b> (const int &amp;<a class="el" href="classProblem.html#a31e064a07281056573f781a84856aef2">numberOfVars</a>, const int &amp;<a class="el" href="classProblem.html#a88b1ab3a9148707f97d4e46f562c6a35">numberOfObjs</a>=1)</td></tr>
+<tr class="separator:add2db7e4e72867980fe963f252d3c918"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade5fb42017307765b3a66e55c80ff84b"><td class="memItemLeft" align="right" valign="top"><a id="ade5fb42017307765b3a66e55c80ff84b"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>KPDomain</b> (const string &amp;pathToInstance)=delete</td></tr>
 <tr class="separator:ade5fb42017307765b3a66e55c80ff84b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f632b529fea598b6366fb8512b91351"><td class="memItemLeft" align="right" valign="top"><a id="a1f632b529fea598b6366fb8512b91351"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KPDomain</b> (const int &amp;<a class="el" href="classProblem.html#a31e064a07281056573f781a84856aef2">numberOfVars</a>, const int &amp;numOfInstances, const int &amp;lowerWeight, const int &amp;upperWeight, const int &amp;lowerProfit, const int &amp;upperProfit)</td></tr>
-<tr class="separator:a1f632b529fea598b6366fb8512b91351"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b9cd4d2842d1a66aaa3bd2d3ebc105e"><td class="memItemLeft" align="right" valign="top"><a id="a0b9cd4d2842d1a66aaa3bd2d3ebc105e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>KPDomain</b> (const int &amp;<a class="el" href="classProblem.html#a31e064a07281056573f781a84856aef2">numberOfVars</a>, const int &amp;<a class="el" href="classProblem.html#a88b1ab3a9148707f97d4e46f562c6a35">numberOfObjs</a>, const int &amp;numOfInstances, const int &amp;lowerWeight, const int &amp;upperWeight, const int &amp;lowerProfit, const int &amp;upperProfit, bool reducedSpace=false)</td></tr>
+<tr class="separator:a0b9cd4d2842d1a66aaa3bd2d3ebc105e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e93db03fb329d3a6e3164b988b03f34"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="classKPNR.html">KPNR</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKPDomain.html#a7e93db03fb329d3a6e3164b988b03f34">genOptProblem</a> (const <a class="el" href="classKPInstance.html">KPInstance</a> &amp;instance) const override</td></tr>
 <tr class="separator:a7e93db03fb329d3a6e3164b988b03f34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26625528fed7c815ebf7411d051910fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKPDomain.html#a26625528fed7c815ebf7411d051910fd">evaluate</a> (<a class="el" href="classKPInstance.html">KPInstance</a> &amp;solution) const override</td></tr>
@@ -204,15 +204,21 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getGeneratedInstances<
 <tr class="memitem:af7775b9eb653ddc8976706dfd0d4d802"><td class="memItemLeft" align="right" valign="top"><a id="af7775b9eb653ddc8976706dfd0d4d802"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setGeneratedInstances</b> (int generatedInstances)</td></tr>
 <tr class="separator:af7775b9eb653ddc8976706dfd0d4d802"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53e21eae88c2dfcf76511ce3d87c6254"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKPDomain.html#a53e21eae88c2dfcf76511ce3d87c6254">isReducedSpace</a> () const</td></tr>
+<tr class="memdesc:a53e21eae88c2dfcf76511ce3d87c6254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the search is performed in a PCA space.  <a href="classKPDomain.html#a53e21eae88c2dfcf76511ce3d87c6254">More...</a><br /></td></tr>
+<tr class="separator:a53e21eae88c2dfcf76511ce3d87c6254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae317d0560f40a8e0040ff613ea7bbaf5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="MinKnap_8h.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKPDomain.html#ae317d0560f40a8e0040ff613ea7bbaf5">to_json</a> () const override</td></tr>
+<tr class="memdesc:ae317d0560f40a8e0040ff613ea7bbaf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a JSON object with the information of the <a class="el" href="classProblem.html" title="Class to represent a Problem in the tool. It includes the basic information for a problem a few metho...">Problem</a>.  <a href="classKPDomain.html#ae317d0560f40a8e0040ff613ea7bbaf5">More...</a><br /></td></tr>
+<tr class="separator:ae317d0560f40a8e0040ff613ea7bbaf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5c8d24e04f1d52dc85fcd0488b15986"><td class="memItemLeft" align="right" valign="top"><a id="aa5c8d24e04f1d52dc85fcd0488b15986"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>readData</b> (const string &amp;path) override</td></tr>
 <tr class="separator:aa5c8d24e04f1d52dc85fcd0488b15986"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classAbstractDomain"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classAbstractDomain')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classAbstractDomain.html">AbstractDomain&lt; KPNR, KPInstance &gt;</a></td></tr>
 <tr class="memitem:a721e65f39d1d35d06f028e954ad670ca inherit pub_methods_classAbstractDomain"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractDomain.html#a721e65f39d1d35d06f028e954ad670ca">AbstractDomain</a> ()</td></tr>
-<tr class="memdesc:a721e65f39d1d35d06f028e954ad670ca inherit pub_methods_classAbstractDomain"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classAbstractDomain.html#a721e65f39d1d35d06f028e954ad670ca" title="Construct a new AbstractDomain&lt;OptProblem, InstSolution&gt;::AbstractDomain object.">AbstractDomain&lt;OptProblem, InstSolution&gt;::AbstractDomain</a> object.  <a href="classAbstractDomain.html#a721e65f39d1d35d06f028e954ad670ca">More...</a><br /></td></tr>
+<tr class="memdesc:a721e65f39d1d35d06f028e954ad670ca inherit pub_methods_classAbstractDomain"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classAbstractDomain.html" title="EIG Instance Generation Problem. Abstract Problem for the EIG. This problem will be used as a supercl...">AbstractDomain</a>&lt;OptProblem, InstSolution&gt;<a class="el" href="classAbstractDomain.html" title="EIG Instance Generation Problem. Abstract Problem for the EIG. This problem will be used as a supercl...">AbstractDomain</a> object.  <a href="classAbstractDomain.html#a721e65f39d1d35d06f028e954ad670ca">More...</a><br /></td></tr>
 <tr class="separator:a721e65f39d1d35d06f028e954ad670ca inherit pub_methods_classAbstractDomain"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c88714a857f48e4d61201889a19db2e inherit pub_methods_classAbstractDomain"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractDomain.html#a3c88714a857f48e4d61201889a19db2e">AbstractDomain</a> (const int &amp;<a class="el" href="classProblem.html#a31e064a07281056573f781a84856aef2">numberOfVars</a>, const int &amp;numberOfObjectives, const int &amp;nCons)</td></tr>
-<tr class="memdesc:a3c88714a857f48e4d61201889a19db2e inherit pub_methods_classAbstractDomain"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classAbstractDomain.html#a721e65f39d1d35d06f028e954ad670ca" title="Construct a new AbstractDomain&lt;OptProblem, InstSolution&gt;::AbstractDomain object.">AbstractDomain&lt;OptProblem, InstSolution&gt;::AbstractDomain</a> object.  <a href="classAbstractDomain.html#a3c88714a857f48e4d61201889a19db2e">More...</a><br /></td></tr>
+<tr class="memdesc:a3c88714a857f48e4d61201889a19db2e inherit pub_methods_classAbstractDomain"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classAbstractDomain.html" title="EIG Instance Generation Problem. Abstract Problem for the EIG. This problem will be used as a supercl...">AbstractDomain</a>&lt;OptProblem, InstSolution&gt;<a class="el" href="classAbstractDomain.html" title="EIG Instance Generation Problem. Abstract Problem for the EIG. This problem will be used as a supercl...">AbstractDomain</a> object.  <a href="classAbstractDomain.html#a3c88714a857f48e4d61201889a19db2e">More...</a><br /></td></tr>
 <tr class="separator:a3c88714a857f48e4d61201889a19db2e inherit pub_methods_classAbstractDomain"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classProblem"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classProblem')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classProblem.html">Problem&lt; S &gt;</a></td></tr>
 <tr class="memitem:af1653fa69a639fafe86a6aec459cc889 inherit pub_methods_classProblem"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProblem.html#af1653fa69a639fafe86a6aec459cc889">Problem</a> ()</td></tr>
@@ -233,9 +239,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>readData</b> (const s
 <tr class="memitem:a20217da53ae81892a043ccecccb2e0cd inherit pub_methods_classProblem"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProblem.html#a20217da53ae81892a043ccecccb2e0cd">readData</a> (const std::string &amp;path)=0</td></tr>
 <tr class="memdesc:a20217da53ae81892a043ccecccb2e0cd inherit pub_methods_classProblem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to read problem information from the given path. This method must be implemented in the subclasses.  <a href="classProblem.html#a20217da53ae81892a043ccecccb2e0cd">More...</a><br /></td></tr>
 <tr class="separator:a20217da53ae81892a043ccecccb2e0cd inherit pub_methods_classProblem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fbb9e5e920217e88d61d2f2ff0cc528 inherit pub_methods_classProblem"><td class="memItemLeft" align="right" valign="top">virtual json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProblem.html#a6fbb9e5e920217e88d61d2f2ff0cc528">to_json</a> () const</td></tr>
-<tr class="memdesc:a6fbb9e5e920217e88d61d2f2ff0cc528 inherit pub_methods_classProblem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a JSON object with the information of the <a class="el" href="classProblem.html" title="Class to represent a Problem in the tool. It includes the basic information for a problem a few metho...">Problem</a>.  <a href="classProblem.html#a6fbb9e5e920217e88d61d2f2ff0cc528">More...</a><br /></td></tr>
-<tr class="separator:a6fbb9e5e920217e88d61d2f2ff0cc528 inherit pub_methods_classProblem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1339b7fdf16d7d1e4bce2abe1d18bf72 inherit pub_methods_classProblem"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProblem.html#a1339b7fdf16d7d1e4bce2abe1d18bf72">getNumberOfVars</a> () const</td></tr>
 <tr class="memdesc:a1339b7fdf16d7d1e4bce2abe1d18bf72 inherit pub_methods_classProblem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of variables (dimension) of the problem.  <a href="classProblem.html#a1339b7fdf16d7d1e4bce2abe1d18bf72">More...</a><br /></td></tr>
 <tr class="separator:a1339b7fdf16d7d1e4bce2abe1d18bf72 inherit pub_methods_classProblem"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -275,6 +278,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>upProfit</b></td></tr>
 <tr class="memitem:ab0f296ed57f48de6a0b3ab564d96837c"><td class="memItemLeft" align="right" valign="top"><a id="ab0f296ed57f48de6a0b3ab564d96837c"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>generatedInstances</b></td></tr>
 <tr class="separator:ab0f296ed57f48de6a0b3ab564d96837c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9186081f89c4d375b53c7ecd803afab"><td class="memItemLeft" align="right" valign="top"><a id="ac9186081f89c4d375b53c7ecd803afab"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>reducedSpace</b></td></tr>
+<tr class="separator:ac9186081f89c4d375b53c7ecd803afab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classAbstractDomain"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classAbstractDomain')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classAbstractDomain.html">AbstractDomain&lt; KPNR, KPInstance &gt;</a></td></tr>
 <tr class="memitem:a2350e85050cfbcc81ffde1a4fd718866 inherit pro_attribs_classAbstractDomain"><td class="memItemLeft" align="right" valign="top"><a id="a2350e85050cfbcc81ffde1a4fd718866"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>internalDimension</b></td></tr>
@@ -601,7 +607,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>internalDimension</b><
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p>Implements <a class="el" href="classProblem.html#aae037f05af3c10d2b2c03248ec80a6d9">Problem&lt; S &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classAbstractDomain.html#a40e8305c2478c9cde9c95bfdc98db9ca">AbstractDomain&lt; KPNR, KPInstance &gt;</a>.</p>
 
 </div>
 </div>
@@ -637,6 +643,70 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>internalDimension</b><
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 <p>Implements <a class="el" href="classProblem.html#acbbac704a46fbcc9027630f3357b1de8">Problem&lt; S &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a53e21eae88c2dfcf76511ce3d87c6254"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53e21eae88c2dfcf76511ce3d87c6254">&#9670;&nbsp;</a></span>isReducedSpace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool KPDomain::isReducedSpace </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if the search is performed in a PCA space. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if reducedSpace false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="ae317d0560f40a8e0040ff613ea7bbaf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae317d0560f40a8e0040ff613ea7bbaf5">&#9670;&nbsp;</a></span>to_json()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="MinKnap_8h.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> KPDomain::to_json </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a JSON object with the information of the <a class="el" href="classProblem.html" title="Class to represent a Problem in the tool. It includes the basic information for a problem a few metho...">Problem</a>. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">S</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a json representation of the problem </dd></dl>
+
+<p>Reimplemented from <a class="el" href="classProblem.html#a6fbb9e5e920217e88d61d2f2ff0cc528">Problem&lt; S &gt;</a>.</p>
 
 </div>
 </div>

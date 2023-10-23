@@ -121,14 +121,15 @@ Inheritance diagram for EIG&lt; IP, IS, OP, OS &gt;:</div>
  <div class="center">
   <img src="classEIG.png" usemap="#EIG_3C_20IP_2C_20IS_2C_20OP_2C_20OS_20_3E_map" alt=""/>
   <map id="EIG_3C_20IP_2C_20IS_2C_20OP_2C_20OS_20_3E_map" name="EIG_3C_20IP_2C_20IS_2C_20OP_2C_20OS_20_3E_map">
-<area href="classAbstractSolver.html" alt="AbstractSolver&lt; IS &gt;" shape="rect" coords="0,0,141,24"/>
+<area href="classAbstractEA.html" alt="AbstractEA&lt; IS &gt;" shape="rect" coords="0,0,176,24"/>
+<area href="classMapElites.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (MapElites). This algorithm uses ..." alt="MapElites&lt; IP, IS, OP, OS &gt;" shape="rect" coords="0,112,176,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a1fde186757afa55505c7c4fda0889010"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a1fde186757afa55505c7c4fda0889010">Alg</a> = <a class="el" href="classAbstractSolver.html">AbstractSolver</a>&lt; OS &gt;</td></tr>
-<tr class="separator:a1fde186757afa55505c7c4fda0889010"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac80470ce0d579a491a23b9aa90bcee9f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#ac80470ce0d579a491a23b9aa90bcee9f">Alg</a> = <a class="el" href="classAbstractEA.html">AbstractEA</a>&lt; OS &gt;</td></tr>
+<tr class="separator:ac80470ce0d579a491a23b9aa90bcee9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -138,7 +139,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2a16df383137522b595c19ae2ad412e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a2a16df383137522b595c19ae2ad412e4">run</a> () override</td></tr>
 <tr class="memdesc:a2a16df383137522b595c19ae2ad412e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface to run the <a class="el" href="classEIG.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (EIG). This algorithm uses a Weig...">EIG</a> for generating a set of instances for the optimisation problem defined (OP)  <a href="classEIG.html#a2a16df383137522b595c19ae2ad412e4">More...</a><br /></td></tr>
 <tr class="separator:a2a16df383137522b595c19ae2ad412e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a576fd174d98beedf9ae84df8da0a8ef5"><td class="memItemLeft" align="right" valign="top">json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a576fd174d98beedf9ae84df8da0a8ef5">to_json</a> () const override</td></tr>
+<tr class="memitem:a576fd174d98beedf9ae84df8da0a8ef5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="MinKnap_8h.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a576fd174d98beedf9ae84df8da0a8ef5">to_json</a> () const override</td></tr>
 <tr class="memdesc:a576fd174d98beedf9ae84df8da0a8ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the JSON representation of the <a class="el" href="classEIG.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (EIG). This algorithm uses a Weig...">EIG</a>.  <a href="classEIG.html#a576fd174d98beedf9ae84df8da0a8ef5">More...</a><br /></td></tr>
 <tr class="separator:a576fd174d98beedf9ae84df8da0a8ef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad73f12e54c053203fcff59e06e4ec727"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#ad73f12e54c053203fcff59e06e4ec727">getName</a> () const override</td></tr>
@@ -157,10 +158,10 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="memitem:a003c9f6ddf8cdc8fd6c4252ed82f63f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a003c9f6ddf8cdc8fd6c4252ed82f63f2">setInstanceProblem</a> (unique_ptr&lt; IP &gt; problem)</td></tr>
 <tr class="memdesc:a003c9f6ddf8cdc8fd6c4252ed82f63f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Instance Generation <a class="el" href="classProblem.html" title="Class to represent a Problem in the tool. It includes the basic information for a problem a few metho...">Problem</a>.  <a href="classEIG.html#a003c9f6ddf8cdc8fd6c4252ed82f63f2">More...</a><br /></td></tr>
 <tr class="separator:a003c9f6ddf8cdc8fd6c4252ed82f63f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01cc73ca56dacb6da354d347e3d4305f"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classEIG.html#a1fde186757afa55505c7c4fda0889010">Alg</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a01cc73ca56dacb6da354d347e3d4305f">getPortfolio</a> () const</td></tr>
-<tr class="memdesc:a01cc73ca56dacb6da354d347e3d4305f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the portfolio of algorithms used in the evolutionary process.  <a href="classEIG.html#a01cc73ca56dacb6da354d347e3d4305f">More...</a><br /></td></tr>
-<tr class="separator:a01cc73ca56dacb6da354d347e3d4305f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61569552c1d0837a962fd529cdf5b1e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a61569552c1d0837a962fd529cdf5b1e9">setPortfolio</a> (vector&lt; unique_ptr&lt; <a class="el" href="classEIG.html#a1fde186757afa55505c7c4fda0889010">Alg</a> &gt;&gt; &amp;configs)</td></tr>
+<tr class="memitem:ae16ac1d11bc2c66ff1549b166f131c90"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classEIG.html#ac80470ce0d579a491a23b9aa90bcee9f">Alg</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#ae16ac1d11bc2c66ff1549b166f131c90">getPortfolio</a> () const</td></tr>
+<tr class="memdesc:ae16ac1d11bc2c66ff1549b166f131c90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the portfolio of algorithms used in the evolutionary process.  <a href="classEIG.html#ae16ac1d11bc2c66ff1549b166f131c90">More...</a><br /></td></tr>
+<tr class="separator:ae16ac1d11bc2c66ff1549b166f131c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61569552c1d0837a962fd529cdf5b1e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a61569552c1d0837a962fd529cdf5b1e9">setPortfolio</a> (vector&lt; unique_ptr&lt; <a class="el" href="classEIG.html#ac80470ce0d579a491a23b9aa90bcee9f">Alg</a> &gt;&gt; &amp;configs)</td></tr>
 <tr class="memdesc:a61569552c1d0837a962fd529cdf5b1e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the portfolio of algorithms to use in the evolutionary process. The order of the algorithms in the portfolio is crucial. Notice that the first algorithm in the portfolio will be considered the target and therefore the instances will be generated according to its performance. Also, it is important to know the order of the remaining algorithms in order to analysis the results obtained since not tags are included in the results at this moment.  <a href="classEIG.html#a61569552c1d0837a962fd529cdf5b1e9">More...</a><br /></td></tr>
 <tr class="separator:a61569552c1d0837a962fd529cdf5b1e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15cf70550b0984ed70bdd48107eda36a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a15cf70550b0984ed70bdd48107eda36a">getMutationRate</a> () const</td></tr>
@@ -199,6 +200,9 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="memitem:a44c5da8dddbff67dbba8dffa4b92de28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a44c5da8dddbff67dbba8dffa4b92de28">setSelection</a> (unique_ptr&lt; <a class="el" href="classSelection.html">Selection</a>&lt; IS &gt;&gt; sel)</td></tr>
 <tr class="memdesc:a44c5da8dddbff67dbba8dffa4b92de28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the selection operator. Takes ownership of the pointer.  <a href="classEIG.html#a44c5da8dddbff67dbba8dffa4b92de28">More...</a><br /></td></tr>
 <tr class="separator:a44c5da8dddbff67dbba8dffa4b92de28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a030e8a7cd3712a56a62a730f15d781ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a030e8a7cd3712a56a62a730f15d781ef">setReplacement</a> (unique_ptr&lt; <a class="el" href="classReplacement.html">Replacement</a>&lt; IS &gt;&gt; rep)</td></tr>
+<tr class="memdesc:a030e8a7cd3712a56a62a730f15d781ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the selection operator. Takes ownership of the pointer.  <a href="classEIG.html#a030e8a7cd3712a56a62a730f15d781ef">More...</a><br /></td></tr>
+<tr class="separator:a030e8a7cd3712a56a62a730f15d781ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79b8b5492af9c3d851bd24ddbd4bf19a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classInstanceFitness.html">InstanceFitness</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a79b8b5492af9c3d851bd24ddbd4bf19a">getEvaluation</a> () const</td></tr>
 <tr class="memdesc:a79b8b5492af9c3d851bd24ddbd4bf19a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the evaluation approach for the instances.  <a href="classEIG.html#a79b8b5492af9c3d851bd24ddbd4bf19a">More...</a><br /></td></tr>
 <tr class="separator:a79b8b5492af9c3d851bd24ddbd4bf19a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -208,73 +212,73 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="memitem:affbaa3fa043e3668364ee64572f62065"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#affbaa3fa043e3668364ee64572f62065">getGenerations</a> ()</td></tr>
 <tr class="memdesc:affbaa3fa043e3668364ee64572f62065"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of generations that <a class="el" href="classEIG.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (EIG). This algorithm uses a Weig...">EIG</a> must perform.  <a href="classEIG.html#affbaa3fa043e3668364ee64572f62065">More...</a><br /></td></tr>
 <tr class="separator:affbaa3fa043e3668364ee64572f62065"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07eeb8ff6c33fd25237a3431d4f7232d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNoveltySearch.html">NoveltySearch</a>&lt; IS, float &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a07eeb8ff6c33fd25237a3431d4f7232d">getNoveltySearch</a> () const</td></tr>
-<tr class="memdesc:a07eeb8ff6c33fd25237a3431d4f7232d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> approach used in <a class="el" href="classEIG.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (EIG). This algorithm uses a Weig...">EIG</a>.  <a href="classEIG.html#a07eeb8ff6c33fd25237a3431d4f7232d">More...</a><br /></td></tr>
-<tr class="separator:a07eeb8ff6c33fd25237a3431d4f7232d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2b0ff65b9807391965721e4112893cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#aa2b0ff65b9807391965721e4112893cc">setNoveltySearch</a> (unique_ptr&lt; <a class="el" href="classNoveltySearch.html">NoveltySearch</a>&lt; IS, float &gt;&gt; <a class="el" href="classEIG.html#a60fd072ff6b9c364a3a676a6a93aece1">noveltySearch</a>)</td></tr>
-<tr class="memdesc:aa2b0ff65b9807391965721e4112893cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> approach to use.  <a href="classEIG.html#aa2b0ff65b9807391965721e4112893cc">More...</a><br /></td></tr>
-<tr class="separator:aa2b0ff65b9807391965721e4112893cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad82c6919d14bb6deb90238d8fe4e1747"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNoveltySearch.html">NoveltySearch</a>&lt; IS &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#ad82c6919d14bb6deb90238d8fe4e1747">getNoveltySearch</a> () const</td></tr>
+<tr class="memdesc:ad82c6919d14bb6deb90238d8fe4e1747"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> approach used in <a class="el" href="classEIG.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (EIG). This algorithm uses a Weig...">EIG</a>.  <a href="classEIG.html#ad82c6919d14bb6deb90238d8fe4e1747">More...</a><br /></td></tr>
+<tr class="separator:ad82c6919d14bb6deb90238d8fe4e1747"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8927d86dcd790b56eb9b6ee2e466e9f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a8927d86dcd790b56eb9b6ee2e466e9f2">setNoveltySearch</a> (unique_ptr&lt; <a class="el" href="classNoveltySearch.html">NoveltySearch</a>&lt; IS &gt;&gt; <a class="el" href="classEIG.html#a59df60c9dee0931f4a8b4422c3292644">noveltySearch</a>)</td></tr>
+<tr class="memdesc:a8927d86dcd790b56eb9b6ee2e466e9f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Novelty <a class="el" href="classSearch.html" title="Search algorithm interface for dignea. Use this class as the skeleton to define local or other types ...">Search</a> approach to use.  <a href="classEIG.html#a8927d86dcd790b56eb9b6ee2e466e9f2">More...</a><br /></td></tr>
+<tr class="separator:a8927d86dcd790b56eb9b6ee2e466e9f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96d3f081963959df35f8bc96766d889d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a96d3f081963959df35f8bc96766d889d">setWeightedFunction</a> (const float &amp;fW, const float &amp;nW)</td></tr>
 <tr class="memdesc:a96d3f081963959df35f8bc96766d889d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the weights to use in the WFF.  <a href="classEIG.html#a96d3f081963959df35f8bc96766d889d">More...</a><br /></td></tr>
 <tr class="separator:a96d3f081963959df35f8bc96766d889d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classAbstractSolver"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classAbstractSolver')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classAbstractSolver.html">AbstractSolver&lt; IS &gt;</a></td></tr>
-<tr class="memitem:ae23ac8d08016dfcc4bce56eddce3e275 inherit pub_methods_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#ae23ac8d08016dfcc4bce56eddce3e275">AbstractSolver</a> ()</td></tr>
-<tr class="memdesc:ae23ac8d08016dfcc4bce56eddce3e275 inherit pub_methods_classAbstractSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Abstract EA object with default parameter values.  <a href="classAbstractSolver.html#ae23ac8d08016dfcc4bce56eddce3e275">More...</a><br /></td></tr>
-<tr class="separator:ae23ac8d08016dfcc4bce56eddce3e275 inherit pub_methods_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af61099224bc2ad5c895ea9ae73914167 inherit pub_methods_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#af61099224bc2ad5c895ea9ae73914167">AbstractSolver</a> (const int &amp;maxEvals, const int &amp;popsize)</td></tr>
-<tr class="memdesc:af61099224bc2ad5c895ea9ae73914167 inherit pub_methods_classAbstractSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classAbstractSolver.html" title="Class to define an Abstract Evolutionary Algorithm. This is the base skeleton for future extensions.">AbstractSolver</a> constructor which initialises the parameters maxEvalautions and populationSize.  <a href="classAbstractSolver.html#af61099224bc2ad5c895ea9ae73914167">More...</a><br /></td></tr>
-<tr class="separator:af61099224bc2ad5c895ea9ae73914167 inherit pub_methods_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e8217260a2ee68d58f1a5c764ccf6cb inherit pub_methods_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#a5e8217260a2ee68d58f1a5c764ccf6cb">AbstractSolver</a> (unique_ptr&lt; PopulationEvaluator&lt; IS &gt;&gt;, const int &amp;maxEvals, const int &amp;popsize)</td></tr>
-<tr class="memdesc:a5e8217260a2ee68d58f1a5c764ccf6cb inherit pub_methods_classAbstractSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classAbstractSolver.html" title="Class to define an Abstract Evolutionary Algorithm. This is the base skeleton for future extensions.">AbstractSolver</a> constructor which initialises the parameters maxEvalautions, the populationSize and the evaluator approach.  <a href="classAbstractSolver.html#a5e8217260a2ee68d58f1a5c764ccf6cb">More...</a><br /></td></tr>
-<tr class="separator:a5e8217260a2ee68d58f1a5c764ccf6cb inherit pub_methods_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a182812f782330a4e72a0e1dd8c2b78e8 inherit pub_methods_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#a182812f782330a4e72a0e1dd8c2b78e8">getPopulationSize</a> () const</td></tr>
-<tr class="memdesc:a182812f782330a4e72a0e1dd8c2b78e8 inherit pub_methods_classAbstractSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the population size.  <a href="classAbstractSolver.html#a182812f782330a4e72a0e1dd8c2b78e8">More...</a><br /></td></tr>
-<tr class="separator:a182812f782330a4e72a0e1dd8c2b78e8 inherit pub_methods_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0b6ee75cf0aebcde6d66e001fcd7e9e inherit pub_methods_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#ab0b6ee75cf0aebcde6d66e001fcd7e9e">setPopulationSize</a> (int pSize)</td></tr>
-<tr class="memdesc:ab0b6ee75cf0aebcde6d66e001fcd7e9e inherit pub_methods_classAbstractSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter to update the population size.  <a href="classAbstractSolver.html#ab0b6ee75cf0aebcde6d66e001fcd7e9e">More...</a><br /></td></tr>
-<tr class="separator:ab0b6ee75cf0aebcde6d66e001fcd7e9e inherit pub_methods_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ebcdf9762e14a3d8061c374fcc7e8dc inherit pub_methods_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#a1ebcdf9762e14a3d8061c374fcc7e8dc">getElapsedTime</a> () const</td></tr>
-<tr class="memdesc:a1ebcdf9762e14a3d8061c374fcc7e8dc inherit pub_methods_classAbstractSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the elapsed time of the evolutionary process.  <a href="classAbstractSolver.html#a1ebcdf9762e14a3d8061c374fcc7e8dc">More...</a><br /></td></tr>
-<tr class="separator:a1ebcdf9762e14a3d8061c374fcc7e8dc inherit pub_methods_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9344ad22d094d8dffee7affd3dcce616 inherit pub_methods_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">const vector&lt; IS &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#a9344ad22d094d8dffee7affd3dcce616">getPopulation</a> () const</td></tr>
-<tr class="memdesc:a9344ad22d094d8dffee7affd3dcce616 inherit pub_methods_classAbstractSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a reference of the population.  <a href="classAbstractSolver.html#a9344ad22d094d8dffee7affd3dcce616">More...</a><br /></td></tr>
-<tr class="separator:a9344ad22d094d8dffee7affd3dcce616 inherit pub_methods_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a732ee564cf87b71d988cdca90d9bea58 inherit pub_methods_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#a732ee564cf87b71d988cdca90d9bea58">getMaxEvaluations</a> () const</td></tr>
-<tr class="memdesc:a732ee564cf87b71d988cdca90d9bea58 inherit pub_methods_classAbstractSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the maximum number of evaluations to perform.  <a href="classAbstractSolver.html#a732ee564cf87b71d988cdca90d9bea58">More...</a><br /></td></tr>
-<tr class="separator:a732ee564cf87b71d988cdca90d9bea58 inherit pub_methods_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af776fc33e54e05459705e7a5b72447ad inherit pub_methods_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#af776fc33e54e05459705e7a5b72447ad">setMaxEvaluations</a> (int maxEval)</td></tr>
-<tr class="memdesc:af776fc33e54e05459705e7a5b72447ad inherit pub_methods_classAbstractSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a new maximum number of evaluations to perform.  <a href="classAbstractSolver.html#af776fc33e54e05459705e7a5b72447ad">More...</a><br /></td></tr>
-<tr class="separator:af776fc33e54e05459705e7a5b72447ad inherit pub_methods_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2691c0f6f8b17f1a5b4bb6b4f72b2f99 inherit pub_methods_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classProblem.html">Problem</a>&lt; IS &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#a2691c0f6f8b17f1a5b4bb6b4f72b2f99">getProblem</a> () const</td></tr>
-<tr class="memdesc:a2691c0f6f8b17f1a5b4bb6b4f72b2f99 inherit pub_methods_classAbstractSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a pointer to the problem which is being solved.  <a href="classAbstractSolver.html#a2691c0f6f8b17f1a5b4bb6b4f72b2f99">More...</a><br /></td></tr>
-<tr class="separator:a2691c0f6f8b17f1a5b4bb6b4f72b2f99 inherit pub_methods_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa26fb8d6d24eb85ef01a442015ecf5d0 inherit pub_methods_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#aa26fb8d6d24eb85ef01a442015ecf5d0">setProblem</a> (shared_ptr&lt; <a class="el" href="classProblem.html">Problem</a>&lt; IS &gt;&gt; prob)</td></tr>
-<tr class="memdesc:aa26fb8d6d24eb85ef01a442015ecf5d0 inherit pub_methods_classAbstractSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the new problem to solve. Uses a shared_ptr pointer which updates the reference counter. Does no take the ownership.  <a href="classAbstractSolver.html#aa26fb8d6d24eb85ef01a442015ecf5d0">More...</a><br /></td></tr>
-<tr class="separator:aa26fb8d6d24eb85ef01a442015ecf5d0 inherit pub_methods_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35dde7561949da9ec3737c55261a5528 inherit pub_methods_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#a35dde7561949da9ec3737c55261a5528">setProblem</a> (<a class="el" href="classProblem.html">Problem</a>&lt; IS &gt; *prob)</td></tr>
-<tr class="memdesc:a35dde7561949da9ec3737c55261a5528 inherit pub_methods_classAbstractSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the new problem to solve. Uses a raw pointer and takes the ownership of the object.  <a href="classAbstractSolver.html#a35dde7561949da9ec3737c55261a5528">More...</a><br /></td></tr>
-<tr class="separator:a35dde7561949da9ec3737c55261a5528 inherit pub_methods_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b9259f60508026cd1c1a841b79b3704 inherit pub_methods_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">PopulationEvaluator&lt; IS &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#a4b9259f60508026cd1c1a841b79b3704">getEvaluator</a> () const</td></tr>
-<tr class="memdesc:a4b9259f60508026cd1c1a841b79b3704 inherit pub_methods_classAbstractSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a pointer to the population evaluator system.  <a href="classAbstractSolver.html#a4b9259f60508026cd1c1a841b79b3704">More...</a><br /></td></tr>
-<tr class="separator:a4b9259f60508026cd1c1a841b79b3704 inherit pub_methods_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f27b966561b17d3ee34854745592709 inherit pub_methods_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#a6f27b966561b17d3ee34854745592709">setEvaluator</a> (unique_ptr&lt; PopulationEvaluator&lt; IS &gt;&gt; eval)</td></tr>
-<tr class="memdesc:a6f27b966561b17d3ee34854745592709 inherit pub_methods_classAbstractSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the population evaluator system with the unique_ptr. The method takes the ownership of the object behind.  <a href="classAbstractSolver.html#a6f27b966561b17d3ee34854745592709">More...</a><br /></td></tr>
-<tr class="separator:a6f27b966561b17d3ee34854745592709 inherit pub_methods_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb6d405828932c36307f8f0fb77be97a inherit pub_methods_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#acb6d405828932c36307f8f0fb77be97a">getPerformedEvaluations</a> () const</td></tr>
-<tr class="memdesc:acb6d405828932c36307f8f0fb77be97a inherit pub_methods_classAbstractSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the performed evaluations.  <a href="classAbstractSolver.html#acb6d405828932c36307f8f0fb77be97a">More...</a><br /></td></tr>
-<tr class="separator:acb6d405828932c36307f8f0fb77be97a inherit pub_methods_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3364ecf74f27b868efab052a52e8f9b9 inherit pub_methods_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#a3364ecf74f27b868efab052a52e8f9b9">setPerformedEvaluations</a> (int pEvals)</td></tr>
-<tr class="memdesc:a3364ecf74f27b868efab052a52e8f9b9 inherit pub_methods_classAbstractSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Performed Evaluations. Useful for the updateProgress method.  <a href="classAbstractSolver.html#a3364ecf74f27b868efab052a52e8f9b9">More...</a><br /></td></tr>
-<tr class="separator:a3364ecf74f27b868efab052a52e8f9b9 inherit pub_methods_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0aeb95c959ed8210bd6bdf87811e806e inherit pub_methods_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#a0aeb95c959ed8210bd6bdf87811e806e">setPopulation</a> (const vector&lt; IS &gt; &amp;pop)</td></tr>
-<tr class="memdesc:a0aeb95c959ed8210bd6bdf87811e806e inherit pub_methods_classAbstractSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Population.  <a href="classAbstractSolver.html#a0aeb95c959ed8210bd6bdf87811e806e">More...</a><br /></td></tr>
-<tr class="separator:a0aeb95c959ed8210bd6bdf87811e806e inherit pub_methods_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a978b7cef3793544b8c6d7927046c9079 inherit pub_methods_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">virtual Evolution&lt; IS &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#a978b7cef3793544b8c6d7927046c9079">getEvolution</a> () const</td></tr>
-<tr class="memdesc:a978b7cef3793544b8c6d7927046c9079 inherit pub_methods_classAbstractSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Evolution data.  <a href="classAbstractSolver.html#a978b7cef3793544b8c6d7927046c9079">More...</a><br /></td></tr>
-<tr class="separator:a978b7cef3793544b8c6d7927046c9079 inherit pub_methods_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53eb9e80b12693a7ffbc789fc0117db7 inherit pub_methods_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#a53eb9e80b12693a7ffbc789fc0117db7">getPrintingInterval</a> () const</td></tr>
-<tr class="memdesc:a53eb9e80b12693a7ffbc789fc0117db7 inherit pub_methods_classAbstractSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the interval of checkpoints.  <a href="classAbstractSolver.html#a53eb9e80b12693a7ffbc789fc0117db7">More...</a><br /></td></tr>
-<tr class="separator:a53eb9e80b12693a7ffbc789fc0117db7 inherit pub_methods_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classAbstractEA"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classAbstractEA')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classAbstractEA.html">AbstractEA&lt; IS &gt;</a></td></tr>
+<tr class="memitem:a26411b1622c1b50de33116fcb108b4ca inherit pub_methods_classAbstractEA"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#a26411b1622c1b50de33116fcb108b4ca">AbstractEA</a> ()</td></tr>
+<tr class="memdesc:a26411b1622c1b50de33116fcb108b4ca inherit pub_methods_classAbstractEA"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Abstract EA object with default parameter values.  <a href="classAbstractEA.html#a26411b1622c1b50de33116fcb108b4ca">More...</a><br /></td></tr>
+<tr class="separator:a26411b1622c1b50de33116fcb108b4ca inherit pub_methods_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf53dee58fb27a4ef702e65bde9da4e9 inherit pub_methods_classAbstractEA"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#aaf53dee58fb27a4ef702e65bde9da4e9">AbstractEA</a> (const int &amp;maxEvals, const int &amp;popsize)</td></tr>
+<tr class="memdesc:aaf53dee58fb27a4ef702e65bde9da4e9 inherit pub_methods_classAbstractEA"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classAbstractEA.html" title="Class to define an Abstract Evolutionary Algorithm. This is the base skeleton for future extensions.">AbstractEA</a> constructor which initialises the parameters maxEvalautions and populationSize.  <a href="classAbstractEA.html#aaf53dee58fb27a4ef702e65bde9da4e9">More...</a><br /></td></tr>
+<tr class="separator:aaf53dee58fb27a4ef702e65bde9da4e9 inherit pub_methods_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1101d93780c541b042992a024e4c143d inherit pub_methods_classAbstractEA"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#a1101d93780c541b042992a024e4c143d">AbstractEA</a> (unique_ptr&lt; PopulationEvaluator&lt; IS &gt;&gt;, const int &amp;maxEvals, const int &amp;popsize)</td></tr>
+<tr class="memdesc:a1101d93780c541b042992a024e4c143d inherit pub_methods_classAbstractEA"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classAbstractEA.html" title="Class to define an Abstract Evolutionary Algorithm. This is the base skeleton for future extensions.">AbstractEA</a> constructor which initialises the parameters maxEvalautions, the populationSize and the evaluator approach.  <a href="classAbstractEA.html#a1101d93780c541b042992a024e4c143d">More...</a><br /></td></tr>
+<tr class="separator:a1101d93780c541b042992a024e4c143d inherit pub_methods_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7de549af68643c20e0a4fa864169d139 inherit pub_methods_classAbstractEA"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#a7de549af68643c20e0a4fa864169d139">getPopulationSize</a> () const</td></tr>
+<tr class="memdesc:a7de549af68643c20e0a4fa864169d139 inherit pub_methods_classAbstractEA"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the population size.  <a href="classAbstractEA.html#a7de549af68643c20e0a4fa864169d139">More...</a><br /></td></tr>
+<tr class="separator:a7de549af68643c20e0a4fa864169d139 inherit pub_methods_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a774604de6da1e65e6366556538efeeb4 inherit pub_methods_classAbstractEA"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#a774604de6da1e65e6366556538efeeb4">setPopulationSize</a> (int pSize)</td></tr>
+<tr class="memdesc:a774604de6da1e65e6366556538efeeb4 inherit pub_methods_classAbstractEA"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter to update the population size.  <a href="classAbstractEA.html#a774604de6da1e65e6366556538efeeb4">More...</a><br /></td></tr>
+<tr class="separator:a774604de6da1e65e6366556538efeeb4 inherit pub_methods_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3b785e7eae9c2c56a801675b8e16b19 inherit pub_methods_classAbstractEA"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#ad3b785e7eae9c2c56a801675b8e16b19">getElapsedTime</a> () const</td></tr>
+<tr class="memdesc:ad3b785e7eae9c2c56a801675b8e16b19 inherit pub_methods_classAbstractEA"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the elapsed time of the evolutionary process.  <a href="classAbstractEA.html#ad3b785e7eae9c2c56a801675b8e16b19">More...</a><br /></td></tr>
+<tr class="separator:ad3b785e7eae9c2c56a801675b8e16b19 inherit pub_methods_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cd7c64dd6bfb8e82180a36598346dd1 inherit pub_methods_classAbstractEA"><td class="memItemLeft" align="right" valign="top">const vector&lt; IS &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#a1cd7c64dd6bfb8e82180a36598346dd1">getPopulation</a> () const</td></tr>
+<tr class="memdesc:a1cd7c64dd6bfb8e82180a36598346dd1 inherit pub_methods_classAbstractEA"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a reference of the population.  <a href="classAbstractEA.html#a1cd7c64dd6bfb8e82180a36598346dd1">More...</a><br /></td></tr>
+<tr class="separator:a1cd7c64dd6bfb8e82180a36598346dd1 inherit pub_methods_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad954dd12576776773406fc1c4ae3531c inherit pub_methods_classAbstractEA"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#ad954dd12576776773406fc1c4ae3531c">getMaxEvaluations</a> () const</td></tr>
+<tr class="memdesc:ad954dd12576776773406fc1c4ae3531c inherit pub_methods_classAbstractEA"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the maximum number of evaluations to perform.  <a href="classAbstractEA.html#ad954dd12576776773406fc1c4ae3531c">More...</a><br /></td></tr>
+<tr class="separator:ad954dd12576776773406fc1c4ae3531c inherit pub_methods_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a273d8171e5d887fff210f08e20a08048 inherit pub_methods_classAbstractEA"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#a273d8171e5d887fff210f08e20a08048">setMaxEvaluations</a> (int maxEval)</td></tr>
+<tr class="memdesc:a273d8171e5d887fff210f08e20a08048 inherit pub_methods_classAbstractEA"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a new maximum number of evaluations to perform.  <a href="classAbstractEA.html#a273d8171e5d887fff210f08e20a08048">More...</a><br /></td></tr>
+<tr class="separator:a273d8171e5d887fff210f08e20a08048 inherit pub_methods_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f8f258bbc05b1ed09a1a97fadeef530 inherit pub_methods_classAbstractEA"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classProblem.html">Problem</a>&lt; IS &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#a2f8f258bbc05b1ed09a1a97fadeef530">getProblem</a> () const</td></tr>
+<tr class="memdesc:a2f8f258bbc05b1ed09a1a97fadeef530 inherit pub_methods_classAbstractEA"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a pointer to the problem which is being solved.  <a href="classAbstractEA.html#a2f8f258bbc05b1ed09a1a97fadeef530">More...</a><br /></td></tr>
+<tr class="separator:a2f8f258bbc05b1ed09a1a97fadeef530 inherit pub_methods_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2d4c2ac5b3e2cc894498f7bfaf291c9 inherit pub_methods_classAbstractEA"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#aa2d4c2ac5b3e2cc894498f7bfaf291c9">setProblem</a> (shared_ptr&lt; <a class="el" href="classProblem.html">Problem</a>&lt; IS &gt;&gt; prob)</td></tr>
+<tr class="memdesc:aa2d4c2ac5b3e2cc894498f7bfaf291c9 inherit pub_methods_classAbstractEA"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the new problem to solve. Uses a shared_ptr pointer which updates the reference counter. Does no take the ownership.  <a href="classAbstractEA.html#aa2d4c2ac5b3e2cc894498f7bfaf291c9">More...</a><br /></td></tr>
+<tr class="separator:aa2d4c2ac5b3e2cc894498f7bfaf291c9 inherit pub_methods_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6c6cebde631ad33d38f0ee9155f191c inherit pub_methods_classAbstractEA"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#ac6c6cebde631ad33d38f0ee9155f191c">setProblem</a> (<a class="el" href="classProblem.html">Problem</a>&lt; IS &gt; *prob)</td></tr>
+<tr class="memdesc:ac6c6cebde631ad33d38f0ee9155f191c inherit pub_methods_classAbstractEA"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the new problem to solve. Uses a raw pointer and takes the ownership of the object.  <a href="classAbstractEA.html#ac6c6cebde631ad33d38f0ee9155f191c">More...</a><br /></td></tr>
+<tr class="separator:ac6c6cebde631ad33d38f0ee9155f191c inherit pub_methods_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44b86d22cd0ca44f33400c0d9171101e inherit pub_methods_classAbstractEA"><td class="memItemLeft" align="right" valign="top">PopulationEvaluator&lt; IS &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#a44b86d22cd0ca44f33400c0d9171101e">getEvaluator</a> () const</td></tr>
+<tr class="memdesc:a44b86d22cd0ca44f33400c0d9171101e inherit pub_methods_classAbstractEA"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a pointer to the population evaluator system.  <a href="classAbstractEA.html#a44b86d22cd0ca44f33400c0d9171101e">More...</a><br /></td></tr>
+<tr class="separator:a44b86d22cd0ca44f33400c0d9171101e inherit pub_methods_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6dd7d7b62ec2ccf01ac750a709d64dd inherit pub_methods_classAbstractEA"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#ad6dd7d7b62ec2ccf01ac750a709d64dd">setEvaluator</a> (unique_ptr&lt; PopulationEvaluator&lt; IS &gt;&gt; eval)</td></tr>
+<tr class="memdesc:ad6dd7d7b62ec2ccf01ac750a709d64dd inherit pub_methods_classAbstractEA"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the population evaluator system with the unique_ptr. The method takes the ownership of the object behind.  <a href="classAbstractEA.html#ad6dd7d7b62ec2ccf01ac750a709d64dd">More...</a><br /></td></tr>
+<tr class="separator:ad6dd7d7b62ec2ccf01ac750a709d64dd inherit pub_methods_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab784f853cb8283cf07dd9aa60708351 inherit pub_methods_classAbstractEA"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#aab784f853cb8283cf07dd9aa60708351">getPerformedEvaluations</a> () const</td></tr>
+<tr class="memdesc:aab784f853cb8283cf07dd9aa60708351 inherit pub_methods_classAbstractEA"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the performed evaluations.  <a href="classAbstractEA.html#aab784f853cb8283cf07dd9aa60708351">More...</a><br /></td></tr>
+<tr class="separator:aab784f853cb8283cf07dd9aa60708351 inherit pub_methods_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a410e0cb662fef1486e09ae3acaa54edc inherit pub_methods_classAbstractEA"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#a410e0cb662fef1486e09ae3acaa54edc">setPerformedEvaluations</a> (int pEvals)</td></tr>
+<tr class="memdesc:a410e0cb662fef1486e09ae3acaa54edc inherit pub_methods_classAbstractEA"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Performed Evaluations. Useful for the updateProgress method.  <a href="classAbstractEA.html#a410e0cb662fef1486e09ae3acaa54edc">More...</a><br /></td></tr>
+<tr class="separator:a410e0cb662fef1486e09ae3acaa54edc inherit pub_methods_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a15b52651cc503b12e258b86829eb01 inherit pub_methods_classAbstractEA"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#a1a15b52651cc503b12e258b86829eb01">setPopulation</a> (const vector&lt; IS &gt; &amp;pop)</td></tr>
+<tr class="memdesc:a1a15b52651cc503b12e258b86829eb01 inherit pub_methods_classAbstractEA"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Population.  <a href="classAbstractEA.html#a1a15b52651cc503b12e258b86829eb01">More...</a><br /></td></tr>
+<tr class="separator:a1a15b52651cc503b12e258b86829eb01 inherit pub_methods_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdc6df5b19e3d5980b8a4092afe77a1e inherit pub_methods_classAbstractEA"><td class="memItemLeft" align="right" valign="top">virtual Evolution&lt; IS &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#acdc6df5b19e3d5980b8a4092afe77a1e">getEvolution</a> () const</td></tr>
+<tr class="memdesc:acdc6df5b19e3d5980b8a4092afe77a1e inherit pub_methods_classAbstractEA"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Evolution data.  <a href="classAbstractEA.html#acdc6df5b19e3d5980b8a4092afe77a1e">More...</a><br /></td></tr>
+<tr class="separator:acdc6df5b19e3d5980b8a4092afe77a1e inherit pub_methods_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72f3f6ba6928a3b2c25808c2370de45f inherit pub_methods_classAbstractEA"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#a72f3f6ba6928a3b2c25808c2370de45f">getPrintingInterval</a> () const</td></tr>
+<tr class="memdesc:a72f3f6ba6928a3b2c25808c2370de45f inherit pub_methods_classAbstractEA"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the interval of checkpoints.  <a href="classAbstractEA.html#a72f3f6ba6928a3b2c25808c2370de45f">More...</a><br /></td></tr>
+<tr class="separator:a72f3f6ba6928a3b2c25808c2370de45f inherit pub_methods_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -299,29 +303,29 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a46f77049725e8e810a719cae8d4dfa08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a46f77049725e8e810a719cae8d4dfa08">evaluateIndividual</a> (IS &amp;individual)</td></tr>
 <tr class="memdesc:a46f77049725e8e810a719cae8d4dfa08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the given IS with all the algorithms in the porftolio.  <a href="classEIG.html#a46f77049725e8e810a719cae8d4dfa08">More...</a><br /></td></tr>
 <tr class="separator:a46f77049725e8e810a719cae8d4dfa08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65b96047aee8c3ce4a74c116723d94ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a65b96047aee8c3ce4a74c116723d94ac">evaluationPhase</a> (vector&lt; IS &gt; &amp;individuals)</td></tr>
+<tr class="memitem:a65b96047aee8c3ce4a74c116723d94ac"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a65b96047aee8c3ce4a74c116723d94ac">evaluationPhase</a> (vector&lt; IS &gt; &amp;individuals)</td></tr>
 <tr class="memdesc:a65b96047aee8c3ce4a74c116723d94ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluation phase of the <a class="el" href="classEIG.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (EIG). This algorithm uses a Weig...">EIG</a> All the stages necessary to evaluated the population of individuals are performed from this method.  <a href="classEIG.html#a65b96047aee8c3ce4a74c116723d94ac">More...</a><br /></td></tr>
 <tr class="separator:a65b96047aee8c3ce4a74c116723d94ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37b72c60e4f9097f545c8cad899727e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a37b72c60e4f9097f545c8cad899727e8">reproduction</a> (IS &amp;solution, IS &amp;solution2)</td></tr>
+<tr class="memitem:a37b72c60e4f9097f545c8cad899727e8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a37b72c60e4f9097f545c8cad899727e8">reproduction</a> (IS &amp;solution, IS &amp;solution2)</td></tr>
 <tr class="memdesc:a37b72c60e4f9097f545c8cad899727e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the genetic operator over two instances to generate new individuals.  <a href="classEIG.html#a37b72c60e4f9097f545c8cad899727e8">More...</a><br /></td></tr>
 <tr class="separator:a37b72c60e4f9097f545c8cad899727e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38f80ab3100c937fc1e0281da98cef6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a38f80ab3100c937fc1e0281da98cef6a">replacement</a> (vector&lt; IS &gt; &amp;individuals)</td></tr>
+<tr class="memitem:a38f80ab3100c937fc1e0281da98cef6a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a38f80ab3100c937fc1e0281da98cef6a">replacement</a> (vector&lt; IS &gt; &amp;individuals)</td></tr>
 <tr class="memdesc:a38f80ab3100c937fc1e0281da98cef6a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classReplacement.html" title="Replacement skeleton operator.">Replacement</a> method for the population. In this case, the replacement is a simple generational approach, which also includes the comparison of individuals with the archive and the feature set of the NS.  <a href="classEIG.html#a38f80ab3100c937fc1e0281da98cef6a">More...</a><br /></td></tr>
 <tr class="separator:a38f80ab3100c937fc1e0281da98cef6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31e4b39e417ed04ba262c8c153eab609"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a31e4b39e417ed04ba262c8c153eab609">updateEvolution</a> (vector&lt; IS &gt; &amp;solutions)</td></tr>
 <tr class="memdesc:a31e4b39e417ed04ba262c8c153eab609"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the evolution results of the algorithm for the given checkpoint.  <a href="classEIG.html#a31e4b39e417ed04ba262c8c153eab609">More...</a><br /></td></tr>
 <tr class="separator:a31e4b39e417ed04ba262c8c153eab609"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_methods_classAbstractSolver"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classAbstractSolver')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classAbstractSolver.html">AbstractSolver&lt; IS &gt;</a></td></tr>
-<tr class="memitem:af81c90e4105cfd14fc48254908983954 inherit pro_methods_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#af81c90e4105cfd14fc48254908983954">updateEvolution</a> (vector&lt; IS &gt; &amp;pop)</td></tr>
-<tr class="separator:af81c90e4105cfd14fc48254908983954 inherit pro_methods_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a0b55d20678398b44c7cc226d682e53 inherit pro_methods_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#a9a0b55d20678398b44c7cc226d682e53">updateEvolution</a> (const int &amp;checkpoint, vector&lt; IS &gt; &amp;)</td></tr>
-<tr class="separator:a9a0b55d20678398b44c7cc226d682e53 inherit pro_methods_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_classAbstractEA"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classAbstractEA')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classAbstractEA.html">AbstractEA&lt; IS &gt;</a></td></tr>
+<tr class="memitem:aec82760371600541b41d99c2a13db45f inherit pro_methods_classAbstractEA"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#aec82760371600541b41d99c2a13db45f">updateEvolution</a> (vector&lt; IS &gt; &amp;pop)</td></tr>
+<tr class="separator:aec82760371600541b41d99c2a13db45f inherit pro_methods_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41e1027afca4726c8026439e3112b003 inherit pro_methods_classAbstractEA"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#a41e1027afca4726c8026439e3112b003">updateEvolution</a> (const int &amp;checkpoint, vector&lt; IS &gt; &amp;)</td></tr>
+<tr class="separator:a41e1027afca4726c8026439e3112b003 inherit pro_methods_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a8b057fe65173f4c083a966c0ab840715"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; IP &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a8b057fe65173f4c083a966c0ab840715">instProb</a></td></tr>
 <tr class="separator:a8b057fe65173f4c083a966c0ab840715"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46e8844a817c02720eca28f4f1f18ddb"><td class="memItemLeft" align="right" valign="top">vector&lt; unique_ptr&lt; <a class="el" href="classEIG.html#a1fde186757afa55505c7c4fda0889010">Alg</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a46e8844a817c02720eca28f4f1f18ddb">algPortfolio</a></td></tr>
+<tr class="memitem:a46e8844a817c02720eca28f4f1f18ddb"><td class="memItemLeft" align="right" valign="top">vector&lt; unique_ptr&lt; <a class="el" href="classEIG.html#ac80470ce0d579a491a23b9aa90bcee9f">Alg</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a46e8844a817c02720eca28f4f1f18ddb">algPortfolio</a></td></tr>
 <tr class="separator:a46e8844a817c02720eca28f4f1f18ddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52d31d840e2b4fcffb76d74e9d0432b7"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="classMutation.html">Mutation</a>&lt; IS &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a52d31d840e2b4fcffb76d74e9d0432b7">mutation</a></td></tr>
 <tr class="separator:a52d31d840e2b4fcffb76d74e9d0432b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -329,14 +333,17 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a8e63728b64028dac5804d14ca0b8af58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff2f4cdc4e04f8085c79f79a89363a05"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="classSelection.html">Selection</a>&lt; IS &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#aff2f4cdc4e04f8085c79f79a89363a05">selection</a></td></tr>
 <tr class="separator:aff2f4cdc4e04f8085c79f79a89363a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a206df4e37db62262031e6e0d50b67e17"><td class="memItemLeft" align="right" valign="top"><a id="a206df4e37db62262031e6e0d50b67e17"></a>
+unique_ptr&lt; <a class="el" href="classReplacement.html">Replacement</a>&lt; IS &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>repOperator</b></td></tr>
+<tr class="separator:a206df4e37db62262031e6e0d50b67e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16c665968ee28a591c01fe2155e6e062"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a16c665968ee28a591c01fe2155e6e062">mutationRate</a></td></tr>
 <tr class="separator:a16c665968ee28a591c01fe2155e6e062"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42892f1fa4b88b9791b85878d4d509e6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a42892f1fa4b88b9791b85878d4d509e6">crossoverRate</a></td></tr>
 <tr class="separator:a42892f1fa4b88b9791b85878d4d509e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14c50ab67b0c70ef7542ca97ca2c1fae"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a14c50ab67b0c70ef7542ca97ca2c1fae">repetitions</a></td></tr>
 <tr class="separator:a14c50ab67b0c70ef7542ca97ca2c1fae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60fd072ff6b9c364a3a676a6a93aece1"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="classNoveltySearch.html">NoveltySearch</a>&lt; IS, float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a60fd072ff6b9c364a3a676a6a93aece1">noveltySearch</a></td></tr>
-<tr class="separator:a60fd072ff6b9c364a3a676a6a93aece1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59df60c9dee0931f4a8b4422c3292644"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="classNoveltySearch.html">NoveltySearch</a>&lt; IS &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a59df60c9dee0931f4a8b4422c3292644">noveltySearch</a></td></tr>
+<tr class="separator:a59df60c9dee0931f4a8b4422c3292644"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4539cd1cc3fb18d621be1400e84339a7"><td class="memItemLeft" align="right" valign="top"><a id="a4539cd1cc3fb18d621be1400e84339a7"></a>
 unique_ptr&lt; <a class="el" href="classInstanceFitness.html">InstanceFitness</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>instanceFitness</b></td></tr>
 <tr class="separator:a4539cd1cc3fb18d621be1400e84339a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -347,72 +354,72 @@ unique_ptr&lt; <a class="el" href="classWeighted.html">Weighted</a>&lt; IS &gt; 
 <tr class="separator:a26463b9aa3be55a415ab695f95e3043a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0512fc2d4a88640a2d0973eae5cadecf"><td class="memItemLeft" align="right" valign="top">BestFitness&lt; OS &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIG.html#a0512fc2d4a88640a2d0973eae5cadecf">bestFitness</a></td></tr>
 <tr class="separator:a0512fc2d4a88640a2d0973eae5cadecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_classAbstractSolver"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classAbstractSolver')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classAbstractSolver.html">AbstractSolver&lt; IS &gt;</a></td></tr>
-<tr class="memitem:ad823f4997ba6da5f95daaac569e9b435 inherit pro_attribs_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#ad823f4997ba6da5f95daaac569e9b435">maxEvaluations</a></td></tr>
-<tr class="separator:ad823f4997ba6da5f95daaac569e9b435 inherit pro_attribs_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5dde95d6751773bf3a60145549c8914 inherit pro_attribs_classAbstractSolver"><td class="memItemLeft" align="right" valign="top"><a id="ae5dde95d6751773bf3a60145549c8914"></a>
+<tr class="inherit_header pro_attribs_classAbstractEA"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classAbstractEA')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classAbstractEA.html">AbstractEA&lt; IS &gt;</a></td></tr>
+<tr class="memitem:a299d841f3f07c1edb90ccd001d47624b inherit pro_attribs_classAbstractEA"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#a299d841f3f07c1edb90ccd001d47624b">maxEvaluations</a></td></tr>
+<tr class="separator:a299d841f3f07c1edb90ccd001d47624b inherit pro_attribs_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa61e9964d14848929594e7c076aff7b5 inherit pro_attribs_classAbstractEA"><td class="memItemLeft" align="right" valign="top"><a id="aa61e9964d14848929594e7c076aff7b5"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>performedEvaluations</b></td></tr>
-<tr class="separator:ae5dde95d6751773bf3a60145549c8914 inherit pro_attribs_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acefe91d9fd372ca7cd2f214f5f73f227 inherit pro_attribs_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#acefe91d9fd372ca7cd2f214f5f73f227">populationSize</a></td></tr>
-<tr class="separator:acefe91d9fd372ca7cd2f214f5f73f227 inherit pro_attribs_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a667175d284f8814d1b34a4838b734263 inherit pro_attribs_classAbstractSolver"><td class="memItemLeft" align="right" valign="top"><a id="a667175d284f8814d1b34a4838b734263"></a>
+<tr class="separator:aa61e9964d14848929594e7c076aff7b5 inherit pro_attribs_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a800e196e6a9d92ef2e445ea13af96d8a inherit pro_attribs_classAbstractEA"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#a800e196e6a9d92ef2e445ea13af96d8a">populationSize</a></td></tr>
+<tr class="separator:a800e196e6a9d92ef2e445ea13af96d8a inherit pro_attribs_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bd16100dac1e325b8bd41a146f36f26 inherit pro_attribs_classAbstractEA"><td class="memItemLeft" align="right" valign="top"><a id="a2bd16100dac1e325b8bd41a146f36f26"></a>
 vector&lt; IS &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>population</b></td></tr>
-<tr class="separator:a667175d284f8814d1b34a4838b734263 inherit pro_attribs_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2135f990456b4efef1ccd4b413e4cffe inherit pro_attribs_classAbstractSolver"><td class="memItemLeft" align="right" valign="top"><a id="a2135f990456b4efef1ccd4b413e4cffe"></a>
+<tr class="separator:a2bd16100dac1e325b8bd41a146f36f26 inherit pro_attribs_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5ad865e021939b73641833fd743ed03 inherit pro_attribs_classAbstractEA"><td class="memItemLeft" align="right" valign="top"><a id="ac5ad865e021939b73641833fd743ed03"></a>
 shared_ptr&lt; <a class="el" href="classProblem.html">Problem</a>&lt; IS &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>problem</b></td></tr>
-<tr class="separator:a2135f990456b4efef1ccd4b413e4cffe inherit pro_attribs_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f75ed9eb19f1b7f8fc76cc341233feb inherit pro_attribs_classAbstractSolver"><td class="memItemLeft" align="right" valign="top"><a id="a5f75ed9eb19f1b7f8fc76cc341233feb"></a>
+<tr class="separator:ac5ad865e021939b73641833fd743ed03 inherit pro_attribs_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66997e93f6a2c93d9339f13f7c8a0b8d inherit pro_attribs_classAbstractEA"><td class="memItemLeft" align="right" valign="top"><a id="a66997e93f6a2c93d9339f13f7c8a0b8d"></a>
 unique_ptr&lt; PopulationEvaluator&lt; IS &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>evaluator</b></td></tr>
-<tr class="separator:a5f75ed9eb19f1b7f8fc76cc341233feb inherit pro_attribs_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33475ea8c07e3a7a492028141b73cb79 inherit pro_attribs_classAbstractSolver"><td class="memItemLeft" align="right" valign="top"><a id="a33475ea8c07e3a7a492028141b73cb79"></a>
+<tr class="separator:a66997e93f6a2c93d9339f13f7c8a0b8d inherit pro_attribs_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a849f078a657979fc77d8e986b0db2b inherit pro_attribs_classAbstractEA"><td class="memItemLeft" align="right" valign="top"><a id="a7a849f078a657979fc77d8e986b0db2b"></a>
 Evolution&lt; IS &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>evolution</b></td></tr>
-<tr class="separator:a33475ea8c07e3a7a492028141b73cb79 inherit pro_attribs_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a91c6a455c3d44b83c52a05b13f0c9d inherit pro_attribs_classAbstractSolver"><td class="memItemLeft" align="right" valign="top"><a id="a9a91c6a455c3d44b83c52a05b13f0c9d"></a>
+<tr class="separator:a7a849f078a657979fc77d8e986b0db2b inherit pro_attribs_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08f2ce7a5ad7e732d4647f37b9b63b54 inherit pro_attribs_classAbstractEA"><td class="memItemLeft" align="right" valign="top"><a id="a08f2ce7a5ad7e732d4647f37b9b63b54"></a>
 AvgEvolution&lt; IS &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>avgEvolution</b></td></tr>
-<tr class="separator:a9a91c6a455c3d44b83c52a05b13f0c9d inherit pro_attribs_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f4aee88239b0e2dd91337df4a679c37 inherit pro_attribs_classAbstractSolver"><td class="memItemLeft" align="right" valign="top"><a id="a2f4aee88239b0e2dd91337df4a679c37"></a>
+<tr class="separator:a08f2ce7a5ad7e732d4647f37b9b63b54 inherit pro_attribs_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cd9f26cc1d24eecec9491bcf0d3e080 inherit pro_attribs_classAbstractEA"><td class="memItemLeft" align="right" valign="top"><a id="a5cd9f26cc1d24eecec9491bcf0d3e080"></a>
 std::chrono::system_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><b>startTime</b></td></tr>
-<tr class="separator:a2f4aee88239b0e2dd91337df4a679c37 inherit pro_attribs_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a885682e9404b10c2a403824b625813d0 inherit pro_attribs_classAbstractSolver"><td class="memItemLeft" align="right" valign="top"><a id="a885682e9404b10c2a403824b625813d0"></a>
+<tr class="separator:a5cd9f26cc1d24eecec9491bcf0d3e080 inherit pro_attribs_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefb35d8ae950caae62ec75c6b1400de5 inherit pro_attribs_classAbstractEA"><td class="memItemLeft" align="right" valign="top"><a id="aefb35d8ae950caae62ec75c6b1400de5"></a>
 std::chrono::system_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><b>endTime</b></td></tr>
-<tr class="separator:a885682e9404b10c2a403824b625813d0 inherit pro_attribs_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8ac3f8106520d0b656fdfdc1ef9b7c9 inherit pro_attribs_classAbstractSolver"><td class="memItemLeft" align="right" valign="top"><a id="af8ac3f8106520d0b656fdfdc1ef9b7c9"></a>
+<tr class="separator:aefb35d8ae950caae62ec75c6b1400de5 inherit pro_attribs_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a5ba2ea88e2eb86acd11d3ce14f56c4 inherit pro_attribs_classAbstractEA"><td class="memItemLeft" align="right" valign="top"><a id="a1a5ba2ea88e2eb86acd11d3ce14f56c4"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>elapsedTime</b></td></tr>
-<tr class="separator:af8ac3f8106520d0b656fdfdc1ef9b7c9 inherit pro_attribs_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa64f5471d25593493abefe2484c0e2b5 inherit pro_attribs_classAbstractSolver"><td class="memItemLeft" align="right" valign="top"><a id="aa64f5471d25593493abefe2484c0e2b5"></a>
+<tr class="separator:a1a5ba2ea88e2eb86acd11d3ce14f56c4 inherit pro_attribs_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a356622589802af70a45d42fa731f80b4 inherit pro_attribs_classAbstractEA"><td class="memItemLeft" align="right" valign="top"><a id="a356622589802af70a45d42fa731f80b4"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>nextCheckpoint</b></td></tr>
-<tr class="separator:aa64f5471d25593493abefe2484c0e2b5 inherit pro_attribs_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c591a7a7d59a7d059a1a1d961381d62 inherit pro_attribs_classAbstractSolver"><td class="memItemLeft" align="right" valign="top"><a id="a9c591a7a7d59a7d059a1a1d961381d62"></a>
+<tr class="separator:a356622589802af70a45d42fa731f80b4 inherit pro_attribs_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33e8494debcdf554065720221dd26dba inherit pro_attribs_classAbstractEA"><td class="memItemLeft" align="right" valign="top"><a id="a33e8494debcdf554065720221dd26dba"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>evolutionInterval</b></td></tr>
-<tr class="separator:a9c591a7a7d59a7d059a1a1d961381d62 inherit pro_attribs_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a33e8494debcdf554065720221dd26dba inherit pro_attribs_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_static_attribs_classAbstractSolver"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classAbstractSolver')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classAbstractSolver.html">AbstractSolver&lt; IS &gt;</a></td></tr>
-<tr class="memitem:a474fa7363a8155d77d160ac498b93ef6 inherit pub_static_attribs_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#a474fa7363a8155d77d160ac498b93ef6">DEFAULT_POPULATION_SIZE</a></td></tr>
-<tr class="memdesc:a474fa7363a8155d77d160ac498b93ef6 inherit pub_static_attribs_classAbstractSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classDefault.html" title="Default Heuristic for the Knapsack Problem. Tries to insert each item in the knapsack while there is ...">Default</a> population size equal to 100 individuals.  <a href="classAbstractSolver.html#a474fa7363a8155d77d160ac498b93ef6">More...</a><br /></td></tr>
-<tr class="separator:a474fa7363a8155d77d160ac498b93ef6 inherit pub_static_attribs_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade94c7704ad2a0e3e7234ecbca71b299 inherit pub_static_attribs_classAbstractSolver"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSolver.html#ade94c7704ad2a0e3e7234ecbca71b299">DEFAULT_EVALUATIONS_LIMIT</a></td></tr>
-<tr class="memdesc:ade94c7704ad2a0e3e7234ecbca71b299 inherit pub_static_attribs_classAbstractSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classDefault.html" title="Default Heuristic for the Knapsack Problem. Tries to insert each item in the knapsack while there is ...">Default</a> evaluation limit equal to 100000 evaluations.  <a href="classAbstractSolver.html#ade94c7704ad2a0e3e7234ecbca71b299">More...</a><br /></td></tr>
-<tr class="separator:ade94c7704ad2a0e3e7234ecbca71b299 inherit pub_static_attribs_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2d5f93191a0a0ba3fd468b499b7860a inherit pub_static_attribs_classAbstractSolver"><td class="memItemLeft" align="right" valign="top"><a id="ae2d5f93191a0a0ba3fd468b499b7860a"></a>
+<tr class="inherit_header pub_static_attribs_classAbstractEA"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classAbstractEA')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classAbstractEA.html">AbstractEA&lt; IS &gt;</a></td></tr>
+<tr class="memitem:a4b1ff73dce49d9c7bc773d0180a61ef2 inherit pub_static_attribs_classAbstractEA"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#a4b1ff73dce49d9c7bc773d0180a61ef2">DEFAULT_POPULATION_SIZE</a></td></tr>
+<tr class="memdesc:a4b1ff73dce49d9c7bc773d0180a61ef2 inherit pub_static_attribs_classAbstractEA"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classDefault.html" title="Default Heuristic for the Knapsack Problem. Tries to insert each item in the knapsack while there is ...">Default</a> population size equal to 100 individuals.  <a href="classAbstractEA.html#a4b1ff73dce49d9c7bc773d0180a61ef2">More...</a><br /></td></tr>
+<tr class="separator:a4b1ff73dce49d9c7bc773d0180a61ef2 inherit pub_static_attribs_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b5695c6827498716fcf0344a482f765 inherit pub_static_attribs_classAbstractEA"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractEA.html#a8b5695c6827498716fcf0344a482f765">DEFAULT_EVALUATIONS_LIMIT</a></td></tr>
+<tr class="memdesc:a8b5695c6827498716fcf0344a482f765 inherit pub_static_attribs_classAbstractEA"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classDefault.html" title="Default Heuristic for the Knapsack Problem. Tries to insert each item in the knapsack while there is ...">Default</a> evaluation limit equal to 100000 evaluations.  <a href="classAbstractEA.html#a8b5695c6827498716fcf0344a482f765">More...</a><br /></td></tr>
+<tr class="separator:a8b5695c6827498716fcf0344a482f765 inherit pub_static_attribs_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d57213f688c5352737e78d986a7d597 inherit pub_static_attribs_classAbstractEA"><td class="memItemLeft" align="right" valign="top"><a id="a4d57213f688c5352737e78d986a7d597"></a>
 static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>NAME</b></td></tr>
-<tr class="separator:ae2d5f93191a0a0ba3fd468b499b7860a inherit pub_static_attribs_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a445f6da47799ec4b8653863b16fb6310 inherit pub_static_attribs_classAbstractSolver"><td class="memItemLeft" align="right" valign="top"><a id="a445f6da47799ec4b8653863b16fb6310"></a>
+<tr class="separator:a4d57213f688c5352737e78d986a7d597 inherit pub_static_attribs_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a344b2d037b59c369a713845acb9faf12 inherit pub_static_attribs_classAbstractEA"><td class="memItemLeft" align="right" valign="top"><a id="a344b2d037b59c369a713845acb9faf12"></a>
 static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_EVALUATIONS</b></td></tr>
-<tr class="separator:a445f6da47799ec4b8653863b16fb6310 inherit pub_static_attribs_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cf024672322fb2f9e21c237a9c9c97e inherit pub_static_attribs_classAbstractSolver"><td class="memItemLeft" align="right" valign="top"><a id="a8cf024672322fb2f9e21c237a9c9c97e"></a>
+<tr class="separator:a344b2d037b59c369a713845acb9faf12 inherit pub_static_attribs_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5730d056f2b23b4acd5af73806101f15 inherit pub_static_attribs_classAbstractEA"><td class="memItemLeft" align="right" valign="top"><a id="a5730d056f2b23b4acd5af73806101f15"></a>
 static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>POP_SIZE</b></td></tr>
-<tr class="separator:a8cf024672322fb2f9e21c237a9c9c97e inherit pub_static_attribs_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef31860ed5f0fbcc226854c30cf27505 inherit pub_static_attribs_classAbstractSolver"><td class="memItemLeft" align="right" valign="top"><a id="aef31860ed5f0fbcc226854c30cf27505"></a>
+<tr class="separator:a5730d056f2b23b4acd5af73806101f15 inherit pub_static_attribs_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c9fe043b1a6ac59baae82490a92f59b inherit pub_static_attribs_classAbstractEA"><td class="memItemLeft" align="right" valign="top"><a id="a7c9fe043b1a6ac59baae82490a92f59b"></a>
 static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ELAPSED_TIME</b></td></tr>
-<tr class="separator:aef31860ed5f0fbcc226854c30cf27505 inherit pub_static_attribs_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c82c2a850619052450a99756230c09e inherit pub_static_attribs_classAbstractSolver"><td class="memItemLeft" align="right" valign="top"><a id="a4c82c2a850619052450a99756230c09e"></a>
+<tr class="separator:a7c9fe043b1a6ac59baae82490a92f59b inherit pub_static_attribs_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a481119b1fd77fc33e860d806d4705944 inherit pub_static_attribs_classAbstractEA"><td class="memItemLeft" align="right" valign="top"><a id="a481119b1fd77fc33e860d806d4705944"></a>
 static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>EVALUATOR</b></td></tr>
-<tr class="separator:a4c82c2a850619052450a99756230c09e inherit pub_static_attribs_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c21b28aa7b12c63e5f3757045c72a32 inherit pub_static_attribs_classAbstractSolver"><td class="memItemLeft" align="right" valign="top"><a id="a6c21b28aa7b12c63e5f3757045c72a32"></a>
+<tr class="separator:a481119b1fd77fc33e860d806d4705944 inherit pub_static_attribs_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ca5938a4460e7bd165fe989da850b4f inherit pub_static_attribs_classAbstractEA"><td class="memItemLeft" align="right" valign="top"><a id="a4ca5938a4460e7bd165fe989da850b4f"></a>
 static const int&#160;</td><td class="memItemRight" valign="bottom"><b>EVOLUTION_SIZE</b></td></tr>
-<tr class="separator:a6c21b28aa7b12c63e5f3757045c72a32 inherit pub_static_attribs_classAbstractSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a4ca5938a4460e7bd165fe989da850b4f inherit pub_static_attribs_classAbstractEA"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename IP, typename IS, typename OP, typename OS&gt;<br />
@@ -429,8 +436,8 @@ class EIG&lt; IP, IS, OP, OS &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a1fde186757afa55505c7c4fda0889010"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fde186757afa55505c7c4fda0889010">&#9670;&nbsp;</a></span>Alg</h2>
+<a id="ac80470ce0d579a491a23b9aa90bcee9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac80470ce0d579a491a23b9aa90bcee9f">&#9670;&nbsp;</a></span>Alg</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -438,11 +445,11 @@ class EIG&lt; IP, IS, OP, OS &gt;</h3>
 template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classEIG.html">EIG</a>&lt; IP, IS, OP, OS &gt;::<a class="el" href="classEIG.html#a1fde186757afa55505c7c4fda0889010">Alg</a> =  <a class="el" href="classAbstractSolver.html">AbstractSolver</a>&lt;OS&gt;</td>
+          <td class="memname">using <a class="el" href="classEIG.html">EIG</a>&lt; IP, IS, OP, OS &gt;::<a class="el" href="classEIG.html#ac80470ce0d579a491a23b9aa90bcee9f">Alg</a> =  <a class="el" href="classAbstractEA.html">AbstractEA</a>&lt;OS&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Acronym for an AbstractSolver&lt;OS&gt; </p>
+<p>Acronym for an AbstractEA&lt;OS&gt; </p>
 
 </div>
 </div>
@@ -530,7 +537,9 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="classAbstractSolver.html#a01d58023e973298a68d78e1c54009489">AbstractSolver&lt; IS &gt;</a>.</p>
+<p>Implements <a class="el" href="classAbstractEA.html#a5daa12a4be027a973c1745b369e80a43">AbstractEA&lt; IS &gt;</a>.</p>
+
+<p>Reimplemented in <a class="el" href="classMapElites.html#a2bcc0628ae0292c1df814076c7cb9336">MapElites&lt; IP, IS, OP, OS &gt;</a>.</p>
 
 </div>
 </div>
@@ -622,7 +631,9 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="classAbstractSolver.html#a773230120a2b76810e8fd405e8e6ee8e">AbstractSolver&lt; IS &gt;</a>.</p>
+<p>Implements <a class="el" href="classAbstractEA.html#a3d81c53f0106f2a2b2e8aa8c379a0818">AbstractEA&lt; IS &gt;</a>.</p>
+
+<p>Reimplemented in <a class="el" href="classMapElites.html#a0e55e1084a8dfa0092c5c109f3892b31">MapElites&lt; IP, IS, OP, OS &gt;</a>.</p>
 
 </div>
 </div>
@@ -647,7 +658,7 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -709,7 +720,7 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="classAbstractSolver.html#a2209b0f9a916c59827dac02b57d559fc">AbstractSolver&lt; IS &gt;</a>.</p>
+<p>Implements <a class="el" href="classAbstractEA.html#aeb6b55a4aa703bd9ff010402c09a41a6">AbstractEA&lt; IS &gt;</a>.</p>
 
 </div>
 </div>
@@ -951,12 +962,14 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
 <p>Get the name of the algorithm. </p>
 <dl class="section return"><dt>Returns</dt><dd>a string with the content <a class="el" href="classEIG.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (EIG). This algorithm uses a Weig...">EIG</a> </dd></dl>
 
-<p>Implements <a class="el" href="classAbstractSolver.html#a7399f85c9f0f59dce96bd9a8765ed13c">AbstractSolver&lt; IS &gt;</a>.</p>
+<p>Implements <a class="el" href="classAbstractEA.html#a67d06f805640f1e6c0a5ad971a2d8837">AbstractEA&lt; IS &gt;</a>.</p>
+
+<p>Reimplemented in <a class="el" href="classMapElites.html#abb2144dd6049846c78a644b5282e66ca">MapElites&lt; IP, IS, OP, OS &gt;</a>.</p>
 
 </div>
 </div>
-<a id="a07eeb8ff6c33fd25237a3431d4f7232d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07eeb8ff6c33fd25237a3431d4f7232d">&#9670;&nbsp;</a></span>getNoveltySearch()</h2>
+<a id="ad82c6919d14bb6deb90238d8fe4e1747"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad82c6919d14bb6deb90238d8fe4e1747">&#9670;&nbsp;</a></span>getNoveltySearch()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -967,7 +980,7 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classNoveltySearch.html">NoveltySearch</a>&lt;IS, float&gt;* <a class="el" href="classEIG.html">EIG</a>&lt; IP, IS, OP, OS &gt;::getNoveltySearch </td>
+          <td class="memname">const <a class="el" href="classNoveltySearch.html">NoveltySearch</a>&lt;IS&gt;* <a class="el" href="classEIG.html">EIG</a>&lt; IP, IS, OP, OS &gt;::getNoveltySearch </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -985,8 +998,8 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
 
 </div>
 </div>
-<a id="a01cc73ca56dacb6da354d347e3d4305f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01cc73ca56dacb6da354d347e3d4305f">&#9670;&nbsp;</a></span>getPortfolio()</h2>
+<a id="ae16ac1d11bc2c66ff1549b166f131c90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae16ac1d11bc2c66ff1549b166f131c90">&#9670;&nbsp;</a></span>getPortfolio()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -994,7 +1007,7 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
 template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt; <a class="el" href="classAbstractSolver.html">AbstractSolver</a>&lt; OS &gt; * &gt; <a class="el" href="classEIG.html">EIG</a>&lt; IP, IS, OP, OS &gt;::getPortfolio</td>
+          <td class="memname">vector&lt; <a class="el" href="classAbstractEA.html">AbstractEA</a>&lt; OS &gt; * &gt; <a class="el" href="classEIG.html">EIG</a>&lt; IP, IS, OP, OS &gt;::getPortfolio</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1079,7 +1092,9 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classFront.html" title="Front class which stores the final results of an EA execution.">Front</a> of IS solutions </dd></dl>
 
-<p>Implements <a class="el" href="classAbstractSolver.html#a5261ec08e99ba9833389e396c21db719">AbstractSolver&lt; IS &gt;</a>.</p>
+<p>Implements <a class="el" href="classAbstractEA.html#a2406e6d77d2389db55d2b3ece4faccee">AbstractEA&lt; IS &gt;</a>.</p>
+
+<p>Reimplemented in <a class="el" href="classMapElites.html#aabbba762c780418f7a56ab85500d78cf">MapElites&lt; IP, IS, OP, OS &gt;</a>.</p>
 
 </div>
 </div>
@@ -1146,7 +1161,7 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="classAbstractSolver.html#a0f2f1018c24ac47066c6177c3cfbda85">AbstractSolver&lt; IS &gt;</a>.</p>
+<p>Implements <a class="el" href="classAbstractEA.html#a051acd6a12e33ab192f392539f6c7d75">AbstractEA&lt; IS &gt;</a>.</p>
 
 </div>
 </div>
@@ -1184,7 +1199,7 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the performedGenerations == maxGenerations, False otherwise </dd></dl>
 
-<p>Implements <a class="el" href="classAbstractSolver.html#a13e2fde2e2cdb315c6ac98c13fcfa7e4">AbstractSolver&lt; IS &gt;</a>.</p>
+<p>Implements <a class="el" href="classAbstractEA.html#a6924856c944d3263ee356b7a86067925">AbstractEA&lt; IS &gt;</a>.</p>
 
 </div>
 </div>
@@ -1209,7 +1224,7 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1264,7 +1279,7 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1322,7 +1337,9 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="classAbstractSolver.html#ac2adbb1ad17dd25e4ecb8b890a56e1ea">AbstractSolver&lt; IS &gt;</a>.</p>
+<p>Implements <a class="el" href="classAbstractEA.html#a0f400810ecaa0b7654e8f3f7f24903f9">AbstractEA&lt; IS &gt;</a>.</p>
+
+<p>Reimplemented in <a class="el" href="classMapElites.html#a9d1a6ad37effafebe44a59c3fe1fc6f2">MapElites&lt; IP, IS, OP, OS &gt;</a>.</p>
 
 </div>
 </div>
@@ -1550,8 +1567,8 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
 
 </div>
 </div>
-<a id="aa2b0ff65b9807391965721e4112893cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2b0ff65b9807391965721e4112893cc">&#9670;&nbsp;</a></span>setNoveltySearch()</h2>
+<a id="a8927d86dcd790b56eb9b6ee2e466e9f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8927d86dcd790b56eb9b6ee2e466e9f2">&#9670;&nbsp;</a></span>setNoveltySearch()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1564,7 +1581,7 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classEIG.html">EIG</a>&lt; IP, IS, OP, OS &gt;::setNoveltySearch </td>
           <td>(</td>
-          <td class="paramtype">unique_ptr&lt; <a class="el" href="classNoveltySearch.html">NoveltySearch</a>&lt; IS, float &gt;&gt;&#160;</td>
+          <td class="paramtype">unique_ptr&lt; <a class="el" href="classNoveltySearch.html">NoveltySearch</a>&lt; IS &gt;&gt;&#160;</td>
           <td class="paramname"><em>noveltySearch</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1597,7 +1614,7 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classEIG.html">EIG</a>&lt; IP, IS, OP, OS &gt;::setPortfolio </td>
           <td>(</td>
-          <td class="paramtype">vector&lt; unique_ptr&lt; <a class="el" href="classEIG.html#a1fde186757afa55505c7c4fda0889010">Alg</a> &gt;&gt; &amp;&#160;</td>
+          <td class="paramtype">vector&lt; unique_ptr&lt; <a class="el" href="classEIG.html#ac80470ce0d579a491a23b9aa90bcee9f">Alg</a> &gt;&gt; &amp;&#160;</td>
           <td class="paramname"><em>configs</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1660,6 +1677,42 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">reps</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a030e8a7cd3712a56a62a730f15d781ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a030e8a7cd3712a56a62a730f15d781ef">&#9670;&nbsp;</a></span>setReplacement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classEIG.html">EIG</a>&lt; IP, IS, OP, OS &gt;::setReplacement </td>
+          <td>(</td>
+          <td class="paramtype">unique_ptr&lt; <a class="el" href="classReplacement.html">Replacement</a>&lt; IS &gt;&gt;&#160;</td>
+          <td class="paramname"><em>rep</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the selection operator. Takes ownership of the pointer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sel</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1761,7 +1814,7 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">json <a class="el" href="classEIG.html">EIG</a>&lt; IP, IS, OP, OS &gt;::to_json</td>
+          <td class="memname"><a class="el" href="MinKnap_8h.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> <a class="el" href="classEIG.html">EIG</a>&lt; IP, IS, OP, OS &gt;::to_json</td>
         </tr>
       </table>
   </td>
@@ -1783,7 +1836,9 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p>Reimplemented from <a class="el" href="classAbstractSolver.html#a4215f9a20bffb84416afe6e678bf59ce">AbstractSolver&lt; IS &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classAbstractEA.html#a229d172642cf1f3e0a951546ef8d3af9">AbstractEA&lt; IS &gt;</a>.</p>
+
+<p>Reimplemented in <a class="el" href="classMapElites.html#abd0ab4ae39bd81d112e8c0a8f4d3f7da">MapElites&lt; IP, IS, OP, OS &gt;</a>.</p>
 
 </div>
 </div>
@@ -1865,7 +1920,7 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="classAbstractSolver.html#a7ceae55eb4dc560426aeebad2a681bba">AbstractSolver&lt; IS &gt;</a>.</p>
+<p>Implements <a class="el" href="classAbstractEA.html#a2ce2ce046fa77283903873e4e3ec505e">AbstractEA&lt; IS &gt;</a>.</p>
 
 </div>
 </div>
@@ -1882,7 +1937,7 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt;unique_ptr&lt;<a class="el" href="classEIG.html#a1fde186757afa55505c7c4fda0889010">Alg</a>&gt; &gt; <a class="el" href="classEIG.html">EIG</a>&lt; IP, IS, OP, OS &gt;::algPortfolio</td>
+          <td class="memname">vector&lt;unique_ptr&lt;<a class="el" href="classEIG.html#ac80470ce0d579a491a23b9aa90bcee9f">Alg</a>&gt; &gt; <a class="el" href="classEIG.html">EIG</a>&lt; IP, IS, OP, OS &gt;::algPortfolio</td>
         </tr>
       </table>
   </td>
@@ -2070,8 +2125,8 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
 
 </div>
 </div>
-<a id="a60fd072ff6b9c364a3a676a6a93aece1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60fd072ff6b9c364a3a676a6a93aece1">&#9670;&nbsp;</a></span>noveltySearch</h2>
+<a id="a59df60c9dee0931f4a8b4422c3292644"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59df60c9dee0931f4a8b4422c3292644">&#9670;&nbsp;</a></span>noveltySearch</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2082,7 +2137,7 @@ template&lt;typename IP , typename IS , typename OP , typename OS &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unique_ptr&lt;<a class="el" href="classNoveltySearch.html">NoveltySearch</a>&lt;IS, float&gt; &gt; <a class="el" href="classEIG.html">EIG</a>&lt; IP, IS, OP, OS &gt;::noveltySearch</td>
+          <td class="memname">unique_ptr&lt;<a class="el" href="classNoveltySearch.html">NoveltySearch</a>&lt;IS&gt; &gt; <a class="el" href="classEIG.html">EIG</a>&lt; IP, IS, OP, OS &gt;::noveltySearch</td>
         </tr>
       </table>
   </td>

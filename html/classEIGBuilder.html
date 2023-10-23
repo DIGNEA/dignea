@@ -131,9 +131,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adb2c67316f30a71851d393ca43bd3851"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEIGBuilder.html">EIGBuilder</a>&lt; IP, IS, OP, S &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIGBuilder.html#adb2c67316f30a71851d393ca43bd3851">portfolio</a> (vector&lt; EA &gt; &amp;configs)</td></tr>
 <tr class="memdesc:adb2c67316f30a71851d393ca43bd3851"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the portfolio of solvers to evaluate the instances during the evolutionary process. The first algorithm in the vector will be considered as the target for the instances.  <a href="classEIGBuilder.html#adb2c67316f30a71851d393ca43bd3851">More...</a><br /></td></tr>
 <tr class="separator:adb2c67316f30a71851d393ca43bd3851"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ac27b45639f357bc70a3c5865ffa131"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEIGBuilder.html">EIGBuilder</a>&lt; IP, IS, OP, S &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIGBuilder.html#a9ac27b45639f357bc70a3c5865ffa131">withSearch</a> (<a class="el" href="NSTypes_8h.html#a06e42347c7a2b24804491331ec2029ae">NSType</a> nsType, unique_ptr&lt; <a class="el" href="classDistance.html">Distance</a>&lt; float &gt;&gt; dist, const float &amp;thres, const int k)</td></tr>
-<tr class="memdesc:a9ac27b45639f357bc70a3c5865ffa131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Novelty search configuration for the <a class="el" href="classEIG.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (EIG). This algorithm uses a Weig...">EIG</a>. Here we define the Novelty Approach (Features, Performance), the distance Metric, the threshold to include a solution in the NS archive and the 'k' value to use in the <a class="el" href="classKNN.html" title="K-Nearest Neighbours Algorithm.">KNN</a> method during the NS execution.  <a href="classEIGBuilder.html#a9ac27b45639f357bc70a3c5865ffa131">More...</a><br /></td></tr>
-<tr class="separator:a9ac27b45639f357bc70a3c5865ffa131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a456d9a02ab271519f4ea9038de11102b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEIGBuilder.html">EIGBuilder</a>&lt; IP, IS, OP, S &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIGBuilder.html#a456d9a02ab271519f4ea9038de11102b">withSearch</a> (<a class="el" href="NSTypes_8h.html#a06e42347c7a2b24804491331ec2029ae">NSType</a> nsType, unique_ptr&lt; <a class="el" href="classDistance.html">Distance</a>&lt; float &gt;&gt; dist, const float &amp;thres, const float &amp;finalThresh, const int k, bool warmUp=false)</td></tr>
+<tr class="memdesc:a456d9a02ab271519f4ea9038de11102b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Novelty search configuration for the <a class="el" href="classEIG.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (EIG). This algorithm uses a Weig...">EIG</a>. Here we define the Novelty Approach (Features, Performance), the distance Metric, the threshold to include a solution in the NS archive and the 'k' value to use in the <a class="el" href="classKNN.html" title="K-Nearest Neighbours Algorithm.">KNN</a> method during the NS execution.  <a href="classEIGBuilder.html#a456d9a02ab271519f4ea9038de11102b">More...</a><br /></td></tr>
+<tr class="separator:a456d9a02ab271519f4ea9038de11102b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad15a92e69f7ed96a924b70f1c74e20a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEIGBuilder.html">EIGBuilder</a>&lt; IP, IS, OP, S &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIGBuilder.html#aad15a92e69f7ed96a924b70f1c74e20a">evalWith</a> (unique_ptr&lt; <a class="el" href="classInstanceFitness.html">InstanceFitness</a> &gt; evalMethod)</td></tr>
 <tr class="memdesc:aad15a92e69f7ed96a924b70f1c74e20a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluation approach for generating instances. The instances must be considered easy to solve for the target or hard.  <a href="classEIGBuilder.html#aad15a92e69f7ed96a924b70f1c74e20a">More...</a><br /></td></tr>
 <tr class="separator:aad15a92e69f7ed96a924b70f1c74e20a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,18 +155,24 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3b2aace98ab7f4064e1467e650df13e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEIGBuilder.html">EIGBuilder</a>&lt; IP, IS, OP, S &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIGBuilder.html#a3b2aace98ab7f4064e1467e650df13e4">selection</a> (<a class="el" href="SelectionTypes_8h.html#ad34e539e4fc278f08c0d719f638362ed">SelType</a> selType)</td></tr>
 <tr class="memdesc:a3b2aace98ab7f4064e1467e650df13e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the selection operator to use. Variants are available at SelType.  <a href="classEIGBuilder.html#a3b2aace98ab7f4064e1467e650df13e4">More...</a><br /></td></tr>
 <tr class="separator:a3b2aace98ab7f4064e1467e650df13e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae81f273700baa873ca9ef4212b351e70"><td class="memItemLeft" align="right" valign="top"><a id="ae81f273700baa873ca9ef4212b351e70"></a>
+<a class="el" href="classEIGBuilder.html">EIGBuilder</a>&lt; IP, IS, OP, S &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>replacement</b> (ReplacementTypes reType)</td></tr>
+<tr class="separator:ae81f273700baa873ca9ef4212b351e70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add7c295f055e92e5702eb01d90713849"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEIGBuilder.html">EIGBuilder</a>&lt; IP, IS, OP, S &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIGBuilder.html#add7c295f055e92e5702eb01d90713849">populationOf</a> (const int &amp;popsize)</td></tr>
 <tr class="memdesc:add7c295f055e92e5702eb01d90713849"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the population of instances to use. This is the number of instances that the <a class="el" href="classEIG.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (EIG). This algorithm uses a Weig...">EIG</a> will be evolving at each generation.  <a href="classEIGBuilder.html#add7c295f055e92e5702eb01d90713849">More...</a><br /></td></tr>
 <tr class="separator:add7c295f055e92e5702eb01d90713849"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab45b014616ca2e6071ecc2d6c12b9c80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEIGBuilder.html">EIGBuilder</a>&lt; IP, IS, OP, S &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIGBuilder.html#ab45b014616ca2e6071ecc2d6c12b9c80">runDuring</a> (const int &amp;generations)</td></tr>
 <tr class="memdesc:ab45b014616ca2e6071ecc2d6c12b9c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the number of generations to perform by <a class="el" href="classEIG.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (EIG). This algorithm uses a Weig...">EIG</a>. Notice that the <a class="el" href="classEIG.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (EIG). This algorithm uses a Weig...">EIG</a> works by generations instead of evaluations as others algorithms in dignea do.  <a href="classEIGBuilder.html#ab45b014616ca2e6071ecc2d6c12b9c80">More...</a><br /></td></tr>
 <tr class="separator:ab45b014616ca2e6071ecc2d6c12b9c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae71a9b61d7a92bddfd4a4e39be3d8069"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEIGBuilder.html">EIGBuilder</a>&lt; IP, IS, OP, S &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIGBuilder.html#ae71a9b61d7a92bddfd4a4e39be3d8069">setFeatures</a> (const <a class="el" href="MapElites_8h.html#af8aac1ab2f0a6afd4cdf4605b75f729a">Features</a> &amp;f)</td></tr>
+<tr class="memdesc:ae71a9b61d7a92bddfd4a4e39be3d8069"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the Feature information for <a class="el" href="classMapElites.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (MapElites). This algorithm uses ...">MapElites</a>.  <a href="classEIGBuilder.html#ae71a9b61d7a92bddfd4a4e39be3d8069">More...</a><br /></td></tr>
+<tr class="separator:ae71a9b61d7a92bddfd4a4e39be3d8069"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a185e540cd3aeb0ac298c031c53fa4f3f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classEIGBuilder.html">EIGBuilder</a>&lt; IP, IS, OP, S &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIGBuilder.html#a185e540cd3aeb0ac298c031c53fa4f3f">create</a> ()</td></tr>
-<tr class="memdesc:a185e540cd3aeb0ac298c031c53fa4f3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classEIGBuilder.html" title="Class which represents a Builder for the EIG. Creates a EIG step by step from all the different compo...">EIGBuilder</a> object.  <a href="classEIGBuilder.html#a185e540cd3aeb0ac298c031c53fa4f3f">More...</a><br /></td></tr>
-<tr class="separator:a185e540cd3aeb0ac298c031c53fa4f3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaa799d9c5ab740fb0a11fc81d87a4b6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classEIGBuilder.html">EIGBuilder</a>&lt; IP, IS, OP, S &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEIGBuilder.html#aaaa799d9c5ab740fb0a11fc81d87a4b6">create</a> (GeneratorType type)</td></tr>
+<tr class="memdesc:aaaa799d9c5ab740fb0a11fc81d87a4b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classEIGBuilder.html" title="Class which represents a Builder for the EIG. Creates a EIG step by step from all the different compo...">EIGBuilder</a> object.  <a href="classEIGBuilder.html#aaaa799d9c5ab740fb0a11fc81d87a4b6">More...</a><br /></td></tr>
+<tr class="separator:aaaa799d9c5ab740fb0a11fc81d87a4b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename IP, typename IS, typename OP, typename S&gt;<br />
@@ -183,8 +189,8 @@ class EIGBuilder&lt; IP, IS, OP, S &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a185e540cd3aeb0ac298c031c53fa4f3f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a185e540cd3aeb0ac298c031c53fa4f3f">&#9670;&nbsp;</a></span>create()</h2>
+<a id="aaaa799d9c5ab740fb0a11fc81d87a4b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaa799d9c5ab740fb0a11fc81d87a4b6">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -195,7 +201,11 @@ template&lt;typename IP , typename IS , typename OP , typename S &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classEIGBuilder.html">EIGBuilder</a>&lt; IP, IS, OP, S &gt; <a class="el" href="classEIGBuilder.html">EIGBuilder</a>&lt; IP, IS, OP, S &gt;::create</td>
+          <td class="memname"><a class="el" href="classEIGBuilder.html">EIGBuilder</a>&lt; IP, IS, OP, S &gt; <a class="el" href="classEIGBuilder.html">EIGBuilder</a>&lt; IP, IS, OP, S &gt;::create </td>
+          <td>(</td>
+          <td class="paramtype">GeneratorType&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -551,6 +561,44 @@ template&lt;typename IP , typename IS , typename OP , typename S &gt; </div>
 
 </div>
 </div>
+<a id="ae71a9b61d7a92bddfd4a4e39be3d8069"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae71a9b61d7a92bddfd4a4e39be3d8069">&#9670;&nbsp;</a></span>setFeatures()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename IP , typename IS , typename OP , typename S &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEIGBuilder.html">EIGBuilder</a>&lt; IP, IS, OP, S &gt; &amp; <a class="el" href="classEIGBuilder.html">EIGBuilder</a>&lt; IP, IS, OP, S &gt;::setFeatures </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="MapElites_8h.html#af8aac1ab2f0a6afd4cdf4605b75f729a">Features</a> &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Defines the Feature information for <a class="el" href="classMapElites.html" title="Instance Generation Algorithm. Known as Meta-Evolutionary Algorithm (MapElites). This algorithm uses ...">MapElites</a>. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">IP</td><td></td></tr>
+    <tr><td class="paramname">IS</td><td></td></tr>
+    <tr><td class="paramname">OP</td><td></td></tr>
+    <tr><td class="paramname">S</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">generations</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>EIGBuilder&lt;IP, IS, OP, S&gt;&amp; </dd></dl>
+
+</div>
+</div>
 <a id="ad35b290baa66e551f3c177593ab5ad7d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad35b290baa66e551f3c177593ab5ad7d">&#9670;&nbsp;</a></span>toSolve()</h2>
 
@@ -744,8 +792,8 @@ template&lt;typename IP , typename IS , typename OP , typename S &gt; </div>
 
 </div>
 </div>
-<a id="a9ac27b45639f357bc70a3c5865ffa131"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ac27b45639f357bc70a3c5865ffa131">&#9670;&nbsp;</a></span>withSearch()</h2>
+<a id="a456d9a02ab271519f4ea9038de11102b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a456d9a02ab271519f4ea9038de11102b">&#9670;&nbsp;</a></span>withSearch()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -773,8 +821,20 @@ template&lt;typename IP , typename IS , typename OP , typename S &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>finalThresh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>k</em>&#160;</td>
+          <td class="paramname"><em>k</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>warmUp</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>

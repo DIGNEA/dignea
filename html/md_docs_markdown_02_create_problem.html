@@ -105,13 +105,13 @@ $(document).ready(function(){initNavTree('md_docs_markdown_02_create_problem.htm
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md29">Creating the Travelling Salesman Problem (TSP)</a><ul><li class="level2"><a href="#autotoc_md30">Defining the methods and attributes for TSP</a></li>
-<li class="level2"><a href="#autotoc_md31">TSP implementation in TSP.cpp</a><ul><li class="level3"><a href="#autotoc_md32">Constructors</a></li>
-<li class="level3"><a href="#autotoc_md33">Auxiliary building methods</a></li>
-<li class="level3"><a href="#autotoc_md34">Create new random solutions</a></li>
-<li class="level3"><a href="#autotoc_md35">Evaluation</a></li>
-<li class="level3"><a href="#autotoc_md36">Getters</a></li>
-<li class="level3"><a href="#autotoc_md37">JSON</a></li>
+<ul><li class="level1"><a href="#autotoc_md35">Creating the Travelling Salesman Problem (TSP)</a><ul><li class="level2"><a href="#autotoc_md36">Defining the methods and attributes for TSP</a></li>
+<li class="level2"><a href="#autotoc_md37">TSP implementation in TSP.cpp</a><ul><li class="level3"><a href="#autotoc_md38">Constructors</a></li>
+<li class="level3"><a href="#autotoc_md39">Auxiliary building methods</a></li>
+<li class="level3"><a href="#autotoc_md40">Create new random solutions</a></li>
+<li class="level3"><a href="#autotoc_md41">Evaluation</a></li>
+<li class="level3"><a href="#autotoc_md42">Getters</a></li>
+<li class="level3"><a href="#autotoc_md43">JSON</a></li>
 </ul>
 </li>
 </ul>
@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('md_docs_markdown_02_create_problem.htm
 </ul>
 </div>
 <div class="textblock"><p>This tutorial will show how to include a new optimization problem in DIGNEA. For this purpose, we will create a <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem">Travelling Salesman Problem</a> class. The header and source files of this example are available at DIGNEA in <a class="el" href="TSP_8h.html">TSP.h</a> and <a class="el" href="TSP_8cpp.html" title="TSP class implementation file.">TSP.cpp</a>.</p>
-<h1><a class="anchor" id="autotoc_md29"></a>
+<h1><a class="anchor" id="autotoc_md35"></a>
 Creating the Travelling Salesman Problem (TSP)</h1>
 <p>Let's start by creating a Travelling Salesman <a class="el" href="classProblem.html" title="Class to represent a Problem in the tool. It includes the basic information for a problem a few metho...">Problem</a> class which will allow us to solve <a class="el" href="classTSP.html" title="Traveling Salesman Problem implemented in dignea. Uses a IntFloat representation where the solutions ...">TSP</a> instances.</p>
 <p>First, create a new file called <b><a class="el" href="TSP_8h.html">TSP.h</a></b> in your source directory. Then, you should include the necessary headers to extend from the <a class="el" href="classProblem.html" title="Class to represent a Problem in the tool. It includes the basic information for a problem a few metho...">Problem</a> class. We will need the <a class="el" href="Problem_8h_source.html">Problem.h</a>, <a class="el" href="SolutionTypes_8h_source.html">SolutionTypes.h</a> files.</p>
@@ -137,7 +137,7 @@ Creating the Travelling Salesman Problem (TSP)</h1>
 <div class="line">};</div>
 <div class="ttc" id="aclassProblem_html"><div class="ttname"><a href="classProblem.html">Problem</a></div><div class="ttdoc">Class to represent a Problem in the tool. It includes the basic information for a problem a few metho...</div><div class="ttdef"><b>Definition:</b> Problem.h:29</div></div>
 <div class="ttc" id="aclassTSP_html"><div class="ttname"><a href="classTSP.html">TSP</a></div><div class="ttdoc">Traveling Salesman Problem implemented in dignea. Uses a IntFloat representation where the solutions ...</div><div class="ttdef"><b>Definition:</b> TSP.h:35</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md30"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md36"></a>
 Defining the methods and attributes for TSP</h2>
 <p>This new <a class="el" href="classTSP.html" title="Traveling Salesman Problem implemented in dignea. Uses a IntFloat representation where the solutions ...">TSP</a> class must include at least the following methods inherited from <a class="el" href="classProblem.html" title="Class to represent a Problem in the tool. It includes the basic information for a problem a few metho...">Problem</a>:</p>
 <ol type="1">
@@ -209,12 +209,12 @@ Defining the methods and attributes for TSP</h2>
 <div class="ttc" id="aclassTSP_html_a911d3df84e24fc4e8d59c39ee710aac4"><div class="ttname"><a href="classTSP.html#a911d3df84e24fc4e8d59c39ee710aac4">TSP::evaluate</a></div><div class="ttdeci">void evaluate(IntFloatSolution &amp;solution) const override</div><div class="ttdoc">Evaluates a solution to the TSP.</div><div class="ttdef"><b>Definition:</b> TSP.cpp:192</div></div>
 <div class="ttc" id="aclassTSP_html_ad4fd792a467210cb4dfc6fa7ef737b75"><div class="ttname"><a href="classTSP.html#ad4fd792a467210cb4dfc6fa7ef737b75">TSP::readData</a></div><div class="ttdeci">void readData(const string &amp;path) override</div><div class="ttdoc">Reads the instance information from the filesystem.</div><div class="ttdef"><b>Definition:</b> TSP.cpp:108</div></div>
 <div class="ttc" id="aclassTSP_html_ad7a387d4c598c212918a49e92db4979f"><div class="ttname"><a href="classTSP.html#ad7a387d4c598c212918a49e92db4979f">TSP::getLowerLimit</a></div><div class="ttdeci">float getLowerLimit(int i) const override</div><div class="ttdoc">Get the lower bound of the search space (1).</div><div class="ttdef"><b>Definition:</b> TSP.cpp:153</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md31"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md37"></a>
 TSP implementation in TSP.cpp</h2>
 <p>Now, create a <a class="el" href="TSP_8cpp.html" title="TSP class implementation file.">TSP.cpp</a> file to implement all the methods defined in the previous section. First, make sure to include the header file (<a class="el" href="TSP_8h.html">TSP.h</a>) in the new <a class="el" href="TSP_8cpp.html" title="TSP class implementation file.">TSP.cpp</a> as:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;relative_path_to_file/TSP.h&quot;</span></div>
 </div><!-- fragment --><p>Then we continue our implementation.</p>
-<h3><a class="anchor" id="autotoc_md32"></a>
+<h3><a class="anchor" id="autotoc_md38"></a>
 Constructors</h3>
 <p>The constructors for the <a class="el" href="classTSP.html" title="Traveling Salesman Problem implemented in dignea. Uses a IntFloat representation where the solutions ...">TSP</a> class are considerably simple. First, the default constructor will create an optimization problem with dimension zero, one objective and one constraint.</p>
 <div class="fragment"><div class="line"><a class="code" href="classTSP.html#a707519a097c28e52aebedc6132650e79">TSP::TSP</a>()</div>
@@ -270,7 +270,7 @@ Constructors</h3>
 <div class="ttc" id="aclassProblem_html_a88b1ab3a9148707f97d4e46f562c6a35"><div class="ttname"><a href="classProblem.html#a88b1ab3a9148707f97d4e46f562c6a35">Problem::numberOfObjs</a></div><div class="ttdeci">int numberOfObjs</div><div class="ttdef"><b>Definition:</b> Problem.h:159</div></div>
 <div class="ttc" id="aclassProblem_html_ace516bb5ea572854e2521eaea3f55def"><div class="ttname"><a href="classProblem.html#ace516bb5ea572854e2521eaea3f55def">Problem::numberOfCons</a></div><div class="ttdeci">int numberOfCons</div><div class="ttdef"><b>Definition:</b> Problem.h:160</div></div>
 <div class="ttc" id="aclassTSP_html_a7a6ba83970a17ce74f735d3ecf5ba6cf"><div class="ttname"><a href="classTSP.html#a7a6ba83970a17ce74f735d3ecf5ba6cf">TSP::pathToInstance</a></div><div class="ttdeci">std::string pathToInstance</div><div class="ttdef"><b>Definition:</b> TSP.h:124</div></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md33"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md39"></a>
 Auxiliary building methods</h3>
 <p>To properly build a <a class="el" href="classTSP.html" title="Traveling Salesman Problem implemented in dignea. Uses a IntFloat representation where the solutions ...">TSP</a> object, we could also need other methods such as readData or computeDistances. The first, works as the <a class="el" href="classTSP.html" title="Traveling Salesman Problem implemented in dignea. Uses a IntFloat representation where the solutions ...">TSP(string)</a> constructor by reading the information from a file and setting all the variables accordingly. This method is useful when we use the default constructors.</p>
 <p>On the other hand, the computeDistance methods is in charge of computing the <b>D</b> matrix with all the distances between each pair of cities in the instance. Notice that we consider the instance to be symmetric (Dij = Dji).</p>
@@ -311,7 +311,7 @@ Auxiliary building methods</h3>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md34"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md40"></a>
 Create new random solutions</h3>
 <p>To create new solution for the <a class="el" href="classTSP.html" title="Traveling Salesman Problem implemented in dignea. Uses a IntFloat representation where the solutions ...">TSP</a> instance, we must define the createSolution method. This method must randomly generate a valid <a class="el" href="classTSP.html" title="Traveling Salesman Problem implemented in dignea. Uses a IntFloat representation where the solutions ...">TSP</a> solution and return it. It is really important to note that the <b>dimension of the IntFloatSolution returned is equal to the problem dimension plus one</b>. Since the <a class="el" href="classTSP.html" title="Traveling Salesman Problem implemented in dignea. Uses a IntFloat representation where the solutions ...">TSP</a> version that we are considering here must start from city 0 and return to it at the end, the solution must have an extra variable at the end equal to zero. Moreover, a solution it is only considered to be feasible if it fulfils this contraint.</p>
 <div class="fragment"><div class="line"><a class="code" href="classSolution.html">IntFloatSolution</a> <a class="code" href="classTSP.html#a842b7033d8ac2203a119813fbd15729a">TSP::createSolution</a>()<span class="keyword"> const </span>{</div>
@@ -325,7 +325,7 @@ Create new random solutions</h3>
 <div class="line">    solution.setVariables(vars);</div>
 <div class="line">    <span class="keywordflow">return</span> solution;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md35"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md41"></a>
 Evaluation</h3>
 <p>The evaluation of a <a class="el" href="classTSP.html" title="Traveling Salesman Problem implemented in dignea. Uses a IntFloat representation where the solutions ...">TSP</a> solution is done in two steps. First, we evaluate the feasibility of the solution by checking that each city only appears one in the solutions and that the travel starts and ends in the city number zero. This is evaluate in the evaluateConstraints method.</p>
 <div class="fragment"><div class="line"><span class="keywordtype">bool</span> <a class="code" href="classTSP.html#a1252310852da3ee366ebd3bc8b7eb890">TSP::evaluateConstraints</a>(<a class="code" href="classSolution.html">IntFloatSolution</a> &amp;solution)<span class="keyword"> const </span>{</div>
@@ -346,7 +346,7 @@ Evaluation</h3>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
-<div class="ttc" id="aclassSolution_html_a17ee3004b6360e1e0d6c0fb97a2f19a1"><div class="ttname"><a href="classSolution.html#a17ee3004b6360e1e0d6c0fb97a2f19a1">Solution::getVariables</a></div><div class="ttdeci">virtual const vector&lt; V &gt; &amp; getVariables() const</div><div class="ttdoc">Get the variables of the solution.</div><div class="ttdef"><b>Definition:</b> Solution.h:59</div></div>
+<div class="ttc" id="aclassSolution_html_a17ee3004b6360e1e0d6c0fb97a2f19a1"><div class="ttname"><a href="classSolution.html#a17ee3004b6360e1e0d6c0fb97a2f19a1">Solution::getVariables</a></div><div class="ttdeci">virtual const vector&lt; V &gt; &amp; getVariables() const</div><div class="ttdoc">Get the variables of the solution.</div><div class="ttdef"><b>Definition:</b> Solution.h:57</div></div>
 </div><!-- fragment --><p>If the solution is feasible, we then compute the sum of the distance of this travel using the distance matrix <b>D</b>. Otherwise, we set a penalty and distance values equal to the maximum float allowed.</p>
 <p>Finally, the fitness of the solution is set as $f = 1.0 / distance$. Therefore, the shorter the path, the higher the fitness of a solution. It is important to set the value of the objectives and constraints in case our algorithm needs this information as well. The objective value is set to the distance of the travel and the constraintCoeff and the contraint value is the penalty value.</p>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="classTSP.html#a911d3df84e24fc4e8d59c39ee710aac4">TSP::evaluate</a>(<a class="code" href="classSolution.html">IntFloatSolution</a> &amp;solution)<span class="keyword"> const </span>{</div>
@@ -383,12 +383,12 @@ Evaluation</h3>
 <div class="line">    solution.<a class="code" href="classSolution.html#ab31de679d6d8995b25c6082e809ce75b">setConstraints</a>({penalty});</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassProblem_html_a1339b7fdf16d7d1e4bce2abe1d18bf72"><div class="ttname"><a href="classProblem.html#a1339b7fdf16d7d1e4bce2abe1d18bf72">Problem&lt; IntFloatSolution &gt;::getNumberOfVars</a></div><div class="ttdeci">int getNumberOfVars() const</div><div class="ttdoc">Get the number of variables (dimension) of the problem.</div><div class="ttdef"><b>Definition:</b> Problem.h:122</div></div>
-<div class="ttc" id="aclassSolution_html_a24257788e9c102153fe72d0fb8cf5f67"><div class="ttname"><a href="classSolution.html#a24257788e9c102153fe72d0fb8cf5f67">Solution::setConstraintCoeff</a></div><div class="ttdeci">void setConstraintCoeff(float constraintCoeff)</div><div class="ttdoc">Set the constraint coefficient value.</div><div class="ttdef"><b>Definition:</b> Solution.h:159</div></div>
-<div class="ttc" id="aclassSolution_html_a363c0b771429ebcf8063fd3edfd5130a"><div class="ttname"><a href="classSolution.html#a363c0b771429ebcf8063fd3edfd5130a">Solution::setFitness</a></div><div class="ttdeci">virtual void setFitness(const float &amp;f)</div><div class="ttdoc">Set the fitness of the solution.</div><div class="ttdef"><b>Definition:</b> Solution.h:143</div></div>
-<div class="ttc" id="aclassSolution_html_a65550d3de0463ffe502d0eb6bc3864c5"><div class="ttname"><a href="classSolution.html#a65550d3de0463ffe502d0eb6bc3864c5">Solution::setObjAt</a></div><div class="ttdeci">virtual void setObjAt(const int &amp;, const O &amp;obj)</div><div class="ttdoc">Updates the ith objective with the value obj.</div><div class="ttdef"><b>Definition:</b> Solution.h:359</div></div>
-<div class="ttc" id="aclassSolution_html_ab31de679d6d8995b25c6082e809ce75b"><div class="ttname"><a href="classSolution.html#ab31de679d6d8995b25c6082e809ce75b">Solution::setConstraints</a></div><div class="ttdeci">virtual void setConstraints(const vector&lt; O &gt; &amp;constr)</div><div class="ttdoc">Updates the constraints of the solution.</div><div class="ttdef"><b>Definition:</b> Solution.h:478</div></div>
-<div class="ttc" id="aclassSolution_html_af6144aee1035edc273f8dcfed6df78c7"><div class="ttname"><a href="classSolution.html#af6144aee1035edc273f8dcfed6df78c7">Solution::getNumberOfVars</a></div><div class="ttdeci">virtual int getNumberOfVars() const</div><div class="ttdoc">Get the number of variables (dimension) of the solution.</div><div class="ttdef"><b>Definition:</b> Solution.h:76</div></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md36"></a>
+<div class="ttc" id="aclassSolution_html_a24257788e9c102153fe72d0fb8cf5f67"><div class="ttname"><a href="classSolution.html#a24257788e9c102153fe72d0fb8cf5f67">Solution::setConstraintCoeff</a></div><div class="ttdeci">void setConstraintCoeff(float constraintCoeff)</div><div class="ttdoc">Set the constraint coefficient value.</div><div class="ttdef"><b>Definition:</b> Solution.h:187</div></div>
+<div class="ttc" id="aclassSolution_html_a363c0b771429ebcf8063fd3edfd5130a"><div class="ttname"><a href="classSolution.html#a363c0b771429ebcf8063fd3edfd5130a">Solution::setFitness</a></div><div class="ttdeci">virtual void setFitness(const float &amp;f)</div><div class="ttdoc">Set the fitness of the solution.</div><div class="ttdef"><b>Definition:</b> Solution.h:171</div></div>
+<div class="ttc" id="aclassSolution_html_a65550d3de0463ffe502d0eb6bc3864c5"><div class="ttname"><a href="classSolution.html#a65550d3de0463ffe502d0eb6bc3864c5">Solution::setObjAt</a></div><div class="ttdeci">virtual void setObjAt(const int &amp;, const O &amp;obj)</div><div class="ttdoc">Updates the ith objective with the value obj.</div><div class="ttdef"><b>Definition:</b> Solution.h:385</div></div>
+<div class="ttc" id="aclassSolution_html_ab31de679d6d8995b25c6082e809ce75b"><div class="ttname"><a href="classSolution.html#ab31de679d6d8995b25c6082e809ce75b">Solution::setConstraints</a></div><div class="ttdeci">virtual void setConstraints(const vector&lt; O &gt; &amp;constr)</div><div class="ttdoc">Updates the constraints of the solution.</div><div class="ttdef"><b>Definition:</b> Solution.h:504</div></div>
+<div class="ttc" id="aclassSolution_html_af6144aee1035edc273f8dcfed6df78c7"><div class="ttname"><a href="classSolution.html#af6144aee1035edc273f8dcfed6df78c7">Solution::getNumberOfVars</a></div><div class="ttdeci">virtual int getNumberOfVars() const</div><div class="ttdoc">Get the number of variables (dimension) of the solution.</div><div class="ttdef"><b>Definition:</b> Solution.h:74</div></div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md42"></a>
 Getters</h3>
 <p>The bounds and optimization direction for <a class="el" href="classTSP.html" title="Traveling Salesman Problem implemented in dignea. Uses a IntFloat representation where the solutions ...">TSP</a> are straightforward. The upper limit of the problem is consider to be the number of cities minus one and the lower limit is one since the zero is only for starting and finishing the travel. Moreover, <a class="el" href="classTSP.html" title="Traveling Salesman Problem implemented in dignea. Uses a IntFloat representation where the solutions ...">TSP</a> is a minimization problem and therefore the getOptimizationDirection method always returns Minimize.</p>
 <div class="fragment"><div class="line"><span class="keywordtype">float</span> <a class="code" href="classTSP.html#a5378c054286252dd47634679cec55373">TSP::getUpperLimit</a>(<span class="keywordtype">int</span> i)<span class="keyword"> const </span>{</div>
@@ -416,7 +416,7 @@ Getters</h3>
 <div class="line">    <span class="keywordflow">return</span> Minimize;</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassProblem_html_a679e9f627591d774c3bde6c63f9be7b6"><div class="ttname"><a href="classProblem.html#a679e9f627591d774c3bde6c63f9be7b6">Problem&lt; IntFloatSolution &gt;::getNumberOfObjs</a></div><div class="ttdeci">int getNumberOfObjs() const</div><div class="ttdoc">Get the number of objectives of the problem.</div><div class="ttdef"><b>Definition:</b> Problem.h:135</div></div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md37"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md43"></a>
 JSON</h3>
 <p>Finally, the to_json() method returns a json representation of the <a class="el" href="classTSP.html" title="Traveling Salesman Problem implemented in dignea. Uses a IntFloat representation where the solutions ...">TSP</a> instance. Notice that we call super the <a class="el" href="classProblem.html#a6fbb9e5e920217e88d61d2f2ff0cc528" title="Creates a JSON object with the information of the Problem.">Problem::to_json()</a> method for retreiving the mother class information as well.</p>
 <div class="fragment"><div class="line">json <a class="code" href="classTSP.html#a735a545d9f60641617647a5a15cbee53">TSP::to_json</a>()<span class="keyword"> const </span>{</div>
@@ -425,7 +425,7 @@ JSON</h3>
 <div class="line">    data[<span class="stringliteral">&quot;distances&quot;</span>] = this-&gt;<a class="code" href="classTSP.html#a76c782171206d4576e1a72b0996c4827">distances</a>;</div>
 <div class="line">    <span class="keywordflow">return</span> data;</div>
 <div class="line">}</div>
-<div class="ttc" id="aclassProblem_html_a6fbb9e5e920217e88d61d2f2ff0cc528"><div class="ttname"><a href="classProblem.html#a6fbb9e5e920217e88d61d2f2ff0cc528">Problem::to_json</a></div><div class="ttdeci">virtual json to_json() const</div><div class="ttdoc">Creates a JSON object with the information of the Problem.</div><div class="ttdef"><b>Definition:</b> Problem.h:204</div></div>
+<div class="ttc" id="aclassProblem_html_a6fbb9e5e920217e88d61d2f2ff0cc528"><div class="ttname"><a href="classProblem.html#a6fbb9e5e920217e88d61d2f2ff0cc528">Problem::to_json</a></div><div class="ttdeci">virtual json to_json() const</div><div class="ttdoc">Creates a JSON object with the information of the Problem.</div><div class="ttdef"><b>Definition:</b> Problem.h:201</div></div>
 </div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

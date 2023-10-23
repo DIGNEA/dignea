@@ -113,14 +113,11 @@ $(document).ready(function(){initNavTree('ReplacementTypes_8h_source.html',''); 
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>ReplacementTypes {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">using</span> ReplacementT = int;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">const</span> ReplacementT GENERATIONAL = 0;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">const</span> ReplacementT REP_WORST = 1;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">const</span> ReplacementT FIRST_IMPRO = 2;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}  <span class="comment">// namespace ReplacementTypes</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">enum class</span> ReplacementTypes { Generational, <a class="code" href="classFirstImprove.html">FirstImprove</a>, <a class="code" href="classReplaceWorst.html">ReplaceWorst</a> };</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassFirstImprove_html"><div class="ttname"><a href="classFirstImprove.html">FirstImprove</a></div><div class="ttdoc">Replacement procedure which compares the individuals of the current population with the offspring ind...</div><div class="ttdef"><b>Definition:</b> FirstImprove.h:31</div></div>
+<div class="ttc" id="aclassReplaceWorst_html"><div class="ttname"><a href="classReplaceWorst.html">ReplaceWorst</a></div><div class="ttdoc">Replacement procedure which replaces the worst individual in the population with the new offspring.</div><div class="ttdef"><b>Definition:</b> ReplaceWorst.h:30</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
