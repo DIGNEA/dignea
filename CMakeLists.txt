@@ -44,7 +44,7 @@ FetchContent_MakeAvailable(Catch2)
 
 FetchContent_Declare(NumCpp
         GIT_REPOSITORY https://github.com/dpilger26/NumCpp
-        GIT_TAG Version_2.10.1)
+        GIT_TAG Version_2.12.1)
 FetchContent_MakeAvailable(NumCpp)
 
 add_subdirectory(lib/fmt)
