@@ -44,7 +44,7 @@ FetchContent_MakeAvailable(Catch2)
 
 FetchContent_Declare(NumCpp
         GIT_REPOSITORY https://github.com/dpilger26/NumCpp
-        GIT_TAG Version_2.10.1)
+        GIT_TAG Version_2.12.1)
 FetchContent_MakeAvailable(NumCpp)
 
 add_subdirectory(lib/fmt)
@@ -317,6 +317,8 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR INCLUDE_TESTS)
                 test/experiment/ExperimentTest.cpp
                 test/generator/evaluations/EasyInstancesTest.cpp
                 test/generator/evaluations/WeightedTest.cpp
+                test/generator/evaluations/PisPerformanceTest.cpp
+
                 test/generator/EIGTest.cpp
 
                 # test/generator/MOEIGTest.cpp
@@ -376,6 +378,8 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR INCLUDE_TESTS)
                 test/distances/ManhattanTest.cpp
                 test/distances/HammingTest.cpp
                 test/searches/NSFeaturesTest.cpp
+                test/searches/NSPerformanceTest.cpp
+
                 src/dignea/problems/TSP.cpp
                 test/problems/TSPTest.cpp
                 test/mutations/SwapMutationTest.cpp

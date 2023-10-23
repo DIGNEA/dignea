@@ -4,9 +4,8 @@
 
 #include <dignea/generator/evaluations/EasyInstances.h>
 
-#include <vector>
-
 #include <catch2/catch_all.hpp>
+#include <vector>
 
 using namespace std;
 

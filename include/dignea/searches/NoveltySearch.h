@@ -75,7 +75,7 @@ class NoveltySearch : public Search<S> {
 
     float getK() const { return this->k; }
 
-    float getFinalThresh() const { return this->finalThresh; }
+    float getFinalThresh() const { return this->finalSThreshold; }
 
    protected:
     virtual vector<Descriptor> beforeRun(const vector<S> &population);

@@ -26,8 +26,7 @@
 #include <vector>
 
 #include "NumCpp.hpp"
-#include "NumCpp/Functions/unique.hpp"
-#include "NumCpp/NdArray.hpp"
+
 using namespace std;
 /**
  * @brief FeatureInfo defines the information for a specific feature.
@@ -227,7 +226,7 @@ void MapElites<IP, IS, OP, OS>::setFeaturesInfo(const Features &f) {
     // Calculate the bins
     for (int i = 0; i < 8; i++) {
         auto [start, stop, num] = this->features[i];
-        bins[i] = nc::linspace(start, stop, num, true);
+        bins[i] = nc::linspace(start, stop, num);
     }
 }
 

@@ -13,10 +13,10 @@
 #include <dignea/experiment/AnalysisData.h>
 #include <dignea/utilities/printer/JSONPrinter.h>
 
+#include <catch2/catch_all.hpp>
 #include <filesystem>
 #include <string>
 
-#include <catch2/catch_all.hpp>
 #include "nlohmann/json.hpp"
 
 using json = nlohmann::json;

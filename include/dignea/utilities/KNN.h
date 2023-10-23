@@ -80,9 +80,6 @@ class KNN {
 
     neighMatrix run(const vector<Descriptor> &population,
                     Distance<float> *metric, const int &k = 3);
-
-    neighMatrix inverse(const vector<Descriptor> &population,
-                        Distance<float> *metric, const int &k = 3);
 };
 
 /**

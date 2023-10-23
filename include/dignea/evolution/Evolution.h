@@ -29,6 +29,8 @@ class Evolution {
 
     virtual map<int, float> results();
 
+    virtual inline bool empty() { return solutions.empty(); }
+
    protected:
     vector<float> solutions;
     vector<int> checkpoints;

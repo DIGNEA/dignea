@@ -9,10 +9,9 @@
 #include <dignea/problems/Sphere.h>
 #include <dignea/selections/BinaryTournamentSelection.h>
 
+#include <catch2/catch_all.hpp>
 #include <memory>
 #include <vector>
-
-#include <catch2/catch_all.hpp>
 
 using namespace std;
 
@@ -114,5 +113,23 @@ TEST_CASE("Steady Genetic Algorithm Tests", "[SteadyGA]") {
         REQUIRE_FALSE(ga->getElapsedTime() == 0.0);
         Front<FloatSolution> solutions = ga->getResults();
         REQUIRE_FALSE(solutions.getNumOfSolutions() == 0);
+    }
+
+    SECTION("SteadyGA checks evolution") {
+        unique_ptr<AbstractGA<FloatSolution>> ga =
+            GABuilder<FloatSolution>::create(GAType::Steady)
+                .toSolve(make_unique<Sphere>(dimension))
+                .with()
+                .populationOf(populationSize)
+                .with()
+                .mutation(MutType::UniformAll)
+                .crossover(CXType::Uniform)
+                .selection(SelType::Binary)
+                .withMutRate(mutationRate)
+                .withCrossRate(crossoverRate)
+                .runDuring(evals);
+        ga->run();
+        auto evolution = ga->getEvolution();
+        REQUIRE_FALSE(evolution.empty());
     }
 }
